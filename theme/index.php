@@ -3,7 +3,7 @@
     <section class="hero">
         <img class="bgHero" src="<?php bloginfo('template_url') ?>/assets/images/hero.png" alt="" />
         <div class="wrapper">
-            <h1>Ceci est l'index</h1>
+            <h1><?php the_title(); ?> dans l'index</h1>
         </div>
     </section>
 
