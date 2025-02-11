@@ -1,0 +1,76 @@
+/* ==========================================================================
+   scrolly / component
+   ========================================================================== */
+.has-js {
+    [data-scrolly='fromBottom'] {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: all 0.4s $ease-in-out-cubic;
+
+        &.is-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    [data-scrolly='fromLeft'] {
+        opacity: 0;
+        transform: translateX(-60px);
+        transition: all 0.4s $ease-in-out-cubic;
+
+        &.is-active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    [data-scrolly='fromTop'] {
+        opacity: 0;
+        transform: translateY(-60px);
+        transition: all 0.4s $ease-in-out-cubic;
+
+        &.is-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    [data-scrolly='fromRight'] {
+        opacity: 0;
+        transform: translateX(60px);
+        transition: all 0.4s $ease-in-out-cubic;
+
+        &.is-active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    [data-scrolly='spinFromLeft'] {
+        opacity: 0;
+        transform: scale(0) rotateZ(90deg);
+        transition: all 0.4s $ease-in-out-cubic;
+
+        &.is-active {
+            opacity: 1;
+            transform: scale(1) rotateZ(0);
+        }
+    }
+
+    [data-scrolly='flipFromBottom'] {
+        opacity: 0;
+        transform: rotateX(75deg) rotateZ(-15deg) rotateY(5deg);
+        transition: all 0.7s $ease-in-out-cubic;
+        &.section__title {
+            perspective: 0px;
+            &.is-active {
+                perspective: 100000px;
+            }
+        }
+
+        &.is-active {
+            opacity: 1;
+            transform: rotateX(0) rotateZ(0) rotateY(0);
+        }
+    }
+}

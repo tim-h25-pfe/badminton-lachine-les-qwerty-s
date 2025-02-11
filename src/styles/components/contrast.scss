@@ -1,0 +1,15 @@
+.contrast-dark {
+    color: var(--color-white);
+}
+
+.contrast-light {
+    color: var(--color-black);
+}
+
+section {
+    transition: all 0.3s ease-out;
+}
+
+[data-contrast] {
+    transition: all 0.3s ease-out;
+}

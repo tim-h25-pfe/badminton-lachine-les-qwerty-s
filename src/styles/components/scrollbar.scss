@@ -1,0 +1,22 @@
+/* width */
+::-webkit-scrollbar {
+    width: 13px;
+    @media screen and (max-width: 1000px) {
+        display: none;
+    }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--color-black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #69a0ca;
+}
