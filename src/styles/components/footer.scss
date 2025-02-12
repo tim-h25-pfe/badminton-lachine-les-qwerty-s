@@ -1,18 +1,34 @@
 .footer {
     background-color: var(--color-black);
     color: var(--color-white);
+    overflow: hidden;
+    border-radius: 50px 50px 0 0;
     .wrapper {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         gap: 100px;
-        padding: 95px 0;
+        padding-top: 95px;
+        padding-bottom: 95px;
+        @media screen and (max-width: 1750px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        @media screen and (max-width: 830px) {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
     }
     li {
         list-style: none;
     }
     a {
         transition: all 0.3s ease-out;
+        &:hover {
+            color: var(--color-white);
+            opacity: 50%;
+        }
     }
 
     .principal {
@@ -23,6 +39,9 @@
             gap: 20px;
             padding: 0;
             margin: 0;
+            @media screen and (max-width: 830px) {
+                gap: 40px;
+            }
             li {
                 margin: -20px 0;
                 a {
@@ -39,11 +58,10 @@
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            gap: 20px;
+            gap: 0;
             padding: 0;
             margin: 0;
             li {
-                margin: -20px 0;
                 a {
                     font-size: var(--font-size-h6);
                     text-transform: uppercase;
@@ -53,7 +71,118 @@
         }
     }
 
+    .sociaux {
+        height: fit-content;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 40px;
+        .inscription {
+            display: flex;
+            flex-direction: column;
+            a.subscribe {
+                font-weight: 400;
+                text-transform: none;
+                text-decoration: underline;
+                margin-top: 20px;
+            }
+        }
+
+        .social {
+            display: flex;
+            align-items: flex-start;
+
+            flex-direction: column;
+            a {
+                font-weight: 600;
+                text-transform: none;
+                //font-size: 25px;
+                text-decoration: underline;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
     .copyright {
-        max-width: 400px;
+        //max-width: 400px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 30px;
+
+        .contact {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .credits {
+            display: flex;
+            gap: 40px;
+            a {
+                font-weight: 400;
+                text-transform: none;
+                text-decoration: none;
+            }
+            @media screen and (max-width: 830px) {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    }
+
+    .passion {
+        margin-bottom: -35px;
+        h1 {
+            font-size: 200px;
+            color: gray;
+
+            @media screen and (max-width: 830px) {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        span {
+            position: relative;
+            .icon {
+                color: var(--color-interactive);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform: scale(150%);
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 1565px) {
+            // margin-bottom: -10px;
+            h1 {
+                font-size: 150px;
+            }
+        }
+        @media screen and (max-width: 1225px) {
+            margin-bottom: -10px;
+            h1 {
+                font-size: 100px;
+            }
+        }
+        @media screen and (max-width: 805px) {
+            margin-bottom: -10px;
+            h1 {
+                font-size: 80px;
+            }
+        }
+        @media screen and (max-width: 805px) {
+            h1 {
+                font-size: 50px;
+            }
+        }
+        @media screen and (max-width: 415px) {
+            margin: 0;
+            h1 {
+                font-size: 40px;
+            }
+        }
     }
 }
