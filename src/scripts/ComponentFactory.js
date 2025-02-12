@@ -7,7 +7,9 @@ export default class ComponentFactory {
     this.componentInstances = [];
     this.componentList = {
       Carousel,
+      Header,
       Contrast,
+      
     };
     this.init();
   }
