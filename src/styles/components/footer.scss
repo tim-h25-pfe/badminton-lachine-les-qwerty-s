@@ -1,22 +1,20 @@
 .footer {
     background-color: var(--color-black);
-    color: var(--color-primary);
+    color: var(--color-white);
     .wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-
-    p {
-        margin: 50px 0;
+    li {
+        list-style: none;
     }
 
-    ul.social {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
+    .principal {
+        a {
+            font-size: var(--font-size-h3);
+            text-transform: uppercase;
+            font-weight: 900;
+        }
     }
 }
