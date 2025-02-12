@@ -17,20 +17,35 @@
   <body data-component="Contrast">
     <header data-contrast class="header" data-component="Header" data-treshold="0.2">
       <div class="wrapper">
-        <a href="index.html" class="logo">Titre ou logo</a>
-        
+        <div class="nav_header">
+          <a href="index.html" class="logo"><img src="assets/images/Logo_client_couleur.svg" alt=""></a>
         <nav class="menu nav-primary">
           <ul>
-            <li><a href="#" class="nav-primary__item" data-contrast>Lien 1</a></li>
-            <li><a href="#" class="nav-primary__item" data-contrast>Lien 2</a></li>
-            <li><a href="#" class="nav-primary__item" data-contrast>Lien 3</a></li>
-            <li><a href="color-change.html" class="nav-primary__item" data-contrast>Change Color</a></li>
+            <li class="bouton_inscription"><a href="#" class="nav-primary__item" data-contrast>Inscrivez-vous !</a></li>
+            <li>
+                <a href="#" class="nav-primary__item search-toggle">
+                    <svg class="icon icon--md">
+                        <use xlink:href="#icon-rechercher"></use>
+                    </svg>
+                </a>
+            </li>
+            <li><a href="" class="nav-primary__item" data-contrast><svg class="icon icon--md">
+                <use xlink:href="#icon-panier"></use>
+            </svg></a></li>
+            <li><a href=""><button class="header__toggle js-toggle">
+              <span></span>
+              <span></span>
+            </button></a></li>
           </ul>
         </nav>
-        <button class="header__toggle js-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-      </button>
+
+        </div>
+        
+        <div class="search-bar">
+          <input type="text" placeholder="Rechercher...">
+          <button class="search-close">✖</button>
+        </div>
       </div>
     </header>
+
+   
