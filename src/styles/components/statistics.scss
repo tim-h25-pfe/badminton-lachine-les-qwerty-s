@@ -1,0 +1,41 @@
+.about {
+    .bigCard {
+        .about__content {
+            padding: var(--spacing-xl) var(--spacing-xxl);
+            background-color: var(--color-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            text-align: center;
+            color: var(--color-white);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+        .about__stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: center;
+            border: 1px solid var(--color-black);
+            border-width: 0 2px 2px 2px;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            .stat {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                h3 {
+                    color: var(--color-primary);
+                }
+            }
+            .splitter {
+                border-right: 3px solid var(--color-black);
+                height: 75%;
+            }
+        }
+    }
+}
