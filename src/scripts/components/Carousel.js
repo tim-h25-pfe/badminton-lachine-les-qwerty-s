@@ -4,9 +4,11 @@ export default class Carousel {
   constructor(element) {
     this.element = element;
     this.options = {
-      slidesPerView: 'auto',
-      freeMode: true,
-      spaceBetween: 20,
+      slidesPerView: 3,
+      speed: 4000,
+
+      delay: 1,
+      spaceBetween: 0,
     };
     this.init();
   }
@@ -17,24 +19,27 @@ export default class Carousel {
   }
 
   setOptions() {
-    if (this.element.dataset.split) {
-      this.options.breakpoints = {
-        768: {
-          slidesPerView: 2.5,
-        },
-      };
-    }
-    if (this.element.dataset.autoplay) {
+    if ('autoplay' in this.element.dataset) {
       this.options.autoplay = {
         autoplay: {
-          delay: 5000,
+          delay: 0,
+          disableOnInteraction: false,
         },
-        pauseOnMouseEnter: true,
-        disableOnInteraction: true,
       };
     }
-    if (this.element.dataset.loop) {
-      this.element.dataset.loop = true;
+    if ('loop' in this.element.dataset) {
+      this.options.loop = {
+        loop: true,
+      };
+    }
+    if ('freemode' in this.element.dataset) {
+      this.options.freeMode = {
+        enabled: true,
+        momentum: false,
+      };
+    }
+    if ('centered' in this.element.dataset) {
+      this.options.centeredSlides = true;
     }
   }
 }

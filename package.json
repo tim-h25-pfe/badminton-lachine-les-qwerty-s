@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "html2canvas": "^1.4.1",
-    "swiper": "^11.1.9"
+    "swiper": "^11.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
