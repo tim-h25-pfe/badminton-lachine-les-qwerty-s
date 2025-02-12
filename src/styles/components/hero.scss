@@ -3,8 +3,13 @@
     position: relative;
     height: 80vh;
     margin: var(--spacing-md) 0;
-    img.bgHero {
-        z-index: -1;
+    // --- hero media --- //
+    .hero__media,
+    .bgHero {
+        height: 100%;
+        object-fit: cover;
+    }
+    .hero__media {
         position: absolute;
         top: 0;
         left: 50%;
@@ -12,10 +17,27 @@
         width: 95%;
         height: 100%;
         object-fit: cover;
-
         border-radius: 50px;
+        z-index: -1;
+        overflow: hidden;
     }
+    .bkg_filter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0) 100%
+        );
+        z-index: 1;
+    }
+    // --- hero content --- //
     .wrapper {
+        position: relative;
+        z-index: 2;
         display: flex;
         align-items: flex-start;
         justify-content: flex-end;
@@ -26,29 +48,16 @@
             margin-bottom: var(--spacing-md);
         }
     }
-}
-
-.favoris {
-    background-color: var(--color-white);
-    color: var(--color-black);
-}
-
-.black {
-    color: var(--color-white);
-    background-color: var(--color-black);
-}
-
-.black2 {
-    background-color: var(--color-bg-primary);
-}
-
-.etirement {
-    div {
-        height: 85vh;
-
-        background-color: var(--color-white);
-    }
-    div:first-child {
-        background-color: var(--color-black);
+    .bigTitle {
+        span {
+            position: relative;
+            .icon {
+                color: var(--color-interactive);
+                position: absolute;
+                bottom: -40%;
+                left: 0;
+                width: 100%;
+            }
+        }
     }
 }
