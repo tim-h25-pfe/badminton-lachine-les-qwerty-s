@@ -1,6 +1,9 @@
 .about {
     .bigCard {
         .about__content {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
             padding: var(--spacing-xl) var(--spacing-xxl);
             background-color: var(--color-primary);
             display: flex;
@@ -12,10 +15,50 @@
             color: var(--color-white);
             border-top-left-radius: 30px;
             border-top-right-radius: 30px;
+            @media screen and (max-width: $breakpoint-lg) {
+                padding: var(--spacing-lg) var(--spacing-xl);
+                @media screen and (max-width: $breakpoint-md) {
+                    padding: var(--spacing-xxl) var(--spacing-md)
+                        var(--spacing-md) var(--spacing-md);
+                }
+            }
+
+            p {
+                width: 50%;
+                @media screen and (max-width: $breakpoint-md) {
+                    width: 75%;
+                    @media screen and (max-width: $breakpoint-sm) {
+                        width: 90%;
+                    }
+                }
+            }
+            h4 {
+                font-weight: 600;
+                width: 80%;
+            }
+            .traceVolant {
+                position: absolute;
+                top: -10%;
+                left: 5%;
+                height: 115%;
+                font-size: 25rem;
+                @media screen and (max-width: $breakpoint-md) {
+                    left: 0;
+                    height: 50%;
+                    transform: rotate(50deg);
+                }
+            }
         }
         .about__stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
+            @media screen and (max-width: $breakpoint-lg) {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-md);
+                @media screen and (max-width: $breakpoint-lg) {
+                    gap: var(--spacing-sm);
+                }
+            }
             align-items: center;
             border: 1px solid var(--color-black);
             border-width: 0 2px 2px 2px;
@@ -23,6 +66,7 @@
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
             .stat {
+                position: relative;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -31,10 +75,24 @@
                 h3 {
                     color: var(--color-primary);
                 }
-            }
-            .splitter {
-                border-right: 3px solid var(--color-black);
-                height: 75%;
+                &:not(:last-child)::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: var(--color-black);
+                    height: 50%;
+                    width: 2px;
+                    @media screen and (max-width: $breakpoint-md) {
+                    }
+                }
+                &:nth-child(2)::after,
+                &:nth-child(4)::after {
+                    @media screen and (max-width: $breakpoint-lg) {
+                        display: none;
+                    }
+                }
             }
         }
     }
