@@ -1,6 +1,6 @@
 import Carousel from './components/Carousel';
 import Header from './components/Header';
-import Contrast from './components/Contrast';
+import Tabs from './components/Tabs';
 
 export default class ComponentFactory {
   constructor() {
@@ -8,8 +8,7 @@ export default class ComponentFactory {
     this.componentList = {
       Carousel,
       Header,
-      Contrast,
-      
+      Tabs,
     };
     this.init();
   }
