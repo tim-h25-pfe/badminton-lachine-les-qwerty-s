@@ -27,23 +27,23 @@
             }
         }
     }
-}
 
-// classes pour les options du bloc d'informations
-.right {
-    .wrapper {
-        grid-template-columns: 6fr 4fr;
+    // classes pour les options du bloc d'informations
+    &.right {
+        .wrapper {
+            grid-template-columns: 6fr 4fr;
+        }
+        .infos__media {
+            order: 2;
+        }
     }
-    .infos__media {
-        order: 2;
-    }
-}
 
-.left {
-    .wrapper {
-        grid-template-columns: 4fr 6fr;
-    }
-    .infos__media {
-        order: -1;
+    &.left {
+        .wrapper {
+            grid-template-columns: 4fr 6fr;
+        }
+        .infos__media {
+            order: -1;
+        }
     }
 }
