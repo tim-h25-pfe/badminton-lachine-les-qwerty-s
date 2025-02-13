@@ -92,6 +92,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
             height: 100%;
             width: 100%;
             .underline {
@@ -109,12 +110,21 @@
 
 .left {
     .hero__content {
-        order: -1;
+        order: 2;
     }
 }
 
 .right {
     .hero__content {
-        order: 1;
+        order: -1;
+    }
+}
+
+.zero {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+    .hero__media {
+        display: none;
     }
 }
