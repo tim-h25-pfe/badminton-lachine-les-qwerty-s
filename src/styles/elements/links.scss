@@ -15,6 +15,7 @@ a {
 
 a.btn_full {
     color: var(--color-white);
+    text-transform: uppercase;
     padding: 15px 25px;
     display: block;
     width: fit-content;
@@ -40,8 +41,7 @@ a.btn_circled {
 
 a.logo {
     font-family: 'Bebas Neue', sans-serif;
-    
-    
+
     z-index: 999;
 }
 
