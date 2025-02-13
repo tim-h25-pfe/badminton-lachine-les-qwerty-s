@@ -7,7 +7,7 @@
             <h1>Tarifs</h1>
             <div class="underline">
                 <svg class="icon icon--lg">
-                    <use xlink:href="#icon-tripleLigneDessin"></use>
+                    <use xlink:href="#icon-doubleLigneDessin"></use>
                 </svg>
             </div>
         </div>
