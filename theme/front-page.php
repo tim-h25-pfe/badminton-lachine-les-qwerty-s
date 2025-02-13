@@ -2,7 +2,7 @@
 
     <section class="hero">
     <div class="hero__media">
-        <img class="bgHero" src="<?php bloginfo('template_url') ?>/assets/images/heroAccueil.jpg" alt="" />
+        <img class="bgHero" src="<?php the_post_thumbnail_url(); ?>" alt="" />
         <div class="bkg_filter"></div>
     </div>
     <div class="wrapper">
