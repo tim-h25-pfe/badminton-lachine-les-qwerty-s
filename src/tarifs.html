@@ -1,0 +1,132 @@
+{% include '_partials/_header.html' %}
+
+<section class="hero block">
+    <div class="wrapper">
+        <div class="hero__media">
+            <img class="bgHero" src="assets/images/heroAccueil.jpg" alt="hero" />
+        </div>
+        <div class="hero__content">
+            <h1>Tarifs</h1>
+            <div class="underline">
+                <svg class="icon icon--lg">
+                    <use xlink:href="#icon-doubleLigneDessin"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="informations left">
+    <div class="wrapper">
+        <div class="infos__media">
+            <img src="assets/images/hero.png" alt="image d'informations" />
+        </div>
+        <div class="infos__content">
+            <h3>Non-disponibilité des gymnases au Collège Sainte-Anne</h3>
+            <p>
+                Les gymnases ne seront pas disponibles à certaines dates précises. Nous invitons nos clients à consulter
+                l’horaire afin de prendre connaissance des dates impactées avant de réserver.
+            </p>
+            <a href="#" class="btn_full">consulter l'horaire</a>
+        </div>
+    </div>
+</section>
+
+<section class="cards-category">
+    <div class="wrapper">
+        <!-- boucle du custom post type choisi -->
+
+        <div class="top">
+            <div class="title">
+                <h1>Forfaits</h1>
+                <div class="underline">
+                    <svg class="icon icon--lg">
+                        <use xlink:href="#icon-tripleLigneDessin"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- boucle des categories du custom post type choisis -->
+            <nav>
+                <ul>
+                    <li>
+                        <a class="btn_circled active" href="#">
+                            Jeunes
+                            <svg class="icon">
+                                <use xlink:href="#icon-cercleDessin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn_circled" href="#">
+                            Adultes
+                            <svg class="icon">
+                                <use xlink:href="#icon-cercleDessin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn_circled" href="#">
+                            Familial
+                            <svg class="icon">
+                                <use xlink:href="#icon-cercleDessin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- boucle des category  -->
+
+        <!-- while -->
+
+        <!-- boucle des custom post type -->
+        <!-- avec le parametre de la category -->
+        <!-- if -->
+        <div class="cards jeunes">
+            <!-- while -->
+            <div class="card">
+                <div class="card__top">
+                    <h5>Débutant I - Jeune</h5>
+                    <p>Initiation aux bases</p>
+                    <div class="prices">
+                        <div class="price">
+                            <p class="price">115$</p>
+                            <p>Session d'automne</p>
+                        </div>
+                        <div class="price">
+                            <p class="price">140$</p>
+                            <p>Session d'hiver</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card__bottom">
+                    <p class="details">Détails</p>
+                    <div class="details">
+                        <div class="detail">
+                            <div class="i">
+                                <svg class="icon icon--xs">
+                                    <use xlink:href="#icon-i"></use>
+                                </svg>
+                            </div>
+                            <p>Débit/Crédit Seulement</p>
+                        </div>
+                        <div class="detail">
+                            <div class="i">
+                                <svg class="icon icon--xs">
+                                    <use xlink:href="#icon-i"></use>
+                                </svg>
+                            </div>
+                            <p>Invités non permis</p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn_full">voir l'horaire</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include '_partials/_footer.html' %}
