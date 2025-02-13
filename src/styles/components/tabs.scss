@@ -18,6 +18,7 @@
             justify-content: space-evenly;
             gap: 70px;
             .btn_circled {
+                cursor: pointer;
                 color: var(--color-black);
                 text-transform: none;
                 font-weight: 600;
