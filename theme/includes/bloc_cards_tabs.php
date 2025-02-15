@@ -1,11 +1,24 @@
+<?php
+// Récupérer la valeur du champ Select (qui est un array)
+$valeur = get_sub_field('grid_elements_content');
+
+// Vérifier si la valeur est bien récupérée
+if( $valeur ) :
+    // Récupérer l'intitulé et le slug depuis l'array
+    $slug = $valeur['value']; // Récupérer le slug
+    $label = $valeur['label']; // Récupérer l'intitulé
+?>
+    
+<?php
+endif;
+?>
+
 <section class="cards-category" id="tabs" data-component="Tabs">
     <div class="wrapper">
-        <!-- boucle du custom post type choisi -->
-        
 
         <div class="top">
             <div class="title">
-                <h1><?php the_sub_field('grid_elements_content'); ?></h1>
+                <h1><?php echo esc_html($label); ?></h1>
                 <div class="underline">
                     <svg class="icon icon--lg">
                         <use xlink:href="#icon-tripleLigneDessin"></use>
@@ -19,7 +32,7 @@
 
                     <?php
                 $terms = get_terms(array(
-                    'taxonomy'   => 'type_de_forfaits', // Remplace par le nom de ta taxonomie
+                    'taxonomy'   => $slug, // Remplace par le nom de ta taxonomie
                     'hide_empty' => true,          // Ne pas afficher les catégories sans articles
                 ));
                 ?>
@@ -46,17 +59,53 @@
         </div>
 
         <!-- boucle des category  -->
+        <?php
+                $terms = get_terms(array(
+                    'taxonomy'   => $slug, // Remplace par le nom de ta taxonomie
+                    'hide_empty' => true,          // Ne pas afficher les catégories sans articles
+                ));
 
+                
+                $taxonomie = $slug; // Remplace par ta taxonomie
+
+                $tax_details = get_taxonomy($taxonomie);
+
+                if ( ! $tax_details || ! isset($tax_details->object_type) || empty($tax_details->object_type) ) {
+                    // Log ou afficher un message d'erreur pour déboguer
+                    echo "La taxonomie spécifiée n'est pas valide ou n'a pas de type d'objet associé.";
+                    return;
+                }
+
+                $the_post_type = $tax_details->object_type[0];
+                ?>
+
+
+        <?php if (!empty($terms) && !is_wp_error($terms)) : ?>
         <!-- while -->
+       
 
         <!-- boucle des custom post type -->
         <!-- avec le parametre de la category -->
         <!-- if -->
-        <div class="cards" data-tab-container="jeunes">
+        <?php foreach ($terms as $term) : ?>
+        <?php 
+            $args = array(
+                'post_type' => $the_post_type,
+                'category_name' => $term->slug,
+                'post_status' => 'publish',
+                'showposts' => -1
+            );
+            $query = new WP_Query( $args );
+            ?>
+            <?php if ( $query->have_posts() ) : ?>
+
+
+        <div class="cards" data-tab-container="<?php echo esc_html($term->slug); ?>">
             <!-- while -->
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
             <div class="card">
                 <div class="card__top">
-                    <h5>Débutant I - Jeune</h5>
+                    <h5><?php the_title(); ?></h5>
                     <p>Initiation aux bases</p>
                     <div class="prices">
                         <div class="price">
@@ -94,6 +143,13 @@
                     <a href="#" class="btn_full">voir l'horaire</a>
                 </div>
             </div>
+            <?php endwhile; ?>
         </div>
+
+        <?php else : ?>
+                <p>Aucune catégorie trouvée.</p>
+        <?php endif; ?>
+        <?php endforeach?>
+    <?php endif; ?>
     </div>
 </section>

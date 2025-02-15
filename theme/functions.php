@@ -484,12 +484,12 @@ function creer_taxonomie_pour_seances() {
 }
 add_action('init', 'creer_taxonomie_pour_seances');
 
-function enlever_categories_par_defaut() {
+function enlever_categories_par_defaut_sessions() {
     unregister_taxonomy_for_object_type('category', 'session');
 }
-add_action('init', 'enlever_categories_par_defaut');
+add_action('init', 'enlever_categories_par_defaut_sessions');
 
-function verifier_categorie_personnalisee($post_id) {
+function verifier_categorie_personnalisee_sessions($post_id) {
     if (get_post_type($post_id) !== 'session') return;
 
     $categories = wp_get_post_terms($post_id, 'type-session');
@@ -497,4 +497,4 @@ function verifier_categorie_personnalisee($post_id) {
         wp_die('Veuillez sélectionner une catégorie avant de publier.');
     }
 }
-add_action('save_post', 'verifier_categorie_personnalisee', 10, 1);
+add_action('save_post', 'verifier_categorie_personnalisee_sessions', 10, 1);
