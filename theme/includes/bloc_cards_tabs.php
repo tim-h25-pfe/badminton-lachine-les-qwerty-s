@@ -1,11 +1,11 @@
 <section class="cards-category" id="tabs" data-component="Tabs">
     <div class="wrapper">
         <!-- boucle du custom post type choisi -->
-        <?php the_field('grid_elements_content'); ?>
+        
 
         <div class="top">
             <div class="title">
-                <h1>Forfaits</h1>
+                <h1><?php the_sub_field('grid_elements_content'); ?></h1>
                 <div class="underline">
                     <svg class="icon icon--lg">
                         <use xlink:href="#icon-tripleLigneDessin"></use>
@@ -14,34 +14,35 @@
             </div>
 
             <!-- boucle des categories du custom post type choisis -->
+             <!-- ajouter une condition, c'est que ça prend des posts dedans comme ça non-catégorisé va pas show-up  -->
+              <!-- DONE  -->
+
+                    <?php
+                $terms = get_terms(array(
+                    'taxonomy'   => 'type_de_forfaits', // Remplace par le nom de ta taxonomie
+                    'hide_empty' => true,          // Ne pas afficher les catégories sans articles
+                ));
+                ?>
+
+            <?php if (!empty($terms) && !is_wp_error($terms)) : ?>
             <nav>
                 <ul>
+                <?php foreach ($terms as $term) : ?>
                     <li>
-                        <a class="btn_circled" data-tab-open="jeunes">
-                            Jeunes
+                        <a class="btn_circled" data-tab-open="<?php echo esc_html($term->slug); ?>">
+                        <?php echo esc_html($term->name); ?>
                             <svg class="icon">
                                 <use xlink:href="#icon-cercleDessin"></use>
                             </svg>
                         </a>
                     </li>
-                    <li>
-                        <a class="btn_circled" data-tab-open="adultes">
-                            Adultes
-                            <svg class="icon">
-                                <use xlink:href="#icon-cercleDessin"></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn_circled" data-tab-open="familial">
-                            Familial
-                            <svg class="icon">
-                                <use xlink:href="#icon-cercleDessin"></use>
-                            </svg>
-                        </a>
-                    </li>
+                    <?php endforeach?>
                 </ul>
             </nav>
+
+            <?php else : ?>
+                <p>Aucune catégorie trouvée.</p>
+            <?php endif; ?>
         </div>
 
         <!-- boucle des category  -->
