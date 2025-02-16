@@ -15,6 +15,8 @@
   </head>
 
   <body data-component="Contrast">
+    <div class="overlay"></div>
+
     <header data-contrast class="header" data-component="Header" data-treshold="0.2">
       <div class="wrapper">
         <div class="nav_header">
@@ -29,7 +31,7 @@
                     </svg>
                 </a>
             </li>
-            <li><a href="" class="nav-primary__item" data-contrast><svg class="icon icon--md">
+            <li><a href="" class="nav-primary__item" data-contrast><svg class="icon icon--md ">
                 <use xlink:href="#icon-panier"></use>
             </svg></a></li>
             <li><a href=""><button class="header__toggle js-toggle">
@@ -45,7 +47,66 @@
           <input type="text" placeholder="Rechercher...">
           <button class="search-close">✖</button>
         </div>
+
+        
+       
       </div>
     </header>
+
+<div class="nav_menu">
+ 
+  <button class="menu-close header__toggle">
+    <div class="close-circle">
+      <span></span>
+      <span></span>
+      <div class="allignement_horizontal">
+        <a class="langue" href="">EN</a>
+        <a href=""><svg class="icon icon--md">
+            <use xlink:href="#icon-panier"></use>
+        </svg></a>
+      </div>
+      
+     
+    </div>
+  </button>
+  
+  
+      <div class="grid">
+          
+            <img src="assets/images/image_menu.jpg" alt="image_menu">
+          
+          <div class="content_menu">
+            <div class="menu_titres">
+              <a href=""><h3>TARIFS</h3></a>
+              <a href=""><h3>SERVICES</h3></a>
+              <a href=""><h3>HORAIRES</h3></a>
+            </div>
+            
+            <div class="menu_soustitres">
+              <a href=""><h6>NOUVELLES</h6></a>
+              <a href=""><h6>À PROPOS</h6></a>
+              <a href=""><h6>CARRIÈRES</h6></a>
+              <a href=""><h6>NOTRE ÉQUIPE</h6></a>
+              <a href=""><h6>CONTACT</h6></a>
+            </div>
+            
+          <div class="alignement">
+              <a class="btn_circled_menu" href="#"
+                 >inscrivez-vous
+                <svg class="icon">
+                  <use xlink:href="#icon-ovalDessin"></use>
+                </svg>
+              </a>
+           
+            
+              <a class="underline" href="">Comment s'inscrire ?</a>
+
+          </div>
+              
+         </div>
+      </div>
+  
+</div>
+      
 
    
