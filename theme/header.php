@@ -36,7 +36,10 @@
     <header class="header" data-component="Header" data-treshold="0.2">
       <div class="wrapper">
         <div class="nav_header">
-          
+        <?php $image = get_field('header_logo', 'options'); ?>
+                 <?php if ($image): ?>
+          <a href="<?php bloginfo('url') ?>" class="logo"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"></a>
+          <?php endif ?>
         <nav class="menu nav-primary">
           <ul>
           <?php 
@@ -90,9 +93,15 @@
     <div class="close-circle">
       <span></span>
       <span></span>
+      
       <div class="allignement_horizontal">
-        <a class="langue" href="">EN</a>
+   
+
+
+        
       </div>
+
+      
       
      
     </div>
@@ -101,6 +110,10 @@
   
       <div class="grid">
       
+      <?php $image = get_field('header_image', 'options'); ?>
+                 <?php if ($image): ?>
+          <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+          <?php endif ?>
 
           <div class="content_menu">
 
