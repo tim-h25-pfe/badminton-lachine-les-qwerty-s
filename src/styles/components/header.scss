@@ -274,7 +274,6 @@
 .bouton_inscription:hover {
     opacity: 0.5;
     transition: 0.3s;
-    
 }
 
 // Styles pour la barre de recherche
@@ -335,7 +334,6 @@
     transition: 0.2s;
 }
 .menu svg:hover {
-  
     opacity: 70%;
 }
 
@@ -540,12 +538,14 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     list-style: none;
-    gap: 20px;
+    margin: 0;
     padding: 0;
     li {
         width: fit-content;
     }
     a {
+        font-size: var(--font-size-h3);
+
         transition: all 0.3s ease-out;
     }
     a:hover {
@@ -568,13 +568,16 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     list-style: none;
-    gap: 20px;
+    margin: 0;
     padding: 0;
+    gap: 5px;
 
     li {
         width: fit-content;
     }
     a {
+        font-weight: 600;
+        font-size: var(--font-size-h6);
         transition: all 0.3s ease-out;
     }
     a:hover {
