@@ -33,6 +33,8 @@ endif;
                     <?php
                 $terms = get_terms(array(
                     'taxonomy'   => $slug, // Remplace par le nom de ta taxonomie
+                    'orderby' => 'id',
+			        'order' => 'ASC',
                     'hide_empty' => true,          // Ne pas afficher les catégories sans articles
                 ));
                 ?>
@@ -62,6 +64,8 @@ endif;
         <?php
                 $terms = get_terms(array(
                     'taxonomy'   => $slug, // Remplace par le nom de ta taxonomie
+                    'orderby' => 'id',
+			        'order' => 'ASC',
                     'hide_empty' => true,          // Ne pas afficher les catégories sans articles
                 ));
 
@@ -93,6 +97,8 @@ endif;
                 'post_type' => $the_post_type,
                 'category_name' => $term->slug,
                 'post_status' => 'publish',
+                'orderby' => 'publish',
+			    'order' => 'ASC',
                 'showposts' => -1
             );
             $query = new WP_Query( $args );
@@ -106,41 +112,49 @@ endif;
             <div class="card">
                 <div class="card__top">
                     <h5><?php the_title(); ?></h5>
-                    <p>Initiation aux bases</p>
+                    <p><?php the_sub_field('tabs_description'); ?></p>
+                    <?php if (have_rows('tabs_biginfos')): ?>
                     <div class="prices">
+                    <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
                         <div class="price">
                             <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
-                            <p class="price">115$</p>
-                            <p>Session d'automne</p>
+                            <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
+                            <?php if (get_sub_field('tabs_optional')): ?>
+                            <p><?php the_sub_field('tabs_optional'); ?></p>
+                            <?php endif; ?>
                         </div>
-                        <div class="price">
-                            <p class="price">140$</p>
-                            <p>Session d'hiver</p>
-                        </div>
+                        <?php endwhile; ?>  
                     </div>
+                    <?php endif; ?>
                 </div>
+
+                
                 <div class="card__bottom">
                     <p class="details">Détails</p>
+                    <?php if (have_rows('tabs_details')): ?>
                     <div class="details">
+                    <?php while (have_rows('tabs_details')) : the_row(); ?>
                         <div class="detail">
                             <div class="i">
                                 <svg class="icon icon--xs">
                                     <use xlink:href="#icon-i"></use>
                                 </svg>
                             </div>
-                            <p>Débit/Crédit Seulement</p>
+                            <p><?php the_sub_field('tabs_detail'); ?></p>
                         </div>
-                        <div class="detail">
-                            <div class="i">
-                                <svg class="icon icon--xs">
-                                    <use xlink:href="#icon-i"></use>
-                                </svg>
-                            </div>
-                            <p>Invités non permis</p>
-                        </div>
+                        <?php endwhile; ?>
                     </div>
+                    <?php endif; ?>
                      
-                    <a href="#" class="btn_full">voir l'horaire</a>
+                    <?php 
+                    $link = get_field('tabs_cta');
+                    if( $link ): 
+                        $link_url = $link['url'];
+                        $link_title = $link['title'];
+                        $link_target = $link['target'] ? $link['target'] : '_self';
+                        ?>
+                <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
+                <?php endif; ?>
                 </div>
             </div>
             <?php endwhile; ?>
