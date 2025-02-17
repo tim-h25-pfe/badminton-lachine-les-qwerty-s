@@ -33,15 +33,18 @@
 @import 'components/hero';
 @import 'components/cards';
 @import 'components/footer';
+@import 'components/blocs';
 @import 'components/scrollbar';
 @import 'components/404';
 @import 'components/icons';
 @import 'components/scrolly';
+@import 'components/tabs';
 @import 'components/contrast';
 @import 'components/video';
 @import 'components/carousel';
 @import '../../node_modules/swiper/swiper-bundle'; // important pour le carousel sinon ça marche pas
 @import 'components/statistics';
+@import 'components/services';
 
 // UTILITIES
 // Utilitaires et classes auxiliaires avec possibilité de remplacer tout ce qui précède, par exemple masquer les éléments de la page
