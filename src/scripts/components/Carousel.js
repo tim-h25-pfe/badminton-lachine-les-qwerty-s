@@ -3,13 +3,40 @@ import Swiper from 'swiper/bundle';
 export default class Carousel {
   constructor(element) {
     this.element = element;
-    this.options = {
-      slidesPerView: 3,
-      speed: 4000,
+    console.log(this.element);
+    this.options = {};
+    if (this.element.classList.contains('js-swiper-partenaire')) {
+      this.options = {
+        slidesPerView: 3,
+        speed: 4000,
+        delay: 1,
+        spaceBetween: 0,
+      };
+    } else if (this.element.classList.contains('js-swiper-accueilServices')) {
+      this.options = {
+        slidesPerView: 1.25,
+        effect: 'coverflow',
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        },
+        breakpoints: {
+          0: {
+            spaceBetween: 50,
+          },
+          768: {
+            spaceBetween: 75,
+          },
+          1024: {
+            spaceBetween: 100,
+          },
+        },
+      };
+    }
 
-      delay: 1,
-      spaceBetween: 0,
-    };
     this.init();
   }
 
