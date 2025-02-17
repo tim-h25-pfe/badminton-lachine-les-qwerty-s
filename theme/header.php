@@ -108,28 +108,26 @@
   </button>
   
   
-      <div class="grid">
+  <div class="grid">
       
       <?php $image = get_field('header_image', 'options'); ?>
                  <?php if ($image): ?>
           <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
           <?php endif ?>
 
-          <div class="content_menu">
+          <nav class="content_menu">
 
-            <div class="menu_titres">
-              <a href=""><h3>TARIFS</h3></a>
-              <a href=""><h3>SERVICES</h3></a>
-              <a href=""><h3>HORAIRES</h3></a>
-            </div>
-            
-            <div class="menu_soustitres">
-              <a href=""><h6>NOUVELLES</h6></a>
-              <a href=""><h6>À PROPOS</h6></a>
-              <a href=""><h6>CARRIÈRES</h6></a>
-              <a href=""><h6>NOTRE ÉQUIPE</h6></a>
-              <a href=""><h6>CONTACT</h6></a>
-            </div>
+                <?php wp_nav_menu(array(
+                'theme_location' => 'menu_header_vedette',
+                'container' => 'div',
+                'menu_class' => 'menu_titres',
+            )); ?>
+
+                <?php wp_nav_menu(array(
+                'theme_location' => 'menu_header_sections',
+                'container' => 'div',
+                'menu_class' => 'menu_soustitres',
+            )); ?>
 
               <?php 
             $link = get_field('footer_subscribe', 'options');
@@ -159,7 +157,7 @@
 
           
               
-         </div>
+         </nav>
       </div>
   
 </div>
