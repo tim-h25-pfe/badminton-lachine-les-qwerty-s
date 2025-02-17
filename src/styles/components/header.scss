@@ -1,7 +1,3 @@
-/* ==========================================================================
-   header / component
-   ========================================================================== */
-
 .header {
     //changer ici pour les paramètres principaux de positionnement
     position: fixed;
@@ -12,7 +8,7 @@
     position: fixed;
     top: 0;
 
-    z-index: 10;
+    z-index: 1002; // Plus élevé que le menu (1001) et l'overlay (999)
     transition: transform 0.4s $ease-out-expo;
 
     border-radius: 20px;
@@ -101,6 +97,7 @@
 
         // styles liens header
         a {
+            width: fit-content;
             text-align: center;
             display: block;
             font-size: 20px; // taille géénérique, ajuster selon les goûts
@@ -165,11 +162,23 @@
     }
 }
 
+.nav-primary :nth-child(3) {
+    @media screen and (max-width: $breakpoint-md) {
+        display: none;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        display: none;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        display: none;
+    }
+}
+
 //styles du bouton menu
 .header__toggle {
     --bar-height: 4px;
-    --bar-spacer: 4px;
-    --bar-width: 40px;
+    --bar-spacer: 3px;
+    --bar-width: 35px;
     @media screen and (max-width: $breakpoint-xs) {
         --bar-height: 4px;
         --bar-spacer: 2px;
@@ -242,7 +251,7 @@
         padding: 0;
         margin: 0;
         @media screen and (max-width: $breakpoint-xs) {
-            gap: 15px;
+            gap: 30px;
         }
     }
 }
@@ -270,17 +279,43 @@
 .search-bar {
     display: none;
     position: absolute;
-    top: 28%;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     background: white;
-    padding: 10px;
+    margin-top: 10px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 12;
+    @media screen and (max-width: $breakpoint-xs) {
+        top: 100%;
+        left: 50%;
+    }
 }
 
 .search-bar.active {
     display: block;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Noir semi-transparent */
+    backdrop-filter: blur(3px); /* Flou pour un effet plus moderne */
+    z-index: 9; /* Derrière la search bar mais devant le reste */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Quand la search bar est active, on affiche l'overlay */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 // Style pour le logo
@@ -298,4 +333,275 @@
 .menu svg:hover {
     opacity: 0.7;
     transition: 0.2s;
+}
+
+// Style pour le menu ouvrant
+
+.nav_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #252525;
+
+    color: white;
+    z-index: 1000;
+    padding: 0 30px;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out,
+        clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    clip-path: circle(0% at 100% 0%);
+
+    // Conserve vos breakpoints existants
+    @media screen and (max-width: $breakpoint-md) {
+        height: 70%;
+        right: -100%;
+        width: 100%;
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+        height: 100%;
+        right: -100%;
+        width: 100%;
+    }
+
+    @media screen and (max-width: $breakpoint-xs) {
+        height: 80%;
+        right: -100%;
+        width: 100%;
+    }
+
+    &.active {
+        right: 0;
+        clip-path: circle(150% at 100% 0%);
+    }
+
+    // Animation de fermeture inversée
+    &:not(.active) {
+        transition: right 1s ease-in-out 1s,
+            clip-path 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .menu-close {
+        // Ajout d'une animation de fermeture
+        transition: transform 1s, opacity 1s 0.5s;
+    }
+
+    img {
+        height: fit-content;
+
+        @media screen and (max-width: $breakpoint-md) {
+            height: 100%;
+        }
+
+        @media screen and (max-width: $breakpoint-sm) {
+            display: none;
+        }
+        @media screen and (max-width: $breakpoint-xs) {
+            display: none;
+        }
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+
+        @media screen and (max-width: $breakpoint-md) {
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+        }
+        @media screen and (max-width: $breakpoint-sm) {
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        @media screen and (max-width: $breakpoint-xs) {
+            grid-template-columns: 1fr;
+            gap: 0px;
+        }
+    }
+
+    .content_menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        @media screen and (max-width: $breakpoint-md) {
+            margin: 0;
+        }
+        @media screen and (max-width: $breakpoint-sm) {
+        }
+        @media screen and (max-width: $breakpoint-xs) {
+            margin: 0;
+        }
+    }
+}
+
+/* Quand le menu est actif */
+.nav_menu.active {
+    right: 0;
+}
+
+/* Style pour le fond assombri */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Empêcher le scroll */
+body.no-scroll {
+    overflow: hidden;
+}
+
+.menu-close {
+    // Styles de positionnement
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    width: 35px;
+    height: 35px;
+    display: none;
+
+    .close-circle {
+        position: relative;
+        width: 45px; // Taille du cercle
+        height: 45px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s all ease-in-out;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    // Montrer seulement quand le menu est actif
+    .nav_menu.active & {
+        display: block;
+    }
+
+    // Styles identiques au burger original
+    span {
+        position: absolute;
+        background-color: white !important; // Même couleur que le X du burger
+        width: 100%;
+        height: 3px;
+        border-radius: 3px;
+        transition: 0.3s all ease-in-out;
+        width: 60% !important; // Longueur des barres
+        background-color: #252525 !important; // Couleur du X
+
+        &:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+    }
+
+    // Animation au hover
+    &:hover span {
+        opacity: 0.7;
+    }
+}
+
+.menu_titres {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+    @media screen and (max-width: $breakpoint-md) {
+        margin-bottom: 50px;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        margin-bottom: 50px;
+    }
+}
+.menu_soustitres {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (max-width: $breakpoint-md) {
+        margin-bottom: 50px;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        margin-bottom: 50px;
+    }
+}
+
+.grid .btn_circled_menu {
+    margin-bottom: 20px;
+
+    color: var(--color-white);
+    display: block;
+    width: fit-content;
+    position: relative;
+    .icon {
+        color: var(--color-interactive);
+        width: 100%;
+        //height: min-content;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(250%);
+    }
+}
+
+a.underline {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.allignement_horizontal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 170px;
+    color: var(--color-white);
+}
+
+.allignement_horizontal svg {
+    display: none;
+    @media screen and (max-width: $breakpoint-md) {
+        display: block;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        display: block;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        display: block;
+    }
 }

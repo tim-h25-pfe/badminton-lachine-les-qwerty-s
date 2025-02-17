@@ -70,10 +70,48 @@ export default class Header {
     }
   }
 
-  onToggleNav() {
+  // Dans la classe Header
+  onToggleNav(e) {
+    e.preventDefault();
+    const toggleButton = this.element.querySelector('.js-toggle');
     this.html.classList.toggle('nav-is-active');
+    document.querySelector('.nav_menu').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+
+    // Ajoutez/retirez la classe is-active sur le bouton
+    toggleButton.classList.toggle('is-active');
   }
 }
+
+// Ajoutez ce code pour fermer le menu en cliquant ailleurs
+// Modifiez l'écouteur d'événement de l'overlay
+document.querySelector('.overlay').addEventListener('click', () => {
+  const toggleButton = document.querySelector('.js-toggle');
+  document.querySelector('.nav_menu').classList.remove('active');
+  document.querySelector('.overlay').classList.remove('active');
+  document.body.classList.remove('no-scroll');
+
+  // Retirez les classes actives
+  toggleButton.classList.remove('is-active');
+  document.documentElement.classList.remove('nav-is-active');
+});
+
+// Dans la fonction de fermeture
+document.querySelector('.menu-close').addEventListener('click', function() {
+  const toggleButton = document.querySelector('.js-toggle');
+  
+  // Fermer le menu
+  document.querySelector('.nav_menu').classList.remove('active');
+  document.querySelector('.overlay').classList.remove('active');
+  document.body.classList.remove('no-scroll');
+  
+  // Réinitialiser le burger original
+  toggleButton.classList.remove('is-active');
+  document.documentElement.classList.remove('nav-is-active');
+});
+
+//Code pour la barre de recherche
 
 document.addEventListener('DOMContentLoaded', function () {
   const searchToggle = document.querySelector('.search-toggle');
@@ -102,13 +140,44 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleButton = document.querySelector(".header__toggle");
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleButton = document.querySelector('.header__toggle');
 
   if (toggleButton) {
-      toggleButton.addEventListener("click", (event) => {
-          event.preventDefault(); // Empêche le lien `<a>` de recharger la page
-          toggleButton.classList.toggle("is-active");
-      });
+    toggleButton.addEventListener('click', (event) => {
+      event.preventDefault(); // Empêche le lien `<a>` de recharger la page
+      toggleButton.classList.toggle('is-active');
+    });
   }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const searchToggle = document.querySelector('.search-toggle');
+  const searchBar = document.querySelector('.search-bar');
+  const searchClose = document.querySelector('.search-close');
+  const overlay = document.querySelector('.overlay');
+
+  if (!searchToggle || !searchBar || !searchClose || !overlay) {
+    console.error('Un des éléments de la recherche est introuvable !');
+    return;
+  }
+
+  // Ouvrir la barre de recherche
+  searchToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    searchBar.classList.add('active');
+    overlay.classList.add('active');
+  });
+
+  // Fermer la barre de recherche
+  searchClose.addEventListener('click', () => {
+    searchBar.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+
+  // Fermer en cliquant sur l'overlay
+  overlay.addEventListener('click', () => {
+    searchBar.classList.remove('active');
+    overlay.classList.remove('active');
+  });
 });
