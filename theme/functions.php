@@ -20,7 +20,8 @@ add_filter('excerpt_length', 'new_excerpt_length');
 // menu
 register_nav_menus(array(
     'menu_header_vedette' => 'Liens Vedettes', // slug => nom dans l'interface
-    'menu_header_sections' => 'Pages dans le menu' // slug => nom dans l'interface
+    'menu_header_sections' => 'Pages dans le menu', // slug => nom dans l'interface
+    'menu_header_language' => 'Lien de la langue' // slug => nom dans l'interface
 ));
 
 // on vérifie si acf pro est installé
