@@ -31,23 +31,136 @@
 </head>
 
 <body>
+    <div class="overlay"></div>
+
     <header class="header" data-component="Header" data-treshold="0.2">
       <div class="wrapper">
-        <a href="<?php bloginfo('url'); ?>" class="logo"><?php bloginfo('name'); ?></a>
-        
+        <div class="nav_header">
+        <?php $image = get_field('header_logo', 'options'); ?>
+                 <?php if ($image): ?>
+          <a href="<?php bloginfo('url') ?>" class="logo"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"></a>
+          <?php endif ?>
         <nav class="menu nav-primary">
           <ul>
-            <li><a href="#" class="nav-primary__item">Lien 1</a></li>
-            <li><a href="#" class="nav-primary__item">Lien 2</a></li>
-            <li><a href="#" class="nav-primary__item">Lien 3</a></li>
-            <li><a href="#" class="nav-primary__item">Lien 3</a></li>
+          <?php 
+            $link = get_field('header_subscribe', 'options');
+            if( $link ): 
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+                ?>
+            <li class="bouton_inscription"><a href="#" class="nav-primary__item"><a href="<?php echo esc_url( $link_url ); ?>" class="nav-primary__item"><?php echo esc_html( $link_title ); ?></a></a></li>
+            <?php endif; ?>
+            <li>
+                <a href="#" class="nav-primary__item search-toggle">
+                    <svg class="icon icon--md">
+                        <use xlink:href="#icon-rechercher"></use>
+                    </svg>
+                </a>
+            </li>
+
+           
+            <?php 
+            $link = get_field('header_shop', 'options');
+              if( $link ): ?>
+            <li><a href="<?php echo esc_url( $link ); ?>" class="nav-primary__item"><svg class="icon icon--md">
+
+                <use xlink:href="#icon-panier"></use>
+            </svg></a></li>
+            <?php endif; ?>
+            <li><a href=""><button class="header__toggle js-toggle">
+              <span></span>
+              <span></span>
+            </button></a></li>
           </ul>
         </nav>
-        <button class="header__toggle js-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-      </button>
+
+        </div>
+        
+        <div class="search-bar">
+          <input type="text" placeholder="Rechercher...">
+          <button class="search-close">✖</button>
+        </div>
+
+        
+       
       </div>
     </header>
+
+<div class="nav_menu">
+ 
+  <button class="menu-close header__toggle">
+    <div class="close-circle">
+      <span></span>
+      <span></span>
+      
+      <div class="allignement_horizontal">
+   
+
+
+        
+      </div>
+
+      
+      
+     
+    </div>
+  </button>
+  
+  
+      <div class="grid">
+      
+      <?php $image = get_field('header_image', 'options'); ?>
+                 <?php if ($image): ?>
+          <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+          <?php endif ?>
+
+          <div class="content_menu">
+
+            <div class="menu_titres">
+              <a href=""><h3>TARIFS</h3></a>
+              <a href=""><h3>SERVICES</h3></a>
+              <a href=""><h3>HORAIRES</h3></a>
+            </div>
+            
+            <div class="menu_soustitres">
+              <a href=""><h6>NOUVELLES</h6></a>
+              <a href=""><h6>À PROPOS</h6></a>
+              <a href=""><h6>CARRIÈRES</h6></a>
+              <a href=""><h6>NOTRE ÉQUIPE</h6></a>
+              <a href=""><h6>CONTACT</h6></a>
+            </div>
+
+              <?php 
+            $link = get_field('footer_subscribe', 'options');
+            if( $link ): 
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+                ?>
+            <div class="alignement">
+                <a class="btn_circled_menu" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                <?php echo esc_html( $link_title ); ?>
+                <svg class="icon">
+                    <use xlink:href="#icon-ovalDessin"></use>
+                </svg>
+                </a>
+                <?php 
+            $link = get_field('footer_steps', 'options');
+            if( $link ): 
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+                ?>
+                <a href="<?php echo esc_url( $link_url ); ?>" class="underline"><?php echo esc_html( $link_title ); ?></a>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
+
+          
+              
+         </div>
+      </div>
+  
+</div>
 
