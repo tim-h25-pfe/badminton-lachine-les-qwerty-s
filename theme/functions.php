@@ -441,3 +441,60 @@ function employees() {
 }
 add_action( 'init', 'employees', 0 );
 
+
+// code pour faire des classes personnalisées pour seulement le type de post
+
+function creer_taxonomie_pour_forfaits() {
+    register_taxonomy('type_de_forfaits', array('forfait'), array(
+        'label'             => __('Types de forfaits'),
+        'rewrite'           => array('slug' => 'type-forfait'),
+        'hierarchical'      => true, // true = fonctionne comme une catégorie, false = fonctionne comme un tag
+        'show_admin_column' => true,
+        'show_in_rest'      => true, // Permet l'utilisation dans l'éditeur Gutenberg
+    ));
+}
+add_action('init', 'creer_taxonomie_pour_forfaits');
+
+function enlever_categories_par_defaut() {
+    unregister_taxonomy_for_object_type('category', 'forfait');
+}
+add_action('init', 'enlever_categories_par_defaut');
+
+function verifier_categorie_personnalisee($post_id) {
+    if (get_post_type($post_id) !== 'forfait') return;
+
+    $categories = wp_get_post_terms($post_id, 'type-forfait');
+    if (empty($categories)) {
+        wp_die('Veuillez sélectionner une catégorie avant de publier.');
+    }
+}
+add_action('save_post', 'verifier_categorie_personnalisee', 10, 1);
+
+
+// code pour faire des classes personnalisées pour seulement le type de post
+
+function creer_taxonomie_pour_seances() {
+    register_taxonomy('type_de_seances', array('session'), array(
+        'label'             => __('Types de séances'),
+        'rewrite'           => array('slug' => 'type-session'),
+        'hierarchical'      => true, // true = fonctionne comme une catégorie, false = fonctionne comme un tag
+        'show_admin_column' => true,
+        'show_in_rest'      => true, // Permet l'utilisation dans l'éditeur Gutenberg
+    ));
+}
+add_action('init', 'creer_taxonomie_pour_seances');
+
+function enlever_categories_par_defaut_sessions() {
+    unregister_taxonomy_for_object_type('category', 'session');
+}
+add_action('init', 'enlever_categories_par_defaut_sessions');
+
+function verifier_categorie_personnalisee_sessions($post_id) {
+    if (get_post_type($post_id) !== 'session') return;
+
+    $categories = wp_get_post_terms($post_id, 'type-session');
+    if (empty($categories)) {
+        wp_die('Veuillez sélectionner une catégorie avant de publier.');
+    }
+}
+add_action('save_post', 'verifier_categorie_personnalisee_sessions', 10, 1);
