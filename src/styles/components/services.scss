@@ -1,19 +1,19 @@
-.services {
-    .title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        span {
-            position: relative;
-            .icon {
-                color: var(--color-interactive);
-                position: absolute;
-                bottom: -40%;
-                left: 0;
-                width: 100%;
-            }
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+        position: relative;
+        .icon {
+            color: var(--color-interactive);
+            position: absolute;
+            bottom: -40%;
+            left: 0;
+            width: 100%;
         }
     }
+}
+.services {
     .btn_full {
         &.btn_top {
             @media screen and (max-width: $breakpoint-lg) {
