@@ -1,4 +1,8 @@
-.swiper {
+// ========== ACCUEIL ========== //
+
+// ----- partenaires ----- //
+
+.partners .swiper {
     position: relative;
     .swiper-wrapper {
         animation: scroll 30s linear infinite;
@@ -32,5 +36,40 @@
     }
     100% {
         transform: translateX(-100%);
+    }
+}
+
+// ----- services ----- //
+
+.carousel-services {
+    .service {
+        display: flex;
+        //aspect-ratio: 2/3;
+        @media screen and (min-width: $breakpoint-lg) {
+            display: none;
+        }
+        .service__media {
+            filter: grayscale(0%);
+            &::before {
+                display: none;
+                background: none;
+            }
+        }
+        .service__content {
+            display: flex;
+            height: fit-content;
+            justify-content: flex-end;
+            align-items: flex-start;
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            .more__content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        h5 {
+            text-align: left;
+        }
     }
 }
