@@ -499,3 +499,32 @@ function verifier_categorie_personnalisee_sessions($post_id) {
     }
 }
 add_action('save_post', 'verifier_categorie_personnalisee_sessions', 10, 1);
+
+
+// code pour faire des classes personnalisées pour seulement le type de post
+
+function creer_taxonomie_pour_nouvelles() {
+    register_taxonomy('type_de_nouvelles', array('new'), array(
+        'label'             => __('Types de nouvelles'),
+        'rewrite'           => array('slug' => 'type-actu'),
+        'hierarchical'      => true, // true = fonctionne comme une catégorie, false = fonctionne comme un tag
+        'show_admin_column' => true,
+        'show_in_rest'      => true, // Permet l'utilisation dans l'éditeur Gutenberg
+    ));
+}
+add_action('init', 'creer_taxonomie_pour_nouvelles');
+
+function enlever_categories_par_defaut_nouvelles() {
+    unregister_taxonomy_for_object_type('category', 'new');
+}
+add_action('init', 'enlever_categories_par_defaut_nouvelles');
+
+function verifier_categorie_personnalisee_nouvelles($post_id) {
+    if (get_post_type($post_id) !== 'new') return;
+
+    $categories = wp_get_post_terms($post_id, 'type-actu');
+    if (empty($categories)) {
+        wp_die('Veuillez sélectionner une catégorie avant de publier.');
+    }
+}
+add_action('save_post', 'verifier_categorie_personnalisee_nouvelles', 10, 1);

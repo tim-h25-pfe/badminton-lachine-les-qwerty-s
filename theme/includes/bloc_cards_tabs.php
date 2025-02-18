@@ -69,14 +69,13 @@ endif;
                     'hide_empty' => true,          // Ne pas afficher les catégories sans articles
                 ));
 
-                
                 $taxonomie = $slug; // Remplace par ta taxonomie
 
                 $tax_details = get_taxonomy($taxonomie);
 
                 if ( ! $tax_details || ! isset($tax_details->object_type) || empty($tax_details->object_type) ) {
                     // Log ou afficher un message d'erreur pour déboguer
-                    echo "La taxonomie spécifiée n'est pas valide ou n'a pas de type d'objet associé.";
+                    print_r("La taxonomie spécifiée n'est pas valide ou n'a pas de type d'objet associé.");
                     return;
                 }
 
@@ -95,69 +94,121 @@ endif;
         <?php 
             $args = array(
                 'post_type' => $the_post_type,
-                'category_name' => $term->slug,
                 'post_status' => 'publish',
                 'orderby' => 'publish',
 			    'order' => 'ASC',
-                'showposts' => -1
+                'posts_per_page' => -1,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => $slug,
+                        'field'    => 'slug',
+                        'terms'    => $term->slug,
+                        'operator' => 'IN',
+                    ),
+                ),
             );
             $query = new WP_Query( $args );
             ?>
-            <?php if ( $query->have_posts() ) : ?>
+           
+            
+            <?php 
+            // si the_post_type = nouvelles (ou un autre type de post)
+            if ($the_post_type == 'new') {
+                // on crée une variable 
+                $class = 'news';
+                //print_r($class);
+            }
+            ?>
 
 
-        <div class="cards" data-tab-container="<?php echo esc_html($term->slug); ?>">
-            <!-- while -->
-            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-            <div class="card">
-                <div class="card__top">
-                    <h5><?php the_title(); ?></h5>
-                    <p><?php the_sub_field('tabs_description'); ?></p>
-                    <?php if (have_rows('tabs_biginfos')): ?>
-                    <div class="prices">
-                    <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
-                        <div class="price">
-                            <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
-                            <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
-                            <?php if (get_sub_field('tabs_optional')): ?>
-                            <p><?php the_sub_field('tabs_optional'); ?></p>
-                            <?php endif; ?>
-                        </div>
-                        <?php endwhile; ?>  
-                    </div>
-                    <?php endif; ?>
+    <?php if ( $query->have_posts() ) : ?>
+        
+        <div class="cards <?php echo $class ?>" data-tab-container="<?php echo esc_html($term->slug); ?>">
+        <!-- l'article en vedette  - acf relation -->
+        <?php $posts = get_sub_field('grid_vedette'); ?>
+        <?php if ($posts) : ?>
+            <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
+        <div class="card news first">
+                <div class="card__content">
+                    <h5><?php echo get_the_title($p->ID); ?></h5>
+                    <a class="btn_full" href="<?php echo get_permalink($p->ID); ?>">
+                        <svg class="icon">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                    </a>
                 </div>
-
-                
-                <div class="card__bottom">
-                    <p class="details">Détails</p>
-                    <?php if (have_rows('tabs_details')): ?>
-                    <div class="details">
-                    <?php while (have_rows('tabs_details')) : the_row(); ?>
-                        <div class="detail">
-                            <div class="i">
-                                <svg class="icon icon--xs">
-                                    <use xlink:href="#icon-i"></use>
-                                </svg>
-                            </div>
-                            <p><?php the_sub_field('tabs_detail'); ?></p>
-                        </div>
-                        <?php endwhile; ?>
-                    </div>
-                    <?php endif; ?>
-                     
-                    <?php 
-                    $link = get_field('tabs_cta');
-                    if( $link ): 
-                        $link_url = $link['url'];
-                        $link_title = $link['title'];
-                        $link_target = $link['target'] ? $link['target'] : '_self';
-                        ?>
-                <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
-                <?php endif; ?>
+                <div class="card__media">
+                <?php echo get_the_post_thumbnail($p->ID); ?>
                 </div>
             </div>
-            <?php endwhile; ?>
+        <?php endforeach; ?>
+        <?php endif; ?>
+         <!-- un div grid  -->
+          <div class="grid">
+                <!-- while -->
+                <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                <!-- le div de card des articles -->
+                <div class="card">
+                    <div class="card__top">
+                        <h5><?php the_title(); ?></h5>
+                        <p><?php the_sub_field('tabs_description'); ?></p>
+                        <?php if (have_rows('tabs_biginfos')): ?>
+                        <div class="prices">
+                        <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
+                            <div class="price">
+                                <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
+                                <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
+                                <?php if (get_sub_field('tabs_optional')): ?>
+                                <p><?php the_sub_field('tabs_optional'); ?></p>
+                                <?php endif; ?>
+                            </div>
+                            <?php endwhile; ?>  
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="card__bottom">
+                        <p class="details">Détails</p>
+                        <?php if (have_rows('tabs_details')): ?>
+                        <div class="details">
+                        <?php while (have_rows('tabs_details')) : the_row(); ?>
+                            <div class="detail">
+                                <div class="i">
+                                    <svg class="icon icon--xs">
+                                        <use xlink:href="#icon-i"></use>
+                                    </svg>
+                                </div>
+                                <p><?php the_sub_field('tabs_detail'); ?></p>
+                            </div>
+                            <?php endwhile; ?>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <?php 
+                        $link = get_field('tabs_cta');
+                        if( $link ): 
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                            $link_target = $link['target'] ? $link['target'] : '_self';
+                            ?>
+                    <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
+                    <?php endif; ?>
+                    </div>
+                </div>
+                <div class="card news">
+                    <div class="card__content">
+                        <h5><?php the_title(); ?></h5>
+                        <a class="btn_full" href="<?php the_permalink(); ?>">
+                            <svg class="icon">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card__media">
+                        <?php the_post_thumbnail(); ?>
+                    </div>
+                </div>
+                <?php endwhile; ?>
+          </div>
         </div>
 
         <?php else : ?>
