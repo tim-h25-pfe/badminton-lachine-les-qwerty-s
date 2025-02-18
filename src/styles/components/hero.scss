@@ -65,44 +65,63 @@
     }
 }
 
-.block {
-    .wrapper {
-        border-radius: 30px;
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-        height: 640px;
+.hero.block {
+    height: auto;
+    margin-top: -12%;
+    border-radius: 30px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    position: relative;
+    height: 740px;
+    width: 100%;
+    background-color: var(--color-black);
+    padding-bottom: 0;
+    @media screen and (max-width: $breakpoint-lg) {
+        padding: 0;
+    }
+    @media screen and (max-width: 1100px) {
+        display: flex;
+        flex-direction: column;
+    }
+    .texture {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        right: 0;
         width: 100%;
-        background-color: var(--color-black);
-        @media screen and (max-width: $breakpoint-lg) {
-            padding: 0;
+        opacity: 0.1;
+    }
+    .hero__media {
+        position: relative;
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        z-index: 1;
+        img {
+            display: block;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .hero__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        padding-top: 20%;
+        .underline {
+            color: var(--color-interactive);
+            transform: scale(800%);
         }
         @media screen and (max-width: 1100px) {
-            display: flex;
-            flex-direction: column;
-        }
-        .hero__media {
-            position: relative;
-            border-radius: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .hero__content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            height: 100%;
-            width: 100%;
-            .underline {
-                color: var(--color-interactive);
-                transform: scale(800%);
-            }
-            @media screen and (max-width: 1100px) {
-                gap: 20px;
-            }
+            gap: 20px;
         }
     }
 }
@@ -121,10 +140,15 @@
     }
 }
 
-.zero {
-    .wrapper {
-        grid-template-columns: 1fr;
+.hero.block.zero {
+    grid-template-columns: 1fr;
+    .texture {
+        display: block;
     }
+    .hero__content {
+        padding-top: 10%;
+    }
+
     .hero__media {
         display: none;
     }
