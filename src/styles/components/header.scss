@@ -258,9 +258,9 @@
 
 //Styles pour le bouton inscription
 .bouton_inscription {
-    background-color: var(--color-interactive);
+    
     padding: 10px 28px;
-    border-radius: 10px;
+    
     transition: 0.3s;
     @media screen and (max-width: $breakpoint-xs) {
         display: none;
@@ -414,11 +414,11 @@
     .grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 40px;
+        gap: 100px;
 
         @media screen and (max-width: $breakpoint-md) {
             grid-template-columns: 1fr 1fr;
-
+            gap: 60px;
             align-items: center;
         }
         @media screen and (max-width: $breakpoint-sm) {
