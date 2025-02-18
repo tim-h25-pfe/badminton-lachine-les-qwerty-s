@@ -40,7 +40,6 @@
         position: absolute;
         top: 0;
         left: 0;
-        //filter: grayscale(100%);
         transition: all 0.5s ease;
         img {
             object-fit: cover;
@@ -73,6 +72,7 @@
         width: 100%;
         h5 {
             text-align: center;
+            font-weight: 700;
         }
         .more__content {
             display: flex;
@@ -80,14 +80,10 @@
             gap: var(--spacing-md);
             display: none;
         }
-        .btn_full {
-            border-radius: 50%;
-        }
     }
     &:hover {
-        flex-grow: 2;
+        flex-grow: 1.25;
         .service__media {
-            //filter: grayscale(0%);
             &::before {
                 display: none;
             }
@@ -98,9 +94,6 @@
             align-items: center;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
-        }
-        h5 {
-            text-align: left;
         }
         .more__content {
             display: flex;
