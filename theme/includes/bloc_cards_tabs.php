@@ -102,12 +102,22 @@ endif;
                 'showposts' => -1
             );
             $query = new WP_Query( $args );
+
+            // si the_post_type = nouvelles (ou un autre type de post)
+            // on crée une variable $class = cards infinite
+            //sinon
+            //on crée une variable $class = cards
+
+            //après on mets ça à la place de la classe cards
+
+
             ?>
-            <?php if ( $query->have_posts() ) : ?>
 
-
+    <?php if ( $query->have_posts() ) : ?>
         <div class="cards" data-tab-container="<?php echo esc_html($term->slug); ?>">
-            <!-- while -->
+        <!-- l'article en vedette     -->
+         <!-- un div grid  -->
+        <!-- while -->
             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
             <div class="card">
                 <div class="card__top">
@@ -157,6 +167,7 @@ endif;
                 <?php endif; ?>
                 </div>
             </div>
+            <!-- le div de card des articles -->
             <?php endwhile; ?>
         </div>
 
