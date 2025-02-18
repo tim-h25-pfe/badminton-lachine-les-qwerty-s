@@ -101,3 +101,258 @@
         }
     }
 }
+
+
+//=====================================================================CODE POUR LA PAGE DES SERVICES==============================================================================
+.grid-produits {
+    display: flex;
+    gap: var(--spacing-md);
+    @media screen and (max-width: $breakpoint-md) {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+.informations {
+    margin-top: 150px;
+    display: grid;
+    gap: 120px;
+ 
+    @media screen and (max-width: $breakpoint-sm) {
+        margin-top: 50px;
+        gap: 40px;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        margin-top: 50px;
+        gap: 40px;
+    }
+    .wrapper {
+        @media screen and (min-width: $breakpoint-sm) {
+            // Hide wrapper for screens larger than mobile
+            display: contents;
+            max-width: unset;
+            padding: unset;
+        }
+    }
+    .card_information_left {
+        display: grid;
+        grid-template-columns: 4fr 6fr;
+        gap: 120px;
+
+        @media screen and (max-width: $breakpoint-sm) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        @media screen and (max-width: $breakpoint-xs) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .infos__media {
+            position: sticky;
+            top: 5%;
+            height: 877px;
+            border-radius: 0 30px 30px 0;
+            overflow: hidden;
+
+            @media screen and (max-width: $breakpoint-sm) {
+                position: static;
+                height: 100%;
+                border-radius: 30px 30px 30px 30px;
+            }
+            @media screen and (max-width: $breakpoint-xs) {
+                position: static;
+                height: 100%;
+                border-radius: 30px 30px 30px 30px;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .infos__content {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+            align-items: flex-start;
+            justify-content: center;
+            :nth-child(3) {
+                font-weight: 700;
+            }
+            p {
+                width: 75%;
+                font-weight: 500;
+            }
+        }
+        :nth-child(1) {
+            order: -1;
+        }
+    }
+
+    .card_information_right {
+        display: grid;
+        grid-template-columns: 6fr 4fr;
+        gap: 120px;
+
+        @media screen and (max-width: $breakpoint-sm) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        @media screen and (max-width: $breakpoint-xs) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .infos__media {
+            position: relative;
+            top: unset;
+            border-radius: 30px 0 0 30px;
+            overflow: hidden;
+            @media screen and (max-width: $breakpoint-sm) {
+                position: static;
+
+                height: 877px;
+                border-radius: 30px 30px 30px 30px;
+            }
+            @media screen and (max-width: $breakpoint-xs) {
+                position: static;
+
+                height: 877px;
+                height: 100%;
+                border-radius: 30px 30px 30px 30px;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .infos__content {
+            display: flex;
+            flex-direction: unset;
+            top: unset;
+            align-items: center;
+
+            .test {
+                position: absolute;
+                left: 6.7%;
+                display: flex;
+                flex-direction: column;
+                gap: 45px;
+
+                justify-content: center;
+                @media screen and (max-width: $breakpoint-md) {
+                    width: 53%;
+                }
+                @media screen and (max-width: $breakpoint-sm) {
+                    position: static;
+                }
+                @media screen and (max-width: $breakpoint-xs) {
+                    position: static;
+                }
+
+                p {
+                    width: 75%;
+                    font-weight: 500;
+                }
+                :nth-child(1) {
+                    order: -1;
+                }
+            }
+        }
+
+        :nth-child(1) {
+            order: 2;
+            @media screen and (max-width: $breakpoint-sm) {
+                order: -1;
+            }
+            @media screen and (max-width: $breakpoint-xs) {
+                order: -1;
+            }
+        }
+    }
+}
+
+.service_no_hover {
+    flex: 1;
+    transition: all 0.5s ease;
+    height: 75vh;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    @media screen and (max-width: $breakpoint-md) {
+        height: 50vh;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        height: 50vh;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        height: 50vh;
+    }
+    .media {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        transition: all 0.5s ease;
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        &::before {
+            z-index: 1;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            height: 35%;
+            width: 100%;
+        }
+    }
+    .content {
+        padding: var(--spacing-md);
+        color: var(--color-white);
+        z-index: 2;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+        height: 100%;
+        h5 {
+            text-align: center;
+        }
+
+        .btn_full {
+            border-radius: 50%;
+        }
+
+        .content_more {
+            display: flex;
+        }
+    }
+}
+
+.service_no_hover:hover {
+    flex-grow: 1;
+}
+
