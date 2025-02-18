@@ -1,5 +1,5 @@
 <section class="hero block <?php the_field('hero_align'); ?>">
-    <div class="wrapper">
+    
         <div class="hero__media">
             <img class="bgHero" src="<?php the_post_thumbnail_url(); ?>" alt="hero" />
         </div>
@@ -11,5 +11,5 @@
                 </svg>
             </div>
         </div>
-    </div>
+    
 </section>
