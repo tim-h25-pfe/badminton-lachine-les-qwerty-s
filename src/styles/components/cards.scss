@@ -57,7 +57,8 @@
         position: relative;
         border-radius: 30px;
         overflow: hidden;
-        padding: var(--spacing-md);
+        display: flex;
+        align-items: flex-end;
         .card__media {
             z-index: 1;
             position: absolute;
@@ -70,31 +71,29 @@
                 width: 100%;
                 height: 100%;
             }
-            &::before {
-                z-index: 2;
-                content: '';
-                background: linear-gradient(
-                    to top,
-                    rgba(0, 0, 0, 0.8),
-                    rgba(0, 0, 0, 0)
-                );
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-            }
         }
         .card__content {
-            color: var(--color-inactive);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: var(--spacing-md);
+            height: fit-content;
+            width: 100%;
+            background-color: var(--color-terciary);
             z-index: 3;
             position: relative;
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
-            height: 100%;
+            .text {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-lg);
+                h5 {
+                    font-weight: 600;
+                }
+            }
             .btn_full {
-                background-color: rgba(253, 255, 252, 0.7);
                 color: var(--color-black);
             }
         }

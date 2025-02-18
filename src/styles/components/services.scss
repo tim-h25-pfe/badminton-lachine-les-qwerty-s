@@ -13,20 +13,8 @@
         }
     }
 }
-.services {
-    .btn_full {
-        &.btn_top {
-            @media screen and (max-width: $breakpoint-lg) {
-                display: none;
-            }
-        }
-        &.btn_bottom {
-            margin-top: var(--spacing-md);
-            @media screen and (min-width: $breakpoint-lg) {
-                display: none;
-            }
-        }
-    }
+.services .btn_full:hover {
+    background-color: var(--color-interactive);
 }
 
 // ----- grid services ----- //
@@ -52,7 +40,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        filter: grayscale(100%);
+        //filter: grayscale(100%);
         transition: all 0.5s ease;
         img {
             object-fit: cover;
@@ -68,6 +56,7 @@
             background: rgba(0, 0, 0, 0.5);
             height: 100%;
             width: 100%;
+            backdrop-filter: blur(10px);
         }
     }
     .service__content {
@@ -81,6 +70,7 @@
         align-items: center;
         gap: var(--spacing-md);
         height: 100%;
+        width: 100%;
         h5 {
             text-align: center;
         }
@@ -97,7 +87,7 @@
     &:hover {
         flex-grow: 2;
         .service__media {
-            filter: grayscale(0%);
+            //filter: grayscale(0%);
             &::before {
                 display: none;
             }
@@ -105,8 +95,9 @@
         .service__content {
             height: fit-content;
             justify-content: flex-end;
-            align-items: flex-start;
-            background: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
         }
         h5 {
             text-align: left;
