@@ -37,11 +37,46 @@ endif;
 			        'order' => 'ASC',
                     'hide_empty' => true,          // Ne pas afficher les catégories sans articles
                 ));
+
+                $taxonomie = $slug; // Remplace par ta taxonomie
+
+                $tax_details = get_taxonomy($taxonomie);
+
+                if ( ! $tax_details || ! isset($tax_details->object_type) || empty($tax_details->object_type) ) {
+                    // Log ou afficher un message d'erreur pour déboguer
+                    print_r("La taxonomie spécifiée n'est pas valide ou n'a pas de type d'objet associé.");
+                    return;
+                }
+
+                $the_post_type = $tax_details->object_type[0];
+
+                
+                // si the_post_type = nouvelles (ou un autre type de post avec image)
+                if ($the_post_type == 'new') {
+                    // on crée une variable 
+                    $class = 'news';
+                }
+                else{
+                    $class = 'nothing';
+                }
                 ?>
 
             <?php if (!empty($terms) && !is_wp_error($terms)) : ?>
             <nav>
                 <ul>
+                    <!-- if actualités  -->
+                     <!-- le li magique  -->
+                     <?php if ($the_post_type == 'new') : ?>
+                        <li>
+                            <a class="btn_circled" data-tab-open="global">
+                                Tout
+                                <svg class="icon">
+                                    <use xlink:href="#icon-cercleDessin"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                     
                 <?php foreach ($terms as $term) : ?>
                     <li>
                         <a class="btn_circled" data-tab-open="<?php echo esc_html($term->slug); ?>">
@@ -68,21 +103,121 @@ endif;
 			        'order' => 'ASC',
                     'hide_empty' => true,          // Ne pas afficher les catégories sans articles
                 ));
-
-                $taxonomie = $slug; // Remplace par ta taxonomie
-
-                $tax_details = get_taxonomy($taxonomie);
-
-                if ( ! $tax_details || ! isset($tax_details->object_type) || empty($tax_details->object_type) ) {
-                    // Log ou afficher un message d'erreur pour déboguer
-                    print_r("La taxonomie spécifiée n'est pas valide ou n'a pas de type d'objet associé.");
-                    return;
-                }
-
-                $the_post_type = $tax_details->object_type[0];
                 ?>
+                
+    <?php if ($the_post_type == 'new') : ?>
+                    
+            <?php   
+            $argsglobal = array(
+                'post_type' => $the_post_type,
+                'post_status' => 'publish',
+                'orderby' => 'publish',
+			    'order' => 'ASC',
+                'posts_per_page' => -1,
+            );
+            $queryg = new WP_Query( $argsglobal );
+            ?>
+        <?php if ( $queryg->have_posts() ) : ?>
+        <div class="cards <?php echo $class ?>" data-tab-container="global">
+            <!-- l'article en vedette  - acf relation -->
+            <?php $posts = get_sub_field('grid_vedette'); ?>
+            <?php if ($posts) : ?>
+                <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
+            <div class="card news first">
+                    <div class="card__content">
+                        <h5><?php echo get_the_title($p->ID); ?></h5>
+                        <a class="btn_full" href="<?php echo get_permalink($p->ID); ?>">
+                            <svg class="icon">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card__media">
+                    <?php echo get_the_post_thumbnail($p->ID); ?>
+                    </div>
+            </div>
+            <?php endforeach; ?>
+            <?php endif; ?>
+            <!-- un div grid  -->
+            <div class="grid">
+                    <!-- while -->
+                    <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
+                    <!-- le div de card des articles -->
+                    <div class="card">
+                        <div class="card__top">
+                            <h5><?php the_title(); ?></h5>
+                            <p><?php the_sub_field('tabs_description'); ?></p>
+                            <?php if (have_rows('tabs_biginfos')): ?>
+                            <div class="prices">
+                            <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
+                                <div class="price">
+                                    <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
+                                    <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
+                                    <?php if (get_sub_field('tabs_optional')): ?>
+                                    <p><?php the_sub_field('tabs_optional'); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                                <?php endwhile; ?>  
+                            </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="card__bottom">
+                            <p class="details">Détails</p>
+                            <?php if (have_rows('tabs_details')): ?>
+                            <div class="details">
+                            <?php while (have_rows('tabs_details')) : the_row(); ?>
+                                <div class="detail">
+                                    <div class="i">
+                                        <svg class="icon icon--xs">
+                                            <use xlink:href="#icon-i"></use>
+                                        </svg>
+                                    </div>
+                                    <p><?php the_sub_field('tabs_detail'); ?></p>
+                                </div>
+                                <?php endwhile; ?>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php 
+                            $link = get_field('tabs_cta');
+                            if( $link ): 
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self';
+                                ?>
+                        <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="card news">
+                        <div class="card__content">
+                            <h5><?php the_title(); ?></h5>
+                            <a class="btn_full" href="<?php the_permalink(); ?>">
+                                <svg class="icon">
+                                    <use xlink:href="#icon-fleche"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="card__media">
+                            <?php the_post_thumbnail(); ?>
+                        </div>
+                    </div>
+                    <?php endwhile; ?>
+            </div>
+        </div>
+
+        <?php else : ?>
+                <p>Aucune catégorie trouvée.</p>
+        <?php endif; ?>
+            
+    <?php endif; ?>    
 
 
+            
+
+
+
+                
         <?php if (!empty($terms) && !is_wp_error($terms)) : ?>
         <!-- while -->
        
@@ -108,16 +243,6 @@ endif;
                 ),
             );
             $query = new WP_Query( $args );
-            ?>
-           
-            
-            <?php 
-            // si the_post_type = nouvelles (ou un autre type de post)
-            if ($the_post_type == 'new') {
-                // on crée une variable 
-                $class = 'news';
-                //print_r($class);
-            }
             ?>
 
 
@@ -216,5 +341,7 @@ endif;
         <?php endif; ?>
         <?php endforeach?>
     <?php endif; ?>
+
+
     </div>
 </section>

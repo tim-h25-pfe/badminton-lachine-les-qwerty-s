@@ -19,6 +19,14 @@ export default class Tabs {
 
   initTabs() {
     console.log('reset tabs');
+    for (let i = 0; i < this.openers.length; i++) {
+      const opener = this.openers[i];
+      opener.classList.remove('active');
+    }
+    for (let i = 0; i < this.containers.length; i++) {
+      const container = this.containers[i];
+      container.classList.remove('active');
+    }
     const firstOpener = this.openers[0];
     firstOpener.classList.add('active');
     const firstTab = this.containers[0];

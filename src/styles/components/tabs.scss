@@ -179,6 +179,8 @@
     }
     .cards.news {
         display: none;
+        justify-content: space-evenly;
+        gap: 40px;
         &.active {
             display: flex;
         }
@@ -188,7 +190,7 @@
         .grid {
             display: flex;
             flex-direction: column;
-            width: 60%;
+            width: 50%;
         }
         .news {
             display: block;
@@ -199,6 +201,7 @@
             overflow: hidden;
             padding: var(--spacing-md);
             width: 100%;
+            padding: 0;
             .card__media {
                 z-index: 1;
                 position: absolute;
@@ -227,12 +230,15 @@
                 }
             }
             .card__content {
+                transition: all ease-out 0.3s;
+                padding: 50px;
                 color: var(--color-inactive);
                 z-index: 3;
                 position: relative;
                 display: flex;
                 align-items: flex-end;
                 justify-content: space-between;
+
                 height: 100%;
                 h5 {
                     width: 70%;
@@ -251,11 +257,11 @@
             }
         }
         .first {
-            aspect-ratio: 1/1.2;
+            aspect-ratio: 1/1.1;
             height: min-content;
             position: sticky;
-            top: 10%;
-            width: auto;
+            top: 15%;
+            width: 40%;
         }
     }
 }
