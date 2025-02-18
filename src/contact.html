@@ -1,0 +1,94 @@
+{% include '_partials/_header.html' %}
+
+<section class="contact">
+    <div class="wrapper">
+        <div class="contact_grid">
+            <div class="contact_contenu">
+                <h3>Contactez-nous</h3>
+                <div class="contenu_description">
+                    <p>Nous serions ravis d’échanger avec vous !</p>
+                    <p>N’hésitez pas à nous contacter en remplissant le formulaire suivant.</p>
+                </div>
+
+                <div class="contact_courriel">
+                    <h6>Courriel</h6>
+                    <a href="mailto:contact@badmintonlachine.com" target="_blank">contact@badmintonlachine.com</a>
+                </div>
+                <div class="contact_adresse">
+                    <h6>Adresse du club</h6>
+                    <a href="https://maps.app.goo.gl/kqeBZsaCEtqf2Evu5" target="_blank"
+                        >2901, boulevard Saint-Joseph Lachine H8S 4B7
+                    </a>
+                </div>
+                <div class="contact_sociaux">
+                    <h6>Réseaux sociaux</h6>
+                    <div class="social_icon">
+                        <a href="https://www.facebook.com/share/159mDcyLqi/?mibextid=wwXIfr" target="_blank"
+                            ><img src="assets/icons/facebook.svg" alt="facebook"
+                        /></a>
+                        <a href="https://www.instagram.com/badmintonlachine?igsh=MXFmMTIxcDdoZW90aA==" target="_blank"
+                            ><img src="assets/icons/instagram.svg" alt="instagram"
+                        /></a>
+                    </div>
+                </div>
+                <div class="contact_liens">
+                    <h6>Voici quelques liens utilies :</h6>
+                    <div class="liens">
+                        <ul>
+                            <li><a href="https://reseausportsadultes.com/" target="_blank">RSL</a></li>
+                            <li>
+                                <a href="https://laplumedequebec.wordpress.com/" target="_blank">Plume de Québec</a>
+                            </li>
+                            <li>
+                                <a href="https://icbadmontreal.com/" target="_blank">Championnat Interclub Montréal</a>
+                            </li>
+                            <li>
+                                <a href="https://www.badminton.ca/" target="_blank"
+                                    >Badminton Canada (tournois nationaux)</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://www.badmintonquebec.com/" target="_blank"
+                                    >Badminton Québec (tournois ABC et Juniors provinciaux)</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact_formulaire">
+                <form class="contact_form">
+                    <div class="formulaire_nom">
+                        <div class="form_group">
+                            <label for="name">Prénom *</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+
+                        <div class="form_group">
+                            <label for="name">Nom *</label>
+                            <input type="text" id="firstname" name="name" required />
+                        </div>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="email">Adresse courriel *</label>
+                        <input type="email" id="email" name="_replyto" required />
+                    </div>
+
+                    <div class="form_group">
+                        <label for="subject">Sujet *</label>
+                        <input type="text" id="subject" name="subject" required />
+                    </div>
+                    <div class="form_group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" aria-label="Bouton_send">ENVOYER</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include '_partials/_footer.html' %}
