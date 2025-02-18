@@ -11,6 +11,14 @@
             fill: var(--color-black);
             width: 150px;
             height: 150px;
+            @media screen and (max-width: $breakpoint-lg) {
+                width: 100px;
+                height: 100px;
+                @media screen and (max-width: $breakpoint-sm) {
+                    width: 75px;
+                    height: 75px;
+                }
+            }
         }
     }
     .bkg_filter {

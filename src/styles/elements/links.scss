@@ -46,6 +46,48 @@ a.logo {
     z-index: 999;
 }
 
+// ----- lien vers page contact ----- //
+.lien-contact {
+    display: flex;
+    gap: var(--spacing-lg);
+    text-decoration: none;
+    text-transform: none;
+    width: 100%;
+
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-xl);
+    border: 3px solid var(--color-black);
+    border-radius: 30px;
+
+    transition: all 0.5s ease-out;
+
+    @media screen and (max-width: $breakpoint-md) {
+        margin: 0;
+        padding: var(--spacing-lg);
+        @media screen and (max-width: $breakpoint-sm) {
+            gap: var(--spacing-md);
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    &:hover {
+        color: var(--color-black);
+        border-color: var(--color-interactive-light);
+        background-color: var(--color-interactive-light);
+    }
+    .lien-contact__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        h2 {
+            margin: 0;
+        }
+        @media screen and (max-width: $breakpoint-sm) {
+            align-items: flex-start;
+        }
+    }
+}
+
 /*a:has(> svg) {
     color: var(--color-primary);
     display: flex;

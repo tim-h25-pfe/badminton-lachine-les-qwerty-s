@@ -1,8 +1,21 @@
 .hero {
     color: var(--color-white);
     position: relative;
-    height: 80vh;
+    height: 100vh;
     margin: var(--spacing-md) 0;
+    margin-top: -13%;
+    @media screen and (max-width: $breakpoint-lg) {
+        margin-top: -16%;
+        @media screen and (max-width: $breakpoint-md) {
+            margin-top: -18%;
+            @media screen and (max-width: $breakpoint-md) {
+                margin-top: -40%;
+                @media screen and (max-width: $breakpoint-md) {
+                    margin-top: -43%;
+                }
+            }
+        }
+    }
     // --- hero media --- //
     .hero__media,
     .bgHero {
@@ -11,6 +24,7 @@
         object-fit: cover;
         position: absolute;
     }
+
     .hero__media {
         position: absolute;
         top: 0;
@@ -19,7 +33,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 50px;
+        border-radius: 0 0 50px 50px;
         z-index: -1;
         overflow: hidden;
     }
