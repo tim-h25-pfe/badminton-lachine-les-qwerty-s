@@ -69,14 +69,13 @@ endif;
                     'hide_empty' => true,          // Ne pas afficher les catégories sans articles
                 ));
 
-                
                 $taxonomie = $slug; // Remplace par ta taxonomie
 
                 $tax_details = get_taxonomy($taxonomie);
 
                 if ( ! $tax_details || ! isset($tax_details->object_type) || empty($tax_details->object_type) ) {
                     // Log ou afficher un message d'erreur pour déboguer
-                    echo "La taxonomie spécifiée n'est pas valide ou n'a pas de type d'objet associé.";
+                    print_r("La taxonomie spécifiée n'est pas valide ou n'a pas de type d'objet associé.");
                     return;
                 }
 
@@ -95,42 +94,55 @@ endif;
         <?php 
             $args = array(
                 'post_type' => $the_post_type,
-                'category_name' => $term->slug,
                 'post_status' => 'publish',
                 'orderby' => 'publish',
 			    'order' => 'ASC',
-                'showposts' => -1
+                'posts_per_page' => -1,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => $slug,
+                        'field'    => 'slug',
+                        'terms'    => $term->slug,
+                        'operator' => 'IN',
+                    ),
+                ),
             );
             $query = new WP_Query( $args );
             ?>
-
+           
+            
             <?php 
             // si the_post_type = nouvelles (ou un autre type de post)
             if ($the_post_type == 'new') {
                 // on crée une variable 
                 $class = 'news';
-                print_r($class);
+                //print_r($class);
             }
             ?>
 
 
-
     <?php if ( $query->have_posts() ) : ?>
+        
         <div class="cards <?php echo $class ?>" data-tab-container="<?php echo esc_html($term->slug); ?>">
         <!-- l'article en vedette  - acf relation -->
+        <?php $posts = get_sub_field('grid_vedette'); ?>
+        <?php if ($posts) : ?>
+            <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
         <div class="card news first">
                 <div class="card__content">
-                    <h5>Gala de la reconnaissance</h5>
-                    <a class="btn_full" href="#">
+                    <h5><?php echo get_the_title($p->ID); ?></h5>
+                    <a class="btn_full" href="<?php echo get_permalink($p->ID); ?>">
                         <svg class="icon">
                             <use xlink:href="#icon-fleche"></use>
                         </svg>
                     </a>
                 </div>
                 <div class="card__media">
-                    <img src="assets/images/card.png" alt="image de la nouvelle" />
+                <?php echo get_the_post_thumbnail($p->ID); ?>
                 </div>
             </div>
+        <?php endforeach; ?>
+        <?php endif; ?>
          <!-- un div grid  -->
           <div class="grid">
                 <!-- while -->
@@ -154,8 +166,6 @@ endif;
                         </div>
                         <?php endif; ?>
                     </div>
-
-                    
                     <div class="card__bottom">
                         <p class="details">Détails</p>
                         <?php if (have_rows('tabs_details')): ?>
@@ -199,7 +209,6 @@ endif;
                 </div>
                 <?php endwhile; ?>
           </div>
-            
         </div>
 
         <?php else : ?>

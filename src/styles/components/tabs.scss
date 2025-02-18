@@ -178,7 +178,10 @@
         }
     }
     .cards.news {
-        display: flex;
+        display: none;
+        &.active {
+            display: flex;
+        }
         .card {
             display: none;
         }
