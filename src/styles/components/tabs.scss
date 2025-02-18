@@ -195,13 +195,41 @@
         .news {
             display: block;
             border: none;
-            aspect-ratio: 2/1;
+            aspect-ratio: 1.5/1;
             position: relative;
             border-radius: 30px;
             overflow: hidden;
             padding: var(--spacing-md);
             width: 100%;
             padding: 0;
+            .bg {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 40%;
+                background-color: var(--color-terciary);
+                z-index: 2;
+            }
+            p {
+                color: var(--color-white);
+                opacity: 0.5;
+            }
+            .category {
+                display: block;
+                background-color: var(--color-terciary);
+                backdrop-filter: blur(10px);
+                border-radius: 999px;
+                padding: 5px 20px;
+                color: var(--color-white);
+                opacity: 1;
+                font-weight: 500;
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 40px;
+                font-size: var(--font-size-content);
+            }
             .card__media {
                 z-index: 1;
                 position: absolute;
@@ -213,6 +241,13 @@
                     object-fit: cover;
                     width: 100%;
                     height: 100%;
+                    transition: all ease-out 0.3s;
+                    transform: scale(1);
+                }
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
                 }
                 &::before {
                     z-index: 2;
@@ -235,18 +270,27 @@
                 color: var(--color-inactive);
                 z-index: 3;
                 position: relative;
+                height: 100%;
                 display: flex;
                 align-items: flex-end;
                 justify-content: space-between;
-
-                height: 100%;
-                h5 {
+                .texte {
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 20px;
                     width: 70%;
+                }
+                h5 {
+                    width: 100%;
+                    font-weight: 600;
                 }
                 .btn_full {
                     transition: 0.3s all ease-out;
-                    background-color: rgba(253, 255, 252, 0.7);
+                    background-color: var(--color-white);
                     color: var(--color-black);
+                    border-radius: 999px;
+                    padding: 10px 17px;
                 }
             }
             &:hover {
