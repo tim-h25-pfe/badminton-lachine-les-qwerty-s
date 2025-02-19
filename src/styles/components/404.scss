@@ -8,8 +8,10 @@ section.error {
     gap: 10%;
     background-color: var(--color-bg-primary);
     h1 {
+        max-width: 70%;
         font-family: var(--font-primary);
-        color: var(--color-white);
+        color: var(--color-black);
         font-size: var(--font-size-h1);
+        text-align: center;
     }
 }
