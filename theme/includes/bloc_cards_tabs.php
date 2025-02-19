@@ -209,6 +209,7 @@ endif;
         <?php else : ?>
                 <p>Aucune catégorie trouvée.</p>
         <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
             
     <?php endif; ?>    
 
@@ -339,9 +340,11 @@ endif;
         <?php else : ?>
                 <p>Aucune catégorie trouvée.</p>
         <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
         <?php endforeach?>
     <?php endif; ?>
 
+    <?php wp_reset_postdata(); ?>
 
     </div>
 </section>

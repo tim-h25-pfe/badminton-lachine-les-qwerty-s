@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="push_content">
             <div class="titre">
-                <h4><?php the_field('banner_titre'); ?></h4>
+                <h4><?php the_sub_field('banner_titre'); ?></h4>
                 <div class="underline">
                     <svg class="icon icon--lg">
                         <use xlink:href="#icon-ligneDessin"></use>
@@ -10,10 +10,10 @@
                 </div>
             </div>
             <p>
-            <?php the_field('banner_resume'); ?>
+            <?php the_sub_field('banner_resume'); ?>
             </p>
             <?php 
-                    $link = get_field('banner_link');
+                    $link = get_sub_field('banner_link');
                     if( $link ): 
                         $link_url = $link['url'];
                         $link_title = $link['title'];
@@ -23,7 +23,10 @@
                 <?php endif; ?>
         </div>
         <div class="push_media">
-            <img src="assets/images/hero.png" alt="hero" />
+        <?php $image = get_sub_field('banner_image'); ?>
+                 <?php if ($image): ?>
+                     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                 <?php endif ?>
         </div>
     </div>
 </section>
