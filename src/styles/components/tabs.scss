@@ -4,6 +4,11 @@
     transition: all 0.3s ease-out;
     div.active {
         display: flex;
+        justify-content: center;
+        @media screen and (max-width: $breakpoint-lg) {
+            flex-direction: column;
+            align-items: center;
+        }
         .grid {
             display: grid;
             transform: translateY(0);
@@ -15,6 +20,14 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 50px;
+        @media screen and (max-width: $breakpoint-md) {
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            align-items: flex-start;
+            @media screen and (max-width: $breakpoint-sm) {
+                padding: 0;
+            }
+        }
         ul {
             list-style: none;
             padding: 0;
@@ -23,6 +36,9 @@
             align-items: center;
             justify-content: space-evenly;
             gap: 70px;
+            @media screen and (max-width: $breakpoint-sm) {
+                gap: var(--spacing-md);
+            }
             .btn_circled {
                 cursor: pointer;
                 color: var(--color-black);
@@ -36,6 +52,9 @@
                     width: 20px;
                     display: none;
                     overflow: visible;
+                    @media screen and (max-width: $breakpoint-sm) {
+                        transform: scale(400%);
+                    }
                 }
                 &.active {
                     .icon {
@@ -64,6 +83,15 @@
         margin-top: 100px;
         .grid {
             grid-template-columns: 1fr 1fr 1fr 1fr;
+            @media screen and (max-width: $breakpoint-lg) {
+                grid-template-columns: 1fr 1fr 1fr;
+                @media screen and (max-width: $breakpoint-md) {
+                    grid-template-columns: 1fr 1fr;
+                    @media screen and (max-width: $breakpoint-sm) {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            }
             gap: 70px 40px;
         }
 
@@ -90,6 +118,10 @@
             justify-content: space-between;
             flex-direction: column;
             height: auto;
+
+            @media screen and (max-width: $breakpoint-lg) {
+                width: fit-content;
+            }
             .card__top {
                 p {
                     font-weight: 500;
@@ -103,12 +135,11 @@
                     div.price {
                         display: flex;
                         width: 100%;
-                        align-items: flex-end;
+                        align-items: baseline;
                         justify-content: flex-start;
                         gap: 15px;
                         p {
                             color: gray;
-                            padding-bottom: 10px;
                         }
                         p.price {
                             transition: all ease-out 0.3s;
@@ -169,6 +200,7 @@
                 }
                 .btn_full {
                     transform: translateY(0);
+                    background-color: var(--color-interactive);
                 }
             }
         }
@@ -191,6 +223,10 @@
             display: flex;
             flex-direction: column;
             width: 50%;
+            @media screen and (max-width: $breakpoint-lg) {
+                width: 100%;
+                gap: var(--spacing-md);
+            }
         }
         .news {
             display: block;
@@ -202,6 +238,13 @@
             padding: var(--spacing-md);
             width: 100%;
             padding: 0;
+            @media screen and (max-width: $breakpoint-lg) {
+                aspect-ratio: auto;
+                aspect-ratio: 1/0.2;
+                @media screen and (max-width: $breakpoint-sm) {
+                    aspect-ratio: 1/0.6;
+                }
+            }
             .card__media {
                 z-index: 1;
                 position: absolute;
@@ -238,8 +281,12 @@
                 display: flex;
                 align-items: flex-end;
                 justify-content: space-between;
-
                 height: 100%;
+                @media screen and (max-width: $breakpoint-md) {
+                    padding: var(--spacing-md);
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
                 h5 {
                     width: 70%;
                 }
@@ -262,6 +309,15 @@
             position: sticky;
             top: 15%;
             width: 40%;
+            @media screen and (max-width: $breakpoint-lg) {
+                position: relative;
+                aspect-ratio: auto;
+                width: 100%;
+                aspect-ratio: 1/0.4;
+                @media screen and (max-width: $breakpoint-sm) {
+                    aspect-ratio: 1/0.8;
+                }
+            }
         }
     }
 }

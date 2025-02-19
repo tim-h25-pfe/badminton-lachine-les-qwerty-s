@@ -102,7 +102,6 @@
     }
 }
 
-
 //=====================================================================CODE POUR LA PAGE DES SERVICES==============================================================================
 .grid-produits {
     display: flex;
@@ -128,7 +127,7 @@
     margin-top: 150px;
     display: grid;
     gap: 120px;
- 
+
     @media screen and (max-width: $breakpoint-sm) {
         margin-top: 50px;
         gap: 40px;
@@ -137,6 +136,7 @@
         margin-top: 50px;
         gap: 40px;
     }
+
     .wrapper {
         @media screen and (min-width: $breakpoint-sm) {
             // Hide wrapper for screens larger than mobile
@@ -145,11 +145,13 @@
             padding: unset;
         }
     }
-    .card_information_left {
+    .card_information {
         display: grid;
         grid-template-columns: 4fr 6fr;
         gap: 120px;
-
+        @media screen and (max-width: $breakpoint-md) {
+            gap: 100px;
+        }
         @media screen and (max-width: $breakpoint-sm) {
             grid-template-columns: 1fr;
             gap: 40px;
@@ -188,6 +190,7 @@
             gap: 45px;
             align-items: flex-start;
             justify-content: center;
+
             :nth-child(3) {
                 font-weight: 700;
             }
@@ -196,16 +199,14 @@
                 font-weight: 500;
             }
         }
+    }
+    .left {
         :nth-child(1) {
             order: -1;
         }
     }
-
-    .card_information_right {
-        display: grid;
+    .right {
         grid-template-columns: 6fr 4fr;
-        gap: 120px;
-
         @media screen and (max-width: $breakpoint-sm) {
             grid-template-columns: 1fr;
             gap: 40px;
@@ -215,7 +216,6 @@
             gap: 40px;
         }
         .infos__media {
-            position: relative;
             top: unset;
             border-radius: 30px 0 0 30px;
             overflow: hidden;
@@ -240,46 +240,34 @@
         }
 
         .infos__content {
+            margin-left: 225px;
             display: flex;
-            flex-direction: unset;
+            flex-direction: column;
             top: unset;
-            align-items: center;
-
-            .test {
-                position: absolute;
-                left: 6.7%;
-                display: flex;
-                flex-direction: column;
-                gap: 45px;
-
-                justify-content: center;
-                @media screen and (max-width: $breakpoint-md) {
-                    width: 53%;
-                }
-                @media screen and (max-width: $breakpoint-sm) {
-                    position: static;
-                }
-                @media screen and (max-width: $breakpoint-xs) {
-                    position: static;
-                }
-
-                p {
-                    width: 75%;
-                    font-weight: 500;
-                }
-                :nth-child(1) {
-                    order: -1;
-                }
+            align-items: flex-start;
+            justify-content: center;
+            order: -2;
+            width: 100%;
+            @media screen and (max-width: $breakpoint-md) {
+                margin-left: 50px;
+            }
+            @media screen and (max-width: $breakpoint-sm) {
+                margin: 0;
+                order: 1;
+            }
+            @media screen and (max-width: $breakpoint-xs) {
+                margin: 0;
+                order: 1;
             }
         }
 
         :nth-child(1) {
-            order: 2;
+            order: -1;
             @media screen and (max-width: $breakpoint-sm) {
-                order: -1;
+                order: -2;
             }
             @media screen and (max-width: $breakpoint-xs) {
-                order: -1;
+                order: -2;
             }
         }
     }
@@ -303,28 +291,17 @@
     @media screen and (max-width: $breakpoint-xs) {
         height: 50vh;
     }
-    .media {
+    .service__media {
         height: 100%;
         width: 100%;
         position: absolute;
         top: 0;
         left: 0;
-
         transition: all 0.5s ease;
         img {
             object-fit: cover;
             width: 100%;
             height: 100%;
-        }
-        &::before {
-            z-index: 1;
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            background: rgba(0, 0, 0, 0.5);
-            height: 35%;
-            width: 100%;
         }
     }
     .content {
@@ -352,7 +329,51 @@
     }
 }
 
+.service {
+    .service__content {
+        padding: var(--spacing-md);
+        color: var(--color-white);
+        z-index: 2;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-md);
+        height: 100%;
+        width: 100%;
+        h5 {
+            text-align: center;
+            font-weight: 700;
+        }
+        .more__content {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            display: none;
+        }
+    }
+    &:hover {
+        flex-grow: 1.25;
+        .service__media {
+            &::before {
+                display: none;
+            }
+        }
+        .service__content {
+            height: fit-content;
+            justify-content: flex-end;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        .more__content {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
 .service_no_hover:hover {
     flex-grow: 1;
 }
-
