@@ -35,7 +35,7 @@ a.btn_full {
     }
 }
 
-a.btn_circled {
+.btn_circled {
     color: var(--color-white);
     text-transform: uppercase;
     display: block;
@@ -63,13 +63,13 @@ a.btn_outline {
     }
 }
 
-a.btn_round {
+.btn_round {
     border-radius: 50%;
     background-color: var(--color-white);
-    padding: 5px 12px;
+    padding: 12px;
 }
 
-a.btn_white {
+.btn_white {
     background-color: var(--color-white);
     color: var(--color-black);
     &:hover {
