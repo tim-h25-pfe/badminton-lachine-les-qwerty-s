@@ -56,6 +56,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media screen and (max-width: $breakpoint-md) {
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
         padding: 40px;
         .push_content {
             display: flex;
@@ -93,7 +97,7 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            width: 800px;
+            width: 100%;
             border-radius: 30px;
             object-fit: cover;
             overflow: hidden;
