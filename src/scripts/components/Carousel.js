@@ -35,6 +35,12 @@ export default class Carousel {
           },
         },
       };
+    } else if (this.element.classList.contains('js-swiper-coursPrives')) {
+      this.options = {
+        slidesPerView: 1.5,
+        spaceBetween: 25,
+        autoHeight: true,
+      };
     }
 
     this.init();

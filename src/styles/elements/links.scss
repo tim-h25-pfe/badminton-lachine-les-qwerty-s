@@ -10,12 +10,9 @@ a {
     text-decoration: none;
     font-weight: 700;
     cursor: pointer;
-    &:hover {
-        color: var(--color-primary);
-    }
 }
 
-a.btn_full {
+.btn_full {
     color: var(--color-white);
     padding: 15px 25px;
     display: block;
@@ -52,7 +49,7 @@ a.btn_full {
     }
 }
 
-a.btn_outline {
+.btn_outline {
     background-color: transparent;
     border: 3px solid var(--color-white);
     padding: 10px 15px;
