@@ -56,3 +56,10 @@
 .submit-btn {
     width: 25%;
 }
+
+.contact_form {
+    input {
+        border: none;
+        background-color: var(--color-interactive-light);
+    }
+}

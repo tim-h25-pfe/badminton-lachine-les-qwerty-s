@@ -23,8 +23,10 @@
                 <?php endif; ?>
         </div>
         <div class="push_media">
-        banner_image
-            <img src="<?php bloginfo('template_url') ?>/assets/images/card.png" alt="hero" />
+        <?php $image = get_sub_field('banner_image'); ?>
+                 <?php if ($image): ?>
+                     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                 <?php endif ?>
         </div>
     </div>
 </section>
