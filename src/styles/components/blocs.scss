@@ -269,3 +269,82 @@
         }
     }
 }
+
+// div du bloc texte-liste
+.text-list {
+    max-width: $breakpoint-lg;
+    width: calc(100% - var(--spacing-md));
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    .titre {
+        position: sticky;
+        top: 20%;
+        height: fit-content;
+        h4 {
+            font-weight: 600;
+            width: 70%;
+        }
+        hr {
+            border: solid 2px var(--color-black);
+        }
+    }
+}
+
+section .text-list {
+    margin: 0 auto;
+}
+
+.paragraphe {
+    display: grid;
+    gap: 30px;
+}
+
+ul.employees {
+    list-style: none;
+    display: grid;
+    gap: 20px;
+    padding: 0;
+    li {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        p {
+            letter-spacing: 1px;
+        }
+    }
+    .name {
+        font-size: var(--font-size-h6);
+        font-weight: 600;
+        letter-spacing: 0px;
+    }
+    .icone {
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-black);
+        border-radius: 999px;
+        padding: 15px;
+        margin-right: 3%;
+    }
+    .circle {
+        background-color: var(--color-black);
+        height: 15px;
+        width: 15px;
+        border-radius: 999px;
+    }
+}
+
+.text-list.texte {
+    ul.employees {
+        display: none;
+    }
+}
+
+.text-list.liste {
+    .paragraphe {
+        display: none;
+    }
+}
