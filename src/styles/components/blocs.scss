@@ -269,3 +269,123 @@
         }
     }
 }
+
+// div du bloc texte-liste
+.text-list {
+    max-width: $breakpoint-lg;
+    width: calc(100% - var(--spacing-md));
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    .titre {
+        position: sticky;
+        top: 20%;
+        height: fit-content;
+        h4 {
+            font-weight: 600;
+            width: 70%;
+        }
+        hr {
+            border: solid 2px var(--color-black);
+        }
+    }
+    @media screen and (max-width: 1420px) {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        width: 70%;
+        .titre {
+            position: static;
+        }
+    }
+    @media screen and (max-width: 800px) {
+        width: calc(100% - var(--spacing-md));
+        margin: 50px auto;
+        hr {
+            margin: auto 0;
+            margin-top: 1%;
+            max-width: 70%;
+        }
+    }
+}
+
+section .text-list {
+    margin: 0 auto;
+}
+
+.paragraphe {
+    display: grid;
+    gap: 30px;
+}
+
+ul.employees {
+    list-style: none;
+    display: grid;
+    gap: 20px;
+    padding: 0;
+    li {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        .infos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        p {
+            letter-spacing: 1px;
+        }
+    }
+    .name {
+        font-size: var(--font-size-h6);
+        font-weight: 600;
+        letter-spacing: 0px;
+    }
+    .icone {
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-black);
+        border-radius: 999px;
+        padding: 15px;
+        margin-right: 3%;
+    }
+    .circle {
+        background-color: var(--color-black);
+        height: 15px;
+        width: 15px;
+        border-radius: 999px;
+    }
+    @media screen and (max-width: 500px) {
+        .circle {
+            display: none;
+        }
+        li {
+            .infos {
+                display: grid;
+                gap: 10px;
+            }
+        }
+    }
+}
+
+.text-list.texte {
+    ul.employees {
+        display: none;
+    }
+}
+
+.text-list.liste {
+    .paragraphe {
+        display: none;
+    }
+}
+
+.wrapper:has(> .text-list) {
+    display: grid;
+    gap: 100px;
+    @media screen and (max-width: 800px) {
+        gap: 40px;
+    }
+}
