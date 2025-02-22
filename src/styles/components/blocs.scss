@@ -271,6 +271,39 @@
     }
 }
 
+// styles pour le bloc - carousel plein écran
+.fullGallerySwiper {
+    .swiper {
+        width: 100%;
+        border-radius: 50px;
+        margin: 0;
+        position: relative;
+
+        .swiper-slide {
+            height: 75vh;
+            overflow: hidden;
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .swiper-pagination {
+            --swiper-pagination-color: var(--color-black);
+            --swiper-pagination-bullet-inactive-color: var(--color-white);
+            --swiper-pagination-bullet-size: 20px;
+            --swiper-pagination-bullet-horizontal-gap: 10px;
+            --swiper-pagination-bullet-inactive-opacity: 1;
+
+            position: absolute;
+            bottom: var(--spacing-md);
+            .swiper-pagination-bullet {
+                border: 5px solid var(--color-white);
+            }
+        }
+    }
+}
+
 // div du bloc texte-liste
 .text-list {
     max-width: $breakpoint-lg;
