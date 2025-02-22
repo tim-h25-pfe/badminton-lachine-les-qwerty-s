@@ -44,8 +44,16 @@ export default class Carousel {
           prevEl: document.querySelector('.content .swiper-button-prev'),
         },
       };
+    } else if (this.element.classList.contains('js-swiper-fullGallerySwiper')) {
+      this.options = {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        slidesPerView: 1,
+        spaceBetween: 0,
+      };
     }
-
     this.init();
   }
 
