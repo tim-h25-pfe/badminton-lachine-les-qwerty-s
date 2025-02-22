@@ -3,7 +3,6 @@ import Swiper from 'swiper/bundle';
 export default class Carousel {
   constructor(element) {
     this.element = element;
-    console.log(this.element);
     this.options = {};
     if (this.element.classList.contains('js-swiper-partenaire')) {
       this.options = {
@@ -37,9 +36,13 @@ export default class Carousel {
       };
     } else if (this.element.classList.contains('js-swiper-coursPrives')) {
       this.options = {
-        slidesPerView: 1.5,
+        slidesPerView: 2,
         spaceBetween: 25,
         autoHeight: true,
+        navigation: {
+          nextEl: document.querySelector('.content .swiper-button-next'),
+          prevEl: document.querySelector('.content .swiper-button-prev'),
+        },
       };
     }
 

@@ -154,29 +154,93 @@
     }
 }
 
+// styles pour le bloc - contentSwiper
 .contentSwiper {
     background-color: var(--color-black);
     color: var(--color-white);
     .wrapper {
         display: grid;
         grid-template-columns: 5fr 7fr;
-        gap: var(--spacing-md);
+        gap: var(--spacing-lg);
+        @media screen and (max-width: $breakpoint-md) {
+            grid-template-columns: 1fr;
+        }
     }
     .content {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        justify-content: space-between;
+        @media screen and (max-width: $breakpoint-md) {
+            width: 75%;
+            gap: var(--spacing-md);
+            @media screen and (max-width: $breakpoint-md) {
+                gap: var(--spacing-lg);
+            }
+        }
+        .infos {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-lg);
+            @media screen and (max-width: $breakpoint-lg) {
+                gap: var(--spacing-md);
+            }
+        }
+    }
+    .btn_nav {
+        position: relative;
+        width: 100%;
+        margin-bottom: 2.5rem;
+        display: flex;
+        align-items: baseline;
         gap: var(--spacing-lg);
+        @media screen and (max-width: $breakpoint-md) {
+            margin: 0;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            @media screen and (max-width: $breakpoint-md) {
+                width: 75px;
+                height: 75px;
+                @media screen and (max-width: $breakpoint-md) {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            &::after {
+                display: none;
+            }
+            .icon {
+                padding: var(--spacing-md);
+                @media screen and (max-width: $breakpoint-md) {
+                    padding: var(--spacing-sm);
+                }
+            }
+        }
+        .swiper-button-prev {
+            transform: rotate(180deg);
+        }
     }
     .swiper {
-        width: 100%;
+        margin-right: -50%;
+        width: 150%;
         min-width: 0;
+        @media screen and (max-width: $breakpoint-md) {
+            width: 175%;
+            @media screen and (max-width: $breakpoint-sm) {
+                width: 200%;
+            }
+        }
         .swiper-slide {
-            aspect-ratio: 6/7;
+            aspect-ratio: 1.95/2;
         }
         .card {
             display: flex;
             flex-direction: column;
+            gap: var(--spacing-sm);
             padding: 30px;
             height: 100%;
             background-color: white;
@@ -184,6 +248,7 @@
             border-radius: 30px;
             .card__media img {
                 border-radius: 20px;
+                display: block;
             }
             .card__content {
                 height: 100%;
