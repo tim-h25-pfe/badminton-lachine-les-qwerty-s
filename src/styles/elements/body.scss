@@ -17,6 +17,17 @@ body {
 section {
     padding: var(--spacing-xl) 0;
     border-radius: 50px;
+    @media screen and (max-width: $breakpoint-lg) {
+        padding: 50px 0;
+    }
+}
+
+.section-large {
+    padding: 200px 0;
+    border-radius: 50px;
+    @media screen and (max-width: $breakpoint-lg) {
+        padding: 100px 0;
+    }
 }
 
 p {
