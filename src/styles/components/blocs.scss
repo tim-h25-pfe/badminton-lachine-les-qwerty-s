@@ -188,43 +188,6 @@
             }
         }
     }
-    .btn_nav {
-        position: relative;
-        width: 100%;
-        margin-bottom: 2.5rem;
-        display: flex;
-        align-items: baseline;
-        gap: var(--spacing-lg);
-        @media screen and (max-width: $breakpoint-md) {
-            margin: 0;
-        }
-        .swiper-button-next,
-        .swiper-button-prev {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            @media screen and (max-width: $breakpoint-md) {
-                width: 75px;
-                height: 75px;
-                @media screen and (max-width: $breakpoint-md) {
-                    width: 50px;
-                    height: 50px;
-                }
-            }
-            &::after {
-                display: none;
-            }
-            .icon {
-                padding: var(--spacing-md);
-                @media screen and (max-width: $breakpoint-md) {
-                    padding: var(--spacing-sm);
-                }
-            }
-        }
-        .swiper-button-prev {
-            transform: rotate(180deg);
-        }
-    }
     .swiper {
         margin-right: -50%;
         width: 150%;
@@ -271,6 +234,45 @@
     }
 }
 
+// navigation des carousels
+.btn_nav {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-lg);
+    @media screen and (max-width: $breakpoint-md) {
+        margin: 0;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        @media screen and (max-width: $breakpoint-md) {
+            width: 75px;
+            height: 75px;
+            @media screen and (max-width: $breakpoint-md) {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        &::after {
+            display: none;
+        }
+        .icon {
+            padding: var(--spacing-md);
+            @media screen and (max-width: $breakpoint-md) {
+                padding: var(--spacing-sm);
+            }
+        }
+    }
+    .swiper-button-prev {
+        transform: rotate(180deg);
+    }
+}
+
 // styles pour le bloc - carousel plein écran
 .fullGallerySwiper {
     .swiper {
@@ -300,6 +302,29 @@
             .swiper-pagination-bullet {
                 border: 5px solid var(--color-white);
             }
+        }
+    }
+}
+
+// styles pour le bloc - carousel gallerie avec navigation
+.galerySwiper {
+    .swiper-slide {
+        aspect-ratio: 3.5 / 5;
+        img {
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50px;
+        }
+    }
+    .btn_nav {
+        margin: var(--spacing-lg) 0 0 0;
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--color-white);
+            padding: 0;
+        }
+        .btn_round {
+            background-color: var(--color-black);
         }
     }
 }

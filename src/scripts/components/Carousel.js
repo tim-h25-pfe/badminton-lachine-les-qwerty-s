@@ -53,6 +53,29 @@ export default class Carousel {
         slidesPerView: 1,
         spaceBetween: 0,
       };
+    } else if (this.element.classList.contains('js-swiper-gallerySwiper')) {
+      this.options = {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        slidesPerView: 4.25,
+        spaceBetween: 50,
+        breakpoints: {
+          0: {
+            spaceBetween: 50,
+            slidesPerView: 1.25,
+          },
+          768: {
+            spaceBetween: 75,
+            slidesPerView: 2.25,
+          },
+          1024: {
+            spaceBetween: 100,
+            slidesPerView: 3.25,
+          },
+        },
+      };
     }
     this.init();
   }
