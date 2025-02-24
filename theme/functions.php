@@ -330,37 +330,37 @@ add_action( 'init', 'sessions', 0 );
 function events() {
 
 	$labels = array(
-		'name'                  => _x( 'Événements', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Événement', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Événements', 'text_domain' ),
-		'name_admin_bar'        => __( 'Événement', 'text_domain' ),
-		'archives'              => __( 'Archives des événements', 'text_domain' ),
-		'attributes'            => __( 'Attributs des événements', 'text_domain' ),
-		'parent_item_colon'     => __( 'Événement parent :', 'text_domain' ),
-		'all_items'             => __( 'Toutes les événements', 'text_domain' ),
-		'add_new_item'          => __( 'Ajouter un événement', 'text_domain' ),
-		'add_new'               => __( 'Ajouter un événement', 'text_domain' ),
-		'new_item'              => __( 'Nouvel événement', 'text_domain' ),
-		'edit_item'             => __( 'Modifier l\'événement', 'text_domain' ),
-		'update_item'           => __( 'Mettre à jour l\'événement', 'text_domain' ),
-		'view_item'             => __( 'Voir l\'événement', 'text_domain' ),
-		'view_items'            => __( 'Voir les événements', 'text_domain' ),
-		'search_items'          => __( 'Chercher un événement', 'text_domain' ),
+		'name'                  => _x( 'Dates importantes', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Date importante', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Dates importantes', 'text_domain' ),
+		'name_admin_bar'        => __( 'Date importante', 'text_domain' ),
+		'archives'              => __( 'Archives des dates importantes', 'text_domain' ),
+		'attributes'            => __( 'Attributs des dates importantes', 'text_domain' ),
+		'parent_item_colon'     => __( 'Date parente :', 'text_domain' ),
+		'all_items'             => __( 'Toutes les dates importantes', 'text_domain' ),
+		'add_new_item'          => __( 'Ajouter une date', 'text_domain' ),
+		'add_new'               => __( 'Ajouter une date', 'text_domain' ),
+		'new_item'              => __( 'Nouvelle date', 'text_domain' ),
+		'edit_item'             => __( 'Modifier la date', 'text_domain' ),
+		'update_item'           => __( 'Mettre à jour la date', 'text_domain' ),
+		'view_item'             => __( 'Voir la date', 'text_domain' ),
+		'view_items'            => __( 'Voir les dates importantes', 'text_domain' ),
+		'search_items'          => __( 'Chercher une date', 'text_domain' ),
 		'not_found'             => __( 'Introuvable', 'text_domain' ),
 		'not_found_in_trash'    => __( 'Introuvable dans la corbeille', 'text_domain' ),
 		'featured_image'        => __( 'Image en avant', 'text_domain' ),
 		'set_featured_image'    => __( 'Choisir l\'image en avant', 'text_domain' ),
 		'remove_featured_image' => __( 'Retirer l\'image en avant', 'text_domain' ),
 		'use_featured_image'    => __( 'Utiliser comme image en avant', 'text_domain' ),
-		'insert_into_item'      => __( 'Insérer dans l\'événement', 'text_domain' ),
-		'uploaded_to_this_item' => __( 'Ajouté à cet événement', 'text_domain' ),
-		'items_list'            => __( 'Liste des événements', 'text_domain' ),
-		'items_list_navigation' => __( 'Navigation de la liste des événements', 'text_domain' ),
-		'filter_items_list'     => __( 'Filtrer la liste des événements', 'text_domain' ),
+		'insert_into_item'      => __( 'Insérer dans la date', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Ajouté à cette date', 'text_domain' ),
+		'items_list'            => __( 'Liste des dates importantes', 'text_domain' ),
+		'items_list_navigation' => __( 'Navigation de la liste des dates importantes', 'text_domain' ),
+		'filter_items_list'     => __( 'Filtrer la liste des dates importantes', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'Événement', 'text_domain' ),
-		'description'           => __( 'Événements', 'text_domain' ),
+		'label'                 => __( 'Date importante', 'text_domain' ),
+		'description'           => __( 'Dates importantes', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
@@ -584,4 +584,32 @@ function verifier_categorie_personnalisee_event($post_id) {
     }
 }
 add_action('save_post', 'verifier_categorie_personnalisee_event', 10, 1);
+
+// code pour faire des classes personnalisées pour seulement le type de post
+
+function creer_taxonomie_pour_services() {
+    register_taxonomy('type_de_service', array('service'), array(
+        'label'             => __('Types de services'),
+        'rewrite'           => array('slug' => 'type-service'),
+        'hierarchical'      => true, // true = fonctionne comme une catégorie, false = fonctionne comme un tag
+        'show_admin_column' => true,
+        'show_in_rest'      => true, // Permet l'utilisation dans l'éditeur Gutenberg
+    ));
+}
+add_action('init', 'creer_taxonomie_pour_services');
+
+function enlever_categories_par_defaut_services() {
+    unregister_taxonomy_for_object_type('category', 'service');
+}
+add_action('init', 'enlever_categories_par_defaut_services');
+
+function verifier_categorie_personnalisee_services($post_id) {
+    if (get_post_type($post_id) !== 'service') return;
+
+    $categories = wp_get_post_terms($post_id, 'type-service');
+    if (empty($categories)) {
+        wp_die('Veuillez sélectionner une catégorie avant de publier.');
+    }
+}
+add_action('save_post', 'verifier_categorie_personnalisee_services', 10, 1);
 
