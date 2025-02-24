@@ -528,3 +528,60 @@ function verifier_categorie_personnalisee_nouvelles($post_id) {
     }
 }
 add_action('save_post', 'verifier_categorie_personnalisee_nouvelles', 10, 1);
+
+// code pour faire des classes personnalisées pour seulement le type de post
+
+function creer_taxonomie_pour_employee() {
+    register_taxonomy('type_de_employee', array('employee'), array(
+        'label'             => __('Types employés'),
+        'rewrite'           => array('slug' => 'type-employee'),
+        'hierarchical'      => true, // true = fonctionne comme une catégorie, false = fonctionne comme un tag
+        'show_admin_column' => true,
+        'show_in_rest'      => true, // Permet l'utilisation dans l'éditeur Gutenberg
+    ));
+}
+add_action('init', 'creer_taxonomie_pour_employee');
+
+function enlever_categories_par_defaut_employee() {
+    unregister_taxonomy_for_object_type('category', 'employee');
+}
+add_action('init', 'enlever_categories_par_defaut_employee');
+
+function verifier_categorie_personnalisee_employee($post_id) {
+    if (get_post_type($post_id) !== 'new') return;
+
+    $categories = wp_get_post_terms($post_id, 'type-employee');
+    if (empty($categories)) {
+        wp_die('Veuillez sélectionner une catégorie avant de publier.');
+    }
+}
+add_action('save_post', 'verifier_categorie_personnalisee_employee', 10, 1);
+
+// code pour faire des classes personnalisées pour seulement le type de post
+
+function creer_taxonomie_pour_event() {
+    register_taxonomy('type_de_event', array('event'), array(
+        'label'             => __('Types événements'),
+        'rewrite'           => array('slug' => 'type-event'),
+        'hierarchical'      => true, // true = fonctionne comme une catégorie, false = fonctionne comme un tag
+        'show_admin_column' => true,
+        'show_in_rest'      => true, // Permet l'utilisation dans l'éditeur Gutenberg
+    ));
+}
+add_action('init', 'creer_taxonomie_pour_event');
+
+function enlever_categories_par_defaut_event() {
+    unregister_taxonomy_for_object_type('category', 'event');
+}
+add_action('init', 'enlever_categories_par_defaut_event');
+
+function verifier_categorie_personnalisee_event($post_id) {
+    if (get_post_type($post_id) !== 'event') return;
+
+    $categories = wp_get_post_terms($post_id, 'type-event');
+    if (empty($categories)) {
+        wp_die('Veuillez sélectionner une catégorie avant de publier.');
+    }
+}
+add_action('save_post', 'verifier_categorie_personnalisee_event', 10, 1);
+
