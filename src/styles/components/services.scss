@@ -375,6 +375,12 @@
         height: 100%;
         width: 100%;
         backdrop-filter: blur(10px);
+        @media screen and (max-width: $breakpoint-md) {
+            top: 65%;
+        }
+        @media screen and (max-width: $breakpoint-sm) {
+            top: 62%;
+        }
         @media screen and (max-width: $breakpoint-xs) {
             top: 62%;
         }
