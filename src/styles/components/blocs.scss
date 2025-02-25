@@ -93,6 +93,7 @@
     }
 }
 
+// styles pour la boucle des blocs informations
 .loop-infos {
     &.altern {
         .informations:has(> .infos__media):nth-child(even) {
@@ -119,6 +120,7 @@
     }
 }
 
+//styles pour le bloc cta push
 .push {
     .wrapper {
         background-color: var(--color-primary);
@@ -389,6 +391,7 @@
     }
     .btn_nav {
         margin: var(--spacing-lg) 0 0 0;
+
         .swiper-button-next,
         .swiper-button-prev {
             color: var(--color-white);
@@ -396,6 +399,10 @@
         }
         .btn_round {
             background-color: var(--color-black);
+            transition: 0.3s all ease-out;
+            &:hover {
+                background-color: var(--color-interactive);
+            }
         }
     }
 }
