@@ -52,14 +52,24 @@
             border: solid 2px var(--color-white);
         }
     }
+    .liste {
+        .icone {
+            border: 1px solid var(--color-white);
+        }
+        .circle {
+            background-color: var(--color-white);
+        }
+    }
 }
 
 // SECTION HISTOIRE
 
 .accordion__container {
     //.accordion__content représente le contenu caché par défaut
+    transition: all 0.3s ease-out;
     .accordion__content {
         display: none;
+        transition: all 0.3s ease-out;
     }
     .icon-close {
         display: none;
@@ -74,8 +84,8 @@
         }
         .accordion__content {
             //On affiche le contenu lorsqu'il y a l'état is-active
-            display: block;
-            width: fit-content;
+            display: grid;
+            gap: 20px;
         }
     }
 }
@@ -98,6 +108,9 @@
     padding: 35px 75px;
     transition: all 0.3s ease;
     border-radius: 35px;
+    hr {
+        width: 100%;
+    }
     @media screen and (max-width: $breakpoint-md) {
         width: 90%;
         border-radius: 20px;

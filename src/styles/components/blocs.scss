@@ -93,6 +93,7 @@
     }
 }
 
+// styles pour la boucle des blocs informations
 .loop-infos {
     &.altern {
         .informations:has(> .infos__media):nth-child(even) {
@@ -119,17 +120,20 @@
     }
 }
 
+//styles pour le bloc cta push
 .push {
     .wrapper {
         background-color: var(--color-primary);
         color: var(--color-inactive);
         border-radius: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        @media screen and (max-width: $breakpoint-md) {
-            flex-direction: column;
-            gap: var(--spacing-md);
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        @media screen and (max-width: 1060px) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            .push_media {
+                height: 100%;
+            }
         }
         padding: 40px;
         .push_content {
@@ -167,11 +171,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100%;
             width: 100%;
+            aspect-ratio: 1.5/1;
             border-radius: 30px;
             object-fit: cover;
             overflow: hidden;
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
         }
     }
 }
@@ -201,7 +210,8 @@
             flex-direction: column;
             justify-content: space-between;
             gap: var(--spacing-xl);
-            aspect-ratio: 500/450;
+            //aspect-ratio: 50/45;
+            aspect-ratio: 1/1;
             border-radius: 30px;
             padding: var(--spacing-md);
             color: var(--color-white);
@@ -210,6 +220,9 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
+                h3 {
+                    width: min-content;
+                }
             }
             .icon {
                 align-self: flex-end;
@@ -275,15 +288,23 @@
         .card {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-sm);
+            justify-content: space-between;
+            gap: 20px;
             padding: 30px;
             height: 100%;
             background-color: white;
             color: var(--color-black);
             border-radius: 30px;
+            .card__media {
+                height: 50%;
+                width: 100%;
+            }
             .card__media img {
                 border-radius: 20px;
                 display: block;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
             }
             .card__content {
                 height: 100%;
@@ -319,6 +340,7 @@
     .swiper-button-next,
     .swiper-button-prev {
         position: relative;
+
         width: 100px;
         height: 100px;
         @media screen and (max-width: $breakpoint-md) {
@@ -333,6 +355,7 @@
             display: none;
         }
         .icon {
+            transition: all 0.3s ease-out;
             padding: var(--spacing-md);
             @media screen and (max-width: $breakpoint-md) {
                 padding: var(--spacing-sm);
@@ -389,6 +412,7 @@
     }
     .btn_nav {
         margin: var(--spacing-lg) 0 0 0;
+
         .swiper-button-next,
         .swiper-button-prev {
             color: var(--color-white);
@@ -396,6 +420,10 @@
         }
         .btn_round {
             background-color: var(--color-black);
+            transition: 0.3s all ease-out;
+            &:hover {
+                background-color: var(--color-interactive);
+            }
         }
     }
 }

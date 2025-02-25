@@ -1,5 +1,7 @@
 {% include '_partials/_header.html' %}
 
+<?php bloginfo('template_url') ?>/
+
 <!-- BLOC HERO -->
 <section class="hero block">
     <img class="texture" src="assets/images/filet.png" alt="filet" />
@@ -86,141 +88,172 @@
 </section>
 
 <!-- BLOC ACCORDÉON -->
-<div class="accordion" data-component="Accordeon" data-closing>
-    <div class="grid-accordion">
-        <div class="accordion__container">
-            <div class="accordion__header">
-                <h4>Sauvetage du badminton à Lachine</h4>
-                <div class="header__icons">
-                    <svg class="icon icon--sm icon-open">
-                        <use xlink:href="#icon-plus"></use>
-                    </svg>
-                    <svg class="icon icon--sm icon-close">
-                        <use xlink:href="#icon-moins"></use>
-                    </svg>
-                </div>
-            </div>
-            <div class="accordion__content">
-                <hr />
-                <p>
-                    En septembre 2010, Stéphane Fortaich, Lachinois et bénévole de grand cœur, a pris la relève de
-                    l’organisation du badminton pour les citoyens de Lachine, sport qui était à risque d’extinction. 
-                    Peu à peu pendant la saison, des joueurs ont contacté Stéphane car ils étaient sensibles à la
-                    pérennité de leur sport. C’est alors que les premiers membres du conseil d’administration ont été
-                    réunis : René Breyel, Vickel Coossa, Steve Gagné, Stéphane Fortaich et Julie Bérubé.
-                </p>
+<section class="accordeon">
+    <div class="wrapper">
+        <div class="title">
+            <h1>Historique</h1>
+            <div class="underline">
+                <svg class="icon icon--lg">
+                    <use xlink:href="#icon-tripleLigneDessin"></use>
+                </svg>
             </div>
         </div>
-
-        <div class="accordion__container">
-            <div class="accordion__header">
-                <h4>Création officielle du club en 2011</h4>
-                <div class="header__icons">
-                    <svg class="icon icon--sm icon-open">
-                        <use xlink:href="#icon-plus"></use>
-                    </svg>
-                    <svg class="icon icon--sm icon-close">
-                        <use xlink:href="#icon-moins"></use>
-                    </svg>
+        <div class="accordion" data-component="Accordeon" data-closing>
+            <div class="grid-accordion">
+                <div class="accordion__container">
+                    <div class="accordion__header">
+                        <h4>Sauvetage du badminton à Lachine</h4>
+                        <div class="header__icons">
+                            <svg class="icon icon--sm icon-open">
+                                <use xlink:href="#icon-plus"></use>
+                            </svg>
+                            <svg class="icon icon--sm icon-close">
+                                <use xlink:href="#icon-moins"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion__content">
+                        <hr />
+                        <p>
+                            En septembre 2010, Stéphane Fortaich, Lachinois et bénévole de grand cœur, a pris la relève
+                            de l’organisation du badminton pour les citoyens de Lachine, sport qui était à risque
+                            d’extinction.  Peu à peu pendant la saison, des joueurs ont contacté Stéphane car ils
+                            étaient sensibles à la pérennité de leur sport. C’est alors que les premiers membres du
+                            conseil d’administration ont été réunis : René Breyel, Vickel Coossa, Steve Gagné, Stéphane
+                            Fortaich et Julie Bérubé.
+                        </p>
+                        <p>
+                            En septembre 2010, Stéphane Fortaich, Lachinois et bénévole de grand cœur, a pris la relève
+                            de l’organisation du badminton pour les citoyens de Lachine, sport qui était à risque
+                            d’extinction.  Peu à peu pendant la saison, des joueurs ont contacté Stéphane car ils
+                            étaient sensibles à la pérennité de leur sport. C’est alors que les premiers membres du
+                            conseil d’administration ont été réunis : René Breyel, Vickel Coossa, Steve Gagné, Stéphane
+                            Fortaich et Julie Bérubé.
+                        </p>
+                        <p>
+                            En septembre 2010, Stéphane Fortaich, Lachinois et bénévole de grand cœur, a pris la relève
+                            de l’organisation du badminton pour les citoyens de Lachine, sport qui était à risque
+                            d’extinction.  Peu à peu pendant la saison, des joueurs ont contacté Stéphane car ils
+                            étaient sensibles à la pérennité de leur sport. C’est alors que les premiers membres du
+                            conseil d’administration ont été réunis : René Breyel, Vickel Coossa, Steve Gagné, Stéphane
+                            Fortaich et Julie Bérubé.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="accordion__content">
-                <hr />
-                <p>
-                    Les principales industries de la MRC de Baie Ste-Catherine sont la pêche, le transport maritime, le
-                    tourisme et l'agriculture.
-                </p>
-            </div>
-        </div>
 
-        <div class="accordion__container">
-            <div class="accordion__header">
-                <h4>La classique de Badminton Lachine</h4>
-                <div class="header__icons">
-                    <svg class="icon icon--sm icon-open">
-                        <use xlink:href="#icon-plus"></use>
-                    </svg>
-                    <svg class="icon icon--sm icon-close">
-                        <use xlink:href="#icon-moins"></use>
-                    </svg>
+                <div class="accordion__container">
+                    <div class="accordion__header">
+                        <h4>Création officielle du club en 2011</h4>
+                        <div class="header__icons">
+                            <svg class="icon icon--sm icon-open">
+                                <use xlink:href="#icon-plus"></use>
+                            </svg>
+                            <svg class="icon icon--sm icon-close">
+                                <use xlink:href="#icon-moins"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion__content">
+                        <hr />
+                        <p>
+                            Les principales industries de la MRC de Baie Ste-Catherine sont la pêche, le transport
+                            maritime, le tourisme et l'agriculture.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="accordion__content">
-                <hr />
-                <p>
-                    Selon le recensement de 2016, la population de la MRC de Baie Ste-Catherine est de 3 229 habitants.
-                </p>
-            </div>
-        </div>
 
-        <div class="accordion__container">
-            <div class="accordion__header">
-                <h4>Structuration des entraînements</h4>
-                <div class="header__icons">
-                    <svg class="icon icon--sm icon-open">
-                        <use xlink:href="#icon-plus"></use>
-                    </svg>
-                    <svg class="icon icon--sm icon-close">
-                        <use xlink:href="#icon-moins"></use>
-                    </svg>
+                <div class="accordion__container">
+                    <div class="accordion__header">
+                        <h4>La classique de Badminton Lachine</h4>
+                        <div class="header__icons">
+                            <svg class="icon icon--sm icon-open">
+                                <use xlink:href="#icon-plus"></use>
+                            </svg>
+                            <svg class="icon icon--sm icon-close">
+                                <use xlink:href="#icon-moins"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion__content">
+                        <hr />
+                        <p>
+                            Selon le recensement de 2016, la population de la MRC de Baie Ste-Catherine est de 3 229
+                            habitants.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="accordion__content">
-                <hr />
-                <p>
-                    La MRC de Baie Ste-Catherine est connue pour sa proximité avec les baleines, ce qui en fait une
-                    destination populaire pour les excursions d'observation des baleines. Elle compte également de
-                    nombreux sentiers de randonnée, des plages, des musées et des festivals tout au long de l'année.
-                </p>
-            </div>
-        </div>
+                <div class="accordion__container">
+                    <div class="accordion__header">
+                        <h4>Structuration des entraînements</h4>
+                        <div class="header__icons">
+                            <svg class="icon icon--sm icon-open">
+                                <use xlink:href="#icon-plus"></use>
+                            </svg>
+                            <svg class="icon icon--sm icon-close">
+                                <use xlink:href="#icon-moins"></use>
+                            </svg>
+                        </div>
+                    </div>
 
-        <div class="accordion__container">
-            <div class="accordion__header">
-                <h4>Encadrement des adultes</h4>
-                <div class="header__icons">
-                    <svg class="icon icon--sm icon-open">
-                        <use xlink:href="#icon-plus"></use>
-                    </svg>
-                    <svg class="icon icon--sm icon-close">
-                        <use xlink:href="#icon-moins"></use>
-                    </svg>
+                    <div class="accordion__content">
+                        <hr />
+                        <p>
+                            La MRC de Baie Ste-Catherine est connue pour sa proximité avec les baleines, ce qui en fait
+                            une destination populaire pour les excursions d'observation des baleines. Elle compte
+                            également de nombreux sentiers de randonnée, des plages, des musées et des festivals tout au
+                            long de l'année.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="accordion__content">
-                <hr />
-                <p>
-                    La MRC de Baie Ste-Catherine offre une gamme de services à ses citoyens, notamment des services de
-                    gestion des déchets, des services de protection contre les incendies, des services de développement
-                    économique et touristique et des services de transport en commun.
-                </p>
-            </div>
-        </div>
 
-        <div class="accordion__container">
-            <div class="accordion__header">
-                <h4>Implication du club aux Jeux du Québec</h4>
-                <div class="header__icons">
-                    <svg class="icon icon--sm icon-open">
-                        <use xlink:href="#icon-plus"></use>
-                    </svg>
-                    <svg class="icon icon--sm icon-close">
-                        <use xlink:href="#icon-moins"></use>
-                    </svg>
+                <div class="accordion__container">
+                    <div class="accordion__header">
+                        <h4>Encadrement des adultes</h4>
+                        <div class="header__icons">
+                            <svg class="icon icon--sm icon-open">
+                                <use xlink:href="#icon-plus"></use>
+                            </svg>
+                            <svg class="icon icon--sm icon-close">
+                                <use xlink:href="#icon-moins"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion__content">
+                        <hr />
+                        <p>
+                            La MRC de Baie Ste-Catherine offre une gamme de services à ses citoyens, notamment des
+                            services de gestion des déchets, des services de protection contre les incendies, des
+                            services de développement économique et touristique et des services de transport en commun.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="accordion__content">
-                <hr />
-                <p>
-                    La MRC de Baie Ste-Catherine organise plusieurs événements tout au long de l'année, tels que la Fête
-                    de la pêche, la Journée internationale des femmes, la Fête de la musique et le Tournoi de hockey
-                    Baie Ste-Catherine.
-                </p>
+
+                <div class="accordion__container">
+                    <div class="accordion__header">
+                        <h4>Implication du club aux Jeux du Québec</h4>
+                        <div class="header__icons">
+                            <svg class="icon icon--sm icon-open">
+                                <use xlink:href="#icon-plus"></use>
+                            </svg>
+                            <svg class="icon icon--sm icon-close">
+                                <use xlink:href="#icon-moins"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion__content">
+                        <hr />
+                        <p>
+                            La MRC de Baie Ste-Catherine organise plusieurs événements tout au long de l'année, tels que
+                            la Fête de la pêche, la Journée internationale des femmes, la Fête de la musique et le
+                            Tournoi de hockey Baie Ste-Catherine.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <!-- BLOC CAROUSEL HALF PAGE -->
 <section class="section-large contentSwiper">
@@ -257,7 +290,7 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <div class="card__media">
-                            <img src="assets/images/bgHero2.png" alt="image cour privé" />
+                            <img src="assets/images/card.png" alt="image cour privé" />
                         </div>
                         <div class="card__content">
                             <div class="title">
@@ -295,7 +328,7 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <div class="card__media">
-                            <img src="assets/images/bgHero2.png" alt="image cour privé" />
+                            <img src="assets/images/hero.png" alt="image cour privé" />
                         </div>
                         <div class="card__content">
                             <div class="title">
@@ -352,13 +385,7 @@
                     <img src="assets/images/hero.png" alt="image gallerie" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="assets/images/hero.png" alt="image gallerie" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/images/hero.png" alt="image gallerie" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/images/hero.png" alt="image gallerie" />
+                    <img src="assets/images/card.png" alt="image gallerie" />
                 </div>
             </div>
             <div class="btn_nav">
@@ -380,55 +407,20 @@
 <!-- BLOC CAROUSEL DÉFILANT -->
 <section class="section partners">
     <div class="wrapper">
-        <div
-            class="swiper js-swiper-partenaire"
-            data-component="Carousel"
-            data-autoplay
-            data-loop
-            data-freemode
-            data-centered
-        >
+        <div class="swiper js-swiper-partenaire" data-component="Carousel">
             <div class="bkg_filter"></div>
             <div class="swiper-wrapper">
-                <div class="swiper-slide icon--lg">
-                    <svg class="icon">
-                        <use xlink:href="#icon-conseilSportMontreal"></use>
-                    </svg>
+                <div class="swiper-slide">
+                    <img src="assets/images/hero.png" alt="" />
                 </div>
-                <div class="swiper-slide icon--lg">
-                    <svg class="icon">
-                        <use xlink:href="#icon-doMore"></use>
-                    </svg>
+                <div class="swiper-slide">
+                    <img src="assets/images/hero.png" alt="" />
                 </div>
-                <div class="swiper-slide icon--lg">
-                    <svg class="icon">
-                        <use xlink:href="#icon-badmintonQuebec"></use>
-                    </svg>
+                <div class="swiper-slide">
+                    <img src="assets/images/hero.png" alt="" />
                 </div>
-                <div class="swiper-slide icon--lg">
-                    <svg class="icon">
-                        <use xlink:href="#icon-lachineMontreal"></use>
-                    </svg>
-                </div>
-                <div class="swiper-slide icon--lg">
-                    <svg class="icon">
-                        <use xlink:href="#icon-conseilSportMontreal"></use>
-                    </svg>
-                </div>
-                <div class="swiper-slide icon--lg">
-                    <svg class="icon">
-                        <use xlink:href="#icon-doMore"></use>
-                    </svg>
-                </div>
-                <div class="swiper-slide icon--lg">
-                    <svg class="icon">
-                        <use xlink:href="#icon-badmintonQuebec"></use>
-                    </svg>
-                </div>
-                <div class="swiper-slide icon--lg">
-                    <svg class="icon">
-                        <use xlink:href="#icon-lachineMontreal"></use>
-                    </svg>
+                <div class="swiper-slide">
+                    <img src="assets/images/hero.png" alt="" />
                 </div>
             </div>
         </div>
@@ -439,14 +431,14 @@
 <section class="section services">
     <div class="wrapper">
         <div class="title">
-            <h2>
-                Lor<span
-                    >emipsum
-                    <svg class="icon">
+            <div class="title">
+                <h1>Forfaits</h1>
+                <div class="underline">
+                    <svg class="icon icon--lg">
                         <use xlink:href="#icon-tripleLigneDessin"></use>
                     </svg>
-                </span>
-            </h2>
+                </div>
+            </div>
             <a class="btn_full btn_top" href="#"
                 >Voir tous
                 <svg class="icon">
@@ -577,14 +569,14 @@
 <section class="section nouvelles">
     <div class="wrapper">
         <div class="title">
-            <h2>
-                Lo<span
-                    >rem
-                    <svg class="icon">
+            <div class="title">
+                <h1>Nouvelles</h1>
+                <div class="underline">
+                    <svg class="icon icon--lg">
                         <use xlink:href="#icon-ligneDessin"></use>
                     </svg>
-                </span>
-            </h2>
+                </div>
+            </div>
             <a class="btn_full btn_white btn_top" href="#"
                 >Voir tout
                 <svg class="icon">
@@ -655,14 +647,12 @@
 <section class="section services service_background">
     <div class="wrapper">
         <div class="title">
-            <h2>
-                Nos abonn<span
-                    >ements
-                    <svg class="icon">
-                        <use xlink:href="#icon-tripleLigneDessin"></use>
-                    </svg>
-                </span>
-            </h2>
+            <h2>Nouvelles</h2>
+            <div class="underline">
+                <svg class="icon icon--lg">
+                    <use xlink:href="#icon-tripleLigneDessin"></use>
+                </svg>
+            </div>
         </div>
         <div class="grid-produits">
             <div class="service_no_hover">
@@ -1146,7 +1136,7 @@
             <a href="#" class="btn_full">voir plus</a>
         </div>
         <div class="push_media">
-            <img src="assets/images/hero.png" alt="hero" />
+            <img src="assets/images/image_menu.jpg" alt="hero" />
         </div>
     </div>
 </section>
@@ -1155,15 +1145,13 @@
 <section class="section doublePush">
     <div class="wrapper">
         <div>
-            <h3>Lorem</h3>
-            <h3>ipsum</h3>
+            <h3>Lorem ipsum</h3>
         </div>
 
         <div class="tiles">
             <a href="#" class="tile">
                 <div class="title">
-                    <h3>bacon</h3>
-                    <h3>ipsum</h3>
+                    <h3>bacon ipsum</h3>
                 </div>
                 <svg class="icon btn_circled btn_round btn_white">
                     <use xlink:href="#icon-fleche"></use>
@@ -1171,8 +1159,7 @@
             </a>
             <a href="#" class="tile">
                 <div class="title">
-                    <h3>lorent</h3>
-                    <h3>ipsum</h3>
+                    <h3>lorent ipsum</h3>
                 </div>
                 <svg class="icon btn_circled btn_round btn_white">
                     <use xlink:href="#icon-fleche"></use>
@@ -1257,19 +1244,17 @@
 <section class="valeurs">
     <div class="wrapper">
         <div class="title">
-            <h2>
-                va<span
-                    >leurs
-                    <svg class="icon">
-                        <use xlink:href="#icon-tripleLigneDessin"></use>
-                    </svg>
-                </span>
-            </h2>
+            <h2>Valeurs</h2>
+            <div class="underline">
+                <svg class="icon icon--lg">
+                    <use xlink:href="#icon-tripleLigneDessin"></use>
+                </svg>
+            </div>
         </div>
 
         <div class="text-list texte">
             <div class="titre">
-                <h4>Respect</h4>
+                <h4>Gestion et développement</h4>
                 <hr />
             </div>
             <div class="content">
@@ -1279,54 +1264,272 @@
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
                 </div>
+
+                <ul class="employees">
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+
+                        <div class="infos">
+                            <p class="name">Jean Bastien</p>
+                            <span class="circle"></span>
+                            <p>Coordonateur général</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+                        <div class="infos">
+                            <p class="name">Vanessa Blanchette-Luong</p>
+                            <span class="circle"></span>
+                            <p>Présidente</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+                        <div class="infos">
+                            <p class="name">Sylvain Bureth</p>
+                            <span class="circle"></span>
+                            <p>Agent de développement</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <div class="text-list texte">
+        <div class="text-list liste">
             <div class="titre">
-                <h4>Éthique</h4>
+                <h4>Gestion et développement</h4>
                 <hr />
             </div>
             <div class="content">
                 <div class="paragraphe">
                     <p>
-                        Les personnes impliquées dans le Club doivent respecter les principes, les valeurs et le code de
-                        conduite de Badminton Lachine et de la communauté sportive qui comprennent l’ensemble des
-                        acteur.rice.s du badminton.
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
                     </p>
                 </div>
+
+                <ul class="employees">
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+
+                        <div class="infos">
+                            <p class="name">Jean Bastien</p>
+                            <span class="circle"></span>
+                            <p>Coordonateur général</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+                        <div class="infos">
+                            <p class="name">Vanessa Blanchette-Luong</p>
+                            <span class="circle"></span>
+                            <p>Présidente</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+                        <div class="infos">
+                            <p class="name">Sylvain Bureth</p>
+                            <span class="circle"></span>
+                            <p>Agent de développement</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-
         <div class="text-list texte">
             <div class="titre">
-                <h4>Partage</h4>
+                <h4>Gestion et développement</h4>
                 <hr />
             </div>
             <div class="content">
                 <div class="paragraphe">
                     <p>
-                        Les membres du Club doivent partager les ressources et leurs connaissances pour soutenir les
-                        objectifs de Badminton Lachine, en privilégiant l’évolution des projets avant les intérêts
-                        personnels.
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
                     </p>
                 </div>
+
+                <ul class="employees">
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+
+                        <div class="infos">
+                            <p class="name">Jean Bastien</p>
+                            <span class="circle"></span>
+                            <p>Coordonateur général</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+                        <div class="infos">
+                            <p class="name">Vanessa Blanchette-Luong</p>
+                            <span class="circle"></span>
+                            <p>Présidente</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+                        <div class="infos">
+                            <p class="name">Sylvain Bureth</p>
+                            <span class="circle"></span>
+                            <p>Agent de développement</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <div class="text-list texte">
+        <div class="text-list liste">
             <div class="titre">
-                <h4>Accessibilité</h4>
+                <h4>Gestion et développement</h4>
                 <hr />
             </div>
             <div class="content">
                 <div class="paragraphe">
                     <p>
-                        Le Club s’engage à rendre ses activités accessibles à toutes les personnes sans aucune
-                        discrimination, quelle qu’elle soit.
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
+                    </p>
+                    <p>
+                        Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
+                        traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
+                        équipements et à accepter les décisions de Badminton Lachine.
                     </p>
                 </div>
+
+                <ul class="employees">
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+
+                        <div class="infos">
+                            <p class="name">Jean Bastien</p>
+                            <span class="circle"></span>
+                            <p>Coordonateur général</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+                        <div class="infos">
+                            <p class="name">Vanessa Blanchette-Luong</p>
+                            <span class="circle"></span>
+                            <p>Présidente</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone">
+                            <svg class="icon icon--xs">
+                                <use xlink:href="#icon-mail"></use>
+                            </svg>
+                        </div>
+                        <div class="infos">
+                            <p class="name">Sylvain Bureth</p>
+                            <span class="circle"></span>
+                            <p>Agent de développement</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
