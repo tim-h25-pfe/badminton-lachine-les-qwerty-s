@@ -59,9 +59,13 @@ em {
     justify-content: center;
     height: 100%;
     width: fit-content;
+    h1,
+    h2 {
+        margin: 0;
+    }
     .underline {
         color: var(--color-interactive);
-        transform: scale(800%) translateX(7px);
+        transform: scale(800%) translateX(10px) translateY(-2px);
     }
     @media screen and (max-width: 1100px) {
         gap: 20px;
