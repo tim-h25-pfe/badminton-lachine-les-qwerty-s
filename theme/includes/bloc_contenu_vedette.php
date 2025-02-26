@@ -79,16 +79,7 @@ print_r($the_category);
             'orderby' => 'publish',
             'order' => 'DSC',
             'posts_per_page' => 3,
-            if($the_category != "all"){
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => $slug,
-                        'field'    => 'slug',
-                        'terms'    => $term->slug,
-                        'operator' => 'IN',
-                    ),
-                ),
-            }
+            'category'
         );
         $queryg = new WP_Query( $argsglobal );
         ?>
