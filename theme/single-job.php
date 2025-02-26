@@ -7,176 +7,130 @@
         <div class="grid-container">
             <div class="main-content">
                 <div class="module module-header separator">
-                    <h5>Entraîneur de badminton pour la saison 2024-2025</h5>
+
+                    <h5><?php the_field('job_title'); ?></h5>
+
+                    <?php if (get_field('job_localisation')): ?>
                     <div class="module-header-section">
                         <svg class="icon">
                             <use xlink:href="#icon-pin"></use>
                         </svg>
-                        <p>Collège Ste-Anne situé au 50, 12e avenue, Lachine Qc H8S 3H6.</p>
+                        <p><?php the_field('job_localisation'); ?></p>
                     </div>
+                    <?php endif; ?>
+
+                    <?php if (get_field('job_salaire')): ?>
                     <div class="module-header-section">
                         <svg class="icon">
                             <use xlink:href="#icon-cash"></use>
                         </svg>
-                        <p>Très concurrentiel - défini selon une échelle salariale</p>
+                        <p><?php the_field('job_salaire'); ?></p>
                     </div>
-                    <!--<h5>Animateur de gymnases pour la saison 2024-2025</h5>
-                    <div class="module-header-section">
-                        <svg class="icon">
-                            <use xlink:href="#icon-pin"></use>
-                        </svg>
-                        <p>Collège Ste-Anne situé au 50, 12e avenue, Lachine Qc H8S 3H6.</p>
-                    </div>
-                    <div class="module-header-section">
-                        <svg class="icon">
-                            <use xlink:href="#icon-cash"></use>
-                        </svg>
-                        <p>À partir de 17$/heure</p>
-                    </div>-->
+                    <?php endif; ?>
+
                 </div>
+
+                <?php if (get_field('job_taches')): ?>
                 <div class="module extra-space">
                     <h5>Description de l’offre</h5>
-                    <p>
-                        Le Club Badminton Lachine est à la recherche de candidat.e.s pour compléter son équipe
-                        d’entraineur.e.s pour l’année 2024-2025 (adulte, jeunesse et élite). Le Club regroupe des
-                        joueurs adultes et jeunes de 6 à 17 ans divisés en différents niveaux (débutant, intermédiaire,
-                        compétitif et élite). Les athlètes participent à plusieurs tournois des réseaux régional,
-                        scolaire, provincial et national. L’outil pédagogique français, Plume, est utilisé par les
-                        entraineur.e.s pour assurer la progression des athlètes. De l’encadrement pour les nouvelles
-                        personnes employées ainsi que du budget de formation est disponible selon l’intérêt des
-                        personnes.
-                    </p>
-
-                    <!--<h5>Description de l’offre</h5>
-                    <ul>
-                        <li>
-                            <p>Préparer les gymnases avant l’arrivée des participants ;</p>
-                        </li>
-                        <li>
-                            <p>Gérer l’utilisation des terrains et la rotation des joueurs ;</p>
-                        </li>
-                        <li>
-                            <p>Accueillir les nouveaux membres et leur expliquer le fonctionnement des soirées ;</p>
-                        </li>
-                        <li>
-                            <p>Accueillir les invités et procéder aux paiements.</p>
-                        </li>
-                    </ul>-->
+                    <?php the_field('job_taches'); ?>
                 </div>
+                <?php endif; ?>
+
                 <div class="module extra-space separator">
-                    <h5>Exigences requises</h5>
-                    <p>
-                        <span>Planification et encadrement : </span>Capacité à créer une planification annuelle
-                        intégrant les aspects techniques, physiques et mentaux (spécifique au groupe élite).
-                    </p>
-                    <p>
-                        <span>Connaissances techniques : </span>Bonne connaissance des règles et du fonctionnement des
-                        tournois. Niveau provincial en technique et stratégie de badminton (pour l’élite).
-                    </p>
-                    <p><span>Disponibilités :</span></p>
+                <h5>Exigences requises</h5>
+
+                    <?php if (get_field('job_age')): ?>
+                    <p><span>Âge :</span> <?php the_field('job_age'); ?></p>
+                    <?php endif; ?>
+
+                    <?php if (get_field('job_know')): ?>
+                    <p><span>Connaissances des règles du badminton : </span><?php the_field('job_know'); ?></p>
+                    <?php endif; ?>
+
+                    <?php if (get_field('job_technical')): ?>
+                    <?php the_field('job_technical'); ?>
+                    <?php endif; ?>
+
+                    <?php if( have_rows('job_disponibilites') ): ?>
+                    <p><span>Disponibilités : </span></p>
                     <ul>
-                        <li>
-                            <p>
-                                <span>Tournois : </span>Samedis et dimanches, environ 5 par année (pour le groupe
-                                élite).
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <span>Entraînements : </span>1 soir par semaine pour les groupes adultes et jeunesse ; 2
-                                à 3 soirs par semaine pour le groupe élite, de septembre à juin.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <span>Événements : </span>Participation à l’organisation de 2 tournois durant la saison,
-                                dont une rencontre du circuit provincial de Badminton Québec.
-                            </p>
-                        </li>
+                    <?php while( have_rows('job_disponibilites') ): the_row(); ?>
+                        <li><?php the_sub_field('job_dispo'); ?></li>
+                        <?php endwhile; ?>
                     </ul>
-                    <p><span>Langues : </span>Français et anglais (fonctionnel)</p>
+                    <?php endif; ?>
+
+                    <?php if (get_field('job_details_dispo')): ?>
+                    <p><?php the_field('job_details_dispo'); ?></p>
+                    <?php endif; ?>
+
+                    <?php if (get_field('job_langages')): ?>
+                    <p><span>Langues : </span><?php the_field('job_langages'); ?></p>
+                    <?php endif; ?>
+
+                    <?php if( have_rows('job_qualities') ): ?>
                     <p><span>Autres qualités recherchées : </span></p>
                     <ul>
-                        <li><p>Fortes compétences relationnelles</p></li>
-                        <li><p>Sens de l’organisation</p></li>
-                        <li><p>Esprit d’équipe</p></li>
-                        <li><p>Leadership</p></li>
+                    <?php while( have_rows('job_qualities') ): the_row(); ?>
+                        <li><?php the_sub_field('job_quality'); ?></li>
+                        <?php endwhile; ?>
                     </ul>
-                    <p>
-                        <span>Optionnel : </span>Détenir une certification en enseignement, animation ou coaching
-                        (spécifique ou non au badminton).
-                    </p>
+                    <?php endif; ?>
 
-                    <!--<h5>Exigences requises</h5>
+                    <?php if (get_field('job_option')): ?>
+                    <p><span>Optionnel :</span> <?php the_field('job_option'); ?></p>
+                    <?php endif; ?>
 
-                    <p><span>Âge : </span>16 ans et +</p>
-                    <p>
-                        <span></span>
-                    </p>
-                    <p><span>Connaissances des règles du badminton : </span>moyenne</p>
-                    <p>
-                        <span>Disponibilités : </span>en soirée, de septembre à décembre, et/ou de janvier à juin les : 
-                    </p>
-                    <ul>
-                        <li>
-                            <p>Mardis de 19:45 à 22:45 et/ou </p>
-                        </li>
-                        <li>
-                            <p>Mercredis de 19:45 à 22:45 et/ou</p>
-                        </li>
-                        <li>
-                            <p>Jeudis de 20:15 à 22:45 et/ou </p>
-                        </li>
-                        <li>
-                            <p>Dimanches de 13:15 à 15:15.</p>
-                        </li>
-                    </ul>
-                    <p>
-                        Vous pouvez n’appliquer que pour une seule plage horaire si cela vous convient mieux.
-                        Évidemment, il y aura toujours moyen de s’arranger si vous devez vous absenter à une des date(s)
-                        précise(s).
-                    </p>
-                    <p><span>Langues : </span>Français et anglais (fonctionnel)</p>
-                    <p><span>Autres qualités recherchées : </span></p>
-                    <ul>
-                        <li>Autonomie</li>
-                        <li>Débrouillardise</li>
-                        <li>Ponctualité</li>
-                        <li>polyvalence</li>
-                    </ul>
-                    <p><span>Optionnel : </span>Une certification RCR</p>-->
+                   
+                  
+                    
                 </div>
+                <?php if (get_field('formulaire_de_candidature')): ?>
+                    <h5>Soumettre ma candidature</h5>
+                    <?php the_field('formulaire_de_candidature'); ?>
+            <?php endif; ?>
             </div>
+
+
             <div class="sidebar">
+
+                <?php $posts = get_field('job_other'); ?>
+                <?php if ($posts) : ?>
+                <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
                 <div class="module-side">
-                    <h5>Qui sommes-nous?</h5>
+                    <h5><?php echo get_the_title($p->ID); ?></h5>
                     <p>
-                        Nous sommes un organisme à but non lucratif qui a comme objectif d’être un acteur majeur du
-                        badminton à Montréal.
+                    <?php echo get_the_content($p->ID); ?>
                     </p>
-                    <a href="#" class="btn_full">
+                    <a href="<?php echo get_permalink($p->ID); ?>" class="btn_full">
                         En savoir plus
                         <svg class="icon">
                             <use xlink:href="#icon-fleche"></use>
                         </svg>
                     </a>
                 </div>
+                <?php endforeach; ?>
+                <?php endif; ?>
+
+                <?php if( have_rows('repeat_avantages') ): ?>
                 <div class="module-side">
                     <h5>Les avantages</h5>
                     <ul>
-                        <li><p>Expérience enrichissante</p></li>
-                        <li><p>Milieu dynamique</p></li>
-                        <li><p>Développement personnel</p></li>
-                        <li><p>Horaire flexible</p></li>
-                        <li><p>Développement des compétences en gestion et communication</p></li>
-                        <li><p>Travail d’équipe dans un environnement sportif</p></li>
+                    <?php while( have_rows('repeat_avantages') ): the_row(); ?>
+                        <li><?php the_sub_field('job_avantage'); ?></li>
+                        <?php endwhile; ?>
                     </ul>
                 </div>
+                <?php endif; ?>
+
+                <?php if (get_field('contact_mail')): ?>
                 <div class="module-side">
                     <h5>Soumettre ma candiature par courriel</h5>
-                    <p>Prière d’envoyer votre C. V. à Jean Bastien, coordonnateur général du club</p>
-                    <a href="#">jean@badmintonlachine.com</a>
+                    <p><?php the_field('contact_description'); ?></p>
+                    <a href="mailto:<?php the_field('contact_mail'); ?>"><?php the_field('contact_mail'); ?></a>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

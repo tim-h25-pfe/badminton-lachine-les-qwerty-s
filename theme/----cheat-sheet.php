@@ -22,6 +22,10 @@
 <?php the_sub_field('field_name'); ?>
 <!-- champ provenant d'une page d'options  -->
 <?php the_field('propos_want', 'options'); ?>
+<!-- condition si le champ existe  -->
+<?php if (get_field('footer_mail')): ?>
+    <p><?php the_field('footer_mail'); ?></p>
+<?php endif; ?>
 
 <!-- acf image avec retour en array  -->
 <?php $image = get_field('field_name'); ?>
@@ -54,4 +58,31 @@ if( $link ):
     $link_target = $link['target'] ? $link['target'] : '_self';
     ?>
     <a href="<?php echo esc_url( $link_url ); ?>" class="subscribe"><?php echo esc_html( $link_title ); ?></a>
+    <?php endif; ?>
+
+<!-- acf relation  -->
+<?php $posts = get_field('cw4_film_acteurs'); ?>
+    <?php if ($posts) : ?>
+        <section class="section wrap o-typography">
+            <h2>Acteurs</h2>
+            <div class="cards">
+                <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
+                    <article class="card">
+                        <a href="<?php echo get_permalink($p->ID); ?>">
+                            <div class="card__media">
+                                <?php echo get_the_post_thumbnail($p->ID); ?>
+                            </div>
+                        </a>
+                        <div class="card__content">
+                            <h2>
+                                <?php echo get_the_title($p->ID); ?>
+                            </h2>
+                            <?php echo get_the_content($p->ID); ?>
+                            <i class="fas fa-globe-americas"></i>
+                            <span><?php the_field('cw4_acteur_nationalite', $p->ID); ?></span>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </section>
     <?php endif; ?>
