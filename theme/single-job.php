@@ -1,21 +1,6 @@
-{% include '_partials/_header.html' %}
+<?php get_header(); ?>
 
-<!-- BLOC HERO -->
-<section class="hero block">
-    <img class="texture" src="assets/images/filet.png" alt="filet" />
-    <div class="hero__media">
-        <img class="bgHero" src="assets/images/hero.png" alt="hero" />
-    </div>
-    <div class="hero__content">
-        <h1>Deviens Entraîneur</h1>
-
-        <div class="underline">
-            <svg class="icon icon--lg">
-                <use xlink:href="#icon-doubleLigneDessin"></use>
-            </svg>
-        </div>
-    </div>
-</section>
+<?php include ('includes/bloc_hero_reuse.php'); ?>
 
 <section class="bloc-article carrieres section-large">
     <div class="wrapper">
@@ -196,5 +181,6 @@
         </div>
     </div>
 </section>
+    
 
-{% include '_partials/_footer.html' %}
+<?php get_footer(); ?>
