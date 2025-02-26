@@ -274,7 +274,7 @@ function sessions() {
 	$labels = array(
 		'name'                  => _x( 'Séances', 'Post Type General Name', 'text_domain' ),
 		'singular_name'         => _x( 'Séance', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Séances', 'text_domain' ),
+		'menu_name'             => __( 'Horaire', 'text_domain' ),
 		'name_admin_bar'        => __( 'Séance', 'text_domain' ),
 		'archives'              => __( 'Archives des séances', 'text_domain' ),
 		'attributes'            => __( 'Attributs des séances', 'text_domain' ),
@@ -330,37 +330,37 @@ add_action( 'init', 'sessions', 0 );
 function events() {
 
 	$labels = array(
-		'name'                  => _x( 'Dates importantes', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Date importante', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Dates importantes', 'text_domain' ),
-		'name_admin_bar'        => __( 'Date importante', 'text_domain' ),
-		'archives'              => __( 'Archives des dates importantes', 'text_domain' ),
-		'attributes'            => __( 'Attributs des dates importantes', 'text_domain' ),
-		'parent_item_colon'     => __( 'Date parente :', 'text_domain' ),
-		'all_items'             => __( 'Toutes les dates importantes', 'text_domain' ),
-		'add_new_item'          => __( 'Ajouter une date', 'text_domain' ),
-		'add_new'               => __( 'Ajouter une date', 'text_domain' ),
-		'new_item'              => __( 'Nouvelle date', 'text_domain' ),
-		'edit_item'             => __( 'Modifier la date', 'text_domain' ),
-		'update_item'           => __( 'Mettre à jour la date', 'text_domain' ),
-		'view_item'             => __( 'Voir la date', 'text_domain' ),
-		'view_items'            => __( 'Voir les dates importantes', 'text_domain' ),
-		'search_items'          => __( 'Chercher une date', 'text_domain' ),
+		'name'                  => _x( 'Événements', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Événement', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Événements', 'text_domain' ),
+		'name_admin_bar'        => __( 'Événement', 'text_domain' ),
+		'archives'              => __( 'Archives des événements', 'text_domain' ),
+		'attributes'            => __( 'Attributs des événements', 'text_domain' ),
+		'parent_item_colon'     => __( 'Événement parent :', 'text_domain' ),
+		'all_items'             => __( 'Tous les événements', 'text_domain' ),
+		'add_new_item'          => __( 'Ajouter un événement', 'text_domain' ),
+		'add_new'               => __( 'Ajouter un événement', 'text_domain' ),
+		'new_item'              => __( 'Nouvel événement', 'text_domain' ),
+		'edit_item'             => __( 'Modifier l\'événement', 'text_domain' ),
+		'update_item'           => __( 'Mettre à jour l\'événement', 'text_domain' ),
+		'view_item'             => __( 'Voir l\'événement', 'text_domain' ),
+		'view_items'            => __( 'Voir l\'événement', 'text_domain' ),
+		'search_items'          => __( 'Chercher un événement', 'text_domain' ),
 		'not_found'             => __( 'Introuvable', 'text_domain' ),
 		'not_found_in_trash'    => __( 'Introuvable dans la corbeille', 'text_domain' ),
 		'featured_image'        => __( 'Image en avant', 'text_domain' ),
 		'set_featured_image'    => __( 'Choisir l\'image en avant', 'text_domain' ),
 		'remove_featured_image' => __( 'Retirer l\'image en avant', 'text_domain' ),
 		'use_featured_image'    => __( 'Utiliser comme image en avant', 'text_domain' ),
-		'insert_into_item'      => __( 'Insérer dans la date', 'text_domain' ),
-		'uploaded_to_this_item' => __( 'Ajouté à cette date', 'text_domain' ),
-		'items_list'            => __( 'Liste des dates importantes', 'text_domain' ),
-		'items_list_navigation' => __( 'Navigation de la liste des dates importantes', 'text_domain' ),
-		'filter_items_list'     => __( 'Filtrer la liste des dates importantes', 'text_domain' ),
+		'insert_into_item'      => __( 'Insérer dans l\'événement', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Ajouté à cet événement', 'text_domain' ),
+		'items_list'            => __( 'Liste des événements', 'text_domain' ),
+		'items_list_navigation' => __( 'Navigation de la liste des événements', 'text_domain' ),
+		'filter_items_list'     => __( 'Filtrer la liste des événements', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'Date importante', 'text_domain' ),
-		'description'           => __( 'Dates importantes', 'text_domain' ),
+		'label'                 => __( 'Événement', 'text_domain' ),
+		'description'           => __( 'Événements', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
@@ -441,6 +441,64 @@ function employees() {
 
 }
 add_action( 'init', 'employees', 0 );
+
+// Register Custom Post Type
+function close() {
+
+	$labels = array(
+		'name'                  => _x( 'Fermetures', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Fermeture', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Fermetures', 'text_domain' ),
+		'name_admin_bar'        => __( 'Fermeture', 'text_domain' ),
+		'archives'              => __( 'Archives des fermetures', 'text_domain' ),
+		'attributes'            => __( 'Attributs des fermetures', 'text_domain' ),
+		'parent_item_colon'     => __( 'Fermeture parente :', 'text_domain' ),
+		'all_items'             => __( 'Toutes les fermetures', 'text_domain' ),
+		'add_new_item'          => __( 'Ajouter une nouvelle fermeture', 'text_domain' ),
+		'add_new'               => __( 'Ajouter une fermeture', 'text_domain' ),
+		'new_item'              => __( 'Nouvelle fermeture', 'text_domain' ),
+		'edit_item'             => __( 'Modifier la fermeture', 'text_domain' ),
+		'update_item'           => __( 'Mettre à jour la fermeture', 'text_domain' ),
+		'view_item'             => __( 'Voir la fermeture', 'text_domain' ),
+		'view_items'            => __( 'Voir les fermetures', 'text_domain' ),
+		'search_items'          => __( 'Rechercher la fermeture', 'text_domain' ),
+		'not_found'             => __( 'Introuvable', 'text_domain' ),
+		'not_found_in_trash'    => __( 'Introuvable dans la corbeille', 'text_domain' ),
+		'featured_image'        => __( 'Image en avant', 'text_domain' ),
+		'set_featured_image'    => __( 'Ajouter une image en avant', 'text_domain' ),
+		'remove_featured_image' => __( 'Retirer l\'image en avant', 'text_domain' ),
+		'use_featured_image'    => __( 'Utiliser comme image en avant', 'text_domain' ),
+		'insert_into_item'      => __( 'Insérer dans la fermeture', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Ajouté à la fermeture', 'text_domain' ),
+		'items_list'            => __( 'Liste des fermetures', 'text_domain' ),
+		'items_list_navigation' => __( 'Navigation de la liste des fermetures', 'text_domain' ),
+		'filter_items_list'     => __( 'Filtrer la liste des fermetures', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'Fermeture', 'text_domain' ),
+		'description'           => __( 'Dates de fermeture du club', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-dismiss',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+		'show_in_rest'          => true,
+	);
+	register_post_type( 'close', $args );
+
+}
+add_action( 'init', 'close', 0 );
 
 
 // code pour faire des classes personnalisées pour seulement le type de post

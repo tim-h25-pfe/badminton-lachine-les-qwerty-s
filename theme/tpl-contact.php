@@ -9,61 +9,65 @@
         <div class="contact_grid">
             <div class="contact_contenu">
                 <h3><?php the_title(); ?></h3>
-                <div class="contenu_description">
-                    <p>Nous serions ravis d’échanger avec vous !</p>
-                    <p>N’hésitez pas à nous contacter en remplissant le formulaire suivant.</p>
-                </div>
+                <?php if (get_field('contact_message')): ?>
+                    <div class="contenu_description">
+                    <p><?php the_field('contact_message'); ?></p>
+                    </div>
+                <?php endif; ?>
+                
 
+                <?php if (get_field('footer_mail', 'options')): ?>
                 <div class="contact_courriel">
                     <h6>Courriel</h6>
-                    <a href="mailto:contact@badmintonlachine.com" target="_blank">contact@badmintonlachine.com</a>
+                    <a href="mailto:<?php the_field('footer_mail', 'options'); ?>" target="_blank"><?php the_field('footer_mail', 'options'); ?></a>
                 </div>
+                <?php endif; ?>
+                <?php if (get_field('footer_adress', 'options')): ?>
                 <div class="contact_adresse">
                     <h6>Adresse du club</h6>
-                    <a href="https://maps.app.goo.gl/kqeBZsaCEtqf2Evu5" target="_blank"
-                        >2901, boulevard Saint-Joseph Lachine H8S 4B7
-                    </a>
+                    <p><?php the_field('footer_adress', 'options'); ?></p>
                 </div>
-                <div class="contact_sociaux">
-                    <h6>Réseaux sociaux</h6>
-                    <div class="social_icon">
-                        <a href="https://www.facebook.com/share/159mDcyLqi/?mibextid=wwXIfr" target="_blank"
-                            ><img src="<?php bloginfo('template_url') ?>/assets/icons/facebook.svg" alt="facebook"
-                        /></a>
-                        <a href="https://www.instagram.com/badmintonlachine?igsh=MXFmMTIxcDdoZW90aA==" target="_blank"
-                            ><img src="<?php bloginfo('template_url') ?>/assets/icons/instagram.svg" alt="instagram"
-                        /></a>
-                    </div>
+                <?php endif; ?>
+
+                <?php if ( have_rows('repeteur_sociaux', 'options') ): ?>
+                
+                <div class="social">
+                    <ul style="list-style: none; padding: 0;">
+                    <?php while( have_rows('repeteur_sociaux', 'options') ): the_row(); ?>
+                
+                <li style="text-decoration: underline;"><a href="<?php the_sub_field('sociaux_link', 'options') ?>"><?php the_sub_field('sociaux_name', 'options') ?></a></li>
+                
+                <?php endwhile; ?>
+                    </ul>
+                
                 </div>
+                <?php endif; ?>
+
+                <?php if ( have_rows('contact_links') ): ?>
                 <div class="contact_liens">
                     <h6>Voici quelques liens utiles :</h6>
                     <div class="liens">
                         <ul>
-                            <li><a href="https://reseausportsadultes.com/" target="_blank">RSL</a></li>
-                            <li>
-                                <a href="https://laplumedequebec.wordpress.com/" target="_blank">Plume de Québec</a>
-                            </li>
-                            <li>
-                                <a href="https://icbadmontreal.com/" target="_blank">Championnat Interclub Montréal</a>
-                            </li>
-                            <li>
-                                <a href="https://www.badminton.ca/" target="_blank"
-                                    >Badminton Canada (tournois nationaux)</a
-                                >
-                            </li>
-                            <li>
-                                <a href="https://www.badmintonquebec.com/" target="_blank"
-                                    >Badminton Québec (tournois ABC et Juniors provinciaux)</a
-                                >
-                            </li>
+                        <?php while( have_rows('contact_links') ): the_row(); ?>
+                        <?php 
+                        $link = get_sub_field('contact_link');
+                        if( $link ): 
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                            $link_target = $link['target'] ? $link['target'] : '_self';
+                            ?>
+                            <li><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_html( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a></li>
+                            <?php endif; ?>
+                            <?php endwhile; ?>
                         </ul>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
 
             <div class="contact_formulaire">
                 <form class="contact_form">
-                <?php the_content(); ?>
+                <?php the_field('contact_embed') ?>
                 </form>
             </div>
         </div>
