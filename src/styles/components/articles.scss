@@ -165,6 +165,53 @@ body:has(> .bloc-article) {
                             border: none;
                             background-color: var(--color-gray);
                         }
+                        select.btn_full {
+                            cursor: pointer;
+                            -webkit-appearance: none; /* Supprimer la flèche par défaut sur Safari */
+                            -moz-appearance: none; /* Supprimer la flèche par défaut sur Firefox */
+                            appearance: none; /* Supprimer la flèche par défaut sur Chrome et autres */
+                            &:focus {
+                                outline: none; /* Supprime la bordure de focus */
+                                border: none; /* Supprime la bordure (si elle est définie) */
+                            }
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border: 0px;
+                            option {
+                                /* Modifier l'effet de survol des options */
+                                &:hover {
+                                    background-color: var(
+                                        --color-interactive
+                                    ); /* Exemple de fond au survol (vous pouvez changer la couleur) */
+                                    color: var(
+                                        --color-black
+                                    ); /* Exemple de couleur du texte au survol */
+                                }
+                            }
+                        }
+                        .champSelect {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            background-color: var(--color-black);
+                            border-radius: 30px;
+                            padding: 5px 15px;
+                            &:hover {
+                                .icone {
+                                    transform: rotate(270deg);
+                                }
+                            }
+                        }
+                        .icone {
+                            transition: all ease-out 0.3s;
+                            color: var(--color-white);
+                            background-color: var(--color-black);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transform: rotate(90deg);
+                        }
                         &.acheter {
                             flex-direction: row;
                             align-items: center;
