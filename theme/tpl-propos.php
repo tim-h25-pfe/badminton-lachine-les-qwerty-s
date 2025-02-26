@@ -6,10 +6,12 @@
 
 <?php include ('includes/bloc_hero_reuse.php'); ?>
 
+<?php if (have_rows('propos_missions')) : ?>
+    
 <section class="missions">
     <div class="wrapper">
         <div class="title">
-            <h2>Historique</h2>
+            <h2>Missions</h2>
             <div class="underline">
                 <svg class="icon icon--lg">
                     <use xlink:href="#icon-doubleLigneDessin"></use>
@@ -18,30 +20,17 @@
         </div>
 
         <div class="missions_grid">
+        <?php while (have_rows('propos_missions')) : the_row(); ?>
             <div class="mission">
-                <h1>1</h1>
-                <h4>Promotion</h4>
-                <p>
-                    Promouvoir le badminton auprès des personnes résidentes de Lachine et des environs en proposant des
-                    programmes et des activités accessibles à tous.
-                </p>
+                <h1><?php the_sub_field('propos_number') ?></h1>
+                <h4><?php the_sub_field('propos_titre_mission') ?></h4>
+                <p><?php the_sub_field('propos_description_mission') ?></p>
             </div>
-            <div class="mission">
-                <h1>2</h1>
-                <h4>Accessibilité</h4>
-                <p>Permettre l’accès facile au sport à tous les groupes d’âge et dans de bonnes conditions.</p>
-            </div>
-            <div class="mission">
-                <h1>3</h1>
-                <h4>Développement</h4>
-                <p>
-                    Participer au développement éducatif et sportif des enfants de Lachine et des environs par
-                    l’intermédiaire du sport.
-                </p>
-            </div>
+        <?php endwhile; ?>  
         </div>
     </div>
 </section>
+<?php endif; ?>
 
         <?php if (have_rows('bloc')) : ?>
             <?php while (have_rows('bloc')) : the_row(); ?>

@@ -2,8 +2,14 @@
 <?php the_title(); // titre ?>
 <?php the_content(); // contenu ?>
 <?php the_excerpt(); //résumé ?>
+<?php the_category(); //la catégorie ?>
 <?php the_post_thumbnail(); //thumbnail ?>
 <?php the_post_thumbnail_url(); // lien thumbnail pour mettre dans le src?>
+<!-- get toutes les catégories  -->
+<?php $categories = array(); ?>
+<?php foreach( get_the_category() as $category ): ?>
+    <?php array_push($categories, $category->name); ?>
+<?php endforeach?>
 
 <!-- liens et infos du site  -->
 <?php bloginfo('url'); ?>
@@ -38,3 +44,14 @@ if( $images ): ?>
         <?php echo wp_get_attachment_image( $image_id ); ?>                  
     <?php endforeach; ?>
 <?php endif; ?>
+
+<!-- acf link  -->
+<?php 
+$link = get_field('footer_steps');
+if( $link ): 
+    $link_url = $link['url'];
+    $link_title = $link['title'];
+    $link_target = $link['target'] ? $link['target'] : '_self';
+    ?>
+    <a href="<?php echo esc_url( $link_url ); ?>" class="subscribe"><?php echo esc_html( $link_title ); ?></a>
+    <?php endif; ?>
