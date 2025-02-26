@@ -285,6 +285,7 @@
         .swiper-slide {
             aspect-ratio: 1.95/2;
         }
+
         .card {
             display: flex;
             flex-direction: column;
@@ -295,6 +296,7 @@
             background-color: white;
             color: var(--color-black);
             border-radius: 30px;
+
             .card__media {
                 height: 50%;
                 width: 100%;
