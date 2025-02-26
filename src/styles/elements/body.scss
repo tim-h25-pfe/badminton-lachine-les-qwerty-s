@@ -15,20 +15,27 @@ body {
 }
 
 section {
-    padding: var(--spacing-xl) 0;
+    //padding: var(--spacing-xl) 0;
     border-radius: 50px;
-    margin: 100px 0;
+    margin: var(--spacing-xl) 0;
     @media screen and (max-width: $breakpoint-lg) {
-        padding: 50px 0;
+        margin: 50px 0;
     }
 }
 
 .section-large {
     padding: 200px 0;
-
-    border-radius: 50px;
     @media screen and (max-width: $breakpoint-lg) {
-        padding: 100px 0;
+        padding: var(--spacing-lg) 0;
+    }
+}
+
+.section-color {
+    margin: 0 1%;
+    border-radius: var(--spacing-lg);
+    padding: var(--spacing-xl) 0;
+    @media screen and (max-width: $breakpoint-lg) {
+        padding: var(--spacing-lg) 0;
     }
 }
 
