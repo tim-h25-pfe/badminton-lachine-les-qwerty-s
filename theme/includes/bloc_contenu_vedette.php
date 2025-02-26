@@ -18,10 +18,11 @@
         </div>
         <div class="cards-nouvelles">
             <div class="card">
+                <p class="btn_full tag">Divers</p>
                 <div class="card__content">
                     <div class="text">
-                        <h5>Lorem ipsumLorem ipsum</h5>
-                        <p>Lorem ipsumLorem ipsum</p>
+                        <h5>Gala de la reconnaissance</h5>
+                        <p>Publié le 21 novembre 2024</p>
                     </div>
                     <a class="btn_full btn_round" href="#">
                         <svg class="icon">
@@ -34,10 +35,11 @@
                 </div>
             </div>
             <div class="card">
+                <p class="btn_full tag">Divers</p>
                 <div class="card__content">
                     <div class="text">
-                        <h5>Lorem ipsumLorem ipsum</h5>
-                        <p>Lorem ipsumLorem ipsum</p>
+                        <h5>Gala de la reconnaissance</h5>
+                        <p>Publié le 21 novembre 2024</p>
                     </div>
                     <a class="btn_full btn_round" href="#">
                         <svg class="icon">
@@ -50,10 +52,11 @@
                 </div>
             </div>
             <div class="card">
+                <p class="btn_full tag">Divers</p>
                 <div class="card__content">
                     <div class="text">
-                        <h5>Lorem ipsumLorem ipsum</h5>
-                        <p>Lorem ipsumLorem ipsum</p>
+                        <h5>Gala de la reconnaissance</h5>
+                        <p>Publié le 21 novembre 2024</p>
                     </div>
                     <a class="btn_full btn_round" href="#">
                         <svg class="icon">
