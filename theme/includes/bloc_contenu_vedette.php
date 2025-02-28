@@ -59,7 +59,7 @@ if($the_post_type == "new"){
 
 
 
-<section class="section nouvelles">
+<section class="section section-color nouvelles">
     <div class="wrapper">
         <div class="title">
         

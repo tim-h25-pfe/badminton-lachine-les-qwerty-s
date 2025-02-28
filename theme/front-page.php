@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="hero">
+<section class="hero section-color">
     <div class="hero__media">
         <img class="bgHero" src="<?php the_post_thumbnail_url(); ?>" alt="" />
         <div class="bkg_filter"></div>

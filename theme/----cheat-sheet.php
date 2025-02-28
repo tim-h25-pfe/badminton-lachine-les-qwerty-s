@@ -3,8 +3,18 @@
 <?php the_content(); // contenu ?>
 <?php the_excerpt(); //résumé ?>
 <?php the_category(); //la catégorie ?>
+<?php the_permalink(); //le lien ?>
 <?php the_post_thumbnail(); //thumbnail ?>
 <?php the_post_thumbnail_url(); // lien thumbnail pour mettre dans le src?>
+
+<!-- si ya pas le thumbnail on met une image pending  -->
+<?php 
+if (has_post_thumbnail()) { 
+    the_post_thumbnail(); 
+} else { ?>
+    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+<?php } ?>
+
 <!-- get toutes les catégories  -->
 <?php $categories = array(); ?>
 <?php foreach( get_the_category() as $category ): ?>
@@ -45,7 +55,7 @@
 $images = get_field('acf_galerie');
 if( $images ): ?>
     <?php foreach( $images as $image_id ): ?>
-        <?php echo wp_get_attachment_image( $image_id ); ?>                  
+        <?php echo wp_get_attachment_image( $image_id, 'full' ); ?>                  
     <?php endforeach; ?>
 <?php endif; ?>
 
