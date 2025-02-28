@@ -2,6 +2,7 @@ import Carousel from './components/Carousel';
 import Header from './components/Header';
 import Tabs from './components/Tabs';
 import Accordeon from './components/Accordeon';
+import Ariane from './components/Ariane';
 export default class ComponentFactory {
   constructor() {
     this.componentInstances = [];
@@ -10,6 +11,7 @@ export default class ComponentFactory {
       Header,
       Tabs,
       Accordeon,
+      Ariane,
     };
     this.init();
   }
