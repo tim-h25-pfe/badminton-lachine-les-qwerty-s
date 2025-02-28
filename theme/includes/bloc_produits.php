@@ -1,3 +1,7 @@
+<?php 
+$the_category = get_sub_field('products_type');
+?>
+
 <!-- BLOC CARDS 3 -->
 <section class="section section-color services service_background">
     <div class="wrapper">
@@ -10,8 +14,34 @@
             </div>
         </div>
 
+        <?php   
+        $argsglobal = array(
+            'post_type' => 'service',
+            'post_status' => 'publish',
+            // 'orderby' => 'publish',
+            // 'order' => 'DSC',
+            'posts_per_page' => 2,
+        );
+            
+        $argsglobal['tax_query'] = array(
+                array(
+                    'taxonomy' => 'type_de_service',  // Slug de la taxonomie personnalisée
+                    'field'    => 'slug',      // On filtre par slug de terme
+                    'terms'    => $the_category, // Catégorie à filtrer
+                    'operator' => 'IN',        // Sélectionne les posts ayant ce terme
+                ),
+            );
+        
+
+        $queryg = new WP_Query( $argsglobal );
+        ?>
+
+        <?php if ( $queryg->have_posts() ) : ?>
+
 
         <div class="grid-produits">
+
+        <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
 
             <div class="service_no_hover">
                 <div class="service__media">
@@ -33,8 +63,15 @@
                     </div>
                 </div>
             </div>
+
+            <?php endwhile; ?>
             
         </div>
+
+        <?php else : ?>
+                <p>Aucun post.</p>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
 
     </div>
 </section>
