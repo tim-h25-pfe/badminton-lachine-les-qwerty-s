@@ -86,3 +86,24 @@ if( $link ):
             </div>
         </section>
     <?php endif; ?>
+
+<!-- requete wp query pour get les cpt  -->
+<?php if ($the_post_type == 'new') : ?>       
+<?php   
+$argsglobal = array(
+    'post_type' => 'recette',
+    'post_status' => 'publish',
+    'orderby' => 'publish',
+    'order' => 'ASC',
+    'posts_per_page' => 3,
+);
+$queryg = new WP_Query( $argsglobal );
+?>
+<?php if ( $queryg->have_posts() ) : ?>
+            <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
+            
+            <?php endwhile; ?>
+<?php else : ?>
+        <p>Aucun post.</p>
+<?php endif; ?>
+<?php wp_reset_postdata(); ?>

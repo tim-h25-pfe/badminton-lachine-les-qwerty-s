@@ -9,7 +9,7 @@
                         <h6>Publié le <?php the_date(); ?></h6>
                         <?php
                         // Récupérer les termes associés à l'article pour la taxonomie personnalisée 'ma_taxonomie'
-                        $terms = get_the_terms(get_the_ID(), 'type_de_nouvelles');
+                        $terms = get_the_terms(get_the_ID(), 'type_de_event');
 
                         // Vérifier si des termes existent et ne sont pas une erreur
                         if ($terms && !is_wp_error($terms)) {
@@ -24,7 +24,7 @@
                     <h3><?php the_title(); ?></h3>
                     <?php the_post_thumbnail(); ?>
                 </div>
-                <?php the_content(); ?>
+                <?php the_excerpt(); ?>
             </div>
 
             <?php
@@ -43,7 +43,7 @@
                 $next_post_thumbnail = get_the_post_thumbnail($next_post_id, 'medium'); // ou 'large' selon votre taille préférée
                 
                 // Récupérer les catégories associées à ce post
-                $next_post_terms = get_the_terms($next_post_id, 'type_de_nouvelles');
+                $next_post_terms = get_the_terms($next_post_id, 'type_de_event');
                 $next_post_category = ( $next_post_terms && !is_wp_error($next_post_terms) ) ? array_shift($next_post_terms)->name : 'Pas de catégorie';
             }
 

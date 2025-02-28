@@ -19,7 +19,6 @@
     <script>
 
         // pour que les icônes marchent
-
          iconsPath = '<?php bloginfo('template_url') ?>/';
 
     </script>

@@ -606,7 +606,7 @@ function enlever_categories_par_defaut_employee() {
 add_action('init', 'enlever_categories_par_defaut_employee');
 
 function verifier_categorie_personnalisee_employee($post_id) {
-    if (get_post_type($post_id) !== 'new') return;
+    if (get_post_type($post_id) !== 'employee') return;
 
     $categories = wp_get_post_terms($post_id, 'type-employee');
     if (empty($categories)) {
