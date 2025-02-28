@@ -9,7 +9,7 @@ if( $images ): ?>
             <div class="swiper-wrapper">
             <?php foreach( $images as $image_id ): ?>
                 <div class="swiper-slide">
-                    <?php echo wp_get_attachment_image( $image_id ); ?> 
+                    <?php echo wp_get_attachment_image( $image_id, 'full' ); ?> 
                 </div>
             <?php endforeach; ?>
             </div>

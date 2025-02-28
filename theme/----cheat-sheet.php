@@ -55,7 +55,7 @@ if (has_post_thumbnail()) {
 $images = get_field('acf_galerie');
 if( $images ): ?>
     <?php foreach( $images as $image_id ): ?>
-        <?php echo wp_get_attachment_image( $image_id ); ?>                  
+        <?php echo wp_get_attachment_image( $image_id, 'full' ); ?>                  
     <?php endforeach; ?>
 <?php endif; ?>
 
