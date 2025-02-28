@@ -9,8 +9,6 @@ if( $valeur ) {
     $titre = $valeur['label']; // Récupérer l'intitulé
 }
 
-// print_r($slug);
-
 $taxonomie = $slug; // Remplace par ta taxonomie
 
 $tax_details = get_taxonomy($taxonomie);
@@ -24,20 +22,39 @@ if ( ! $tax_details || ! isset($tax_details->object_type) || empty($tax_details-
 $the_post_type = $tax_details->object_type[0];
 
 $cat_nouvelle = get_sub_field('vedette_news_category');
-$cat_service = get_sub_field('vedette_services_category');
-$cat_event = get_sub_field('vedette_events_category');
 
-$the_category = null;
-
-if($the_post_type == "new"){
-    $the_category = $cat_nouvelle;
-} elseif($the_post_type == "event"){
-    $the_category = $cat_event;
-} elseif($the_post_type == "service"){
-    $the_category = $cat_service;
+if ($cat_nouvelle){
+    $new_slug = $cat_nouvelle['value']; // Récupérer le slug
+    $new_label = $cat_nouvelle['label']; // Récupérer l'intitulé
 }
 
-print_r($the_category);
+$cat_service = get_sub_field('vedette_services_category');
+
+if ($cat_service){
+    $service_slug = $cat_service['value']; // Récupérer le slug
+    $service_label = $cat_service['label']; // Récupérer l'intitulé
+}
+
+$cat_event = get_sub_field('vedette_events_category');
+
+if ($cat_event){
+    $event_slug = $cat_event['value']; // Récupérer le slug
+    $event_label = $cat_event['label']; // Récupérer l'intitulé
+}
+
+$the_category = null;
+$the_label = null;
+
+if($the_post_type == "new"){
+    $the_category = $new_slug;
+    $the_label = $new_label;
+} elseif($the_post_type == "event"){
+    $the_category = $event_slug;
+    $the_label = $event_label;
+} elseif($the_post_type == "service"){
+    $the_category = $service_slug;
+    $the_label = $service_label;
+}
 ?>
 
 
@@ -71,28 +88,42 @@ print_r($the_category);
             </a>
         <?php endif; ?>
         </div>
- 
+
         <?php   
         $argsglobal = array(
-            'post_type' => $post_type,
+            'post_type' => $the_post_type,
             'post_status' => 'publish',
             'orderby' => 'publish',
             'order' => 'DSC',
             'posts_per_page' => 3,
-            'category'
         );
+
+        // Si $the_category n'est pas "all", ajoute le filtre de taxonomie
+        if ($the_category != "all") {
+            $argsglobal['tax_query'] = array(
+                array(
+                    'taxonomy' => $taxonomie,  // Slug de la taxonomie personnalisée
+                    'field'    => 'slug',      // On filtre par slug de terme
+                    'terms'    => $the_category, // Catégorie à filtrer
+                    'operator' => 'IN',        // Sélectionne les posts ayant ce terme
+                ),
+            );
+        }
+
         $queryg = new WP_Query( $argsglobal );
         ?>
         <?php if ( $queryg->have_posts() ) : ?>
             <div class="cards-nouvelles">
             <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
             <div class="card">
-                <p class="btn_full tag">Statique</p>
+                <?php if($the_category != "all") : ?>
+                <p class="btn_full tag"><?php echo $the_label ?></p>
+                <?php endif; ?>
                 <div class="card__content">
                     <div class="text">
                         <h5><?php the_title();?></h5>
                         <!-- if nouvelles -> date else -> excerpt  -->
-                        <p>Publié le statique</p>
+                        <p>Publié le <?php the_date();?></p>
                     </div>
                     <a class="btn_full btn_round" href="<?php the_permalink();?>">
                         <svg class="icon">
@@ -101,7 +132,12 @@ print_r($the_category);
                     </a>
                 </div>
                 <div class="card__media">
-                <?php the_post_thumbnail();?>
+                <?php 
+                if (has_post_thumbnail()) { 
+                    the_post_thumbnail(); 
+                } else { ?>
+                    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                <?php } ?>
                 </div>
             </div>
             <?php endwhile; ?>

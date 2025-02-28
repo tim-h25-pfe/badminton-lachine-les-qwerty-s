@@ -1,12 +1,11 @@
-<!-- BLOC CARDS 1 -->
 <section class="section services">
     <div class="wrapper">
         <div class="title">
             <div class="title">
-                <h1>Forfaits Statiques</h1>
+                <h1>Services statiques</h1>
                 <div class="underline">
                     <svg class="icon icon--lg">
-                        <use xlink:href="#icon-tripleLigneDessin"></use>
+                        <use xlink:href="#icon-ligneDessin"></use>
                     </svg>
                 </div>
             </div>
@@ -20,12 +19,13 @@
         <div class="grid-services">
             <div class="service">
                 <div class="service__media">
-                    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 </div>
                 <div class="service__content">
-                    <h5>Lorem ipsum</h5>
+                    <h5>Entraînement libres</h5>
                     <div class="more__content">
-                        <a class="btn_full btn_white" href="#">En savoir plus </a>
+                        <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                        <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
                     </div>
                 </div>
             </div>
@@ -34,9 +34,10 @@
                     <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 </div>
                 <div class="service__content">
-                    <h5>Lorem ipsum</h5>
+                    <h5>Entraînement libres</h5>
                     <div class="more__content">
-                        <a class="btn_full btn_white" href="#">En savoir plus </a>
+                        <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                        <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
                     </div>
                 </div>
             </div>
@@ -45,9 +46,10 @@
                     <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 </div>
                 <div class="service__content">
-                    <h5>Lorem ipsum</h5>
+                    <h5>Entraînement libres</h5>
                     <div class="more__content">
-                        <a class="btn_full btn_white" href="#">En savoir plus </a>
+                        <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                        <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
                     </div>
                 </div>
             </div>
@@ -56,14 +58,16 @@
                     <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 </div>
                 <div class="service__content">
-                    <h5>Lorem ipsum</h5>
+                    <h5>Entraînement libres</h5>
                     <div class="more__content">
-                        <a class="btn_full btn_white" href="#">En savoir plus </a>
+                        <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                        <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div
         class="swiper carousel-services js-swiper-accueilServices"
         data-component="Carousel"
@@ -80,7 +84,8 @@
                     <div class="service__content">
                         <h5>Entraînement libres</h5>
                         <div class="more__content">
-                            <a class="btn_full btn_white" href="#">En savoir plus</a>
+                            <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                            <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
                         </div>
                     </div>
                 </div>
@@ -93,7 +98,8 @@
                     <div class="service__content">
                         <h5>Entraînement libres</h5>
                         <div class="more__content">
-                            <a class="btn_full btn_white" href="#">En savoir plus</a>
+                            <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                            <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
                         </div>
                     </div>
                 </div>
@@ -106,7 +112,8 @@
                     <div class="service__content">
                         <h5>Entraînement libres</h5>
                         <div class="more__content">
-                            <a class="btn_full btn_white" href="#">En savoir plus</a>
+                            <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                            <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
                         </div>
                     </div>
                 </div>
@@ -119,7 +126,8 @@
                     <div class="service__content">
                         <h5>Entraînement libres</h5>
                         <div class="more__content">
-                            <a class="btn_full btn_white" href="#">En savoir plus </a>
+                            <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                            <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
                         </div>
                     </div>
                 </div>
