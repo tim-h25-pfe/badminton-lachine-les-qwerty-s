@@ -5,6 +5,15 @@
 <?php the_category(); //la catégorie ?>
 <?php the_post_thumbnail(); //thumbnail ?>
 <?php the_post_thumbnail_url(); // lien thumbnail pour mettre dans le src?>
+
+<!-- si ya pas le thumbnail on met une image pending  -->
+<?php 
+if (has_post_thumbnail()) { 
+    the_post_thumbnail(); 
+} else { ?>
+    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+<?php } ?>
+
 <!-- get toutes les catégories  -->
 <?php $categories = array(); ?>
 <?php foreach( get_the_category() as $category ): ?>
