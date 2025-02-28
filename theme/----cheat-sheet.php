@@ -3,6 +3,7 @@
 <?php the_content(); // contenu ?>
 <?php the_excerpt(); //résumé ?>
 <?php the_category(); //la catégorie ?>
+<?php the_permalink(); //le lien ?>
 <?php the_post_thumbnail(); //thumbnail ?>
 <?php the_post_thumbnail_url(); // lien thumbnail pour mettre dans le src?>
 

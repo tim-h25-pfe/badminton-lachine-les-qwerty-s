@@ -1,19 +1,42 @@
+<?php
+// Récupérer la valeur du champ Select (qui est un array)
+$valeur = get_sub_field('decouverte_content');
+
+// Vérifier si la valeur est bien récupérée
+if( $valeur ) {
+    // Récupérer l'intitulé et le slug depuis l'array
+    $slug = $valeur['value']; // Récupérer le slug
+    $titre = $valeur['label']; // Récupérer l'intitulé
+}
+
+$the_post_type = $slug;
+$the_label = $titre;
+?>
+
 <!-- BLOC CAROUSEL HALF PAGE -->
 <section class="section-large contentSwiper">
     <div class="wrapper">
         <div class="content">
             <div class="infos">
-                <h3>Lorem Statique</h3>
+                <h3><?php the_sub_field('decouverte_titre'); ?></h3>
                 <p>
-                    Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-                    ipsumLorem ipsum
+                <?php the_sub_field('decouverte_description'); ?>
                 </p>
-                <a href="#" class="btn_full btn_white">
-                    Voir tous
+                <?php 
+                $link = get_sub_field('decouverte_link');
+                if( $link ): 
+                    $link_url = $link['url'];
+                    $link_title = $link['title'];
+                    $link_target = $link['target'] ? $link['target'] : '_self';
+                    ?>
+                    <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full btn_white">
+                    <?php echo esc_html( $link_title ); ?>
                     <svg class="icon">
                         <use xlink:href="#icon-fleche"></use>
                     </svg>
                 </a>
+                    <?php endif; ?>
+                
             </div>
             <div class="btn_nav">
                 <div class="swiper-button-prev">
@@ -28,20 +51,43 @@
                 </div>
             </div>
         </div>
+
+
+        <?php   
+        $argsglobal = array(
+            'post_type' => $the_post_type,
+            'post_status' => 'publish',
+            // 'orderby' => 'publish',
+            // 'order' => 'DSC',
+            'posts_per_page' => 4,
+        );
+
+        $queryg = new WP_Query( $argsglobal );
+        ?>
+
+        <?php if ( $queryg->have_posts() ) : ?>
+
+
         <div class="swiper js-swiper-coursPrives" data-component="Carousel" data-loop>
+
             <div class="swiper-wrapper">
+            <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
                 <div class="swiper-slide">
                     <div class="card">
                         <div class="card__media">
-                            <img src="<?php bloginfo('template_url') ?>/assets/images/card.png" alt="image cour privé" />
+                        <?php 
+                        if (has_post_thumbnail()) { 
+                            the_post_thumbnail(); 
+                        } else { ?>
+                            <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                        <?php } ?>
                         </div>
                         <div class="card__content">
                             <div class="title">
-                                <p>Durée 1-2h</p>
-                                <h4>Andrew Choi</h4>
+                                <h4><?php the_title(); ?></h4>
                             </div>
-                            <a href="#" class="btn_full"
-                                >Planifier
+                            <a href="<?php the_permalink(); ?>" class="btn_full"
+                                >En savoir plus
                                 <svg class="icon">
                                     <use xlink:href="#icon-fleche"></use>
                                 </svg>
@@ -49,45 +95,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card__media">
-                            <img src="<?php bloginfo('template_url') ?>/assets/images/bgHero2.png" alt="image cour privé" />
-                        </div>
-                        <div class="card__content">
-                            <div class="title">
-                                <p>Durée 1-2h</p>
-                                <h4>Andrew Choi</h4>
-                            </div>
-                            <a href="#" class="btn_full"
-                                >Planifier
-                                <svg class="icon">
-                                    <use xlink:href="#icon-fleche"></use>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card__media">
-                            <img src="<?php bloginfo('template_url') ?>/assets/images/hero.png" alt="image cour privé" />
-                        </div>
-                        <div class="card__content">
-                            <div class="title">
-                                <p>Durée 1-2h</p>
-                                <h4>Andrew Choi</h4>
-                            </div>
-                            <a href="#" class="btn_full"
-                                >Planifier
-                                <svg class="icon">
-                                    <use xlink:href="#icon-fleche"></use>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <?php endwhile; ?>
             </div>
+
         </div>
+
+        <?php else : ?>
+                <p>Aucun post.</p>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
     </div>
 </section>
