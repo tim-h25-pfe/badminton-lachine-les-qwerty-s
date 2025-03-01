@@ -22,9 +22,11 @@
     }
     li {
         list-style: none;
+        width: max-content;
     }
     a {
         transition: all 0.3s ease-out;
+        width: max-content;
         &:hover {
             color: var(--color-white);
             opacity: 50%;

@@ -123,7 +123,7 @@ if($the_post_type == "new"){
                     <div class="text">
                         <h5><?php the_title();?></h5>
                         <!-- if nouvelles -> date else -> excerpt  -->
-                        <p>Publié le <?php the_date();?></p>
+                        <?php echo get_the_date(); ?>
                     </div>
                     <a class="btn_full btn_round" href="<?php the_permalink();?>">
                         <svg class="icon">
