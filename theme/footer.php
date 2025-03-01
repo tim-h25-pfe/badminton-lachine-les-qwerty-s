@@ -62,6 +62,8 @@
                 <p><?php the_field('footer_adress', 'options'); ?></p>
                 <?php endif; ?>
             </div>
+
+            <p>Les pages incomplètes sont encore en construction</p>
             
             <?php if ( have_rows('footer_links', 'options') ): ?>
             <div class="credits">      
@@ -75,14 +77,16 @@
             </div>
             <?php endif; ?>
 
-            <?php if (get_field('footer_copyright', 'options')): ?>
-                <p><?php the_field('footer_copyright', 'options'); ?></p>
-                <?php endif; ?>
+            <p>Tous droits réservés © <?php echo date("Y"); ?> <?php bloginfo('name'); ?></p>
         </div>
         
     </div>
     <div class="passion">
-        <h1>Le badminton,</h1>
+        <h1><?php  
+        echo __('Le badminton', 'badlach'); 
+        ?>,</h1>
+        
+        
         <h1>
             notre
             <span

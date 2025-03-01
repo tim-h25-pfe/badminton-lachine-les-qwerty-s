@@ -1,24 +1,3 @@
-<?php
-// // Récupérer la langue actuelle
-// $current_language = pll_current_language();
-
-// pll_the_languages(array('show_flags' => 1, 'show_names' => 1));
-
-// // Récupérer la langue de l'autre côté
-// $other_language = ($current_language === 'fr') ? 'en' : 'fr'; // Adapte les codes de langue selon ton site
-
-
-
-// if (function_exists('pll_get_permalink')) {
-//   // Si la fonction existe, utilise-la
-//   $translated_url = pll_get_permalink($other_language, get_permalink());
-// } else {
-//   // Sinon, utilise la méthode de base
-//   $translated_url = get_permalink();
-// }
-// // Afficher le lien pour basculer
-?>
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
