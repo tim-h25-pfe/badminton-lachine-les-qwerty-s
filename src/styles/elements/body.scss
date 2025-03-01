@@ -8,10 +8,11 @@ body {
     font-family: var(--font-primary);
     font-size: var(--font-size-content);
     color: var(--color-black);
-    line-height: 1.6;
+    line-height: 1.4;
     background-color: var(--color-white);
     transition: all 0.3s ease-out;
     overflow-x: hidden;
+    letter-spacing: 0.04em;
 }
 
 section {
@@ -40,10 +41,5 @@ section {
 }
 
 p {
-    font-family: var(--font-primary);
-    font-size: var(--font-size-content);
-    line-height: 1.15;
-    font-weight: 400;
-    //letter-spacing: 3%;
     margin: 0;
 }

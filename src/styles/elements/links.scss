@@ -10,6 +10,7 @@ a {
     text-decoration: none;
     font-weight: 700;
     cursor: pointer;
+    font-size: #{typo(14px, 20px)};
 }
 
 .btn_full {
@@ -54,9 +55,9 @@ a {
 
 .btn_outline {
     background-color: transparent;
-    border: 3px solid var(--color-white);
-    padding: 10px 15px;
-    border-radius: 20px;
+    border: 1px solid var(--color-white);
+    padding: 8px 15px;
+    border-radius: 10px;
     &:hover {
         color: var(--color-interactive);
         border-color: var(--color-interactive);
