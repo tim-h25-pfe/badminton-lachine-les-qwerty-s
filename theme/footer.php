@@ -63,7 +63,7 @@
                 <?php endif; ?>
             </div>
 
-            <p>Les pages incomplètes sont encore en construction</p>
+            <p style="color: #86B455;">Les pages incomplètes sont encore en construction</p>
             
             <?php if ( have_rows('footer_links', 'options') ): ?>
             <div class="credits">      

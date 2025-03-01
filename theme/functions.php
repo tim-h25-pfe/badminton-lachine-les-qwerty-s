@@ -36,22 +36,6 @@ if ( function_exists('acf_add_options_page') ) {
     ));
 }
 
-/**
- * Add textdomain support to the theme
- */
-add_action('after_setup_theme', 'load_textdomain_func');
-function load_textdomain_func()
-{
-    load_theme_textdomain('badlach', get_template_directory() . '/languages');
-}
-
-add_filter('gettext', function($translated_text, $text, $domain) {
-    if ($text === 'Le badminton' && $domain === 'badlach') {
-        return 'TRADUCTION FORCÉE';
-    }
-    return $translated_text;
-}, 10, 3);
-
 
 // Register Custom Post Type
 function jobs() {
@@ -687,3 +671,20 @@ function verifier_categorie_personnalisee_services($post_id) {
     }
 }
 add_action('save_post', 'verifier_categorie_personnalisee_services', 10, 1);
+
+/**
+ * Add textdomain support to the theme
+ */
+add_action('after_setup_theme', function() {
+    load_theme_textdomain('badlach', get_template_directory() . '/languages');
+});
+
+add_action('after_setup_theme', function() {
+    load_theme_textdomain('badlach', get_template_directory() . '/languages');
+    // Vérification pour s'assurer que la traduction est bien chargée
+    if (is_textdomain_loaded('badlach')) {
+        error_log('Le texte-domaine badlach a été chargé avec succès.');
+    } else {
+        error_log('Le texte-domaine badlach n\'a pas été chargé.');
+    }
+});
