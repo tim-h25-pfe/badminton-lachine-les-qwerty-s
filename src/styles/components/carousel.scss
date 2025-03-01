@@ -3,27 +3,19 @@
 // ----- partenaires ----- //
 
 .partners .swiper {
-    height: 20vh;
+    //height: 20vh;
     position: relative;
+    margin: 200px 0;
+    @media screen and (max-width: 800px) {
+        margin: 100px 0;
+    }
     .swiper-wrapper {
         .swiper-slide {
             display: flex;
             justify-content: center;
             align-items: center;
-            .icon {
-                color: var(--color-black);
-                fill: var(--color-black);
-                width: 150px;
-                height: 150px;
-                @media screen and (max-width: $breakpoint-lg) {
-                    width: 100px;
-                    height: 100px;
-                    @media screen and (max-width: $breakpoint-sm) {
-                        width: 75px;
-                        height: 75px;
-                    }
-                }
-            }
+            height: 10vh;
+
             img {
                 height: 100%;
                 width: 100%;
