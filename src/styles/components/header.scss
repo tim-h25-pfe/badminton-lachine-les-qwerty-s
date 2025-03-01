@@ -52,6 +52,7 @@
     border-radius: 20px;
     padding: 15px 90px;
     margin-top: 20px;
+    // border: 2px solid var(--color-black);
     @media screen and (max-width: $breakpoint-xs) {
         padding: 15px 20px;
     }
@@ -176,6 +177,7 @@
 
 //styles du bouton menu
 .header__toggle {
+    display: block;
     --bar-height: 4px;
     --bar-spacer: 3px;
     --bar-width: 35px;
@@ -241,6 +243,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        max-width: 1830px;
     }
 
     ul {
@@ -258,9 +261,8 @@
 
 //Styles pour le bouton inscription
 .bouton_inscription {
-    
     padding: 10px 28px;
-    
+
     transition: 0.3s;
     @media screen and (max-width: $breakpoint-xs) {
         display: none;
@@ -324,7 +326,7 @@
 
 .logo {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 80px;
     width: 170px;
@@ -415,6 +417,13 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 100px;
+
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 30px;
+            object-fit: cover;
+        }
 
         @media screen and (max-width: $breakpoint-md) {
             grid-template-columns: 1fr 1fr;
@@ -647,7 +656,7 @@ a.underline {
 }
 
 .allignement_horizontal svg {
-    display: none;
+    display: block;
     @media screen and (max-width: $breakpoint-md) {
         display: block;
     }

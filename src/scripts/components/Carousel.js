@@ -6,15 +6,27 @@ export default class Carousel {
     this.options = {};
     if (this.element.classList.contains('js-swiper-partenaire')) {
       this.options = {
-        slidesPerView: 3, // Nombre de slides visibles (ajuste selon ton besoin)
-        spaceBetween: 300, // Espacement entre les slides
+        slidesPerView: 1, // Nombre de slides visibles (ajuste selon ton besoin)
+        spaceBetween: 70, // Espacement entre les slides
         loop: true, // Active le mode boucle
         speed: 5000, // Définit la vitesse du scroll (ajuste selon ton besoin)
         autoplay: {
           delay: 0, // Pas de pause entre les slides
           disableOnInteraction: false, // Ne s'arrête pas au survol ou clic
         },
-        centeredSlides: true,
+        breakpoints: {
+          // when window width is >= 320px
+          600: {
+            slidesPerView: 2,
+            spaceBetween: 150,
+          },
+
+          1000: {
+            slidesPerView: 3,
+            spaceBetween: 300,
+          },
+          // when window width is >= 480px
+        },
         freeMode: true, // Permet un glissement fluide et continu
         momentum: true,
         momentumBounce: false,
