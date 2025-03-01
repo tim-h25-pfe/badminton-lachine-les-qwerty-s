@@ -4,7 +4,8 @@
             position: relative;
             z-index: 1;
             overflow: hidden;
-            padding: var(--spacing-xl) var(--spacing-xxl);
+            padding: var(--spacing-xl) var(--spacing-xxl) var(--spacing-lg)
+                var(--spacing-xxl);
             background-color: var(--color-primary);
             display: flex;
             justify-content: center;
@@ -18,13 +19,13 @@
             @media screen and (max-width: $breakpoint-lg) {
                 padding: var(--spacing-lg) var(--spacing-xl);
                 @media screen and (max-width: $breakpoint-md) {
-                    padding: var(--spacing-xxl) var(--spacing-md)
-                        var(--spacing-md) var(--spacing-md);
+                    padding: 150px var(--spacing-md) var(--spacing-lg)
+                        var(--spacing-md);
                 }
             }
 
             p {
-                width: 50%;
+                width: 60%;
                 @media screen and (max-width: $breakpoint-md) {
                     width: 75%;
                     @media screen and (max-width: $breakpoint-sm) {
@@ -33,13 +34,12 @@
                 }
             }
             h4 {
-                font-weight: 600;
-                width: 80%;
+                width: 90%;
             }
             .traceVolant {
                 position: absolute;
                 top: -10%;
-                left: 5%;
+                left: -1%;
                 height: 115%;
                 font-size: 25rem;
                 @media screen and (max-width: $breakpoint-md) {
@@ -52,7 +52,7 @@
         .about__stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            @media screen and (max-width: $breakpoint-lg) {
+            @media screen and (max-width: $breakpoint-md) {
                 grid-template-columns: 1fr 1fr;
                 gap: var(--spacing-md);
                 @media screen and (max-width: $breakpoint-lg) {
@@ -65,15 +65,34 @@
             padding: var(--spacing-md) var(--spacing-lg);
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
+            @media screen and (max-width: $breakpoint-sm) {
+                padding: var(--spacing-md) var(--spacing-md);
+            }
             .stat {
                 position: relative;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                gap: var(--spacing-sm);
+                gap: var(--spacing-xs);
+                @media screen and (max-width: $breakpoint-md) {
+                    gap: var(--spacing-xs);
+                    @media screen and (max-width: $breakpoint-sm) {
+                    }
+                }
+
                 h3 {
+                    font-size: 65px;
                     color: var(--color-primary);
+                    @media screen and (max-width: $breakpoint-xmd) {
+                        font-size: 60px;
+                        @media screen and (max-width: $breakpoint-xmd) {
+                            font-size: 40px;
+                            @media screen and (max-width: $breakpoint-sm) {
+                                font-size: 30px;
+                            }
+                        }
+                    }
                 }
                 &:not(:last-child)::after {
                     content: '';
@@ -89,7 +108,7 @@
                 }
                 &:nth-child(2)::after,
                 &:nth-child(4)::after {
-                    @media screen and (max-width: $breakpoint-lg) {
+                    @media screen and (max-width: $breakpoint-md) {
                         display: none;
                     }
                 }
