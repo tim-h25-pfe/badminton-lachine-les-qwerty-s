@@ -41,6 +41,10 @@ section {
     padding: var(--spacing-xl) 0;
     @media screen and (max-width: $breakpoint-lg) {
         padding: var(--spacing-lg) 0;
+        border-radius: 35px;
+        @media screen and (max-width: $breakpoint-sm) {
+            border-radius: 15px;
+        }
     }
 }
 
