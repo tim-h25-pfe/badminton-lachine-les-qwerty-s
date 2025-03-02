@@ -2,7 +2,7 @@ export default class Header {
   constructor(element) {
     this.element = element;
     this.options = {
-      threshold: 0.05, // Valeur par défaut
+      threshold: 0.02, // Valeur par défaut
       autoHide: false, // Par défaut, on masque le header au scroll
     };
 
