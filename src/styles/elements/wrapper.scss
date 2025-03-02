@@ -8,6 +8,6 @@
     margin: 0 auto;
     @media screen and (max-width: $breakpoint-lg) {
         max-width: 1440px;
-        width: calc(100% - var(--spacing-xl));
+        width: calc(100% - var(--spacing-sm));
     }
 }

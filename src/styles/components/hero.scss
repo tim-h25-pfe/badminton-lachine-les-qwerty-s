@@ -64,6 +64,15 @@
             margin-bottom: var(--spacing-md);
             width: 60%;
         }
+        .hero_content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            width: 60%;
+            @media screen and (max-width: $breakpoint-md) {
+                width: 75%;
+            }
+        }
     }
     .bigTitle {
         span {

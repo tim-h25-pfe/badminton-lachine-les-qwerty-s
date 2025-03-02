@@ -77,9 +77,13 @@
         .more__content {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: var(--spacing-md);
             display: none;
             font-size: 20px;
+            .btn_full {
+                text-align: center;
+            }
         }
     }
     &:hover {
@@ -93,8 +97,8 @@
             height: fit-content;
             justify-content: flex-end;
             align-items: center;
-            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.5);
         }
         .more__content {
             display: flex;
