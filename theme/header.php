@@ -44,7 +44,7 @@
                 $link_title = $link['title'];
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
-            <li class="bouton_inscription"><a href="#" class="nav-primary__item"><a href="<?php echo esc_url( $link_url ); ?>" class="nav-primary__item"><?php echo esc_html( $link_title ); ?></a></a></li>
+            <li class="bouton_inscription"><a href="<?php echo esc_url( $link_url ); ?>" class="nav-primary__item btn_full btn_top"><?php echo esc_html( $link_title ); ?></a></li>
             <?php endif; ?>
             <li>
                 <a href="#" class="nav-primary__item search-toggle">

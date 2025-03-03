@@ -99,6 +99,10 @@ if($the_post_type == "new"){
             );
         }
 
+        if ($the_category == "all") {
+            $argsglobal['orderby'] = 'rand';
+        }
+
         $queryg = new WP_Query( $argsglobal );
         ?>
 
@@ -120,7 +124,7 @@ if($the_post_type == "new"){
                 <div class="service__content">
                     <h5><?php the_title();?></h5>
                     <div class="more__content">
-                        <a class="btn_full btn_white" href="<?php the_permalink();?>">En savoir plus</a>
+                        <a class="btn_full btn_white" href="<?php the_permalink();?>"><?php the_field('en_savoir_plus', 'options'); ?></a>
                         <?php 
                         $link = get_sub_field('link_bonus');
                         if( $link ): 
@@ -149,7 +153,35 @@ if($the_post_type == "new"){
 
 
 
+    <?php   
+        $args = array(
+            'post_type' => $the_post_type,
+            'post_status' => 'publish',
+            // 'orderby' => 'publish',
+            // 'order' => 'DSC',
+            'posts_per_page' => 4,
+        );
 
+        // Si $the_category n'est pas "all", ajoute le filtre de taxonomie
+        if ($the_category != "all") {
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => $taxonomie,  // Slug de la taxonomie personnalisée
+                    'field'    => 'slug',      // On filtre par slug de terme
+                    'terms'    => $the_category, // Catégorie à filtrer
+                    'operator' => 'IN',        // Sélectionne les posts ayant ce terme
+                ),
+            );
+        }
+
+        if ($the_category == "all") {
+            $args['orderby'] = 'rand';
+        }
+
+        $query = new WP_Query( $args );
+        ?>
+
+<?php if ( $query->have_posts() ) : ?>
     <div
         class="swiper carousel-services js-swiper-accueilServices"
         data-component="Carousel"
@@ -160,26 +192,46 @@ if($the_post_type == "new"){
         <div class="swiper-wrapper">
 
 
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
             <div class="swiper-slide">
                 <div class="service">
                     <div class="service__media">
+                    <?php 
+                    if (has_post_thumbnail()) { 
+                        the_post_thumbnail(); 
+                    } else { ?>
                         <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                    <?php } ?>
                     </div>
                     <div class="service__content">
-                        <h5>Entraînement libres</h5>
+                        <h5><?php the_title();?></h5>
                         <div class="more__content">
-                            <a class="btn_full btn_white" href="#">Voir les tarifs </a>
-                            <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
+                            <a class="btn_full btn_white" href="<?php the_permalink();?>"><?php the_field('en_savoir_plus', 'options'); ?></a>
+                            <?php 
+                            $link = get_sub_field('link_bonus');
+                            if( $link ): 
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self';
+                                ?>
+                                <a class="btn_full btn_white" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php endwhile; ?>
             
 
         </div>
-
-
+        
     </div>
+    <?php else : ?>
+        <p>Aucun post.</p>
+    <?php endif; ?>
+    <?php wp_reset_postdata(); ?>
+
+
     <div class="wrapper">
     <?php 
         $link = get_sub_field('link_all');

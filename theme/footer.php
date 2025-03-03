@@ -63,7 +63,7 @@
                 <?php endif; ?>
             </div>
 
-            <p style="color: #86B455;">Les pages incomplètes sont encore en construction</p>
+            <p style="color: #86B455;"><?php the_field('page_en_construction', 'options'); ?></p>
             
             <?php if ( have_rows('footer_links', 'options') ): ?>
             <div class="credits">      
@@ -77,20 +77,18 @@
             </div>
             <?php endif; ?>
 
-            <p>Tous droits réservés © <?php echo date("Y"); ?> <?php bloginfo('name'); ?></p>
+            <p><?php the_field('footer_copyright', 'options'); ?> © <?php echo date("Y"); ?> <?php bloginfo('name'); ?></p>
         </div>
         
     </div>
     <div class="passion">
-        <h1><?php  
-        echo __('Le badminton', 'badlach'); 
-        ?>,</h1>
+        <h1><?php the_field('le_badminton', 'options'); ?>,</h1>
         
         
         <h1>
-            notre
+        <?php the_field('notre', 'options'); ?>
             <span
-                >passion
+                ><?php the_field('passion', 'options'); ?>
                 <svg class="icon">
                     <use xlink:href="#icon-ovalDessin"></use>
                 </svg>

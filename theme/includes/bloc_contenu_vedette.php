@@ -64,7 +64,7 @@ if($the_post_type == "new"){
         <div class="title">
         
             <div class="title">
-                <h1><?php echo $titre ?></h1>
+                <h1><?php the_sub_field('vedette_titre'); ?></h1>
                 <div class="underline">
                     <svg class="icon icon--lg">
                         <use xlink:href="#icon-ligneDessin"></use>
@@ -108,6 +108,10 @@ if($the_post_type == "new"){
                     'operator' => 'IN',        // Sélectionne les posts ayant ce terme
                 ),
             );
+        }
+
+        if ($the_category == "all" && $the_post_type == "service") {
+            $argsglobal['orderby'] = 'rand';
         }
 
         $queryg = new WP_Query( $argsglobal );

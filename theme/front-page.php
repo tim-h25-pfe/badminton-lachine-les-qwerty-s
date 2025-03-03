@@ -7,9 +7,9 @@
     </div>
     <div class="wrapper">
         <div class="bigTitle">
-            <h1>Le badminton,</h1>
+            <h1><?php the_field('le_badminton', 'options'); ?>,</h1>
             <h1>
-                notre
+            <?php the_field('notre', 'options'); ?>
                 <span
                     ><?php the_field('accueil_catch') ?>
                     <svg class="icon">
