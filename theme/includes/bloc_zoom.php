@@ -99,6 +99,10 @@ if($the_post_type == "new"){
             );
         }
 
+        if ($the_category == "all") {
+            $argsglobal['orderby'] = 'rand';
+        }
+
         $queryg = new WP_Query( $argsglobal );
         ?>
 
@@ -120,7 +124,7 @@ if($the_post_type == "new"){
                 <div class="service__content">
                     <h5><?php the_title();?></h5>
                     <div class="more__content">
-                        <a class="btn_full btn_white" href="<?php the_permalink();?>">En savoir plus</a>
+                        <a class="btn_full btn_white" href="<?php the_permalink();?>"><?php the_field('en_savoir_plus', 'options'); ?></a>
                         <?php 
                         $link = get_sub_field('link_bonus');
                         if( $link ): 
@@ -170,6 +174,10 @@ if($the_post_type == "new"){
             );
         }
 
+        if ($the_category == "all") {
+            $args['orderby'] = 'rand';
+        }
+
         $query = new WP_Query( $args );
         ?>
 
@@ -198,7 +206,7 @@ if($the_post_type == "new"){
                     <div class="service__content">
                         <h5><?php the_title();?></h5>
                         <div class="more__content">
-                            <a class="btn_full btn_white" href="<?php the_permalink();?>">En savoir plus </a>
+                            <a class="btn_full btn_white" href="<?php the_permalink();?>"><?php the_field('en_savoir_plus', 'options'); ?></a>
                             <?php 
                             $link = get_sub_field('link_bonus');
                             if( $link ): 
