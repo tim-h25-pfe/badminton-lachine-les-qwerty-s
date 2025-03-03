@@ -1,8 +1,17 @@
-{% include '_partials/_header.html' %}
+<?php
+/* Template Name: Projet Associatif */
+?>
+
+<?php get_header(); ?>
+
 <section class="hero block">
-    <img class="texture" src="assets/images/filet.png" alt="filet" />
     <div class="hero__media">
-        <img class="bgHero" src="assets/images/hero.png" alt="hero" />
+        <?php 
+        if (has_post_thumbnail()) { 
+            the_post_thumbnail(); 
+        } else { ?>
+            <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+        <?php } ?>
     </div>
     <div class="hero__content">
         <h1>Projet associatif</h1>
@@ -345,18 +354,6 @@
                                         sans aucune discrimination, quelle qu’elle soit.
                                     </p>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="block_description">
-                        <div class="titre">
-                            <h4><span>Notre organisme</span></h4>
-                            <hr />
-                        </div>
-                        <div class="content">
-                            <div class="paragraphe">
-                                <img src="assets/images/hero.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -743,4 +740,5 @@
     </div>
 </section>
 
-{% include '_partials/_footer.html' %}
+
+<?php get_footer(); ?>
