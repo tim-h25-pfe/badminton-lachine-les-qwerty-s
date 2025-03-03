@@ -112,10 +112,8 @@ export default class Ariane {
       const link = target.getAttribute('data-link');
       const bond = this.element.querySelector(`[data-linked="${link}"]`);
 
-      if (
-        !entry.isIntersecting &&
-        entry.boundingClientRect.top > window.innerHeight
-      ) {
+      if (!entry.isIntersecting && entry.boundingClientRect.top >= 0) {
+        console.log('goin down');
         if (this.type == 'progress') {
           // pour la progression
           for (let i = 0; i < this.headings.length; i++) {
@@ -135,6 +133,7 @@ export default class Ariane {
           let previousLink = this.element.querySelector(
             `[data-linked="${linkName}"]`
           );
+
           previousLink.classList.add('active');
           console.log('le previous link est actif');
           const l = target.getAttribute('data-link');
