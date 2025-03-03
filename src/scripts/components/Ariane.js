@@ -2,33 +2,52 @@ export default class Ariane {
   constructor(element) {
     this.element = element;
     this.options = {
-      // rootMargin: '0px 0px -95% 0px',
+      rootMargin: '0px 0px -50% 0px',
       repeat: true,
+      threshold: 0.1, // Se déclenche seulement quand au moins 10% de l'élément est visible
     };
-    this.lastScrollY = window.scrollY; // Stocke la position initiale du scroll
     this.nav = this.element.querySelector('.ariane-nav');
     this.links = [];
     this.headings = this.element.querySelectorAll('[data-ariane-section]');
+    this.ups = [];
+
+    this.type = null;
 
     this.init();
   }
   init() {
     console.log('ariane est ici');
-    console.log(this.headings);
 
-    this.initNav();
-
-    const observer = new IntersectionObserver(
-      this.watch.bind(this),
-      this.options
-    );
-
-    for (let i = 0; i < this.headings.length; i++) {
-      const heading = this.headings[i];
-      observer.observe(heading);
+    if (this.element.hasAttribute('data-ariane-single')) {
+      this.type = 'single';
+    } else if (this.element.hasAttribute('data-ariane-progress')) {
+      this.type = 'progress';
+    } else {
+      this.type = 'undefined';
     }
-    if (this.headings.length == 0) {
-      console.log('pas de section enregistrée');
+
+    if (this.type != 'undefined') {
+      this.initNav();
+
+      const observer = new IntersectionObserver(
+        this.watch.bind(this),
+        this.options
+      );
+
+      for (let i = 0; i < this.headings.length; i++) {
+        const heading = this.headings[i];
+
+        observer.observe(heading);
+      }
+      if (this.headings.length == 0) {
+        console.log('pas de section enregistrée');
+      }
+    } else {
+      const pe = document.createElement('p');
+      pe.innerText = 'Type de nav non spécifié';
+      if (this.nav) {
+        this.nav.appendChild(pe);
+      }
     }
   }
 
@@ -42,17 +61,41 @@ export default class Ariane {
       heading.id = id;
 
       const link = document.createElement('a');
+      const line = document.createElement('hr');
+      const div = document.createElement('div');
+
+      div.appendChild(link);
+      div.appendChild(line);
 
       link.href = `#${id}`;
       link.innerText = text;
 
       if (this.nav) {
-        this.nav.appendChild(link);
+        this.nav.appendChild(div);
       }
 
       this.links.push(link);
 
       this.createLink(link, heading, id);
+
+      if (this.type == 'progress') {
+        const linkeu = heading.getAttribute('data-link');
+        const bond = this.element.querySelector(`[data-linked="${linkeu}"]`);
+
+        const rect = heading.getBoundingClientRect();
+        if (rect.bottom < 0) {
+          console.log(
+            `Le heading "${heading.innerText}" est au-dessus du viewport`
+          );
+          bond.classList.add('active');
+        }
+      }
+      if (this.type == 'single') {
+        for (let i = 0; i < this.links.length; i++) {
+          const link = this.links[i];
+          link.classList.remove('active');
+        }
+      }
     }
   }
 
@@ -62,35 +105,68 @@ export default class Ariane {
   }
 
   watch(entries) {
-    let scrollDown = window.scrollY > this.lastScrollY; // Détecte la direction
-    this.lastScrollY = window.scrollY; // Met à jour la position du scroll
-
     for (let i = 0; i < entries.length; i++) {
       const entry = entries[i];
       const target = entry.target;
+
       const link = target.getAttribute('data-link');
       const bond = this.element.querySelector(`[data-linked="${link}"]`);
-      if (entry.isIntersecting && scrollDown) {
-        // -------- pour voir le seul actif ---------
 
-        for (let i = 0; i < this.links.length; i++) {
-          const linke = this.links[i];
-          linke.classList.remove('active');
+      if (
+        !entry.isIntersecting &&
+        entry.boundingClientRect.top > window.innerHeight
+      ) {
+        if (this.type == 'progress') {
+          // pour la progression
+          for (let i = 0; i < this.headings.length; i++) {
+            const heading = this.headings[i];
+
+            if (heading == target) {
+              bond.classList.remove('active');
+            }
+          }
         }
-        bond.classList.add('active');
+
+        if (this.type == 'single') {
+          const index = Array.from(this.headings).indexOf(target);
+          const previousElement = this.headings[index - 1];
+
+          const linkName = previousElement.getAttribute('data-link');
+          let previousLink = this.element.querySelector(
+            `[data-linked="${linkName}"]`
+          );
+          previousLink.classList.add('active');
+          console.log('le previous link est actif');
+          const l = target.getAttribute('data-link');
+          const ll = this.element.querySelector(`[data-linked="${l}"]`);
+          ll.classList.remove('active');
+        }
+      }
+
+      if (entry.isIntersecting) {
+        // -------- pour voir le seul actif ---------
+        if (this.type == 'single') {
+          for (let i = 0; i < this.links.length; i++) {
+            const linke = this.links[i];
+            linke.classList.remove('active');
+          }
+          bond.classList.add('active');
+        }
 
         //  ------- pour voir une progression -------
-        // for (let i = 0; i < this.links.length; i++) {
-        //   const linke = this.links[i];
-        //   linke.classList.remove('active');
-        // }
-        // for (let i = 0; i < this.links.length; i++) {
-        //   const linke = this.links[i];
-        //   linke.classList.add('active');
-        //   if (linke == bond) {
-        //     return;
-        //   }
-        // }
+        if (this.type == 'progress') {
+          for (let i = 0; i < this.links.length; i++) {
+            const linke = this.links[i];
+            linke.classList.remove('active');
+          }
+          for (let i = 0; i < this.links.length; i++) {
+            const linke = this.links[i];
+            linke.classList.add('active');
+            if (linke == bond) {
+              return;
+            }
+          }
+        }
       }
     }
   }
