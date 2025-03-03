@@ -40,11 +40,19 @@
     top: 20%;
     div {
         transition: all ease-out 0.3s;
-        display: flex;
+        display: grid;
+        grid-template-columns: 9fr 1fr;
         padding-left: 5%;
+        text-align: right;
+        align-items: center;
+        justify-items: end;
+        gap: 10px;
         hr {
+            transition: all ease-out 0.5s;
             width: 100%;
-            margin-left: 20%;
+            margin: 0;
+            opacity: 0;
+            margin-left: 20px;
         }
         a {
             font-weight: 500;
@@ -53,14 +61,16 @@
             transition: all ease-out 0.5s;
             &.active {
                 opacity: 1;
-                color: var(--color-interactive);
+                // color: var(--color-interactive);
             }
         }
     }
     div:has(> a.active) {
         padding: 0;
+        gap: 30px;
         hr {
-            border: 1px solid var(--color-interactive);
+            opacity: 1;
+            border: 1px solid var(--color-black);
         }
     }
 }
