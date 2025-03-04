@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "html2canvas": "^1.4.1",
+    "lottie": "^0.0.1",
     "swiper": "^11.2.5"
   },
   "devDependencies": {

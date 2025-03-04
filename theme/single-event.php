@@ -24,7 +24,7 @@
                     <h3><?php the_title(); ?></h3>
                     <?php the_post_thumbnail(); ?>
                 </div>
-                <?php the_excerpt(); ?>
+                <?php the_content(); ?>
             </div>
 
             <?php
