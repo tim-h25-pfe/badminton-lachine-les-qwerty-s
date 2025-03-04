@@ -26,6 +26,7 @@
 </head>
 
 <body>
+<div class="background">
     <div class="overlay"></div>
 
     <header class="header" data-component="Header" data-treshold="0.2">
@@ -63,8 +64,7 @@
         </div>
         
         <div class="search-bar">
-          <input type="text" placeholder="Rechercher...">
-          <button class="search-close">✖</button>
+          <?php get_search_form(); ?>
         </div>
 
         
