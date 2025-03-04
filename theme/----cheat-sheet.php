@@ -97,8 +97,7 @@ if( $link ):
         </section>
     <?php endif; ?>
 
-<!-- requete wp query pour get les cpt  -->
-<?php if ($the_post_type == 'new') : ?>       
+<!-- requete wp query pour get les cpt  -->     
 <?php   
 $argsglobal = array(
     'post_type' => 'recette',
