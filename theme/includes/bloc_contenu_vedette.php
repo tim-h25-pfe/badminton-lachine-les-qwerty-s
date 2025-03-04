@@ -82,9 +82,14 @@ if($the_post_type == "new"){
             ?>
             <a class="btn_full btn_white btn_top" href="<?php echo esc_url( $link_url ); ?>"
                 ><?php echo esc_html( $link_title ); ?>
-                <svg class="icon">
-                    <use xlink:href="#icon-fleche"></use>
-                </svg>
+                <div class="fleche-container">
+                    <svg class="icon fleche1">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                </div>
             </a>
         <?php endif; ?>
         </div>
@@ -123,18 +128,6 @@ if($the_post_type == "new"){
                 <?php if($the_category != "all") : ?>
                 <p class="btn_full tag"><?php echo $the_label ?></p>
                 <?php endif; ?>
-                <div class="card__content">
-                    <div class="text">
-                        <h5><?php the_title();?></h5>
-                        <!-- if nouvelles -> date else -> excerpt  -->
-                        <?php echo get_the_date(); ?>
-                    </div>
-                    <a class="btn_full btn_round" href="<?php the_permalink();?>">
-                        <svg class="icon">
-                            <use xlink:href="#icon-fleche"></use>
-                        </svg>
-                    </a>
-                </div>
                 <div class="card__media">
                 <?php 
                 if (has_post_thumbnail()) { 
@@ -142,6 +135,21 @@ if($the_post_type == "new"){
                 } else { ?>
                     <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 <?php } ?>
+                </div>
+                <div class="card__content">
+                    <div class="text">
+                        <h5><?php the_title();?></h5>
+                        <!-- if nouvelles -> date else -> excerpt  -->
+                        <?php echo get_the_date(); ?>
+                    </div>
+                    <a class="btn_full btn_round" href="<?php the_permalink();?>">
+                        <svg class="icon fleche1">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                        <svg class="icon fleche2">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                    </a>
                 </div>
             </div>
             <?php endwhile; ?>
@@ -161,9 +169,14 @@ if($the_post_type == "new"){
             ?>
             <a class="btn_full btn_white btn_bottom" href="<?php echo esc_url( $link_url ); ?>"
                 ><?php echo esc_html( $link_title ); ?>
-                <svg class="icon">
-                    <use xlink:href="#icon-fleche"></use>
-                </svg>
+                <div class="fleche-container">
+                    <svg class="icon fleche1">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                </div>
             </a>
         <?php endif; ?>
     </div>
