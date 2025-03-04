@@ -10,16 +10,7 @@
         border-radius: 30px;
         // box-shadow: none;
         cursor: pointer;
-        overflow: hidden;
-        height: 415px; // changer selon la préférence
-        .card__media {
-            height: 45%; // taille image card
-            img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-        }
+
         .card__content {
             padding: 20px;
             h3 {
@@ -58,28 +49,26 @@
 
     @media screen and (max-width: $breakpoint-lg) {
         grid-template-columns: 1fr 1fr;
-        @media screen and (max-width: $breakpoint-md) {
+        @media screen and (max-width: $breakpoint-sm) {
             grid-template-columns: 1fr;
         }
     }
     .card {
-        aspect-ratio: 1/1;
+        // aspect-ratio: 1/1;
         position: relative;
         border-radius: 30px;
         overflow: hidden;
-        display: flex;
-        align-items: flex-end;
+        display: grid;
+        grid-template-rows: 1.5fr 1fr;
         .card__media {
             z-index: 1;
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             img {
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
+                transition: all 0.5s $ease-out-cubic;
             }
         }
         .card__content {
@@ -89,6 +78,7 @@
             padding: var(--spacing-md);
             height: fit-content;
             width: 100%;
+            height: 100%;
             background-color: var(--color-terciary);
             z-index: 3;
             position: relative;
@@ -96,9 +86,10 @@
             align-items: flex-end;
             justify-content: space-between;
             .text {
+                height: 100%;
                 display: flex;
                 flex-direction: column;
-                gap: var(--spacing-lg);
+                justify-content: space-between;
                 h5 {
                     font-weight: 600;
                 }
@@ -108,9 +99,16 @@
             }
         }
         &:hover {
-            .btn_full {
-                background-color: var(--color-interactive);
-                color: var(--color-white);
+            .fleche1 {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+            .fleche2 {
+                transform: translateX(200%);
+                opacity: 0;
+            }
+            .card__media img {
+                transform: scale(1.05);
             }
         }
     }
