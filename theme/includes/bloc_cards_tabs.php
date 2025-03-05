@@ -38,6 +38,8 @@ endif;
                     'hide_empty' => true,          // Ne pas afficher les catégories sans articles
                 ));
 
+            
+
                 $taxonomie = $slug; // Remplace par ta taxonomie
 
                 $tax_details = get_taxonomy($taxonomie);
@@ -49,6 +51,8 @@ endif;
                 }
 
                 $the_post_type = $tax_details->object_type[0];
+
+                //print_r($terms);
 
                 
                 // si the_post_type = nouvelles (ou un autre type de post avec image)
