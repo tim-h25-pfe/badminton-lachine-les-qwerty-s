@@ -14,8 +14,6 @@
     "@lottiefiles/lottie-interactivity": "^1.6.2",
     "@lottiefiles/lottie-player": "^2.0.12",
     "html2canvas": "^1.4.1",
-
-=======
     "lottie": "^0.0.1",
     "swiper": "^11.2.5"
   },
