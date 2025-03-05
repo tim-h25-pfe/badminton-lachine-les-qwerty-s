@@ -3,9 +3,10 @@
     position: fixed;
     align-items: center;
     display: flex;
+
     justify-content: space-between;
     //margin-top: 30px;
-    position: fixed;
+
     top: 0;
 
     z-index: 1002; // Plus élevé que le menu (1001) et l'overlay (999)
@@ -24,7 +25,27 @@
     }
 
     .header-is-hidden.is-scrolling-down:not(.nav-is-active) & {
-        transform: translateY(-100%) translateY(10px);
+        transform: translateY(-100%) translateY(-1px);
+    }
+}
+
+.header_grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    background-color: var(--color-white);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+    .alert-banner {
+        display: flex;
+        width: 100%;
+        padding: 15px 90px;
+        justify-content: space-between;
+        align-items: center;
+
+        background: var(--Alerte, #fe6767);
+        backdrop-filter: blur(5px);
     }
 }
 
@@ -50,8 +71,7 @@
     pointer-events: auto;
     border-radius: 20px;
     padding: 15px 90px;
-    margin-top: 20px;
-    border: 2px solid var(--color-black);
+
     @media screen and (max-width: $breakpoint-xs) {
         border-radius: 15px;
         padding: 15px 25px;
@@ -99,6 +119,7 @@
 
         // styles liens header
         a {
+            @include safe-hitzone();
             width: fit-content;
             text-align: center;
             display: block;
@@ -175,6 +196,7 @@
 
 //styles du bouton menu
 .header__toggle {
+    @include safe-hitzone();
     display: block;
     --bar-height: 4px;
     --bar-spacer: 3px;
@@ -202,6 +224,7 @@
 }
 
 .header__toggle span {
+    
     background-color: var(--color-black);
     border-radius: 3px;
     height: var(--bar-height);
@@ -250,19 +273,19 @@
     ul {
         display: flex;
         align-items: center;
-        gap: 30px;
+        gap: 40px;
         list-style: none;
         padding: 0;
         margin: 0;
         @media screen and (max-width: $breakpoint-xs) {
-            gap: 30px;
+            gap: 40px;
         }
     }
 }
 
 //Styles pour le bouton inscription
 .bouton_inscription {
-    padding: 10px 28px;
+    padding: 10px 100px;
 
     transition: 0.3s;
     @media screen and (max-width: $breakpoint-xs) {
@@ -666,5 +689,32 @@ a.underline {
     }
     @media screen and (max-width: $breakpoint-xs) {
         display: block;
+    }
+}
+
+//==================================================== Bandeau d'alerte ===================================================
+.header {
+    .alert-banner {
+    }
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.close_alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    a {
+        font-weight: 500;
+        text-decoration: underline;
+    }
+    img {
+        cursor: pointer;
     }
 }
