@@ -21,7 +21,9 @@ export default class Header {
 
   init() {
     this.searchToggle.addEventListener('click', this.toggleSearch.bind(this));
-
+    if (this.closeButton && this.alertBanner) {
+      this.closeButton.addEventListener('click', this.closeAlert.bind(this));
+    }
     this.setOptions();
     window.addEventListener('scroll', this.onScroll.bind(this));
   }
@@ -31,9 +33,9 @@ export default class Header {
     if (this.element.dataset.threshold) {
       this.options.threshold = parseFloat(this.element.dataset.threshold);
     }
-    if (this.element.dataset.autoHide) {
-      this.options.autoHide = this.element.dataset.autoHide === 'true';
-    }
+    document.querySelector('.closing').addEventListener('click', function () {
+      this.closest('.alert-banner').style.display = 'none';
+    });
   }
 
   onScroll() {
