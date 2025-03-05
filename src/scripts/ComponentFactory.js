@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Tabs from './components/Tabs';
 import Accordeon from './components/Accordeon';
 import Ariane from './components/Ariane';
+import Lottie from './components/Lottie';
 export default class ComponentFactory {
   constructor() {
     this.componentInstances = [];
@@ -12,6 +13,7 @@ export default class ComponentFactory {
       Tabs,
       Accordeon,
       Ariane,
+      Lottie,
     };
     this.init();
   }
