@@ -25,6 +25,19 @@ export default class Lottie {
           .addEventListener('complete', function () {
             document.querySelector('#VolantBlancAccueil').play();
           });
+      } else if (this.element.classList.contains('js-underline')) {
+        const idElement = this.element.id;
+        console.log(idElement);
+        create({
+          player: `#${idElement}`,
+          mode: 'scroll',
+          actions: [
+            {
+              visibility: [0.3, 0.7],
+              type: 'playOnce',
+            },
+          ],
+        });
       }
     });
   }
