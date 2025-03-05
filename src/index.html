@@ -63,7 +63,21 @@
     <div class="wrapper">
         <div class="bigCard">
             <div class="about__content">
-                <img class="traceVolant" src="assets/images/traceVolant.png" alt="trace du volant" />
+                <!--<img class="traceVolant" src="assets/images/traceVolant.png" alt="trace du volant" />-->
+                <lottie-player
+                    id="VolantBlancMontantAccueil"
+                    class="traceVolant js-volantBlanc"
+                    src="assets/lottie/volantBlancMontant.json"
+                    data-component="Lottie"
+                >
+                </lottie-player>
+                <lottie-player
+                    id="VolantBlancAccueil"
+                    class="volantBlanc js-volantBlanc"
+                    src="assets/lottie/volantBlanc.json"
+                    data-component="Lottie"
+                >
+                </lottie-player>
                 <h4>
                     Nous sommes un organisme à but non lucratif qui a comme objectif d’être un acteur majeur du
                     badminton à Montréal.
@@ -255,14 +269,14 @@
 <section class="section section-color nouvelles">
     <div class="wrapper">
         <div class="title">
-            <h2>
-                no<span
-                    >uvelles
-                    <svg class="icon">
+            <div class="title">
+                <h2>Nouvelles</h2>
+                <div class="underline">
+                    <svg class="icon icon--lg">
                         <use xlink:href="#icon-ligneDessin"></use>
                     </svg>
-                </span>
-            </h2>
+                </div>
+            </div>
             <a class="btn_full btn_white btn_top" href="#"
                 >Voir tout
                 <div class="fleche-container">

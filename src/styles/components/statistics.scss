@@ -37,15 +37,30 @@
                 width: 90%;
             }
             .traceVolant {
+                width: fit-content;
                 position: absolute;
-                top: -10%;
+                top: -7%;
                 left: -1%;
                 height: 115%;
                 font-size: 25rem;
                 @media screen and (max-width: $breakpoint-md) {
                     left: 0;
-                    height: 50%;
+                    height: 35%;
                     transform: rotate(50deg);
+                }
+            }
+            .volantBlanc {
+                position: absolute;
+                top: -10%;
+                right: 0;
+                height: 100%;
+                width: fit-content;
+                @media screen and (max-width: $breakpoint-lg) {
+                    height: 75%;
+                    @media screen and (max-width: $breakpoint-xmd) {
+                        top: -5%;
+                        height: 30%;
+                    }
                 }
             }
         }
