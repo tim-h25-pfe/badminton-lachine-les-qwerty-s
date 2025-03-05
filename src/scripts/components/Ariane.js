@@ -16,8 +16,6 @@ export default class Ariane {
     this.init();
   }
   init() {
-    console.log('ariane est ici');
-
     if (this.element.hasAttribute('data-ariane-single')) {
       this.type = 'single';
     } else if (this.element.hasAttribute('data-ariane-progress')) {
@@ -113,7 +111,6 @@ export default class Ariane {
       const bond = this.element.querySelector(`[data-linked="${link}"]`);
 
       if (!entry.isIntersecting && entry.boundingClientRect.top >= 0) {
-        console.log('goin down');
         if (this.type == 'progress') {
           // pour la progression
           for (let i = 0; i < this.headings.length; i++) {
@@ -127,18 +124,20 @@ export default class Ariane {
 
         if (this.type == 'single') {
           const index = Array.from(this.headings).indexOf(target);
-          const previousElement = this.headings[index - 1];
+          if (index != 0) {
+            const previousElement = this.headings[index - 1];
 
-          const linkName = previousElement.getAttribute('data-link');
-          let previousLink = this.element.querySelector(
-            `[data-linked="${linkName}"]`
-          );
+            const linkName = previousElement.getAttribute('data-link');
+            let previousLink = this.element.querySelector(
+              `[data-linked="${linkName}"]`
+            );
 
-          previousLink.classList.add('active');
-          console.log('le previous link est actif');
-          const l = target.getAttribute('data-link');
-          const ll = this.element.querySelector(`[data-linked="${l}"]`);
-          ll.classList.remove('active');
+            previousLink.classList.add('active');
+
+            const l = target.getAttribute('data-link');
+            const ll = this.element.querySelector(`[data-linked="${l}"]`);
+            ll.classList.remove('active');
+          }
         }
       }
 

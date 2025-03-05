@@ -51,6 +51,7 @@
                 // echo esc_html($next_post_category); // rajouter la balise php bien sur
             ?>
 
+            <?php if ($next_post): ?>
             <div class="sidebar">
                 <h4>Article similaire</h4>
 
@@ -74,6 +75,9 @@
                 </div>
 
             </div>
+            <?php else: ?>
+                <p>Pas de prochain article</p>
+            <?php endif; ?>
         </div>
     </div>
 </section>
