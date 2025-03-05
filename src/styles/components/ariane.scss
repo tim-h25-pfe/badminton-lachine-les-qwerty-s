@@ -5,6 +5,17 @@
     gap: 70px;
     position: sticky;
     top: 20%;
+    @media screen and (max-width: $breakpoint-md) {
+        gap: 50px;
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+        display: none;
+    }
+
+    @media screen and (max-width: $breakpoint-xs) {
+        display: none;
+    }
     div {
         transition: all ease-out 0.3s;
         display: grid;
@@ -52,6 +63,7 @@
     grid-template-columns: 1fr 2fr;
     gap: 162px;
     position: relative;
+
     @media screen and (max-width: 1450px) {
         padding-right: 5%;
         gap: 100px;
@@ -63,7 +75,7 @@
         .ariane-nav {
             display: none;
         }
-    }
+
 }
 
 .side_menu {
