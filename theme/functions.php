@@ -13,7 +13,7 @@ function cw4_img_no_attributes( $html, $post_id, $post_image_id ) {
 add_filter('post_thumbnail_html', 'cw4_img_no_attributes', 10, 3);
 
 function new_excerpt_length($length) {
-    return 10; // Nombre de mots limite des résumés
+    return 40; // Nombre de mots limite des résumés
 }
 add_filter('excerpt_length', 'new_excerpt_length');
 
