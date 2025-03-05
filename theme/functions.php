@@ -443,64 +443,6 @@ function employees() {
 }
 add_action( 'init', 'employees', 0 );
 
-// // Register Custom Post Type
-// function close() {
-
-// 	$labels = array(
-// 		'name'                  => _x( 'Fermetures', 'Post Type General Name', 'badlach' ),
-// 		'singular_name'         => _x( 'Fermeture', 'Post Type Singular Name', 'badlach' ),
-// 		'menu_name'             => __( 'Fermetures', 'badlach' ),
-// 		'name_admin_bar'        => __( 'Fermeture', 'badlach' ),
-// 		'archives'              => __( 'Archives des fermetures', 'badlach' ),
-// 		'attributes'            => __( 'Attributs des fermetures', 'badlach' ),
-// 		'parent_item_colon'     => __( 'Fermeture parente :', 'badlach' ),
-// 		'all_items'             => __( 'Toutes les fermetures', 'badlach' ),
-// 		'add_new_item'          => __( 'Ajouter une nouvelle fermeture', 'badlach' ),
-// 		'add_new'               => __( 'Ajouter une fermeture', 'badlach' ),
-// 		'new_item'              => __( 'Nouvelle fermeture', 'badlach' ),
-// 		'edit_item'             => __( 'Modifier la fermeture', 'badlach' ),
-// 		'update_item'           => __( 'Mettre à jour la fermeture', 'badlach' ),
-// 		'view_item'             => __( 'Voir la fermeture', 'badlach' ),
-// 		'view_items'            => __( 'Voir les fermetures', 'badlach' ),
-// 		'search_items'          => __( 'Rechercher la fermeture', 'badlach' ),
-// 		'not_found'             => __( 'Introuvable', 'badlach' ),
-// 		'not_found_in_trash'    => __( 'Introuvable dans la corbeille', 'badlach' ),
-// 		'featured_image'        => __( 'Image en avant', 'badlach' ),
-// 		'set_featured_image'    => __( 'Ajouter une image en avant', 'badlach' ),
-// 		'remove_featured_image' => __( 'Retirer l\'image en avant', 'badlach' ),
-// 		'use_featured_image'    => __( 'Utiliser comme image en avant', 'badlach' ),
-// 		'insert_into_item'      => __( 'Insérer dans la fermeture', 'badlach' ),
-// 		'uploaded_to_this_item' => __( 'Ajouté à la fermeture', 'badlach' ),
-// 		'items_list'            => __( 'Liste des fermetures', 'badlach' ),
-// 		'items_list_navigation' => __( 'Navigation de la liste des fermetures', 'badlach' ),
-// 		'filter_items_list'     => __( 'Filtrer la liste des fermetures', 'badlach' ),
-// 	);
-// 	$args = array(
-// 		'label'                 => __( 'Fermeture', 'badlach' ),
-// 		'description'           => __( 'Dates de fermeture du club', 'badlach' ),
-// 		'labels'                => $labels,
-// 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
-// 		'taxonomies'            => array( 'category', 'post_tag' ),
-// 		'hierarchical'          => false,
-// 		'public'                => true,
-// 		'show_ui'               => true,
-// 		'show_in_menu'          => true,
-// 		'menu_position'         => 5,
-// 		'menu_icon'             => 'dashicons-dismiss',
-// 		'show_in_admin_bar'     => true,
-// 		'show_in_nav_menus'     => true,
-// 		'can_export'            => true,
-// 		'has_archive'           => true,
-// 		'exclude_from_search'   => false,
-// 		'publicly_queryable'    => true,
-// 		'capability_type'       => 'page',
-// 		'show_in_rest'          => true,
-// 	);
-// 	register_post_type( 'close', $args );
-
-// }
-// add_action( 'init', 'close', 0 );
-
 
 // code pour faire des classes personnalisées pour seulement le type de post
 
@@ -688,3 +630,68 @@ add_action('after_setup_theme', function() {
         error_log('Le texte-domaine badlach n\'a pas été chargé.');
     }
 });
+
+// Fonction générique pour éviter la répétition de code
+function acf_populate_taxonomy_select($field, $taxonomy, $add_all_option = false) {
+    $terms = get_terms([
+        'taxonomy' => $taxonomy,
+        'hide_empty' => true, // Affiche seulement les catégories avec des posts
+    ]);
+
+    // Ajouter l'option "Toutes les catégories" si demandé
+    if ($add_all_option) {
+        $field['choices'] = ['all' => 'Toutes les catégories'];
+    } else {
+        $field['choices'] = [];
+    }
+
+    if (!empty($terms) && !is_wp_error($terms)) {
+        foreach ($terms as $term) {
+            $field['choices'][$term->slug] = $term->name;
+        }
+    }
+
+    return $field;
+}
+
+// 1. Champ 'text_list_employee' → Taxonomie 'type_de_employee'
+function acf_populate_text_list_employee($field) {
+    return acf_populate_taxonomy_select($field, 'type_de_employee');
+}
+add_filter('acf/load_field/name=text_list_employee', 'acf_populate_text_list_employee');
+
+// 2. Champ 'products_type' → Taxonomie 'type_de_service'
+function acf_populate_products_type($field) {
+    return acf_populate_taxonomy_select($field, 'type_de_service');
+}
+add_filter('acf/load_field/name=products_type', 'acf_populate_products_type');
+
+// 3. Champ 'service_category' → Taxonomie 'type_de_service' (+ "Toutes les catégories")
+function acf_populate_service_category($field) {
+    return acf_populate_taxonomy_select($field, 'type_de_service', true);
+}
+add_filter('acf/load_field/name=service_category', 'acf_populate_service_category');
+
+// 4. Champ 'categorie_de_nouvelles' → Taxonomie 'type_de_nouvelles' (+ "Toutes les catégories")
+function acf_populate_categorie_de_nouvelles($field) {
+    return acf_populate_taxonomy_select($field, 'type_de_nouvelles', true);
+}
+add_filter('acf/load_field/name=categorie_de_nouvelles', 'acf_populate_categorie_de_nouvelles');
+
+// 5. Champ 'vedette_news_category' → Taxonomie 'type_de_nouvelles' (+ "Toutes les catégories")
+function acf_populate_vedette_news_category($field) {
+    return acf_populate_taxonomy_select($field, 'type_de_nouvelles', true);
+}
+add_filter('acf/load_field/name=vedette_news_category', 'acf_populate_vedette_news_category');
+
+// 6. Champ 'vedette_services_category' → Taxonomie 'type_de_service' (+ "Toutes les catégories")
+function acf_populate_vedette_services_category($field) {
+    return acf_populate_taxonomy_select($field, 'type_de_service', true);
+}
+add_filter('acf/load_field/name=vedette_services_category', 'acf_populate_vedette_services_category');
+
+// 7. Champ 'vedette_events_category' → Taxonomie 'type_de_event' (+ "Toutes les catégories")
+function acf_populate_vedette_events_category($field) {
+    return acf_populate_taxonomy_select($field, 'type_de_event', true);
+}
+add_filter('acf/load_field/name=vedette_events_category', 'acf_populate_vedette_events_category');

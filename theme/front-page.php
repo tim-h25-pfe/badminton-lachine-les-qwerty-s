@@ -42,7 +42,20 @@
     <div class="wrapper">
         <div class="bigCard">
             <div class="about__content">
-                <img class="traceVolant" src="<?php bloginfo('template_url') ?>/assets/images/traceVolant.png" alt="trace du volant" />
+            <lottie-player
+                    id="VolantBlancMontantAccueil"
+                    class="traceVolant js-volantBlanc"
+                    src="<?php bloginfo('template_url') ?>/assets/lottie/volantBlancMontant.json"
+                    data-component="Lottie"
+                >
+                </lottie-player>
+                <lottie-player
+                    id="VolantBlancAccueil"
+                    class="volantBlanc js-volantBlanc"
+                    src="<?php bloginfo('template_url') ?>/assets/lottie/volantBlanc.json"
+                    data-component="Lottie"
+                >
+                </lottie-player>
                 <h4>
                 <?php the_field('accueil_propos_qui') ?>
                 </h4>
