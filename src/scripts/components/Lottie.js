@@ -1,73 +1,35 @@
 import '@lottiefiles/lottie-player';
-//import { create } from '@lottiefiles/lottie-interactivity';
+import { create } from '@lottiefiles/lottie-interactivity';
 
 export default class Lottie {
-  constructor() {
+  constructor(element) {
+    this.element = element;
     this.init();
   }
 
   init() {
-    //const logo_container = document.querySelector('.logo-container');
-
-    // ---------- BKG HERO ACCUEIL ---------- //
-    /*if (document.getElementById('lottie-lignesCroisee')) {
-      document
-        .getElementById('lottie-lignesCroisee')
-        .addEventListener('load', () => {
-          create({
-            player: '#lottie-lignesCroisee',
-            mode: 'cursor',
-            actions: [
-              {
-                position: { x: [0, 1], y: [0, 1] },
-                frames: [0, 900],
-              },
-              {
-                position: { x: -1, y: -1 },
-                type: 'stop',
-                frames: [0],
-              },
-            ],
-          });
+    document.addEventListener('DOMContentLoaded', () => {
+      if (this.element.classList.contains('js-volantBlanc')) {
+        create({
+          player: '#VolantBlancMontantAccueil',
+          mode: 'scroll',
+          actions: [
+            {
+              visibility: [0, 1.0],
+              type: 'playOnce',
+            },
+          ],
         });
-    }*/
-
-    // ---------- FLECHE HERO ACCUEIL ---------- //
-    /*if (document.getElementById('lottie-fleche')) {
-      document.getElementById('lottie-fleche').addEventListener('load', () => {
-        setTimeout(() => {
-          create({
-            player: '#lottie-fleche',
-            mode: 'chain',
-            actions: [
-              {
-                position: { x: [0, 1], y: [0, 1] },
-                frames: [0, 20],
-                forceFlag: false,
-              },
-              {
-                position: { x: -1, y: -1 },
-                type: 'stop',
-                frames: [20],
-              },
-            ],
+        document
+          .querySelector('#VolantBlancMontantAccueil')
+          .addEventListener('complete', function () {
+            document.querySelector('#VolantBlancAccueil').play();
           });
-        }, 2000);
-      });
-    }*/
-
-    // ---------- LOGO HEADER ---------- //
-    this.AnimLogoHeader();
-
-    // ---------- LOGO FOOTER ---------- //
-    this.AnimLogoFooter();
-
-    // ---------- PORTRAIT VECTORIEL ---------- //
-    this.AnimPortraitVecto();
-    this.AnimPortraitVectoPointage();
+      }
+    });
   }
 
-  AnimLogoHeader() {
+  /*AnimVolantBlanc() {
     const player = document.getElementById('lottie-logo-header');
     const logoDefaultHeader = document.querySelector('.logoDefaultHeader');
     if (player) {
@@ -128,5 +90,5 @@ export default class Lottie {
         direction = direction === 1 ? -1 : 1;
       });
     }
-  }
+  }*/
 }
