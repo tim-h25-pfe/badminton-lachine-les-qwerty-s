@@ -142,7 +142,7 @@
     .passion {
         margin-bottom: -35px;
         h1 {
-            font-size: 200px;
+            font-size: #{typo(40px, 170px)};
             color: gray;
 
             @media screen and (max-width: 830px) {
@@ -162,34 +162,12 @@
             }
         }
 
-        @media screen and (max-width: 1565px) {
-            // margin-bottom: -10px;
-            h1 {
-                font-size: 150px;
-            }
-        }
         @media screen and (max-width: 1225px) {
             margin-bottom: -10px;
-            h1 {
-                font-size: 100px;
-            }
         }
-        @media screen and (max-width: 805px) {
-            margin-bottom: -10px;
-            h1 {
-                font-size: 80px;
-            }
-        }
-        @media screen and (max-width: 805px) {
-            h1 {
-                font-size: 50px;
-            }
-        }
+
         @media screen and (max-width: 415px) {
             margin: 0;
-            h1 {
-                font-size: 40px;
-            }
         }
     }
 }

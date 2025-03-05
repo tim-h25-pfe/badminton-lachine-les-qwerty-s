@@ -10,11 +10,18 @@ export default class Header {
     this.lastScrollPosition = 0;
     this.html = document.documentElement;
 
+    this.overlay = document.querySelector('.overlay');
+
+    this.searchToggle = this.element.querySelector('.search-toggle');
+    this.searchContainer = this.element.querySelector('.search-bar');
+
     this.init();
     this.initNavMobile();
   }
 
   init() {
+    this.searchToggle.addEventListener('click', this.toggleSearch.bind(this));
+
     this.setOptions();
     window.addEventListener('scroll', this.onScroll.bind(this));
   }
@@ -76,19 +83,32 @@ export default class Header {
     const toggleButton = this.element.querySelector('.js-toggle');
     this.html.classList.toggle('nav-is-active');
     document.querySelector('.nav_menu').classList.toggle('active');
-    document.querySelector('.overlay').classList.toggle('active');
+    const whatif = this.searchContainer.classList.contains('active');
+    if (whatif) {
+      this.searchContainer.classList.remove('active');
+    } else {
+      this.overlay.classList.toggle('active');
+    }
     document.body.classList.toggle('no-scroll');
 
     // Ajoutez/retirez la classe is-active sur le bouton
     toggleButton.classList.toggle('is-active');
   }
+
+  toggleSearch() {
+    this.overlay.classList.toggle('active');
+    this.searchContainer.classList.toggle('active');
+  }
 }
+
+const searchContainer = document.querySelector('.search-bar');
 
 // Ajoutez ce code pour fermer le menu en cliquant ailleurs
 // Modifiez l'écouteur d'événement de l'overlay
 document.querySelector('.overlay').addEventListener('click', () => {
   const toggleButton = document.querySelector('.js-toggle');
   document.querySelector('.nav_menu').classList.remove('active');
+  searchContainer.classList.remove('active');
   document.querySelector('.overlay').classList.remove('active');
   document.body.classList.remove('no-scroll');
 
@@ -98,86 +118,15 @@ document.querySelector('.overlay').addEventListener('click', () => {
 });
 
 // Dans la fonction de fermeture
-document.querySelector('.menu-close').addEventListener('click', function() {
+document.querySelector('.menu-close').addEventListener('click', function () {
   const toggleButton = document.querySelector('.js-toggle');
-  
+
   // Fermer le menu
   document.querySelector('.nav_menu').classList.remove('active');
   document.querySelector('.overlay').classList.remove('active');
   document.body.classList.remove('no-scroll');
-  
+
   // Réinitialiser le burger original
   toggleButton.classList.remove('is-active');
   document.documentElement.classList.remove('nav-is-active');
-});
-
-//Code pour la barre de recherche
-
-document.addEventListener('DOMContentLoaded', function () {
-  const searchToggle = document.querySelector('.search-toggle');
-  const searchBar = document.querySelector('.search-bar');
-  const searchClose = document.querySelector('.search-close');
-
-  if (!searchToggle || !searchBar || !searchClose) {
-    console.error('Un des éléments de la recherche est introuvable !');
-    return;
-  }
-
-  searchToggle.addEventListener('click', function (e) {
-    e.preventDefault(); // Empêche le lien d'agir comme un lien classique
-    searchBar.classList.toggle('active');
-  });
-
-  searchClose.addEventListener('click', function () {
-    searchBar.classList.remove('active');
-  });
-
-  // Fermer si on clique en dehors
-  document.addEventListener('click', function (e) {
-    if (!searchBar.contains(e.target) && !searchToggle.contains(e.target)) {
-      searchBar.classList.remove('active');
-    }
-  });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleButton = document.querySelector('.header__toggle');
-
-  if (toggleButton) {
-    toggleButton.addEventListener('click', (event) => {
-      event.preventDefault(); // Empêche le lien `<a>` de recharger la page
-      toggleButton.classList.toggle('is-active');
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  const searchToggle = document.querySelector('.search-toggle');
-  const searchBar = document.querySelector('.search-bar');
-  const searchClose = document.querySelector('.search-close');
-  const overlay = document.querySelector('.overlay');
-
-  if (!searchToggle || !searchBar || !searchClose || !overlay) {
-    console.error('Un des éléments de la recherche est introuvable !');
-    return;
-  }
-
-  // Ouvrir la barre de recherche
-  searchToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    searchBar.classList.add('active');
-    overlay.classList.add('active');
-  });
-
-  // Fermer la barre de recherche
-  searchClose.addEventListener('click', () => {
-    searchBar.classList.remove('active');
-    overlay.classList.remove('active');
-  });
-
-  // Fermer en cliquant sur l'overlay
-  overlay.addEventListener('click', () => {
-    searchBar.classList.remove('active');
-    overlay.classList.remove('active');
-  });
 });

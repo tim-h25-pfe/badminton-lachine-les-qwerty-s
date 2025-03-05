@@ -203,6 +203,22 @@
             }
         }
     }
+
+    &.zero {
+        .hero-img {
+            display: none;
+        }
+        @media screen and (max-width: 630px) {
+            .texte {
+                max-width: 80%;
+            }
+        }
+        @media screen and (max-width: 630px) {
+            .texte {
+                padding: 10%;
+            }
+        }
+    }
 }
 
 // classes pour une option du hero
