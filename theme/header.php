@@ -31,41 +31,61 @@
 
     <header class="header" data-component="Header" data-treshold="0.2">
       <div class="wrapper">
+        <div class="header_grid">
+          <div class="alert-banner">
+              <div class="message">
+                <img src="<?php bloginfo('template_url') ?>/assets/icons/information.svg" alt="icon_info">
+                <div class="alert-message">
+                  <p>  En raison de l’indisponibilité des gymnases du Collège Sainte-Anne, il n’y aura pas </p>
+                  <p>de badminton le dimanche 26 janvier.</p>
+
+                </div>
+                <a href="">En savoir plus</a>
+              </div>
+           
+              <div class="close_alert">
+                
+                <img class="closing" src="<?php bloginfo('template_url') ?>/assets/icons/close_banner.svg" alt="">
+              </div>
+                
+            </div>
         <div class="nav_header">
-        <?php $image = get_field('header_logo', 'options'); ?>
-                 <?php if ($image): ?>
-          <a href="<?php bloginfo('url') ?>" class="logo"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"></a>
-          <?php endif ?>
-        <nav class="menu nav-primary">
-          <ul>
-          <?php 
-            $link = get_field('header_subscribe', 'options');
-            if( $link ): 
-                $link_url = $link['url'];
-                $link_title = $link['title'];
-                $link_target = $link['target'] ? $link['target'] : '_self';
-                ?>
-            <li class="bouton_inscription"><a href="<?php echo esc_url( $link_url ); ?>" class="nav-primary__item btn_full btn_top"><?php echo esc_html( $link_title ); ?></a></li>
-            <?php endif; ?>
-            <li>
-                <a href="#" class="nav-primary__item search-toggle">
-                    <svg class="icon icon--md">
-                        <use xlink:href="#icon-rechercher"></use>
-                    </svg>
-                </a>
-            </li>
-            <li><a href=""><button class="header__toggle js-toggle">
-              <span></span>
-              <span></span>
-            </button></a></li>
-          </ul>
-        </nav>
+            <?php $image = get_field('header_logo', 'options'); ?>
+                    <?php if ($image): ?>
+              <a href="<?php bloginfo('url') ?>" class="logo"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"></a>
+              <?php endif ?>
+            <nav class="menu nav-primary">
+              <ul>
+              <?php 
+                $link = get_field('header_subscribe', 'options');
+                if( $link ): 
+                    $link_url = $link['url'];
+                    $link_title = $link['title'];
+                    $link_target = $link['target'] ? $link['target'] : '_self';
+                    ?>
+                <li class="bouton_inscription"><a href="<?php echo esc_url( $link_url ); ?>" class="nav-primary__item btn_full btn_top"><?php echo esc_html( $link_title ); ?></a></li>
+                <?php endif; ?>
+                <li>
+                    <a href="#" class="nav-primary__item search-toggle">
+                        <svg class="icon icon--md">
+                            <use xlink:href="#icon-rechercher"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href=""><button class="header__toggle js-toggle">
+                  <span></span>
+                  <span></span>
+                </button></a></li>
+              </ul>
+            </nav>
 
         </div>
         
         <div class="search-bar">
           <?php get_search_form(); ?>
         </div>
+        </div>
+            
 
         
        

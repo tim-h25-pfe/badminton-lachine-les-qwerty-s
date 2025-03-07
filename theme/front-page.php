@@ -8,15 +8,19 @@
     <div class="wrapper">
         <div class="bigTitle">
             <h1><?php the_field('le_badminton', 'options'); ?>,</h1>
-            <h1>
-            <?php the_field('notre', 'options'); ?>
-                <span
-                    ><?php the_field('accueil_catch') ?>
-                    <svg class="icon">
-                        <use xlink:href="#icon-doubleLigneDessin"></use>
-                    </svg>
-                </span>
-            </h1>
+            <div class="title">
+                <h1><?php the_field('notre', 'options'); ?> <?php the_field('accueil_catch') ?></h1>
+                <div class="underline">
+                    <lottie-player
+                        id="accueilDoubleLigneDessin"
+                        class="lottie-underline js-underline"
+                        src="<?php bloginfo('template_url') ?>/assets/lottie/doubleLigneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
+                </div>
+            </div>
+    
         </div>
         <div class="hero_content">
             <p><?php the_field('accueil_description') ?></p>
@@ -27,11 +31,16 @@
                 $link_title = $link['title'];
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
-            <a class="btn_circled" href="<?php echo esc_url( $link_url ); ?>"
+            <a class="btn_circled hero_link" href="<?php echo esc_url( $link_url ); ?>"
                 ><?php echo esc_html( $link_title ); ?>
-                <svg class="icon">
-                    <use xlink:href="#icon-ovalDessin"></use>
-                </svg>
+                <div class="fleche-container">
+                    <svg class="icon fleche1">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                </div>
             </a>
             <?php endif; ?>
         </div>
