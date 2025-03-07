@@ -67,7 +67,7 @@
         .hero_content {
             display: flex;
             flex-direction: column;
-            
+
             gap: var(--spacing-md);
             width: 60%;
             @media screen and (max-width: $breakpoint-md) {
@@ -76,7 +76,6 @@
             @media screen and (max-width: $breakpoint-xs) {
                 gap: 15px;
             }
-            
         }
     }
     .bigTitle {
@@ -89,6 +88,16 @@
                 left: 0;
                 width: 100%;
             }
+        }
+    }
+}
+
+.title:has(> .underline) {
+    justify-content: flex-start;
+    .underline {
+        @media screen and (max-width: $breakpoint-xs) {
+            align-self: center;
+            width: 40%;
         }
     }
 }
