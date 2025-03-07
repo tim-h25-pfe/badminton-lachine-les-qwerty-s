@@ -111,13 +111,14 @@ a.logo {
 // ----- lien vers page contact ----- //
 .lien-contact {
     display: flex;
+    align-items: stretch;
     gap: var(--spacing-lg);
     text-decoration: none;
     text-transform: none;
     width: 100%;
 
     margin: var(--spacing-xl) 0;
-    padding: var(--spacing-xl);
+
     border: 3px solid var(--color-black);
     border-radius: 30px;
 
@@ -125,7 +126,7 @@ a.logo {
 
     @media screen and (max-width: $breakpoint-md) {
         margin: 0;
-        padding: var(--spacing-lg);
+
         @media screen and (max-width: $breakpoint-sm) {
             gap: var(--spacing-md);
             flex-direction: column;
@@ -139,14 +140,23 @@ a.logo {
     }
     .lien-contact__content {
         display: flex;
+
         flex-direction: column;
         gap: var(--spacing-md);
+        padding: var(--spacing-xl);
         h2 {
             margin: 0;
         }
-        @media screen and (max-width: $breakpoint-sm) {
-            align-items: flex-start;
+        @media screen and (max-width: $breakpoint-md) {
+            padding: var(--spacing-lg);
+            @media screen and (max-width: $breakpoint-sm) {
+                align-items: flex-start;
+            }
         }
+    }
+    .lien-contact__media {
+        height: min-content;
+        flex: 0.5;
     }
 }
 
