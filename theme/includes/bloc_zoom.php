@@ -54,11 +54,15 @@ if($the_post_type == "new"){
     <div class="wrapper">
         <div class="title">
             <div class="title">
-                <h1><?php the_sub_field('titre_zoom'); ?></h1>
+                <h2><?php the_sub_field('titre_zoom'); ?></h2>
                 <div class="underline">
-                    <svg class="icon icon--lg">
-                        <use xlink:href="#icon-ligneDessin"></use>
-                    </svg>
+                    <lottie-player
+                        id="accueilTripleLigneDessin"
+                        class="lottie-underline js-underline"
+                        src="<?php bloginfo('template_url') ?>/assets/lottie/tripleLigneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
                 </div>
             </div>
             <?php 
@@ -70,9 +74,14 @@ if($the_post_type == "new"){
             ?>
             <a class="btn_full btn_top" href="<?php echo esc_url( $link_url ); ?>"
                 ><?php echo esc_html( $link_title ); ?>
-                <svg class="icon">
-                    <use xlink:href="#icon-fleche"></use>
-                </svg>
+                <div class="fleche-container">
+                    <svg class="icon fleche1">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                </div>
             </a>
         <?php endif; ?>
         </div>

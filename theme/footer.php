@@ -26,11 +26,16 @@
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
             <div class="inscription">
-                <a class="btn_circled" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                <a class="btn_circled hero_link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
                 <?php echo esc_html( $link_title ); ?>
-                <svg class="icon">
-                    <use xlink:href="#icon-ovalDessin"></use>
-                </svg>
+                <div class="fleche-container">
+                        <svg class="icon fleche1">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                        <svg class="icon fleche2">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                    </div>
                 </a>
                 <?php 
             $link = get_field('footer_steps', 'options');

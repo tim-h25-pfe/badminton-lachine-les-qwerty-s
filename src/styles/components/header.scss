@@ -284,7 +284,7 @@
 
 //Styles pour le bouton inscription
 .bouton_inscription {
-    padding: 10px 100px;
+    padding: 10px 0;
 
     transition: 0.3s;
     @media screen and (max-width: $breakpoint-xs) {
@@ -720,7 +720,7 @@ a.underline {
             padding-left: unset;
         }
     }
-    img{
+    img {
         @media screen and (max-width: $breakpoint-xs) {
             width: 20px;
         }

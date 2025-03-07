@@ -66,9 +66,13 @@ if($the_post_type == "new"){
             <div class="title">
                 <h1><?php the_sub_field('vedette_titre'); ?></h1>
                 <div class="underline">
-                    <svg class="icon icon--lg">
-                        <use xlink:href="#icon-ligneDessin"></use>
-                    </svg>
+                    <lottie-player
+                        id="accueilLigneDessin"
+                        class="lottie-underline js-underline"
+                        src="<?php bloginfo('template_url') ?>/assets/lottie/ligneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
                 </div>
             </div>
         
