@@ -67,11 +67,16 @@
         .hero_content {
             display: flex;
             flex-direction: column;
+            
             gap: var(--spacing-md);
             width: 60%;
             @media screen and (max-width: $breakpoint-md) {
                 width: 75%;
             }
+            @media screen and (max-width: $breakpoint-xs) {
+                gap: 15px;
+            }
+            
         }
     }
     .bigTitle {

@@ -720,6 +720,11 @@ a.underline {
             padding-left: unset;
         }
     }
+    img{
+        @media screen and (max-width: $breakpoint-xs) {
+            width: 20px;
+        }
+    }
 }
 
 .close_alert {
