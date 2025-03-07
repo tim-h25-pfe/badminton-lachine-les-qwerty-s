@@ -224,7 +224,6 @@
 }
 
 .header__toggle span {
-    
     background-color: var(--color-black);
     border-radius: 3px;
     height: var(--bar-height);
@@ -695,6 +694,10 @@ a.underline {
 //==================================================== Bandeau d'alerte ===================================================
 .header {
     .alert-banner {
+        @media screen and (max-width: $breakpoint-xs) {
+            padding: 16px 20px;
+            align-items: flex-start;
+        }
     }
 }
 
@@ -703,18 +706,30 @@ a.underline {
     justify-content: center;
     align-items: center;
     gap: 35px;
+    @media screen and (max-width: $breakpoint-xs) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    a {
+        font-weight: 500;
+        font-size: 20px;
+        text-decoration: underline;
+        padding-left: 450px;
+        @media screen and (max-width: $breakpoint-xs) {
+            padding-left: unset;
+        }
+    }
 }
 
 .close_alert {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    a {
-        font-weight: 500;
-        text-decoration: underline;
+    @media screen and (max-width: $breakpoint-xs) {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
     }
     img {
         cursor: pointer;
+        @include safe-hitzone();
     }
 }
