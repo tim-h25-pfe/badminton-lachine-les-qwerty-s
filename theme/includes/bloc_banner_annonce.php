@@ -19,7 +19,17 @@
                         $link_title = $link['title'];
                         $link_target = $link['target'] ? $link['target'] : '_self';
                         ?>
-                <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
+                <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full">
+                    <?php echo esc_html( $link_title ); ?>
+                    <div class="fleche-container">
+                    <svg class="icon fleche1">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                </div>
+                </a>
                 <?php endif; ?>
         </div>
         <div class="push_media">

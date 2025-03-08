@@ -82,7 +82,7 @@ a {
 }
 
 .btn_round {
-    overflow: hidden;
+    //overflow: hidden; // décommenter si ça fuck des affaires, j'ai essayé de quoi
     border-radius: 50%;
     background-color: var(--color-white);
     padding: var(--spacing-sm);

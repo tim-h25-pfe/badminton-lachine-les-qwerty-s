@@ -126,7 +126,7 @@ if($the_post_type == "new"){
         $queryg = new WP_Query( $argsglobal );
         ?>
         <?php if ( $queryg->have_posts() ) : ?>
-            <div class="cards-nouvelles">
+            <div class="cards">
             <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
             <div class="card">
                 <?php
@@ -156,12 +156,14 @@ if($the_post_type == "new"){
                         <?php echo get_the_date(); ?>
                     </div>
                     <a class="btn_full btn_round" href="<?php the_permalink();?>">
-                        <svg class="icon fleche1">
-                            <use xlink:href="#icon-fleche"></use>
-                        </svg>
-                        <svg class="icon fleche2">
-                            <use xlink:href="#icon-fleche"></use>
-                        </svg>
+                        <div class="fleche-container">
+                            <svg class="icon fleche1">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                            <svg class="icon fleche2">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                        </div>
                     </a>
                 </div>
             </div>
