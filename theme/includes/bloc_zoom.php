@@ -131,7 +131,7 @@ if($the_post_type == "new"){
                 <?php } ?>
                 </div>
                 <div class="service__content">
-                    <h4><?php the_title();?></h4>
+                    <h5><?php the_title();?></h5>
                     <div class="more__content">
                         <a class="btn_full btn_white" href="<?php the_permalink();?>"><?php the_field('en_savoir_plus', 'options'); ?></a>
                         <?php 
