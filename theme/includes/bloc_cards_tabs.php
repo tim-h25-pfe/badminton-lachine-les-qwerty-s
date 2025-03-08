@@ -345,36 +345,36 @@ endif;
                 <div class="card">
                     <div class="card__top">
                         <h5><?php the_title(); ?></h5>
-                        <p><?php the_sub_field('tabs_description'); ?></p>
+                        <p><?php the_field('tabs_description'); ?></p>
                         <?php if (have_rows('tabs_biginfos')): ?>
-                        <div class="prices">
-                        <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
-                            <div class="price">
-                                <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
-                                <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
-                                <?php if (get_sub_field('tabs_optional')): ?>
-                                <p><?php the_sub_field('tabs_optional'); ?></p>
-                                <?php endif; ?>
+                            <div class="prices">
+                            <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
+                                <div class="price">
+                                    <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
+                                    <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
+                                    <?php if (get_sub_field('tabs_optional')): ?>
+                                    <p><?php the_sub_field('tabs_optional'); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                                <?php endwhile; ?>  
                             </div>
-                            <?php endwhile; ?>  
-                        </div>
                         <?php endif; ?>
                     </div>
                     <div class="card__bottom">
                         <p class="details">Détails</p>
                         <?php if (have_rows('tabs_details')): ?>
-                        <div class="details">
-                        <?php while (have_rows('tabs_details')) : the_row(); ?>
-                            <div class="detail">
-                                <div class="i">
-                                    <svg class="icon icon--xs">
-                                        <use xlink:href="#icon-i"></use>
-                                    </svg>
+                            <div class="details">
+                            <?php while (have_rows('tabs_details')) : the_row(); ?>
+                                <div class="detail">
+                                    <div class="i">
+                                        <svg class="icon icon--xs">
+                                            <use xlink:href="#icon-i"></use>
+                                        </svg>
+                                    </div>
+                                    <p><?php the_sub_field('tabs_detail'); ?></p>
                                 </div>
-                                <p><?php the_sub_field('tabs_detail'); ?></p>
+                                <?php endwhile; ?>
                             </div>
-                            <?php endwhile; ?>
-                        </div>
                         <?php endif; ?>
                         
                         <?php 

@@ -10,4 +10,7 @@
         max-width: 1440px;
         width: calc(100% - var(--spacing-sm));
     }
+    @media screen and (max-width: $breakpoint-md) {
+        padding: 0 5%;
+    }
 }

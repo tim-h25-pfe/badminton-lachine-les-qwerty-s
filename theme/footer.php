@@ -26,7 +26,7 @@
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
             <div class="inscription">
-                <a class="btn_circled hero_link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                <a class="hero_link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
                 <?php echo esc_html( $link_title ); ?>
                 <div class="fleche-container">
                         <svg class="icon fleche1">

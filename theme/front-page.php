@@ -2,7 +2,7 @@
 
 <section class="hero section-color">
     <div class="hero__media">
-        <img class="bgHero" src="<?php the_post_thumbnail_url(); ?>" alt="" />
+        <img class="bgHero" src="<?php the_post_thumbnail_url('full'); ?>" alt="" />
         <div class="bkg_filter"></div>
     </div>
     <div class="wrapper">
@@ -31,7 +31,7 @@
                 $link_title = $link['title'];
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
-            <a class="btn_circled hero_link" href="<?php echo esc_url( $link_url ); ?>"
+            <a class="hero_link" href="<?php echo esc_url( $link_url ); ?>"
                 ><?php echo esc_html( $link_title ); ?>
                 <div class="fleche-container">
                     <svg class="icon fleche1">

@@ -55,24 +55,30 @@
             <div class="sidebar">
                 <h4>Article similaire</h4>
 
-                <div class="cards-nouvelles">
-                    <div class="card">
-                        <div class="card__content">
-                            <div class="text">
-                                <h5><?php echo esc_html($next_post_title); ?></h5>
-                                <p>Publié le <?php echo esc_html($next_post_date); ?></p>
+                    <div class="cards">
+                        <div class="card">
+                            <p class="btn_full tag"><?php echo $next_post_category; ?></p>
+                            <div class="card__media">
+                            <?php echo $next_post_thumbnail; ?>
                             </div>
-                            <a class="btn_full btn_round" href="<?php echo esc_url($next_post_link); ?>">
-                                <svg class="icon">
-                                    <use xlink:href="#icon-fleche"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="card__media">
-                        <?php echo $next_post_thumbnail; ?>
+                            <div class="card__content">
+                                <div class="text">
+                                    <h5><?php echo esc_html($next_post_title); ?></h5>
+                                    <p>Publié le <?php echo esc_html($next_post_date); ?></p>
+                                </div>
+                                <a class="btn_full btn_round" href="<?php echo esc_url($next_post_link); ?>">
+                                    <div class="fleche-container">
+                                        <svg class="icon fleche1">
+                                            <use xlink:href="#icon-fleche"></use>
+                                        </svg>
+                                        <svg class="icon fleche2">
+                                            <use xlink:href="#icon-fleche"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
             </div>
             <?php else: ?>

@@ -126,12 +126,21 @@ if($the_post_type == "new"){
         $queryg = new WP_Query( $argsglobal );
         ?>
         <?php if ( $queryg->have_posts() ) : ?>
-            <div class="cards-nouvelles">
+            <div class="cards">
             <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
             <div class="card">
-                <?php if($the_category != "all") : ?>
-                <p class="btn_full tag"><?php echo $the_label ?></p>
-                <?php endif; ?>
+                <?php
+                    // Récupérer la catégorie personnalisée du post
+                $termse = wp_get_post_terms(get_the_ID(), $taxonomie);
+
+                // Vérifier si des termes existent
+                if (!empty($termse) && !is_wp_error($termse)) {
+                    echo '<p class="btn_full tag">' . esc_html($termse[0]->name) . '</p>'; // Affiche le premier terme
+                } else {
+                    echo '<p>No category</p>';
+                }
+                ?>
+
                 <div class="card__media">
                 <?php 
                 if (has_post_thumbnail()) { 
@@ -142,17 +151,19 @@ if($the_post_type == "new"){
                 </div>
                 <div class="card__content">
                     <div class="text">
-                        <h5><?php the_title();?></h5>
+                        <h6><?php the_title();?></h6>
                         <!-- if nouvelles -> date else -> excerpt  -->
                         <?php echo get_the_date(); ?>
                     </div>
                     <a class="btn_full btn_round" href="<?php the_permalink();?>">
-                        <svg class="icon fleche1">
-                            <use xlink:href="#icon-fleche"></use>
-                        </svg>
-                        <svg class="icon fleche2">
-                            <use xlink:href="#icon-fleche"></use>
-                        </svg>
+                        <div class="fleche-container">
+                            <svg class="icon fleche1">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                            <svg class="icon fleche2">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                        </div>
                     </a>
                 </div>
             </div>

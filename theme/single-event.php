@@ -40,7 +40,7 @@
                 $next_post_link = get_permalink($next_post_id);
                 $next_post_title = get_the_title($next_post_id);
                 $next_post_date = get_the_date('d M Y', $next_post_id);
-                $next_post_thumbnail = get_the_post_thumbnail($next_post_id, 'medium'); // ou 'large' selon votre taille préférée
+                $next_post_thumbnail = get_the_post_thumbnail($next_post_id, 'large'); // ou 'large' selon votre taille préférée
                 
                 // Récupérer les catégories associées à ce post
                 $next_post_terms = get_the_terms($next_post_id, 'type_de_event');
@@ -51,30 +51,36 @@
                 // echo esc_html($next_post_category); // rajouter la balise php bien sur
             ?>
 
-<?php if ($next_post): ?>
-            <div class="sidebar">
-                <h4>Article similaire</h4>
+            <?php if ($next_post): ?>
+                <div class="sidebar">
+                    <h4>Événement similaire</h4>
 
-                <div class="cards-nouvelles">
-                    <div class="card">
-                        <div class="card__content">
-                            <div class="text">
-                                <h5><?php echo esc_html($next_post_title); ?></h5>
-                                <p>Publié le <?php echo esc_html($next_post_date); ?></p>
+                    <div class="cards">
+                        <div class="card">
+                            <p class="btn_full tag"><?php echo $next_post_category; ?></p>
+                            <div class="card__media">
+                            <?php echo $next_post_thumbnail; ?>
                             </div>
-                            <a class="btn_full btn_round" href="<?php echo esc_url($next_post_link); ?>">
-                                <svg class="icon">
-                                    <use xlink:href="#icon-fleche"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="card__media">
-                        <?php echo $next_post_thumbnail; ?>
+                            <div class="card__content">
+                                <div class="text">
+                                    <h5><?php echo esc_html($next_post_title); ?></h5>
+                                    <p>Publié le <?php echo esc_html($next_post_date); ?></p>
+                                </div>
+                                <a class="btn_full btn_round" href="<?php echo esc_url($next_post_link); ?>">
+                                    <div class="fleche-container">
+                                        <svg class="icon fleche1">
+                                            <use xlink:href="#icon-fleche"></use>
+                                        </svg>
+                                        <svg class="icon fleche2">
+                                            <use xlink:href="#icon-fleche"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
+                </div>
             <?php else: ?>
                 <p>Pas de prochain événement</p>
             <?php endif; ?>

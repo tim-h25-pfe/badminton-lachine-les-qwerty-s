@@ -141,7 +141,7 @@ if($the_post_type == "new"){
                             $link_title = $link['title'];
                             $link_target = $link['target'] ? $link['target'] : '_self';
                             ?>
-                            <a class="btn_full btn_white" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                            <a class="btn_full" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a>
                         <?php endif; ?>
                        
                     </div>
@@ -213,7 +213,7 @@ if($the_post_type == "new"){
                     <?php } ?>
                     </div>
                     <div class="service__content">
-                        <h5><?php the_title();?></h5>
+                        <h4><?php the_title();?></h4>
                         <div class="more__content">
                             <a class="btn_full btn_white" href="<?php the_permalink();?>"><?php the_field('en_savoir_plus', 'options'); ?></a>
                             <?php 
@@ -223,7 +223,7 @@ if($the_post_type == "new"){
                                 $link_title = $link['title'];
                                 $link_target = $link['target'] ? $link['target'] : '_self';
                                 ?>
-                                <a class="btn_full btn_white" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                                <a class="btn_full" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a>
                             <?php endif; ?>
                         </div>
                     </div>

@@ -11,6 +11,24 @@ a {
     font-weight: 700;
     cursor: pointer;
     font-size: #{typo(14px, 20px)};
+    &:hover {
+        .fleche1 {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+        .fleche2 {
+            transform: translateX(200%);
+            opacity: 0;
+        }
+    }
+}
+
+.fleche-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
 }
 
 .btn_full {
@@ -34,22 +52,6 @@ a {
             display: none;
         }
     }
-    .fleche-container {
-        position: relative;
-        overflow: hidden;
-        display: inline-flex;
-        align-items: center;
-    }
-    &:hover {
-        .fleche1 {
-            transform: translate(-50%, -50%);
-            opacity: 1;
-        }
-        .fleche2 {
-            transform: translateX(200%);
-            opacity: 0;
-        }
-    }
 }
 
 .btn_circled {
@@ -59,11 +61,16 @@ a {
     width: fit-content;
     position: relative;
     @media screen and (max-width: $breakpoint-xs) {
-       font-size: 14px;
+        font-size: 14px;
     }
     .icon {
-        margin-left: 10px;
-        
+        color: var(--color-interactive);
+        width: 100%;
+        //height: min-content;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(250%);
     }
 }
 
@@ -75,7 +82,7 @@ a {
 }
 
 .btn_round {
-    overflow: hidden;
+    //overflow: hidden; // décommenter si ça fuck des affaires, j'ai essayé de quoi
     border-radius: 50%;
     background-color: var(--color-white);
     padding: var(--spacing-sm);
@@ -119,7 +126,7 @@ a.logo {
 
     margin: var(--spacing-xl) 0;
 
-    border: 3px solid var(--color-black);
+    border: 2px solid var(--color-black);
     border-radius: 30px;
 
     transition: all 0.5s ease-out;

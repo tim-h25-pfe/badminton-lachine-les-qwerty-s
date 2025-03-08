@@ -1,4 +1,5 @@
 .bloc-article {
+    padding: 80px 0;
     .grid-container {
         display: grid;
         grid-template-columns: 2fr 1fr;
@@ -76,9 +77,13 @@
             }
         }
     }
+
+    @media screen and (max-width: $breakpoint-sm) {
+        padding: 0;
+    }
 }
 
-body:has(> .bloc-article) {
+body:has(.bloc-article) {
     background-color: var(--color-gray);
 }
 
@@ -92,6 +97,9 @@ body:has(> .bloc-article) {
             .btn_full {
                 border-radius: 50px;
                 padding: 10px 40px;
+            }
+            @media screen and (max-width: $breakpoint-sm) {
+                gap: 20px;
             }
         }
         img {
