@@ -60,6 +60,9 @@
         flex-direction: column;
         height: 100%;
         gap: var(--spacing-lg);
+        @media screen and (max-width: 1200px) {
+            margin: 0 5%;
+        }
         p {
             margin-bottom: var(--spacing-md);
             width: 60%;
@@ -88,6 +91,9 @@
                 left: 0;
                 width: 100%;
             }
+        }
+        h1 {
+            text-transform: uppercase;
         }
     }
 }
