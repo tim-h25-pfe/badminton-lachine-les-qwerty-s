@@ -2,7 +2,7 @@
 
 <section class="hero section-color">
     <div class="hero__media">
-        <img class="bgHero" src="<?php the_post_thumbnail_url(); ?>" alt="" />
+        <img class="bgHero" src="<?php the_post_thumbnail_url('full'); ?>" alt="" />
         <div class="bkg_filter"></div>
     </div>
     <div class="wrapper">

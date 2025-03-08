@@ -47,11 +47,17 @@ export default class Carousel {
           0: {
             spaceBetween: 50,
           },
+          500: {
+            spaceBetween: 75,
+            slidesPerView: 1.25,
+          },
           768: {
             spaceBetween: 75,
+            slidesPerView: 2,
           },
           1024: {
             spaceBetween: 100,
+            slidesPerView: 2,
           },
         },
       };

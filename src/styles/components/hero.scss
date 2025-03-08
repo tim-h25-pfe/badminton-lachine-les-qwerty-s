@@ -136,7 +136,7 @@
         .texte {
             padding: 5% 0;
             padding-left: 5%;
-            max-width: 70%;
+            max-width: 72%;
             display: grid;
             gap: 30px;
             h1 {
@@ -271,4 +271,5 @@
 
 .hero_link {
     display: flex;
+    font-size: var(--font-size-h5);
 }

@@ -129,9 +129,18 @@ if($the_post_type == "new"){
             <div class="cards-nouvelles">
             <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
             <div class="card">
-                <?php if($the_category != "all") : ?>
-                <p class="btn_full tag"><?php echo $the_label ?></p>
-                <?php endif; ?>
+                <?php
+                    // Récupérer la catégorie personnalisée du post
+                $termse = wp_get_post_terms(get_the_ID(), $taxonomie);
+
+                // Vérifier si des termes existent
+                if (!empty($termse) && !is_wp_error($termse)) {
+                    echo '<p class="btn_full tag">' . esc_html($termse[0]->name) . '</p>'; // Affiche le premier terme
+                } else {
+                    echo '<p>No category</p>';
+                }
+                ?>
+
                 <div class="card__media">
                 <?php 
                 if (has_post_thumbnail()) { 
@@ -142,7 +151,7 @@ if($the_post_type == "new"){
                 </div>
                 <div class="card__content">
                     <div class="text">
-                        <h5><?php the_title();?></h5>
+                        <h6><?php the_title();?></h6>
                         <!-- if nouvelles -> date else -> excerpt  -->
                         <?php echo get_the_date(); ?>
                     </div>

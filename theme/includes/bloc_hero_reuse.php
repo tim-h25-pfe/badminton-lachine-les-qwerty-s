@@ -1,5 +1,13 @@
 <div class="header-back"></div>
-<section class="hero block <?php the_field('hero_align'); ?>">
+<section class="hero block 
+<?php 
+        if(get_field('hero_align')){
+        echo the_field('hero_align'); 
+        } else{
+            echo "right";
+        }
+?>"
+>
     <div class="hero_content">
         <div class="texte">
             <h1><?php the_title(); ?></h1>

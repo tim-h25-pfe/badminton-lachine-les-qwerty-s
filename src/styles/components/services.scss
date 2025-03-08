@@ -31,6 +31,9 @@
     overflow: hidden;
     display: flex;
     align-items: flex-end;
+    @media screen and (max-width: $breakpoint-md) {
+        height: 55vh;
+    }
     .service__media {
         height: 100%;
         width: 100%;
