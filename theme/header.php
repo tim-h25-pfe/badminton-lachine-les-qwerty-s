@@ -98,15 +98,6 @@
     <div class="close-circle">
       <span></span>
       <span></span>
-      
-      <div class="allignement_horizontal">
-
-        
-      </div>
-
-      
-      
-     
     </div>
   </button>
   
@@ -150,7 +141,7 @@
                 </a>
                 <?php endif; ?>
 
-                <div style="display: flex;gap: 20px;align-items: center;margin-top: 60px;">
+                
                 <?php 
                 $link = get_field('header_shop', 'options');
                   if( $link ): ?>
@@ -158,6 +149,8 @@
                     <use xlink:href="#icon-panier"></use>
                 </svg></a>
                 <?php endif; ?>
+
+
                 <?php
                 $languages = pll_the_languages(array('raw' => 1)); // Récupère les langues sous forme de tableau
 
@@ -167,12 +160,12 @@
                     if ($lang_code !== $current_language) {
                         $translated_url = $lang_info['url']; // URL de la version traduite
                         ?>
-                        <a href="<?php echo esc_url($translated_url); ?>"><?php echo strtoupper($lang_code); ?></a>
+                        <a class="langue" href="<?php echo esc_url($translated_url); ?>"><?php echo strtoupper($lang_code); ?></a>
                         <?php
                     }
                 }
                 ?>
-                </div>
+                
                 
             </div>
             

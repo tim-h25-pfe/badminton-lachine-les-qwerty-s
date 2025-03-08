@@ -8,6 +8,9 @@
     left: 0;
     z-index: 2;
     width: 100%;
+    p {
+        font-size: #{typo(14px, 20px)};
+    }
     .wrapper {
         display: flex;
         align-items: flex-start;
@@ -18,11 +21,17 @@
         @media screen and (max-width: 1750px) {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            margin: 0 5%;
         }
         @media screen and (max-width: 830px) {
             display: flex;
             flex-direction: column;
             gap: 50px;
+            padding: 20% 0;
+            padding-bottom: 5%;
+        }
+        @media screen and (max-width: $breakpoint-sm) {
+            gap: 30px;
         }
     }
     li {
@@ -52,7 +61,7 @@
             li {
                 margin: -20px 0;
                 a {
-                    font-size: var(--font-size-h3);
+                    font-size: #{typo(45px, 80px)};
                     text-transform: uppercase;
                     font-weight: 900;
                 }
@@ -84,6 +93,10 @@
         align-items: flex-start;
         flex-direction: column;
         gap: 40px;
+        @media screen and (max-width: $breakpoint-sm) {
+            flex-direction: row;
+            align-items: center;
+        }
         .inscription {
             display: flex;
             flex-direction: column;
@@ -92,6 +105,9 @@
                 text-transform: none;
                 text-decoration: underline;
                 margin-top: 20px;
+                @media screen and (max-width: $breakpoint-sm) {
+                    margin: 0;
+                }
             }
         }
 
@@ -135,6 +151,16 @@
             @media screen and (max-width: 830px) {
                 flex-direction: column;
                 gap: 20px;
+            }
+        }
+
+        @media screen and (max-width: $breakpoint-sm) {
+            gap: 10px;
+            .contact {
+                gap: 10px;
+            }
+            .credits {
+                gap: 10px;
             }
         }
     }
