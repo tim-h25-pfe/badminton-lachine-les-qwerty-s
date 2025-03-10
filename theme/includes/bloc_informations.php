@@ -54,7 +54,7 @@ $contenu = $slug;
             <div class="informations <?php echo $img_position ?>">
                 
                 <div class="infos__media">
-                <?php echo get_the_post_thumbnail($p->ID); ?>
+                <?php echo get_the_post_thumbnail($p->ID, 'full'); ?>
                 <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 </div>
                 
