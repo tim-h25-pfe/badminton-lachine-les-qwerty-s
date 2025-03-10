@@ -17,9 +17,14 @@
                 <div class="title">
                     <h3><?php echo esc_html( $link_title ); ?></h3>
                 </div>
-                <svg class="icon btn_circled btn_round btn_white">
-                    <use xlink:href="#icon-fleche"></use>
-                </svg>
+                <div class="fleche-container">
+                    <svg class="icon fleche1 icon--xs">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2 icon--xs">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                </div>
             </a>
             <?php 
             $link = get_sub_field('second_link');
@@ -32,9 +37,14 @@
                 <div class="title">
                     <h3><?php echo esc_html( $link_title ); ?></h3>
                 </div>
-                <svg class="icon btn_circled btn_round btn_white">
-                    <use xlink:href="#icon-fleche"></use>
-                </svg>
+                <div class="fleche-container">
+                    <svg class="icon fleche1 icon--xs">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2 icon--xs">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                </div>
             </a>
             <?php endif; ?>
         </div>

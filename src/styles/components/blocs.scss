@@ -353,6 +353,7 @@
 .contentSwiper {
     background-color: var(--color-black);
     color: var(--color-white);
+    overflow: hidden;
     .wrapper {
         display: grid;
         grid-template-columns: 5fr 7fr;
