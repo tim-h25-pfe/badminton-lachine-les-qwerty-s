@@ -18,7 +18,7 @@ endif;
 
         <div class="top">
             <div class="title">
-                <h1><?php echo esc_html($label); ?></h1>
+                <h2><?php echo esc_html($label); ?></h2>
                 <div class="underline">
                     <svg class="icon icon--lg">
                         <use xlink:href="#icon-tripleLigneDessin"></use>

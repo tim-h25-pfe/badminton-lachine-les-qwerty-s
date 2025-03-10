@@ -57,7 +57,7 @@ $img_position = get_sub_field('infos_loop_align');
             <div class="informations">
                 
                 <div class="infos__media">
-                <?php echo get_the_post_thumbnail($p->ID); ?>
+                <?php echo get_the_post_thumbnail($p->ID, 'full'); ?>
                 <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 </div>
                 

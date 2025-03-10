@@ -1,7 +1,7 @@
 <section class="accordeon">
     <div class="wrapper">
         <div class="title">
-            <h1><?php the_sub_field('accordeon_section_title'); ?></h1>
+            <h2><?php the_sub_field('accordeon_section_title'); ?></h2>
             <div class="underline">
                 <svg class="icon icon--lg">
                     <use xlink:href="#icon-tripleLigneDessin"></use>

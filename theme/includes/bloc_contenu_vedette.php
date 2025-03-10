@@ -64,7 +64,7 @@ if($the_post_type == "new"){
         <div class="title">
         
             <div class="title">
-                <h1><?php the_sub_field('vedette_titre'); ?></h1>
+                <h2><?php the_sub_field('vedette_titre'); ?></h2>
                 <div class="underline">
                     <lottie-player
                         id="accueilLigneDessin"

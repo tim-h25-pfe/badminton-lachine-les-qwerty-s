@@ -6,7 +6,7 @@
             <div class="main-content">
                 <div class="module module-header">
                     <div class="sous-titre">
-                        <h6>Publié le <?php the_date(); ?></h6>
+                        
                         <?php
                         // Récupérer les termes associés à l'article pour la taxonomie personnalisée 'ma_taxonomie'
                         $terms = get_the_terms(get_the_ID(), 'type_de_event');
@@ -22,7 +22,7 @@
                         ?>
                     </div>
                     <h3><?php the_title(); ?></h3>
-                    <?php the_post_thumbnail(); ?>
+                    <?php the_post_thumbnail('full'); ?>
                 </div>
                 <?php the_content(); ?>
             </div>
