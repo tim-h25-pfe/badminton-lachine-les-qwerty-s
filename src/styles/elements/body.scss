@@ -42,7 +42,7 @@ section {
     margin-left: 1%;
     margin-right: 1%;
     border-radius: var(--spacing-lg);
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xl) 2%;
     @media screen and (max-width: $breakpoint-lg) {
         padding: var(--spacing-lg) 0;
         border-radius: 35px;

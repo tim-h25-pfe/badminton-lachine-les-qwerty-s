@@ -4,12 +4,14 @@ import Tabs from './components/Tabs';
 import Accordeon from './components/Accordeon';
 import Ariane from './components/Ariane';
 import Lottie from './components/Lottie';
+import Alert from './components/Alert';
 export default class ComponentFactory {
   constructor() {
     this.componentInstances = [];
     this.componentList = {
       Carousel,
       Header,
+      Alert,
       Tabs,
       Accordeon,
       Ariane,

@@ -33,9 +33,6 @@ export default class Header {
     if (this.element.dataset.threshold) {
       this.options.threshold = parseFloat(this.element.dataset.threshold);
     }
-    document.querySelector('.closing').addEventListener('click', function () {
-      this.closest('.alert-banner').style.display = 'none';
-    });
   }
 
   onScroll() {
