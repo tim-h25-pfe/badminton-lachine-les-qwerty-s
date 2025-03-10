@@ -165,9 +165,8 @@ a.logo {
         justify-content: flex-end;
         align-items: center;
         height: fit-content;
-        .volantContact {
-        }
         @media screen and (max-width: $breakpoint-sm) {
+            height: 200px;
             .volantContact {
                 transform: rotate(45deg);
                 position: absolute;
@@ -175,11 +174,6 @@ a.logo {
                 position: absolute;
                 bottom: 0;
                 right: -25%;
-                @media screen and (max-width: $breakpoint-sm) {
-                }
-            }
-            @media screen and (max-width: $breakpoint-sm) {
-                height: 200px;
             }
         }
     }
