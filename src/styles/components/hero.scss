@@ -98,6 +98,10 @@
     }
 }
 
+.hero_front {
+    margin-top: 0;
+}
+
 .title:has(> .underline) {
     justify-content: flex-start;
     .underline {

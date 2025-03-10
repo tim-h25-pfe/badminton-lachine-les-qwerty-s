@@ -12,7 +12,6 @@ export default class Accordeon {
 
   init() {
     this.setOptions();
-    console.log('Accordion marche !!');
 
     for (let i = 0; i < this.containers.length; i++) {
       const accordion = this.containers[i];
@@ -34,7 +33,6 @@ export default class Accordeon {
     } else {
       if (!this.options.notClosing) {
         for (let i = 0; i < this.containers.length; i++) {
-          
           if (this.containers[i] != event.currentTarget) {
             this.containers[i].classList.remove('is-active');
           }

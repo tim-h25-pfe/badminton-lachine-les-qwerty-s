@@ -701,9 +701,9 @@ a.underline {
 .header {
     .alert-banner {
         width: 100%;
-        display: flex;
+        display: none;
         align-items: center;
-        justify-content: space-between;
+        //justify-content: space-between;
         padding: 2%;
         gap: 60px;
         @media screen and (max-width: $breakpoint-md) {
@@ -714,7 +714,7 @@ a.underline {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: fit-content;
+            width: 100%;
             .info {
                 display: flex;
                 align-items: center;
@@ -764,17 +764,12 @@ a.underline {
 
         background: var(--Alerte, #fe6767);
 
-        // @media screen and (max-width: $breakpoint-xs) {
-        //     padding: 16px 20px;
-        //     align-items: flex-start;
-        // }
-
         .icone {
             color: var(--color-black);
             display: flex;
             align-items: center;
             justify-content: center;
-            //background-color: var(--color-black);
+
             border-radius: 999px;
             border: 3px solid var(--color-black);
             padding: 15px;
@@ -786,41 +781,3 @@ a.underline {
         }
     }
 }
-
-// .message {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     gap: 35px;
-//     @media screen and (max-width: $breakpoint-xs) {
-//         flex-direction: column;
-//         align-items: flex-start;
-//         gap: 12px;
-//     }
-//     a {
-//         font-weight: 500;
-//         font-size: 20px;
-//         text-decoration: underline;
-//         //padding-left: 450px;
-//         @media screen and (max-width: $breakpoint-xs) {
-//             padding-left: unset;
-//         }
-//     }
-//     img {
-//         @media screen and (max-width: $breakpoint-xs) {
-//             width: 20px;
-//         }
-//     }
-// }
-
-// .close_alert {
-//     @media screen and (max-width: $breakpoint-xs) {
-//         display: flex;
-//         justify-content: flex-end;
-//         width: 100%;
-//     }
-//     img {
-//         cursor: pointer;
-//         @include safe-hitzone();
-//     }
-// }
