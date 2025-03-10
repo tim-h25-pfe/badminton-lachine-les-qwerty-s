@@ -220,6 +220,10 @@
 
 //styles pour le bloc cta push
 .push {
+    @media screen and (max-width: 1060px) {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
     .wrapper {
         background-color: var(--color-primary);
         color: var(--color-inactive);
@@ -300,8 +304,8 @@
         display: grid;
         grid-auto-flow: column;
         gap: var(--spacing-md);
-        @media screen and (max-width: $breakpoint-lg) {
-            grid-template-columns: 1fr;
+        @media screen and (max-width: $breakpoint-md) {
+            grid-auto-flow: row;
             @media screen and (max-width: $breakpoint-sm) {
                 align-self: center;
             }
@@ -353,6 +357,7 @@
 .contentSwiper {
     background-color: var(--color-black);
     color: var(--color-white);
+    overflow: hidden;
     .wrapper {
         display: grid;
         grid-template-columns: 5fr 7fr;

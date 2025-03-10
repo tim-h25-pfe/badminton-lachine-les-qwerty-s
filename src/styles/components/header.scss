@@ -37,16 +37,6 @@
     background-color: var(--color-white);
     border-radius: 0 0 20px 20px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
-    .alert-banner {
-        display: flex;
-        width: 100%;
-        padding: 15px 90px;
-        justify-content: space-between;
-        align-items: center;
-
-        background: var(--Alerte, #fe6767);
-        backdrop-filter: blur(5px);
-    }
 }
 
 .header {
@@ -72,7 +62,7 @@
     border-radius: 20px;
     padding: 15px 90px;
 
-    @media screen and (max-width: $breakpoint-xs) {
+    @media screen and (max-width: $breakpoint-md) {
         border-radius: 15px;
         padding: 15px 25px;
         gap: 125px;
@@ -253,20 +243,21 @@
 }
 
 .header {
-    position: sticky;
+    //position: sticky;
     z-index: 15;
     top: 0;
     left: 0;
-    background-color: none;
+    //background-color: none;
+    width: 100%;
 
     .wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
         max-width: 1830px;
-        @media screen and (max-width: $breakpoint-xs) {
-            width: calc(100% - var(--spacing-lg));
-        }
+        // @media screen and (max-width: $breakpoint-xs) {
+        //     width: calc(100% - var(--spacing-lg));
+        // }
     }
 
     ul {
@@ -374,7 +365,7 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 60%;
+    width: 30%;
     height: 100vh;
     background-color: #252525;
 
@@ -709,47 +700,127 @@ a.underline {
 //==================================================== Bandeau d'alerte ===================================================
 .header {
     .alert-banner {
-        @media screen and (max-width: $breakpoint-xs) {
-            padding: 16px 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2%;
+        gap: 60px;
+        @media screen and (max-width: $breakpoint-md) {
+            padding: 6%;
             align-items: flex-start;
         }
+        .texte {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: fit-content;
+            .info {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 10px;
+                @media screen and (max-width: $breakpoint-md) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+            a {
+                text-decoration: underline;
+                text-align: right;
+                white-space: nowrap;
+            }
+            p {
+                width: 70%;
+            }
+            @media screen and (max-width: $breakpoint-md) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                p {
+                    width: 100%;
+                }
+            }
+        }
+        .close {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+
+            .closing {
+                height: 25px;
+                width: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                @media screen and (max-width: $breakpoint-xs) {
+                    @include safe-hitzone($size: 46px, $pseudo: after);
+                }
+            }
+        }
+
+        background: var(--Alerte, #fe6767);
+
+        // @media screen and (max-width: $breakpoint-xs) {
+        //     padding: 16px 20px;
+        //     align-items: flex-start;
+        // }
+
+        .icone {
+            color: var(--color-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            //background-color: var(--color-black);
+            border-radius: 999px;
+            border: 3px solid var(--color-black);
+            padding: 15px;
+            margin-right: 3%;
+            @media screen and (max-width: $breakpoint-md) {
+                border: 2px solid var(--color-black);
+                padding: 10px;
+            }
+        }
     }
 }
 
-.message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 35px;
-    @media screen and (max-width: $breakpoint-xs) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    a {
-        font-weight: 500;
-        font-size: 20px;
-        text-decoration: underline;
-        padding-left: 450px;
-        @media screen and (max-width: $breakpoint-xs) {
-            padding-left: unset;
-        }
-    }
-    img {
-        @media screen and (max-width: $breakpoint-xs) {
-            width: 20px;
-        }
-    }
-}
+// .message {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 35px;
+//     @media screen and (max-width: $breakpoint-xs) {
+//         flex-direction: column;
+//         align-items: flex-start;
+//         gap: 12px;
+//     }
+//     a {
+//         font-weight: 500;
+//         font-size: 20px;
+//         text-decoration: underline;
+//         //padding-left: 450px;
+//         @media screen and (max-width: $breakpoint-xs) {
+//             padding-left: unset;
+//         }
+//     }
+//     img {
+//         @media screen and (max-width: $breakpoint-xs) {
+//             width: 20px;
+//         }
+//     }
+// }
 
-.close_alert {
-    @media screen and (max-width: $breakpoint-xs) {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-    }
-    img {
-        cursor: pointer;
-        @include safe-hitzone();
-    }
-}
+// .close_alert {
+//     @media screen and (max-width: $breakpoint-xs) {
+//         display: flex;
+//         justify-content: flex-end;
+//         width: 100%;
+//     }
+//     img {
+//         cursor: pointer;
+//         @include safe-hitzone();
+//     }
+// }

@@ -21,10 +21,12 @@ body {
 
 section {
     //padding: var(--spacing-xl) 0;
+    //display: grid;
+    margin: 180px 0;
     border-radius: 50px;
-    margin: var(--spacing-xl) 0;
+    //margin: var(--spacing-xl) 0;
     @media screen and (max-width: $breakpoint-lg) {
-        margin: 50px 0;
+        margin: 100px 0;
     }
     background-color: var(--color-white);
 }
@@ -37,7 +39,8 @@ section {
 }
 
 .section-color {
-    margin: 0 1%;
+    margin-left: 1%;
+    margin-right: 1%;
     border-radius: var(--spacing-lg);
     padding: var(--spacing-xl) 0;
     @media screen and (max-width: $breakpoint-lg) {
@@ -45,6 +48,8 @@ section {
         border-radius: 35px;
         @media screen and (max-width: $breakpoint-sm) {
             border-radius: 15px;
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 }

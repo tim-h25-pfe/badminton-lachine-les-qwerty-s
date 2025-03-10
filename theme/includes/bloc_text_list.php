@@ -3,14 +3,6 @@ $content_type = get_sub_field('text_list_content');
 $list_type = get_sub_field('text_list_type');
 $employee_type = get_sub_field('text_list_employee');
 
-if($content_type == "list" && $list_type =="list_employee"){
-    $mail = get_sub_field('employee_mail');
-} else {
-    $mail = null;
-}
-
-
-
 // Vérifier si la valeur est bien récupérée
 if( $employee_type ) {
     // Récupérer l'intitulé et le slug depuis l'array
@@ -75,7 +67,9 @@ if( $list_type ) {
             <ul class="employees">
             <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
                 <li>
-                    <?php if ( $mail ) : ?>
+                    <?php
+                        $mail = get_field('employee_mail');
+                     if ( $mail ) : ?>
                     <a href="mailto:<?php echo $mail ?>">
                         <div class="icone">
                             <svg class="icon icon--sm">

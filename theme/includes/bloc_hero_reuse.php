@@ -1,4 +1,3 @@
-<div class="header-back"></div>
 <section class="hero block 
 <?php 
         if(get_field('hero_align')){

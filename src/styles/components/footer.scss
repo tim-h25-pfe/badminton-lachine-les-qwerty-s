@@ -3,10 +3,10 @@
     color: var(--color-white);
     overflow: hidden;
     border-radius: 50px 50px 0 0;
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
+    // position: sticky;
+    // bottom: 0;
+    // left: 0;
+    // z-index: 2;
     width: 100%;
     p {
         font-size: #{typo(14px, 20px)};
@@ -207,8 +207,7 @@
 .background {
     background-color: var(--color-white);
     position: relative;
-    padding-bottom: 200px;
-    z-index: 3;
+    width: 100%;
 }
 
 .reveal_footer {
