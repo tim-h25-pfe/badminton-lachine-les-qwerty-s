@@ -1,5 +1,4 @@
-
-<section class="valeurs">
+<section class="valeurs section-color">
     <div class="wrapper">
         <div class="title">
             <h2><?php the_sub_field('text_loop_titre'); ?></h2>

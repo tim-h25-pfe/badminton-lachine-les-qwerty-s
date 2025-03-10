@@ -1,4 +1,4 @@
-<section class="accordeon">
+<section class="accordeon section-color">
     <div class="wrapper">
         <div class="title">
             <h2><?php the_sub_field('accordeon_section_title'); ?></h2>
