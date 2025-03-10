@@ -117,24 +117,24 @@ a.logo {
 
 // ----- lien vers page contact ----- //
 .lien-contact {
-    display: flex;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    overflow: hidden;
     gap: var(--spacing-lg);
     text-decoration: none;
     text-transform: none;
     width: 100%;
 
     margin: var(--spacing-xl) 0;
-
     border: 2px solid var(--color-black);
     border-radius: 30px;
-
     transition: all 0.5s ease-out;
 
     @media screen and (max-width: $breakpoint-md) {
         margin: 0;
 
         @media screen and (max-width: $breakpoint-sm) {
+            grid-template-columns: 1fr;
             gap: var(--spacing-md);
             flex-direction: column;
             justify-content: center;
@@ -142,12 +142,10 @@ a.logo {
     }
     &:hover {
         color: var(--color-black);
-        border-color: var(--color-interactive-light);
         background-color: var(--color-interactive-light);
     }
     .lien-contact__content {
         display: flex;
-
         flex-direction: column;
         gap: var(--spacing-md);
         padding: var(--spacing-xl);
@@ -162,8 +160,28 @@ a.logo {
         }
     }
     .lien-contact__media {
-        height: min-content;
-        flex: 0.5;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: fit-content;
+        .volantContact {
+        }
+        @media screen and (max-width: $breakpoint-sm) {
+            .volantContact {
+                transform: rotate(45deg);
+                position: absolute;
+                bottom: var(--spacing-lg);
+                position: absolute;
+                bottom: 0;
+                right: -25%;
+                @media screen and (max-width: $breakpoint-sm) {
+                }
+            }
+            @media screen and (max-width: $breakpoint-sm) {
+                height: 200px;
+            }
+        }
     }
 }
 
