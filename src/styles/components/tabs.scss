@@ -13,6 +13,17 @@
             display: grid;
             transform: translateY(0);
             transition: all ease-out 0.3s;
+            &.grid-tarif {
+                @media screen and (max-width: $breakpoint-md) {
+                    display: none;
+                }
+            }
+            &.carousel-tarif {
+                display: none;
+                @media screen and (max-width: $breakpoint-md) {
+                    display: grid;
+                }
+            }
         }
     }
     .top {

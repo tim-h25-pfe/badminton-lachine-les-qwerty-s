@@ -1,3 +1,4 @@
+import NameLotties from './components/NameLotties';
 import Carousel from './components/Carousel';
 import Header from './components/Header';
 import Tabs from './components/Tabs';
@@ -9,6 +10,7 @@ export default class ComponentFactory {
   constructor() {
     this.componentInstances = [];
     this.componentList = {
+      NameLotties,
       Carousel,
       Header,
       Alert,
