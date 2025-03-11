@@ -127,57 +127,22 @@ endif;
         <?php if ( $queryg->have_posts() ) : ?>
         <div class="cards <?php echo $class ?>" data-tab-container="global">
 
-        <?php if ($the_post_type == 'new') : ?>
-            <!-- l'article en vedette  - acf relation -->
-            <?php $posts = get_sub_field('grid_vedette'); ?>
-            <?php if ($posts) : ?>
-                <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
-            <div class="card news first">
-                    <div class="card__content">
-                        <h5><?php echo get_the_title($p->ID); ?></h5>
-                        <a class="btn_full" href="<?php echo get_permalink($p->ID); ?>">
-                            <svg class="icon">
-                                <use xlink:href="#icon-fleche"></use>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="card__media">
-                    <?php echo get_the_post_thumbnail($p->ID); ?>
-                    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
-                    </div>
-            </div>
-            <?php endforeach; ?>
-            <?php endif; ?>
-        <?php endif; ?>
-
-        <?php if ($the_post_type == 'event') : ?>
-            <!-- l'article en vedette  - acf relation -->
-            <?php $posts = get_sub_field('grid_vedette_event'); ?>
-            <?php if ($posts) : ?>
-                <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
-            <div class="card news first">
-                    <div class="card__content">
-                        <h5><?php echo get_the_title($p->ID); ?></h5>
-                        <a class="btn_full" href="<?php echo get_permalink($p->ID); ?>">
-                            <svg class="icon">
-                                <use xlink:href="#icon-fleche"></use>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="card__media">
-                    <?php echo get_the_post_thumbnail($p->ID); ?>
-                    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
-                    </div>
-            </div>
-            <?php endforeach; ?>
-            <?php endif; ?>
-        <?php endif; ?>
-
-
             <!-- un div grid  -->
             <div class="grid">
                     <!-- while -->
                     <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
+                    <?php
+                        // Récupérer la catégorie personnalisée du post
+                        $termse = wp_get_post_terms(get_the_ID(), $slug);
+
+                        // Vérifier si des termes existent
+                        if (!empty($termse) && !is_wp_error($termse)) {
+                            $all_category = $termse[0]->name;
+                            $all_slug = $termse[0]->slug;
+                        } else {
+                            $all_category = "No category";
+                        }
+                        ?>
                     <!-- le div de card des articles -->
                     <div class="card">
                         <div class="card__top">
@@ -225,24 +190,70 @@ endif;
                         <?php endif; ?>
                         </div>
                     </div>
-                    <div class="card news">
+
+                    <?php if ($all_slug == "events-done" || $all_slug == "events-passes") : 
+                        
+                        $cat_class = "old";
+                    ?>
+
+                    <div class="card news <?php echo $cat_class ?>">
+                        <p class="btn_full tag"><?php echo esc_html($term->name); ?></p>
+                        <div class="card__media">
+                            <?php 
+                            if (has_post_thumbnail()) { 
+                                the_post_thumbnail(); 
+                            } else { ?>
+                                <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                            <?php } ?>
+                        </div>
                         <div class="card__content">
-                            <h5><?php the_title(); ?></h5>
-                            <a class="btn_full" href="<?php the_permalink(); ?>">
-                                <svg class="icon">
-                                    <use xlink:href="#icon-fleche"></use>
-                                </svg>
+                            <div class="text">
+                                <h5><?php the_title(); ?></h5>
+                                <p>Publié le : <?php echo get_the_date(); ?></p>
+                            </div>
+                            <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
+                                <div class="fleche-container">
+                                    <svg class="icon fleche1">
+                                        <use xlink:href="#icon-fleche"></use>
+                                    </svg>
+                                    <svg class="icon fleche2">
+                                        <use xlink:href="#icon-fleche"></use>
+                                    </svg>
+                                </div>
                             </a>
                         </div>
-                        <div class="card__media">
-                        <?php 
-                        if (has_post_thumbnail()) { 
-                            the_post_thumbnail(); 
-                        } else { ?>
-                            <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
-                        <?php } ?>
-                        </div>
                     </div>
+                    
+                    <?php else : ?>
+                        <div class="card news">
+                            <p class="btn_full tag"><?php echo $all_category ?></p>
+                            <div class="card__media">
+                                <?php 
+                                if (has_post_thumbnail()) { 
+                                    the_post_thumbnail(); 
+                                } else { ?>
+                                    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                                <?php } ?>
+                            </div>
+                            <div class="card__content">
+                                <div class="text">
+                                    <h5><?php the_title(); ?></h5>
+                                    <p>Publié le : <?php echo get_the_date(); ?></p>
+                                </div>
+                                <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
+                                    <div class="fleche-container">
+                                        <svg class="icon fleche1">
+                                            <use xlink:href="#icon-fleche"></use>
+                                        </svg>
+                                        <svg class="icon fleche2">
+                                            <use xlink:href="#icon-fleche"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
                     <?php endwhile; ?>
             </div>
         </div>
@@ -291,54 +302,6 @@ endif;
     <?php if ( $query->have_posts() ) : ?>
         
         <div class="cards <?php echo $class ?>" data-tab-container="<?php echo esc_html($term->slug); ?>">
-
-
-        <?php if ($the_post_type == 'new') : ?>
-            <!-- l'article en vedette  - acf relation -->
-            <?php $posts = get_sub_field('grid_vedette'); ?>
-            <?php if ($posts) : ?>
-                <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
-            <div class="card news first">
-                    <div class="card__content">
-                        <h5><?php echo get_the_title($p->ID); ?></h5>
-                        <a class="btn_full" href="<?php echo get_permalink($p->ID); ?>">
-                            <svg class="icon">
-                                <use xlink:href="#icon-fleche"></use>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="card__media">
-                    <?php echo get_the_post_thumbnail($p->ID); ?>
-                    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
-                    </div>
-            </div>
-            <?php endforeach; ?>
-            <?php endif; ?>
-        <?php endif; ?>
-
-        <?php if ($the_post_type == 'event') : ?>
-            <!-- l'article en vedette  - acf relation -->
-            <?php $posts = get_sub_field('grid_vedette_event'); ?>
-            <?php if ($posts) : ?>
-                <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
-            <div class="card news first">
-                    <div class="card__content">
-                        <h5><?php echo get_the_title($p->ID); ?></h5>
-                        <a class="btn_full" href="<?php echo get_permalink($p->ID); ?>">
-                            <svg class="icon">
-                                <use xlink:href="#icon-fleche"></use>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="card__media">
-                    <?php echo get_the_post_thumbnail($p->ID); ?>
-                    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
-                    </div>
-            </div>
-            <?php endforeach; ?>
-            <?php endif; ?>
-        <?php endif; ?>
-
 
          <!-- un div grid  -->
           <div class="grid">
@@ -392,23 +355,32 @@ endif;
                     </div>
                 </div>
                 <div class="card news">
-                    <div class="card__content">
-                        <h5><?php the_title(); ?></h5>
-                        <a class="btn_full" href="<?php the_permalink(); ?>">
-                            <svg class="icon">
-                                <use xlink:href="#icon-fleche"></use>
-                            </svg>
-                        </a>
+                        <p class="btn_full tag"><?php echo esc_html($term->name); ?></p>
+                        <div class="card__media">
+                            <?php 
+                            if (has_post_thumbnail()) { 
+                                the_post_thumbnail(); 
+                            } else { ?>
+                                <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                            <?php } ?>
+                        </div>
+                        <div class="card__content">
+                            <div class="text">
+                                <h5><?php the_title(); ?></h5>
+                                <p>Publié le : <?php echo get_the_date(); ?></p>
+                            </div>
+                            <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
+                                <div class="fleche-container">
+                                    <svg class="icon fleche1">
+                                        <use xlink:href="#icon-fleche"></use>
+                                    </svg>
+                                    <svg class="icon fleche2">
+                                        <use xlink:href="#icon-fleche"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="card__media">
-                    <?php 
-                    if (has_post_thumbnail()) { 
-                        the_post_thumbnail(); 
-                    } else { ?>
-                        <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
-                    <?php } ?>
-                    </div>
-                </div>
                 <?php endwhile; ?>
           </div>
         </div>
