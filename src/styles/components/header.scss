@@ -184,6 +184,25 @@
     }
 }
 
+.bouton_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    width: 65px;
+    padding: 20px;
+    border-radius: 13.889px;
+    border: 0.556px solid #3b3b3b;
+    background: var(--color-black);
+    box-shadow: 0px 2.222px 5px -2.222px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(1.111111044883728px);
+    @media screen and (max-width: $breakpoint-xs) {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+    }
+}
+
 //styles du bouton menu
 .header__toggle {
     @include safe-hitzone();
@@ -192,9 +211,9 @@
     --bar-spacer: 3px;
     --bar-width: 35px;
     @media screen and (max-width: $breakpoint-xs) {
-        --bar-height: 4px;
+        --bar-height: 3px;
         --bar-spacer: 2px;
-        --bar-width: 30px;
+        --bar-width: 25px;
     }
 
     background-color: transparent !important; /* Assure que le fond reste toujours transparent */
@@ -214,7 +233,7 @@
 }
 
 .header__toggle span {
-    background-color: var(--color-black);
+    background-color: var(--color-white);
     border-radius: 3px;
     height: var(--bar-height);
     width: var(--bar-width);
@@ -228,14 +247,6 @@
 
 .header__toggle span:nth-child(2) {
     transform: translateY(calc(var(--bar-height) + var(--bar-spacer)));
-}
-
-.header__toggle.is-active span:nth-child(1) {
-    transform: translateY(0) rotate(45deg);
-}
-
-.header__toggle.is-active span:nth-child(2) {
-    transform: translateY(0) rotate(-45deg);
 }
 
 .nav-is-active body {
@@ -275,17 +286,19 @@
 
 //Styles pour le bouton inscription
 .bouton_inscription {
-    padding: 10px 0;
-
     transition: 0.3s;
     @media screen and (max-width: $breakpoint-xs) {
         display: none;
     }
 }
 .nav-primary .bouton_inscription a {
+    font-size: 25px;
     transition: all 0.3s ease-out;
-    margin-right: 100px;
+
     color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .bouton_inscription:hover {
     opacity: 0.5;
@@ -365,13 +378,13 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 30%;
+    width: 50%;
     height: 100vh;
     background-color: #252525;
-
+    border-radius: 30px 0 0 30px;
     color: white;
     z-index: 1000;
-    padding: 0 30px;
+    padding: 0 50px;
     overflow-y: auto;
     transition: right 0.3s ease-in-out,
         clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -394,6 +407,7 @@
         height: 80%;
         right: -100%;
         width: 100%;
+        border-radius: unset;
     }
 
     &.active {
@@ -428,13 +442,6 @@
     }
 
     .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        height: 100%;
-        padding: 3% 0;
-        align-items: flex-end;
-
         img {
             height: 100%;
             width: 100%;
@@ -443,15 +450,18 @@
         }
 
         @media screen and (max-width: $breakpoint-md) {
+            display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
         @media screen and (max-width: $breakpoint-sm) {
+            display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
         @media screen and (max-width: $breakpoint-xs) {
+            display: grid;
             grid-template-columns: 1fr;
             gap: 0px;
         }
@@ -459,10 +469,19 @@
         .alignement {
             display: flex;
             gap: 40px;
-            align-items: center;
+            align-items: flex-end;
+            justify-content: center;
+            flex-direction: column-reverse;
+            text-align: right;
+            @media screen and (max-width: $breakpoint-xs) {
+                align-items: flex-start;
+                text-align: left;
+                gap: 20px;
+            }
             a {
                 transition: all ease-out 0.3s;
                 height: fit-content;
+                font-weight: 500;
                 &:hover {
                     opacity: 0.7;
                 }
@@ -482,14 +501,18 @@
     .content_menu {
         display: grid;
         gap: 60px;
-        margin-bottom: 5%;
+        grid-template-columns: 1fr 1fr;
         @media screen and (max-width: $breakpoint-md) {
             margin: 0;
         }
         @media screen and (max-width: $breakpoint-sm) {
+            grid-template-columns: 1fr;
+            gap: 40px;
         }
         @media screen and (max-width: $breakpoint-xs) {
             margin: 0;
+            grid-template-columns: 1fr;
+            gap: 50px;
         }
     }
 }
@@ -542,7 +565,7 @@ body.no-scroll {
         width: 65px; // Taille du cercle
         height: 65px;
         background-color: white;
-        border-radius: 50%;
+        border-radius: 13.889px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -589,6 +612,10 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     list-style: none;
+    display: none;
+    @media screen and (max-width: $breakpoint-xs) {
+        display: block;
+    }
     //gap: 20px;
     padding: 0;
     margin: 0;
@@ -616,22 +643,39 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     list-style: none;
-    gap: 10px;
+    gap: 20px;
     padding: 0;
     margin: 0;
 
     li {
         width: fit-content;
     }
+
     a {
+        position: relative;
         transition: all 0.3s ease-out;
-        font-size: var(--font-size-h6);
-        font-weight: 600;
+        font-size: var(--font-size-h4);
+        font-weight: 500;
         text-transform: uppercase;
     }
     a:hover {
         color: var(--color-white);
-        opacity: 50%;
+        opacity: 70%;
+    }
+    /* L'effet de barre sous les liens de navigation */
+    a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 5px;
+        background-color: var(--color-interactive);
+        transition: width 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    a:hover::after {
+        width: 100%;
     }
 }
 
@@ -778,6 +822,59 @@ a.underline {
                 border: 2px solid var(--color-black);
                 padding: 10px;
             }
+        }
+    }
+
+    .nav_title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        @media screen and (max-width: $breakpoint-xs) {
+            display: none;
+        }
+        a {
+            position: relative;
+            text-transform: uppercase;
+            font-size: var(--font-size-content);
+            font-weight: 600;
+        }
+        /* L'effet de barre sous les liens de navigation */
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--color-black);
+            transition: width 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+    }
+
+    .search-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65px;
+        width: 65px;
+        padding: 20px;
+        border-radius: 13.889px;
+        border: 0.556px solid #3b3b3b;
+        background: var(--color-black);
+        box-shadow: 0px 2.222px 5px -2.222px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(1.111111044883728px);
+        svg {
+            fill: white;
+        }
+        @media screen and (max-width: $breakpoint-xs) {
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
         }
     }
 }
