@@ -32,7 +32,10 @@ export default class Carousel {
         momentumBounce: false,
         allowTouchMove: false, // Empêche le swipe manuel pour éviter des arrêts
       };
-    } else if (this.element.classList.contains('js-swiper-accueilServices')) {
+    } else if (
+      this.element.classList.contains('js-swiper-accueilServices') ||
+      this.element.classList.contains('js-swiper-cardSwiper')
+    ) {
       this.options = {
         slidesPerView: 1.25,
         effect: 'coverflow',

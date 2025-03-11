@@ -8,6 +8,9 @@
         @media screen and (max-width: $breakpoint-lg) {
             flex-direction: column;
             align-items: center;
+            @media screen and (max-width: $breakpoint-md) {
+                align-items: initial;
+            }
         }
         .grid {
             display: grid;
@@ -21,7 +24,7 @@
             &.carousel-tarif {
                 display: none;
                 @media screen and (max-width: $breakpoint-md) {
-                    display: grid;
+                    display: block;
                 }
             }
         }
@@ -113,9 +116,9 @@
             align-items: flex-start;
             justify-content: space-between;
             flex-direction: column;
-            height: auto;
+            height: 100%;
 
-            @media screen and (max-width: $breakpoint-lg) {
+            @media screen and (max-width: $breakpoint-sm) {
                 width: fit-content;
             }
             .card__top {
