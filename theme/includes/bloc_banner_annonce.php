@@ -4,9 +4,12 @@
             <div class="titre">
                 <h4><?php the_sub_field('banner_titre'); ?></h4>
                 <div class="underline">
-                    <svg class="icon icon--lg">
-                        <use xlink:href="#icon-ligneDessin"></use>
-                    </svg>
+                    <lottie-player
+                        class="lottie-underline js-lottie-underline"
+                        src="<?php bloginfo('template_url') ?>/assets/lottie/ligneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
                 </div>
             </div>
             <p>

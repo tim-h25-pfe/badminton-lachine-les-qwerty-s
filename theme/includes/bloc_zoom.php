@@ -57,8 +57,7 @@ if($the_post_type == "new"){
                 <h2><?php the_sub_field('titre_zoom'); ?></h2>
                 <div class="underline">
                     <lottie-player
-                        id="accueilTripleLigneDessin"
-                        class="lottie-underline js-underline"
+                        class="lottie-underline js-lottie-underline"
                         src="<?php bloginfo('template_url') ?>/assets/lottie/tripleLigneDessin.json"
                         data-component="Lottie"
                     >

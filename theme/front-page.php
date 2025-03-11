@@ -12,8 +12,7 @@
                 <h1><?php the_field('notre', 'options'); ?> <?php the_field('accueil_catch') ?></h1>
                 <div class="underline">
                     <lottie-player
-                        id="accueilDoubleLigneDessin"
-                        class="lottie-underline js-underline"
+                        class="lottie-underline js-lottie-underline"
                         src="<?php bloginfo('template_url') ?>/assets/lottie/doubleLigneDessin.json"
                         data-component="Lottie"
                     >

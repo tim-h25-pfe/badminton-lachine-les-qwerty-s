@@ -1,32 +1,16 @@
 {% include '_partials/_header.html' %}
 
-<section class="hero block">
-    <img class="texture" src="assets/images/filet.png" alt="filet" />
-    <div class="hero__media">
-        <img class="bgHero" src="assets/images/hero.png" alt="hero" />
-    </div>
-    <div class="hero__content">
-        <h1>Tarifs</h1>
-        <div class="underline">
-            <svg class="icon icon--lg">
-                <use xlink:href="#icon-doubleLigneDessin"></use>
-            </svg>
-        </div>
-    </div>
-</section>
-
-<section class="informations">
-    <div class="wrapper">
-        <div class="infos__media">
-            <img src="assets/images/hero.png" alt="image d'informations" />
-        </div>
-        <div class="infos__content">
-            <h3>Faire un don à l’organisme</h3>
+<section class="hero block left">
+    <div class="hero_content">
+        <div class="texte">
+            <h1>Nouvelles d'actualité</h1>
             <p>
-                Merci à nos généreux donateurs qui souhaitent supporter notre Club et nous aider à promouvoir l’activité
-                sportive chez les jeunes et les adultes par la pratique et l’éducation du Badminton.
+                Découvrez nos dernières nouvelles et actualités. Restez informé sur tout ce qui fait vibrer le badminton
+                à Lachine.
             </p>
-            <a href="#" class="btn_full">Faire un don</a>
+        </div>
+        <div class="hero-img">
+            <img src="assets/images/image_menu.jpg" alt="hero" />
         </div>
     </div>
 </section>
@@ -83,7 +67,7 @@
         <!-- boucle des custom post type -->
         <!-- avec le parametre de la category -->
         <!-- if -->
-        <div class="cards" data-tab-container="jeunes">
+        <div class="cards news" data-tab-container="jeunes">
             <div class="grid grid-tarif">
                 <!-- while -->
                 <div class="card">
@@ -349,7 +333,7 @@
                 </div>
             </div>
         </div>
-        <div class="cards" data-tab-container="adultes">
+        <div class="cards news" data-tab-container="adultes">
             <div class="grid grid-tarif">
                 <!-- while -->
                 <div class="card">
@@ -391,7 +375,7 @@
                         <a href="#" class="btn_full">voir l'horaire</a>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card news">
                     <div class="card__top">
                         <h5>Débutant I - Adulte</h5>
                         <p>Initiation aux bases</p>
@@ -571,7 +555,7 @@
                 </div>
             </div>
         </div>
-        <div class="cards" data-tab-container="familial">
+        <div class="cards news" data-tab-container="familial">
             <!-- while -->
             <div class="card">
                 <div class="card__top">
@@ -729,42 +713,6 @@
                     <a href="#" class="btn_full">voir l'horaire</a>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="push">
-    <div class="wrapper">
-        <div class="push_content">
-            <div class="titre">
-                <h4>Rejoignez notre équipe !</h4>
-                <div class="underline">
-                    <lottie-player
-                        class="lottie-underline js-lottie-underline"
-                        src="assets/lottie/ligneDessin.json"
-                        data-component="Lottie"
-                    >
-                    </lottie-player>
-                </div>
-            </div>
-            <p>
-                Le Club Badminton Lachine est à la recherche de candidats pour compléter son équipe. Vous trouverez sur
-                cette page les opportunités d’emploi chez Badminton Lachine.
-            </p>
-            <a href="#" class="btn_full">
-                Voir plus
-                <div class="fleche-container">
-                    <svg class="icon fleche1">
-                        <use xlink:href="#icon-fleche"></use>
-                    </svg>
-                    <svg class="icon fleche2">
-                        <use xlink:href="#icon-fleche"></use>
-                    </svg>
-                </div>
-            </a>
-        </div>
-        <div class="push_media">
-            <img src="assets/images/hero.png" alt="hero" />
         </div>
     </div>
 </section>
