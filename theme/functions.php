@@ -36,6 +36,15 @@ if ( function_exists('acf_add_options_page') ) {
     ));
 }
 
+function add_jetpack_support_for_cpt() {
+    add_post_type_support('new', 'publicize'); // Remplace 'ton_cpt' par le slug de ton CPT
+}
+add_action('init', 'add_jetpack_support_for_cpt');
+
+function remove_posts_from_admin_menu() {
+    remove_menu_page('edit.php'); // Cache "Articles" du menu admin
+}
+add_action('admin_menu', 'remove_posts_from_admin_menu');
 
 // Register Custom Post Type
 function jobs() {
@@ -131,7 +140,7 @@ function news() {
 		'label'                 => __( 'Actualité', 'badlach' ),
 		'description'           => __( 'Actualités', 'badlach' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'publicize' ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -152,6 +161,8 @@ function news() {
 
 }
 add_action( 'init', 'news', 0 );
+
+
 
 // Register Custom Post Type
 function forfaits() {
@@ -695,3 +706,18 @@ function acf_populate_vedette_events_category($field) {
     return acf_populate_taxonomy_select($field, 'type_de_event', true);
 }
 add_filter('acf/load_field/name=vedette_events_category', 'acf_populate_vedette_events_category');
+
+if ( !is_admin() ) {
+    error_reporting(0); // Masque les erreurs sur le front-end
+    @ini_set('display_errors', 0); // Empêche l'affichage des erreurs PHP
+}
+
+
+add_action('admin_notices', function() {
+    if (current_user_can('administrator')) {
+        echo '<div class="notice notice-error"><pre>';
+        error_log(print_r(error_get_last(), true));
+        echo '</pre></div>';
+    }
+});
+
