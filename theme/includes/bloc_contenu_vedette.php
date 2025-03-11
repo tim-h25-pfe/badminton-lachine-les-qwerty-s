@@ -67,8 +67,7 @@ if($the_post_type == "new"){
                 <h2><?php the_sub_field('vedette_titre'); ?></h2>
                 <div class="underline">
                     <lottie-player
-                        id="accueilLigneDessin"
-                        class="lottie-underline js-underline"
+                        class="lottie-underline js-lottie-underline"
                         src="<?php bloginfo('template_url') ?>/assets/lottie/ligneDessin.json"
                         data-component="Lottie"
                     >

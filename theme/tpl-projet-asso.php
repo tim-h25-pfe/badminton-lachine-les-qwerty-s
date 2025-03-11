@@ -24,9 +24,12 @@
                     <div class="title">
                         <h2 data-ariane-section><?php the_sub_field('titre_asso'); ?></h2>
                         <div class="underline">
-                            <svg class="icon icon--lg">
-                                <use xlink:href="#icon-doubleLigneDessin"></use>
-                            </svg>
+                                <lottie-player
+                                class="lottie-underline js-lottie-underline"
+                                src="<?php bloginfo('template_url') ?>/assets/lottie/doubleLigneDessin.json"
+                                data-component="Lottie"
+                            >
+                            </lottie-player>
                         </div>
                     </div>
                     <?php if( have_rows('sous_sections_asso') ): ?>

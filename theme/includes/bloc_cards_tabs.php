@@ -20,9 +20,12 @@ endif;
             <div class="title">
                 <h2><?php echo esc_html($label); ?></h2>
                 <div class="underline">
-                    <svg class="icon icon--lg">
-                        <use xlink:href="#icon-tripleLigneDessin"></use>
-                    </svg>
+                    <lottie-player
+                        class="lottie-underline js-lottie-underline"
+                        src="<?php bloginfo('template_url') ?>/assets/lottie/tripleLigneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
                 </div>
             </div>
 

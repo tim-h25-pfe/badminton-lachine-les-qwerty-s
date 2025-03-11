@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body data-component="NameLotties">
 <div class="background">
     <div class="overlay"></div>
 

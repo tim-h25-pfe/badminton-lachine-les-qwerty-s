@@ -3,9 +3,12 @@
         <div class="title">
             <h2><?php the_sub_field('accordeon_section_title'); ?></h2>
             <div class="underline">
-                <svg class="icon icon--lg">
-                    <use xlink:href="#icon-tripleLigneDessin"></use>
-                </svg>
+            <lottie-player
+                        class="lottie-underline js-lottie-underline"
+                        src="<?php bloginfo('template_url') ?>/assets/lottie/tripleLigneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
             </div>
         </div>
         <?php if( have_rows('accordeon_content') ): ?>

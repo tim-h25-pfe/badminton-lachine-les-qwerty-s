@@ -69,7 +69,6 @@ em {
         color: var(--color-interactive);
         transform: translateX(10px) translateY(-15px);
         align-self: flex-end;
-        width: 50%;
         @media screen and (max-width: $breakpoint-sm) {
             align-self: auto;
         }
