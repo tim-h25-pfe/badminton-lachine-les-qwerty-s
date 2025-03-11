@@ -40,7 +40,7 @@ a {
     padding: 15px 25px;
     width: fit-content;
     border-radius: 20px;
-    background-color: var(--color-black);
+    background-color: var(--color-interactive);
     &.btn_top {
         @media screen and (max-width: $breakpoint-md) {
             display: none;
