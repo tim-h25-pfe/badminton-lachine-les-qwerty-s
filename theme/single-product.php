@@ -1,13 +1,30 @@
 <?php get_header(); ?>
 
-<?php include ('includes/bloc_hero_reuse.php'); ?>
+<section class="hero block zero">
+    <div class="hero_content">
+        <div class="texte">
+            <h1><?php the_title(); ?></h1>
+            <p>
+            <?php the_content(); ?>
+            </p>
+        </div>
+        <div class="hero-img" style="display: none;">
+        <?php 
+        if (has_post_thumbnail()) { ?>
+            <?php the_post_thumbnail('full'); ?>
+            <?php  } else { ?>
+            <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+        <?php } ?>
+        </div>
+    </div>
+</section>
 
 <section class="bloc-article service-single section-large">
     <div class="wrapper">
         <div class="grid-container">
             <div class="main-content">
                 <div class="module module-header separator">
-                    <h5>Cordage de raquette</h5>
+                    <h5><?php the_title(); ?></h5>
 
                     <!-- texte -->
                     <?php if (get_field('product_localisation')): ?>
@@ -28,12 +45,12 @@
                         <svg class="icon">
                             <use xlink:href="#icon-cash"></use>
                         </svg>
-                        <p>18$ - 26$</p>
+                        <p>18$ - 26$ prix statique</p>
                     </div>
                 </div>
                 <div class="module extra-space separator product">
                     <div class="product__media">
-                    <?php the_post_thumbnail(); ?>
+                    <?php the_post_thumbnail('full'); ?>
                     </div>
 
                     <div class="product__content">
