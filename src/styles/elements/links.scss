@@ -40,11 +40,11 @@ a {
     padding: 15px 25px;
     width: fit-content;
     border-radius: 20px;
-    background-color: var(--color-interactive);
+    background-color: var(--color-primary);
     &.btn_top {
-        @media screen and (max-width: $breakpoint-md) {
-            display: none;
-        }
+       
+
+
     }
     &.btn_bottom {
         margin-top: var(--spacing-md);
@@ -52,6 +52,25 @@ a {
             display: none;
         }
     }
+
+    
+}
+
+.btn_menu_mobile{
+    @media screen and (max-width: $breakpoint-md) {
+        display: block;
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+        display: block;
+    }
+
+    @media screen and (max-width: $breakpoint-xs) {
+        display: block;
+        padding: 8px 15px;
+        border-radius: 10px;
+    }
+    
 }
 
 .btn_circled {
