@@ -71,6 +71,13 @@
                         <?php if ($image): ?>
                   <a href="<?php bloginfo('url') ?>" class="logo"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"></a>
                   <?php endif ?>
+
+                  <?php wp_nav_menu(array(
+                  'theme_location' => 'menu_header_vedette',
+                  'container' => 'div',
+                  'container_class' => 'nav_title',
+                  )); ?>
+
                 <nav class="menu nav-primary">
                   <ul>
                   <?php 
@@ -80,7 +87,9 @@
                         $link_title = $link['title'];
                         $link_target = $link['target'] ? $link['target'] : '_self';
                         ?>
-                    <li class="bouton_inscription"><a href="<?php echo esc_url( $link_url ); ?>" class="nav-primary__item btn_full btn_top"><?php echo esc_html( $link_title ); ?></a></li>
+                    <li class="bouton_inscription">
+                      <a href="<?php echo esc_url( $link_url ); ?>" class="nav-primary__item btn_full btn_top"><?php echo esc_html( $link_title ); ?><img src="<?php bloginfo('template_url') ?>/assets/icons/link.svg" alt="externe"></a>
+                    </li>
                     <?php endif; ?>
                     <li>
                         <a href="#" class="nav-primary__item search-toggle">
@@ -89,7 +98,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li><a href=""><button class="header__toggle js-toggle">
+                    <li class="bouton_menu"><a><button class="header__toggle js-toggle">
                       <span></span>
                       <span></span>
                     </button></a></li>
@@ -124,12 +133,6 @@
           <nav class="content_menu">
 
                 <?php wp_nav_menu(array(
-                'theme_location' => 'menu_header_vedette',
-                'container' => 'div',
-                'menu_class' => 'menu_titres',
-            )); ?>
-
-                <?php wp_nav_menu(array(
                 'theme_location' => 'menu_header_sections',
                 'container' => 'div',
                 'menu_class' => 'menu_soustitres',
@@ -145,11 +148,9 @@
                 $link_title = $link['title'];
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
-                <a class="btn_circled_menu" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                <a class="btn_menu_mobile btn_full btn_top" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
                 <?php echo esc_html( $link_title ); ?>
-                <svg class="icon">
-                    <use xlink:href="#icon-ovalDessin"></use>
-                </svg>
+                <img src="<?php bloginfo('template_url') ?>/assets/icons/link.svg" alt="externe">
                 </a>
                 <?php endif; ?>
 
