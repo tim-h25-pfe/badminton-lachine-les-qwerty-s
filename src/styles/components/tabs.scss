@@ -98,7 +98,10 @@
         }
     }
     .cards {
-        margin-top: 100px;
+        margin-top: 80px;
+        @media screen and (max-width: $breakpoint-xs) {
+            margin-top: 40px;
+        }
         .grid {
             grid-template-columns: 1fr 1fr 1fr 1fr;
             @media screen and (max-width: $breakpoint-lg) {
