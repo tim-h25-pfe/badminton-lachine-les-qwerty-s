@@ -1,11 +1,20 @@
 //Styles pour la partie information de contact
+section.contact {
+    @media screen and (max-width: $breakpoint-md) {
+        margin: 180px 0;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        margin: 150px 0;
+    }
+}
 
 .contact_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 100px;
     @media screen and (max-width: $breakpoint-md) {
         grid-template-columns: 1fr;
+        gap: 50px;
     }
     @media screen and (max-width: $breakpoint-sm) {
         grid-template-columns: 1fr;
@@ -22,6 +31,31 @@
     a {
         font-weight: 500;
         font-size: 20px;
+    }
+
+    .contact_courriel,
+    .contact_adresse,
+    .contact_liens {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact_courriel,
+    .contact_liens {
+        a {
+            color: var(--color-secondary);
+        }
+    }
+
+    .contact_liens {
+        ul {
+            margin: 0;
+        }
+        a {
+            text-decoration: underline;
+            color: var(--color-black);
+        }
     }
 }
 
