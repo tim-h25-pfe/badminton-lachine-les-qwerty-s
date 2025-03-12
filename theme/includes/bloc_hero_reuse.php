@@ -17,7 +17,7 @@
         <div class="hero-img">
         <?php 
         if (has_post_thumbnail()) { ?>
-            <?php the_post_thumbnail(); ?>
+            <?php the_post_thumbnail('full'); ?>
             <?php  } else { ?>
             <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
         <?php } ?>

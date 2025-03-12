@@ -77,9 +77,6 @@ endif;
                         <li>
                             <a class="btn_circled" data-tab-open="global">
                                 Tout
-                                <svg class="icon">
-                                    <use xlink:href="#icon-cercleDessin"></use>
-                                </svg>
                             </a>
                         </li>
                     <?php endif; ?>
@@ -88,9 +85,7 @@ endif;
                     <li>
                         <a class="btn_circled" data-tab-open="<?php echo esc_html($term->slug); ?>">
                         <?php echo esc_html($term->name); ?>
-                            <svg class="icon">
-                                <use xlink:href="#icon-cercleDessin"></use>
-                            </svg>
+                            
                         </a>
                     </li>
                     <?php endforeach?>
@@ -128,7 +123,7 @@ endif;
         <div class="cards <?php echo $class ?>" data-tab-container="global">
 
             <!-- un div grid  -->
-            <div class="grid">
+            <div class="grid grid-tarif">
                     <!-- while -->
                     <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
                     <?php
@@ -255,6 +250,142 @@ endif;
                     <?php endif; ?>
 
                     <?php endwhile; ?>
+            </div>
+            <div class="grid carousel-tarif js-swiper-cardSwiper" data-component="Carousel"
+                data-centered
+                data-coverflow>
+                <div class="swiper-wrapper">
+                    <!-- while -->
+                    <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
+                    <?php
+                        // Récupérer la catégorie personnalisée du post
+                        $termse = wp_get_post_terms(get_the_ID(), $slug);
+
+                        // Vérifier si des termes existent
+                        if (!empty($termse) && !is_wp_error($termse)) {
+                            $all_category = $termse[0]->name;
+                            $all_slug = $termse[0]->slug;
+                        } else {
+                            $all_category = "No category";
+                        }
+                        ?>
+                    <!-- le div de card des articles -->
+                     <div class="swiper-slide">
+                        <div class="card">
+                        <div class="card__top">
+                            <h5><?php the_title(); ?></h5>
+                            <p><?php the_sub_field('tabs_description'); ?></p>
+                            <?php if (have_rows('tabs_biginfos')): ?>
+                            <div class="prices">
+                            <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
+                                <div class="price">
+                                    <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
+                                    <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
+                                    <?php if (get_sub_field('tabs_optional')): ?>
+                                    <p><?php the_sub_field('tabs_optional'); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                                <?php endwhile; ?>  
+                            </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="card__bottom">
+                            <p class="details">Détails</p>
+                            <?php if (have_rows('tabs_details')): ?>
+                            <div class="details">
+                            <?php while (have_rows('tabs_details')) : the_row(); ?>
+                                <div class="detail">
+                                    <div class="i">
+                                        <svg class="icon icon--xs">
+                                            <use xlink:href="#icon-i"></use>
+                                        </svg>
+                                    </div>
+                                    <p><?php the_sub_field('tabs_detail'); ?></p>
+                                </div>
+                                <?php endwhile; ?>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php 
+                            $link = get_field('tabs_cta');
+                            if( $link ): 
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self';
+                                ?>
+                        <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+
+                    <?php if ($all_slug == "events-done" || $all_slug == "events-passes") : 
+                        
+                        $cat_class = "old";
+                    ?>
+
+                    <div class="card news <?php echo $cat_class ?>">
+                        <p class="btn_full tag"><?php echo esc_html($term->name); ?></p>
+                        <div class="card__media">
+                            <?php 
+                            if (has_post_thumbnail()) { 
+                                the_post_thumbnail(); 
+                            } else { ?>
+                                <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                            <?php } ?>
+                        </div>
+                        <div class="card__content">
+                            <div class="text">
+                                <h5><?php the_title(); ?></h5>
+                                <p>Publié le : <?php echo get_the_date(); ?></p>
+                            </div>
+                            <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
+                                <div class="fleche-container">
+                                    <svg class="icon fleche1">
+                                        <use xlink:href="#icon-fleche"></use>
+                                    </svg>
+                                    <svg class="icon fleche2">
+                                        <use xlink:href="#icon-fleche"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <?php else : ?>
+                        <div class="card news">
+                            <p class="btn_full tag"><?php echo $all_category ?></p>
+                            <div class="card__media">
+                                <?php 
+                                if (has_post_thumbnail()) { 
+                                    the_post_thumbnail(); 
+                                } else { ?>
+                                    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                                <?php } ?>
+                            </div>
+                            <div class="card__content">
+                                <div class="text">
+                                    <h5><?php the_title(); ?></h5>
+                                    <p>Publié le : <?php echo get_the_date(); ?></p>
+                                </div>
+                                <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
+                                    <div class="fleche-container">
+                                        <svg class="icon fleche1">
+                                            <use xlink:href="#icon-fleche"></use>
+                                        </svg>
+                                        <svg class="icon fleche2">
+                                            <use xlink:href="#icon-fleche"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                     </div>
+                    
+
+                    <?php endwhile; ?>
+                </div>
+                    
             </div>
         </div>
 

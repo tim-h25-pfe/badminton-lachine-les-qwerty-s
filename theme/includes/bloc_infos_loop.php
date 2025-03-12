@@ -62,9 +62,9 @@ $img_position = get_sub_field('infos_loop_align');
                 </div>
                 
                 <div class="infos__content">
-
+                    <?php if( $post_type != "service" ): ?>
                     <p class="category"><?php echo esc_html($post_type_obj->labels->singular_name); // Affiche l'intitulé du post type ?></p>
-
+                    <?php endif; ?>
                     <h3><?php echo get_the_title($p->ID); ?></h3>
 
                     <?php if ($post_type == "event") : ?>
@@ -83,7 +83,7 @@ $img_position = get_sub_field('infos_loop_align');
                     </ul>
                     <?php endif; ?>
 
-                    <?php if ($post_type == "service") : ?>
+                    <?php if ($post_type == "servicesssss") : ?>
                     <ul class="details">
                         <li>Le prix woo woo</li>
                     </ul>
@@ -92,9 +92,10 @@ $img_position = get_sub_field('infos_loop_align');
                     <?php if ($post_type != "event" && $post_type != "new") : ?>
                         <p><?php echo wp_kses_post($post_obj->post_content); ?></p>
                     <?php endif; ?>
-                    
+
+                    <?php if( $post_type != "service" ): ?>
                     <a href="<?php echo get_permalink($p->ID); ?>" class="btn_full">En savoir plus</a>
-                    
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endforeach; ?>

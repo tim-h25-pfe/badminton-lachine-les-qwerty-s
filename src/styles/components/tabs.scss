@@ -366,6 +366,13 @@
                 }
             }
         }
+        .carousel-tarif .card.news {
+            .card__content {
+                height: fit-content;
+                width: auto;
+            }
+            background-color: var(--color-terciary);
+        }
     }
 }
 
