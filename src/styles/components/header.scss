@@ -343,7 +343,7 @@
     z-index: 9; /* Derrière la search bar mais devant le reste */
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.8s ease-in-out; // Durée synchronisée avec le menu
 }
 
 /* Quand la search bar est active, on affiche l'overlay */
@@ -379,25 +379,23 @@
     justify-content: center;
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0; // Modifié: était à -100%
     width: 50%;
     height: 100vh;
+
     background-color: #252525;
     border-radius: 30px 0 0 30px;
     color: white;
     z-index: 1000;
     padding: 0 50px;
     overflow-y: auto;
-    transform: translateX(100%);
+    transform: translateX(100%); // Déplace le menu hors écran à droite
     transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
 
     &.active {
         transform: translateX(0%);
     }
-    &.menu-close {
-        transform: translateX(100%);
-    }
+
 
     // Conserve vos breakpoints existants
     @media screen and (max-width: 2000px) {
@@ -447,9 +445,6 @@
     }
 
     /* Update overlay transition */
-    .overlay {
-        transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    }
 
     /* Remove clip-path animations */
     .nav_menu:not(.active) {
@@ -510,8 +505,7 @@
             gap: 40px;
             align-items: flex-start;
             justify-content: flex-start;
-
-            text-align: left;
+            z-index: 1;
             @media screen and (max-width: $breakpoint-xs) {
                 align-items: center;
                 text-align: left;
@@ -533,6 +527,7 @@
             }
 
             a {
+                pointer-events: all;
                 font-size: 25px;
                 @media screen and (max-width: $breakpoint-xs) {
                     font-size: 20px;
@@ -542,12 +537,6 @@
                 }
                 @media screen and (max-width: $breakpoint-md) {
                     font-size: 20px;
-                }
-            }
-            .btn_circled_menu {
-                margin: 0;
-                .icon {
-                    width: 90px;
                 }
             }
         }
