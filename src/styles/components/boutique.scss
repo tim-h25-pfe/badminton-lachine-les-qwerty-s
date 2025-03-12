@@ -1,0 +1,10 @@
+.boutique.cards-category {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 77px;
+    }
+    .cards.news {
+        display: block;
+    }
+}

@@ -61,7 +61,6 @@ if($the_post_type == "new"){
 
 <section class="section section-color nouvelles">
     <div class="wrapper">
-        <div class="title">
         
             <div class="title">
                 <h2><?php the_sub_field('vedette_titre'); ?></h2>

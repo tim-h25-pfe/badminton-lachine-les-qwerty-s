@@ -1,13 +1,35 @@
+<?php
+global $product; // Récupérer l'objet produit global
+?>
+
+
 <?php get_header(); ?>
 
-<?php include ('includes/bloc_hero_reuse.php'); ?>
+<section class="hero block zero">
+    <div class="hero_content">
+        <div class="texte">
+            <h1><?php the_title(); ?></h1>
+            <p>
+            <?php the_content(); ?>
+            </p>
+        </div>
+        <div class="hero-img" style="display: none;">
+        <?php 
+        if (has_post_thumbnail()) { ?>
+            <?php the_post_thumbnail('full'); ?>
+            <?php  } else { ?>
+            <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+        <?php } ?>
+        </div>
+    </div>
+</section>
 
 <section class="bloc-article service-single section-large">
     <div class="wrapper">
         <div class="grid-container">
             <div class="main-content">
                 <div class="module module-header separator">
-                    <h5>Cordage de raquette</h5>
+                    <h5><?php the_title(); ?></h5>
 
                     <!-- texte -->
                     <?php if (get_field('product_localisation')): ?>
@@ -28,98 +50,98 @@
                         <svg class="icon">
                             <use xlink:href="#icon-cash"></use>
                         </svg>
-                        <p>18$ - 26$</p>
+                        <?php  echo '<p>' . $product->get_price_html() . '</p>'; ?>
                     </div>
                 </div>
                 <div class="module extra-space separator product">
                     <div class="product__media">
-                    <?php the_post_thumbnail(); ?>
+                    <?php
+                    global $product;
+                    $thumbnail_url = wp_get_attachment_url( $product->get_image_id() );
+                    if ( $thumbnail_url ) {
+                        echo '<img src="' . esc_url( $thumbnail_url ) . '" alt="' . esc_attr( get_the_title() ) . '">';
+                    } else {
+                        echo '<p>Aucune image disponible</p>';
+                    }
+                    ?>
+
                     </div>
 
+
+                    <?php if( have_rows('product_textes') ): ?>
                     <div class="product__content">
-
-
-
+                        
+                    
+                    
+                    
                         <h6>Options</h6>
 
+                        
+                            <?php while( have_rows('product_textes') ): the_row(); ?>
+                            <div class="content-module">
+                                <p><span><?php the_sub_field('product_text'); ?></span></p>
+                                <input class="champTexte" type="text" name="nom" />
+                            </div>
+                            <?php endwhile; ?>
+                        
+                        <?php
+                        global $product;
+                        $attributes = $product->get_attributes();
 
-
-                        <div class="content-module">
-                            <p><span>Type de cordage</span></p>
-                            <div class="champSelect">
-                                <select name="options" class="btn_full">
-                                    <option value="" selected disabled>Choisir une option</option>
-                                    <option value="option1">Option 1</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
-                                    <option value="option4">Option 5</option>
-                                </select>
-                                <div class="icone">
-                                    <svg class="icon icon--sm">
-                                        <use xlink:href="#icon-fleche"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="champSelect">
-                                <select name="options" class="btn_full">
-                                    <option value="" selected disabled>Choisir une option</option>
-                                    <option value="option1">Option 1</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
-                                    <option value="option4">Option 5</option>
-                                </select>
-                                <div class="icone">
-                                    <svg class="icon icon--sm">
-                                        <use xlink:href="#icon-fleche"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="champSelect">
-                                <select name="options" class="btn_full">
-                                    <option value="" selected disabled>Choisir une option</option>
-                                    <option value="option1">Option 1</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
-                                    <option value="option4">Option 5</option>
-                                </select>
-                                <div class="icone">
-                                    <svg class="icon icon--sm">
-                                        <use xlink:href="#icon-fleche"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+                        if ( ! empty( $attributes ) ) :
+                        ?>
+                        <form action="<?php echo esc_url( $product->add_to_cart_url() ); ?>" method="post">
                         
 
-                        <div class="content-module">
-                            <p><span>Marque de raquette</span></p>
-                            <input class="champTexte" type="text" name="nom" />
-                        </div>
-                        <div class="content-module">
-                            <p><span>Marque de raquette</span></p>
-                            <input class="champTexte" type="text" name="nom" />
-                        </div>
-                        <div class="content-module">
-                            <p><span>Marque de raquette</span></p>
-                            <input class="champTexte" type="text" name="nom" />
-                        </div>
+                            <div class="content-module">
+                            <?php foreach ( $attributes as $attribute_name => $attribute ) : ?>
+                                <label for="<?php echo esc_attr( $attribute_name ); ?>">
+                                    <?php echo wc_attribute_label( $attribute->get_name() ); ?> :
+                                </label>
+                                <div class="champSelect">
+                                    <select name="attribute_<?php echo esc_attr( $attribute_name ); ?>" id="<?php echo esc_attr( $attribute_name ); ?>" class="btn_full">
+                                        <?php
+                                        $values = $attribute->get_options();
+                                        foreach ( $values as $value ) :
+                                        ?>
+                                        <option value="<?php echo esc_attr( $value ); ?>">
+                                            <?php echo esc_html( $value ); ?>
+                                        </option>
+                                        <?php endforeach; ?>
+                                        
+                                    </select>
+                                    <div class="icone">
+                                        <svg class="icon icon--sm">
+                                            <use xlink:href="#icon-fleche"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                            </div>
 
+                            <div class="content-module acheter">
 
+                                <input type="hidden" name="add-to-cart" value="<?php echo $product->get_id(); ?>">
+                                <button type="submit" class="btn_full panier single_add_to_cart_button button alt">Ajouter au panier</button>
 
-                        <div class="content-module acheter">
-                            <a class="btn_full" href="#"
-                                ><svg class="icon">
-                                    <use xlink:href="#icon-plus"></use>
-                                </svg>
-                                Ajouter au panier
-                            </a>
-                            <a class="bnt_full panier" href="#"
-                                ><svg class="icon">
-                                    <use xlink:href="#icon-panier"></use>
-                                </svg>
-                            </a>
-                        </div>
+                                <?php 
+                                $link = get_field('header_shop', 'options');
+                                if( $link ): ?>
+                                <a class="bnt_full panier" href="<?php echo esc_url( $link ); ?>"
+                                    ><svg class="icon">
+                                        <use xlink:href="#icon-panier"></use>
+                                    </svg>
+                                </a>
+                                <?php endif; ?>
+                            </div>
+
+                        </form>
+                        <?php endif; ?>
                     </div>
+                    <!-- div conteneur du form  -->
+                    <?php endif; ?>
+
+
                 </div>
 
 
