@@ -1,16 +1,11 @@
-.title {
+.title_section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    span {
-        position: relative;
-        .icon {
-            color: var(--color-interactive);
-            position: absolute;
-            bottom: -40%;
-            left: 0;
-            width: 100%;
-        }
+    padding-bottom: 80px;
+
+    @media screen and (max-width: $breakpoint-xs) {
+        padding-bottom: 40px;
     }
 }
 
