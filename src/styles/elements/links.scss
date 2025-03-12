@@ -163,19 +163,38 @@ a.logo {
         }
     }
     &:hover {
-        color: var(--color-black);
-        background-color: var(--color-interactive-light);
+        color: var(--color-white);
+        background-color: var(--color-primary);
     }
     .lien-contact__content {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-md);
         padding: var(--spacing-xl);
+        .invite {
+            display: flex;
+            gap: var(--spacing-md);
+            @media screen and (max-width: $breakpoint-sm) {
+                gap: var(--spacing-xs);
+            }
+            .fleche-container {
+                width: fit-content;
+            }
+            .icon {
+                font-size: 75px;
+                @media screen and (max-width: $breakpoint-md) {
+                    font-size: 50px;
+                }
+                @media screen and (max-width: $breakpoint-sm) {
+                    font-size: 30px;
+                }
+            }
+        }
         h2 {
             margin: 0;
         }
         @media screen and (max-width: $breakpoint-md) {
-            padding: var(--spacing-lg);
+            padding: var(--spacing-md);
             @media screen and (max-width: $breakpoint-sm) {
                 align-items: flex-start;
             }

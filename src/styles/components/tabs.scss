@@ -56,8 +56,21 @@
             .btn_circled {
                 cursor: pointer;
                 color: var(--color-black);
+                opacity: 50%;
                 text-transform: none;
                 font-weight: 600;
+                position: relative;
+
+                &::after {
+                    background-color: var(--color-black);
+                    content: '';
+                    height: 3px;
+                    width: 0%;
+                    border-radius: 2px;
+                    position: absolute;
+                    left: 0;
+                    display: none;
+                }
                 .icon {
                     color: var(--color-interactive);
                     transform: scale(700%);
@@ -71,8 +84,14 @@
                     }
                 }
                 &.active {
+                    color: var(--color-black);
+                    opacity: 100%;
                     .icon {
                         display: block;
+                    }
+                    &::after {
+                        display: block;
+                        width: 66%;
                     }
                 }
             }
@@ -117,7 +136,10 @@
             justify-content: space-between;
             flex-direction: column;
             height: 100%;
-
+            border: 2px solid var(--color-black);
+            @media screen and (max-width: $breakpoint-sm) {
+                border: 2px solid var(--color-black);
+            }
             @media screen and (max-width: $breakpoint-sm) {
                 width: fit-content;
             }
@@ -158,6 +180,9 @@
                 gap: 30px;
                 transition: all ease-out 0.3s;
                 transform: translateY(70px);
+                @media screen and (max-width: $breakpoint-md) {
+                    transform: translateY(0);
+                }
                 p {
                     font-weight: 500;
                 }
@@ -180,6 +205,9 @@
                 .btn_full {
                     //opacity: 0;
                     transform: translateY(150px);
+                    @media screen and (max-width: $breakpoint-md) {
+                        transform: translateY(0);
+                    }
                     color: var(--color-white);
                     border-radius: 15px;
                     // font-size: var(--font-size-h5);
@@ -190,6 +218,9 @@
             &:hover {
                 transform: translateY(-20px);
                 border: 2px solid var(--color-black);
+                @media screen and (max-width: $breakpoint-md) {
+                    transform: translateY(0);
+                }
                 .card__top {
                     div.prices {
                         div.price {
