@@ -12,7 +12,7 @@
     </div>
 </section>
 
-<section class="boutique">
+<section class="boutique cards-category">
     <div class="wrapper">
     <?php   
             // Vérifier si WooCommerce est actif
@@ -29,10 +29,21 @@
             $queryg = new WP_Query( $argsglobal );
             ?>
         <?php if ( $queryg->have_posts() ) : ?>
+            <div class="title">
+                <h2>Nos produits</h2>
+                <div class="underline">
+                    <lottie-player
+                        class="lottie-underline js-lottie-underline"
+                        src="<?php bloginfo('template_url') ?>/assets/lottie/doubleLigneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
+                </div>
+            </div>
         <div class="cards news" data-tab-container="global">
 
             <!-- un div grid  -->
-            <div class="grid grid-tarif">
+            <div class="grid">
                     <!-- while -->
                     <?php while ( $queryg->have_posts() ) : $queryg->the_post();
                     global $product; // Important pour accéder aux infos du produit 
@@ -41,9 +52,9 @@
                             <div class="card__media">
                                 <?php 
                                 
-                                     echo woocommerce_get_product_thumbnail();
+                                     echo woocommerce_get_product_thumbnail('full');
                                  ?>
-                                    <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                                    
                                 
                             </div>
                             <div class="card__content">
@@ -66,50 +77,6 @@
                     
 
                     <?php endwhile; ?>
-            </div>
-            <div class="grid carousel-tarif js-swiper-cardSwiper" data-component="Carousel"
-                data-centered
-                data-coverflow>
-                <div class="swiper-wrapper">
-                   
-                    <?php while ( $queryg->have_posts() ) : $queryg->the_post();
-                    global $product; // Important pour accéder aux infos du produit
-                     ?>
-                    
-
-                    <div class="card news">
-                        <div class="card__media">
-                        <?php 
-                                
-                                echo woocommerce_get_product_thumbnail();
-                            ?>
-                                <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
-                            
-                        </div>
-                        <div class="card__content">
-                            <div class="text">
-                                <h5><?php the_title(); ?></h5>
-                                <p><?php echo $product->get_price_html(); ?></p>
-                            </div>
-                            <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
-                                <div class="fleche-container">
-                                    <svg class="icon fleche1">
-                                        <use xlink:href="#icon-fleche"></use>
-                                    </svg>
-                                    <svg class="icon fleche2">
-                                        <use xlink:href="#icon-fleche"></use>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    
-                    
-                </div>
-                    
-
-                <?php endwhile; ?>
             </div>
                     
             </div>

@@ -210,6 +210,16 @@
     width: 100%;
 }
 
+.background:has(.bloc-article) {
+    background-color: var(--color-gray);
+    section {
+        background-color: var(--color-gray);
+    }
+    .hero.block {
+        background-color: var(--color-black);
+    }
+}
+
 .reveal_footer {
     background: rgba($color: #000000, $alpha: 0);
     display: block;

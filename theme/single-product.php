@@ -1,3 +1,8 @@
+<?php
+global $product; // Récupérer l'objet produit global
+?>
+
+
 <?php get_header(); ?>
 
 <section class="hero block zero">
@@ -45,12 +50,21 @@
                         <svg class="icon">
                             <use xlink:href="#icon-cash"></use>
                         </svg>
-                        <p>18$ - 26$ prix statique</p>
+                        <?php  echo '<p>' . $product->get_price_html() . '</p>'; ?>
                     </div>
                 </div>
                 <div class="module extra-space separator product">
                     <div class="product__media">
-                    <?php the_post_thumbnail('full'); ?>
+                    <?php
+                    global $product;
+                    $thumbnail_url = wp_get_attachment_url( $product->get_image_id() );
+                    if ( $thumbnail_url ) {
+                        echo '<img src="' . esc_url( $thumbnail_url ) . '" alt="' . esc_attr( get_the_title() ) . '">';
+                    } else {
+                        echo '<p>Aucune image disponible</p>';
+                    }
+                    ?>
+
                     </div>
 
                     <div class="product__content">
@@ -124,17 +138,25 @@
 
 
                         <div class="content-module acheter">
-                            <a class="btn_full" href="#"
+                        <?php
+                        global $product;
+                        $add_to_cart_url = wc_get_cart_url() . '?add-to-cart=' . $product->get_id();
+                        ?>
+                            <a class="btn_full" href="<?php echo esc_url( $add_to_cart_url ); ?>"
                                 ><svg class="icon">
                                     <use xlink:href="#icon-plus"></use>
                                 </svg>
                                 Ajouter au panier
                             </a>
-                            <a class="bnt_full panier" href="#"
+                            <?php 
+                            $link = get_field('header_shop', 'options');
+                            if( $link ): ?>
+                            <a class="bnt_full panier" href="<?php echo esc_url( $link ); ?>"
                                 ><svg class="icon">
                                     <use xlink:href="#icon-panier"></use>
                                 </svg>
                             </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
