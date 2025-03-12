@@ -40,11 +40,9 @@ a {
     padding: 15px 25px;
     width: fit-content;
     border-radius: 20px;
-    background-color: var(--color-primary);
+    font-size: 25px;
+    background-color: var(--color-black);
     &.btn_top {
-       
-
-
     }
     &.btn_bottom {
         margin-top: var(--spacing-md);
@@ -52,11 +50,9 @@ a {
             display: none;
         }
     }
-
-    
 }
 
-.btn_menu_mobile{
+.btn_menu_mobile {
     @media screen and (max-width: $breakpoint-md) {
         display: block;
     }
@@ -70,7 +66,6 @@ a {
         padding: 8px 15px;
         border-radius: 10px;
     }
-    
 }
 
 .btn_circled {
@@ -95,9 +90,17 @@ a {
 
 .btn_outline {
     background-color: transparent;
-    border: 1px solid var(--color-white);
-    padding: 8px 15px;
-    border-radius: 10px;
+    border: 2px solid var(--color-white);
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-size: 25px;
+
+    @media screen and (max-width: $breakpoint-xs) {
+        font-size: 14px;
+        border: 1px solid var(--color-white);
+        border-radius: 10px;
+        padding: 8px 15px;
+    }
 }
 
 .btn_round {

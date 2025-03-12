@@ -286,6 +286,9 @@
 
 //Styles pour le bouton inscription
 .bouton_inscription {
+    .btn_full {
+        background-color: var(--color-primary);
+    }
     @media screen and (max-width: 820px) {
         display: none;
     }
@@ -390,8 +393,9 @@
     transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 
     &.active {
-        transform: translateX(0); // Fait glisser le menu dans la vue
+        transform: translateX(0%);
     }
+
 
     // Conserve vos breakpoints existants
     @media screen and (max-width: 2000px) {
@@ -845,7 +849,7 @@ a.underline {
             left: 0;
             width: 0;
             height: 3px;
-            background-color: var(--color-black);
+            background-color: var(--color-interactive);
             transition: width 0.4s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
