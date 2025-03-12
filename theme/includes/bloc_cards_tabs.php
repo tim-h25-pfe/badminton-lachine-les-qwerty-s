@@ -278,7 +278,8 @@ endif;
         <!-- boucle des custom post type -->
         <!-- avec le parametre de la category -->
         <!-- if -->
-        <?php foreach ($terms as $term) : ?>
+        <?php foreach ($terms as $term) : 
+            ?>
         <?php 
             $args = array(
                 'post_type' => $the_post_type,
@@ -299,7 +300,7 @@ endif;
             ?>
 
 
-    <?php if ( $query->have_posts()) : ?>
+        <?php if ( $query->have_posts()) : ?>
         
         <div class="cards <?php echo $class ?>" data-tab-container="<?php echo esc_html($term->slug); ?>">
 
@@ -382,106 +383,16 @@ endif;
                         </div>
                     </div>
                 <?php endwhile; ?>
-                <?php wp_reset_postdata(); ?>
+                <?php //wp_reset_postdata(); ?>
           </div>
-
-            <div class="grid carousel-tarif js-swiper-cardSwiper"
-                data-component="Carousel"
-                data-centered
-                data-coverflow>
-                
-                    <div class="swiper-wrapper">
-                        <!-- while -->
-                        <?php 
-                        $query->rewind_posts();
-                        while ( $query->have_posts() ) : $query->the_post(); ?>
-                         <div class="swiper-slide">
-                            <div class="card">
-                                <div class="card__top">
-                                    <h5><?php the_title(); ?></h5>
-                                    <p><?php the_field('tabs_description'); ?></p>
-                                    <?php if (have_rows('tabs_biginfos')): ?>
-                                        <div class="prices">
-                                        <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
-                                            <div class="price">
-                                                <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
-                                                <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
-                                                <?php if (get_sub_field('tabs_optional')): ?>
-                                                <p><?php the_sub_field('tabs_optional'); ?></p>
-                                                <?php endif; ?>
-                                            </div>
-                                            <?php endwhile; ?>  
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="card__bottom">
-                                    <p class="details">Détails</p>
-                                    <?php if (have_rows('tabs_details')): ?>
-                                        <div class="details">
-                                        <?php while (have_rows('tabs_details')) : the_row(); ?>
-                                            <div class="detail">
-                                                <div class="i">
-                                                    <svg class="icon icon--xs">
-                                                        <use xlink:href="#icon-i"></use>
-                                                    </svg>
-                                                </div>
-                                                <p><?php the_sub_field('tabs_detail'); ?></p>
-                                            </div>
-                                            <?php endwhile; ?>
-                                        </div>
-                                    <?php endif; ?>
-                                    
-                                    <?php 
-                                    $link = get_field('tabs_cta');
-                                    if( $link ): 
-                                        $link_url = $link['url'];
-                                        $link_title = $link['title'];
-                                        $link_target = $link['target'] ? $link['target'] : '_self';
-                                        ?>
-                                <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
-                                <?php endif; ?>
-                                </div>
-                            </div>
-                            <div class="card news">
-                                <p class="btn_full tag"><?php echo esc_html($term->name); ?></p>
-                                <div class="card__media">
-                                    <?php 
-                                    if (has_post_thumbnail()) { 
-                                        the_post_thumbnail(); 
-                                    } else { ?>
-                                        <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
-                                    <?php } ?>
-                                </div>
-                                <div class="card__content">
-                                    <div class="text">
-                                        <h5><?php the_title(); ?></h5>
-                                        <p>Publié le : <?php echo get_the_date(); ?></p>
-                                    </div>
-                                    <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
-                                        <div class="fleche-container">
-                                            <svg class="icon fleche1">
-                                                <use xlink:href="#icon-fleche"></use>
-                                            </svg>
-                                            <svg class="icon fleche2">
-                                                <use xlink:href="#icon-fleche"></use>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                         </div>
-                        <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
-                    </div>
-            </div>
 
         <?php else : ?>
                 <p>Aucune catégorie trouvée.</p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
+
         <?php endforeach?>
     <?php endif; ?>
-
     <?php wp_reset_postdata(); ?>
 
     </div>
