@@ -2,12 +2,15 @@
     background-color: var(--color-black);
     color: var(--color-white);
     overflow: hidden;
-    border-radius: 50px 50px 0 0;
+    border-radius: 30px 30px 0 0;
     // position: sticky;
     // bottom: 0;
     // left: 0;
     // z-index: 2;
     width: 100%;
+    @media screen and (max-width: $breakpoint-md) {
+        border-radius: 15px 15px 0 0;
+    }
     p {
         font-size: #{typo(14px, 20px)};
     }
@@ -16,23 +19,34 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 100px;
-        padding-top: 95px;
-        padding-bottom: 95px;
+        padding-top: 90px;
+        padding-bottom: 90px;
+
         @media screen and (max-width: 1750px) {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            margin: 0 5%;
+            // margin: 0 5%;
         }
-        @media screen and (max-width: 830px) {
+
+        @media screen and (max-width: $breakpoint-md) {
             display: flex;
             flex-direction: column;
-            gap: 50px;
-            padding: 20% 0;
-            padding-bottom: 5%;
+            padding-top: 45px;
+            padding-bottom: 20px;
+            margin: 0 auto;
+            gap: 25px;
         }
-        @media screen and (max-width: $breakpoint-sm) {
-            gap: 40px;
-        }
+
+        // @media screen and (max-width: 830px) {
+        //     display: flex;
+        //     flex-direction: column;
+        //     gap: 50px;
+        //     // padding: 20% 0;
+        //     // padding-bottom: 5%;
+        // }
+        // @media screen and (max-width: $breakpoint-sm) {
+        //     gap: 40px;
+        // }
     }
     li {
         list-style: none;
@@ -52,14 +66,13 @@
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            gap: 20px;
             padding: 0;
             margin: 0;
-            @media screen and (max-width: 830px) {
-                gap: 40px;
-            }
+
             li {
-                margin: -20px 0;
+                @media screen and (max-width: $breakpoint-sm) {
+                    margin: -6px 0;
+                }
                 a {
                     font-size: #{typo(45px, 80px)};
                     text-transform: uppercase;
@@ -74,12 +87,12 @@
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            gap: 0;
+            gap: 5px;
             padding: 0;
             margin: 0;
             li {
                 a {
-                    font-size: var(--font-size-h6);
+                    font-size: var(--font-size-h5);
                     text-transform: uppercase;
                     font-weight: 600;
                 }
@@ -114,14 +127,15 @@
         .social {
             display: flex;
             align-items: flex-start;
+            gap: 15px;
+
+            @media screen and (max-width: $breakpoint-md) {
+                gap: 10px;
+            }
 
             flex-direction: column;
             a {
-                font-weight: 600;
-                text-transform: none;
-                //font-size: 25px;
                 text-decoration: underline;
-                letter-spacing: 1px;
             }
             @media screen and (max-width: $breakpoint-sm) {
                 order: -1;
@@ -135,12 +149,21 @@
         align-items: flex-start;
         flex-direction: column;
         gap: 30px;
+        color: var(--color-gray);
+
+        @media screen and (max-width: $breakpoint-md) {
+            gap: 13px;
+        }
 
         .contact {
             display: flex;
             align-items: flex-start;
             flex-direction: column;
             gap: 10px;
+
+            @media screen and (max-width: $breakpoint-md) {
+                gap: 3px;
+            }
         }
 
         .credits {
@@ -151,24 +174,20 @@
                 text-transform: none;
                 text-decoration: none;
             }
-            @media screen and (max-width: 830px) {
-                flex-direction: column;
-                gap: 20px;
-            }
-            @media screen and (max-width: $breakpoint-sm) {
-                flex-direction: row;
-            }
-        }
-
-        @media screen and (max-width: $breakpoint-sm) {
-            gap: 10px;
-            .contact {
-                gap: 10px;
-            }
-            .credits {
+            @media screen and (max-width: $breakpoint-md) {
                 gap: 30px;
             }
         }
+
+        // @media screen and (max-width: $breakpoint-sm) {
+        //     gap: 10px;
+        //     .contact {
+        //         gap: 10px;
+        //     }
+        //     .credits {
+        //         gap: 30px;
+        //     }
+        // }
     }
 
     .passion {
