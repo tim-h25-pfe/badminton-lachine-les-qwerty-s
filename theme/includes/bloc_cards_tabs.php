@@ -278,7 +278,8 @@ endif;
         <!-- boucle des custom post type -->
         <!-- avec le parametre de la category -->
         <!-- if -->
-        <?php foreach ($terms as $term) : ?>
+        <?php foreach ($terms as $term) : 
+            ?>
         <?php 
             $args = array(
                 'post_type' => $the_post_type,
@@ -299,7 +300,7 @@ endif;
             ?>
 
 
-    <?php if ( $query->have_posts()) : ?>
+        <?php if ( $query->have_posts()) : ?>
         
         <div class="cards <?php echo $class ?>" data-tab-container="<?php echo esc_html($term->slug); ?>">
 
@@ -382,7 +383,7 @@ endif;
                         </div>
                     </div>
                 <?php endwhile; ?>
-                <?php wp_reset_postdata(); ?>
+                <?php //wp_reset_postdata(); ?>
           </div>
 
             <div class="grid carousel-tarif js-swiper-cardSwiper"
@@ -393,7 +394,7 @@ endif;
                     <div class="swiper-wrapper">
                         <!-- while -->
                         <?php 
-                        $query->rewind_posts();
+                        //$query->rewind_posts();
                         while ( $query->have_posts() ) : $query->the_post(); ?>
                          <div class="swiper-slide">
                             <div class="card">
@@ -438,8 +439,8 @@ endif;
                                         $link_title = $link['title'];
                                         $link_target = $link['target'] ? $link['target'] : '_self';
                                         ?>
-                                <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
-                                <?php endif; ?>
+                                    <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="card news">
@@ -471,17 +472,19 @@ endif;
                             </div>
                          </div>
                         <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
+                        <?php //wp_reset_postdata(); ?>
                     </div>
             </div>
 
-        <?php else : ?>
+        </div>
+            <?php else : ?>
                 <p>Aucune catégorie trouvée.</p>
-        <?php endif; ?>
+        
+                <?php endif; ?>
         <?php wp_reset_postdata(); ?>
+
         <?php endforeach?>
     <?php endif; ?>
-
     <?php wp_reset_postdata(); ?>
 
     </div>
