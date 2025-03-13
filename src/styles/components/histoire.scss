@@ -162,3 +162,14 @@
 .light p {
     font-weight: 500 !important;
 }
+
+.historique{
+    .title{
+        h2{
+            margin-bottom: 80px;
+            @media screen and (max-width: $breakpoint-xs) {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
