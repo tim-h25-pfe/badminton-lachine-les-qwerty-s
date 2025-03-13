@@ -68,28 +68,14 @@ global $product; // Récupérer l'objet produit global
                     </div>
 
 
-                    <?php if( have_rows('product_textes') ): ?>
-                    <div class="product__content">
-                        
-                    
-                    
-                    
-                        <h6>Options</h6>
-
-                        
-                            <?php while( have_rows('product_textes') ): the_row(); ?>
-                            <div class="content-module">
-                                <p><span><?php the_sub_field('product_text'); ?></span></p>
-                                <input class="champTexte" type="text" name="nom" />
-                            </div>
-                            <?php endwhile; ?>
-                        
-                        <?php
+                    <?php
                         global $product;
                         $attributes = $product->get_attributes();
 
                         if ( ! empty( $attributes ) ) :
                         ?>
+                    <div class="product__content">
+                        <h6>Options</h6>
                         <form action="<?php echo esc_url( $product->add_to_cart_url() ); ?>" method="post">
                         
 
@@ -136,9 +122,35 @@ global $product; // Récupérer l'objet produit global
                             </div>
 
                         </form>
-                        <?php endif; ?>
+                        
                     </div>
                     <!-- div conteneur du form  -->
+                    <?php else: ?>
+                        <div class="product__content">
+                        <?php
+                        global $product;
+                        $add_to_cart_url = wc_get_cart_url() . '?add-to-cart=' . $product->get_id();
+                        ?>
+                        <div class="content-module acheter">
+                            <a class="btn_full" href="<?php echo esc_url( $add_to_cart_url ); ?>"
+                                ><svg class="icon">
+                                    <use xlink:href="#icon-plus"></use>
+                                </svg>
+                                Ajouter au panier
+                            </a>
+                            <?php 
+                                $link = get_field('header_shop', 'options');
+                                if( $link ): ?>
+                                <a class="bnt_full panier" href="<?php echo esc_url( $link ); ?>"
+                                    ><svg class="icon">
+                                        <use xlink:href="#icon-panier"></use>
+                                    </svg>
+                                </a>
+                                <?php endif; ?>
+                        </div>
+                        
+                        </div>
+
                     <?php endif; ?>
 
 

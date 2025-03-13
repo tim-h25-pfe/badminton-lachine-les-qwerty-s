@@ -50,6 +50,11 @@ $contenu = $slug;
          $post_obj = get_post($p->ID); // Récupérer l'objet du post
          $post_type_obj = get_post_type_object($post_obj->post_type); // Récupérer l'objet du post type
          $post_type = $post_type_obj->name;
+
+         if($post_type == "product"){
+            $product = wc_get_product($p->ID); // Obtenir l'objet produit WooCommerce
+            $price = $product->get_price(); // Récupérer le prix
+         }
         ?>
             <div class="informations <?php echo $img_position ?>">
                 
@@ -60,7 +65,9 @@ $contenu = $slug;
                 
                 <div class="infos__content">
 
+                <?php if( $post_type != "service" ): ?>
                     <p class="category"><?php echo esc_html($post_type_obj->labels->singular_name); // Affiche l'intitulé du post type ?></p>
+                    <?php endif; ?>
 
                     <h3><?php echo get_the_title($p->ID); ?></h3>
 
@@ -80,9 +87,9 @@ $contenu = $slug;
                     </ul>
                     <?php endif; ?>
 
-                    <?php if ($post_type == "service") : ?>
+                    <?php if ($post_type == "product") : ?>
                     <ul class="details">
-                        <li>Le prix woo woo</li>
+                        <li><?php echo wc_price($price); ?></li>
                     </ul>
                     <?php endif; ?>
 
@@ -90,7 +97,9 @@ $contenu = $slug;
                         <p><?php echo wp_kses_post($post_obj->post_content); ?></p>
                     <?php endif; ?>
                     
+                    <?php if( $post_type != "service" ): ?>
                     <a href="<?php echo get_permalink($p->ID); ?>" class="btn_full">En savoir plus</a>
+                    <?php endif; ?>
                     
                 </div>
             </div>

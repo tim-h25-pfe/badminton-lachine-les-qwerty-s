@@ -37,9 +37,8 @@
                 &.extra-space {
                     padding: var(--spacing-md) 0 0 0;
                 }
-                &.separator::after {
-                    content: '';
-                    border: 1px solid var(--color-gray);
+                &.product {
+                    padding-bottom: 5%;
                 }
                 @media screen and (max-width: $breakpoint-sm) {
                     gap: var(--spacing-md);
