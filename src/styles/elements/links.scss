@@ -52,7 +52,7 @@ a {
     &.btn_top {
     }
     &.btn_bottom {
-        margin-top: var(--spacing-md);
+        margin-top: 40px;
         @media screen and (min-width: $breakpoint-md) {
             display: none;
         }
@@ -118,7 +118,7 @@ a {
     //overflow: hidden; // décommenter si ça fuck des affaires, j'ai essayé de quoi
     border-radius: 50%;
     background-color: var(--color-white);
-    padding: var(--spacing-sm);
+    padding: 10px;
     position: relative;
     aspect-ratio: 1/1;
 }
