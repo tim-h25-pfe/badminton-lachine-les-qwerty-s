@@ -25,6 +25,13 @@
                     border-top-right-radius: 15px;
                 }
             }
+            a.btn_outline {
+                transition: all ease-out 0.3s;
+                &:hover {
+                    background-color: var(--color-white);
+                    color: var(--color-primary);
+                }
+            }
 
             p {
                 width: 60%;

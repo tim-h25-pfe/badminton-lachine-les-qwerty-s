@@ -1,3 +1,15 @@
+<?php 
+$bool = get_field('alert_active', 'options');
+
+if($bool == 1){
+  $active = "true";
+} 
+if($bool == 0){
+  $active = "false";
+}
+
+?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -33,7 +45,7 @@
       <div class="wrapper">
         <div class="header_grid">
 
-            <div class="alert-banner" data-component="Alert" data-active="true">
+            <div class="alert-banner" data-component="Alert" data-active="<?php echo $active ?>">
 
               <div class="texte">
 

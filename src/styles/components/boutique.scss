@@ -8,3 +8,26 @@
         display: block;
     }
 }
+
+.commande {
+    a.btn_full {
+        margin-bottom: 70px;
+        margin-top: -50px;
+        .fleche-container {
+            transform: rotateZ(180deg);
+            order: -1;
+        }
+    }
+}
+
+.panier {
+    cursor: pointer;
+}
+
+.content-module.acheter {
+    margin-top: 40px;
+}
+
+.module.extra-space.product {
+    border-bottom: 1px solid var(--color-gray);
+}

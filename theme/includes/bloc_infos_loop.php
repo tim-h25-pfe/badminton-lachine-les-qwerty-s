@@ -53,6 +53,11 @@ $img_position = get_sub_field('infos_loop_align');
          $post_obj = get_post($p->ID); // Récupérer l'objet du post
          $post_type_obj = get_post_type_object($post_obj->post_type); // Récupérer l'objet du post type
          $post_type = $post_type_obj->name;
+
+         if($post_type == "product"){
+            $product = wc_get_product($p->ID); // Obtenir l'objet produit WooCommerce
+            $price = $product->get_price(); // Récupérer le prix
+         }
         ?>
             <div class="informations">
                 
@@ -83,9 +88,9 @@ $img_position = get_sub_field('infos_loop_align');
                     </ul>
                     <?php endif; ?>
 
-                    <?php if ($post_type == "servicesssss") : ?>
+                    <?php if ($post_type == "product") : ?>
                     <ul class="details">
-                        <li>Le prix woo woo</li>
+                        <li><?php echo wc_price($price); ?></li>
                     </ul>
                     <?php endif; ?>
 
