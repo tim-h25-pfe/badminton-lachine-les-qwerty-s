@@ -11,7 +11,7 @@
 
 
         <?php wp_nav_menu(array(
-                'theme_location' => 'menu_header_sections',
+                'theme_location' => 'menu_footer_pages',
                 'container' => 'nav',
                 'container_class' => 'secondary',
             )); ?>
@@ -63,11 +63,17 @@
         <div class="copyright">
             <div class="contact">
             <?php if (get_field('footer_mail', 'options')): ?>
-               <p><?php the_field('footer_mail', 'options'); ?></p>
+               <a href="mailto:<?php the_field('footer_mail', 'options'); ?>"><?php the_field('footer_mail', 'options'); ?></a>
                <?php endif; ?>
-               <?php if (get_field('footer_adress', 'options')): ?>
-                <p><?php the_field('footer_adress', 'options'); ?></p>
-                <?php endif; ?>
+            <?php 
+            $link = get_field('footer_adress', 'options');
+            if( $link ): 
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+                ?>
+                <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="subscribe"><?php echo esc_html( $link_title ); ?></a>
+            <?php endif; ?>
             </div>
 
             <p style="color: #86B455;"><?php the_field('page_en_construction', 'options'); ?></p>

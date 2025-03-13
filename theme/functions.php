@@ -21,6 +21,7 @@ add_filter('excerpt_length', 'new_excerpt_length');
 register_nav_menus(array(
     'menu_header_vedette' => 'Liens Vedettes', // slug => nom dans l'interface
     'menu_header_sections' => 'Pages dans le menu', // slug => nom dans l'interface
+    'menu_footer_pages' => 'Pages dans le pied de page', // slug => nom dans l'interface
     'menu_header_language' => 'Lien de la langue' // slug => nom dans l'interface
 ));
 
@@ -673,13 +674,13 @@ add_filter('acf/load_field/name=text_list_employee', 'acf_populate_text_list_emp
 
 // 2. Champ 'products_type' → Taxonomie 'type_de_service'
 function acf_populate_products_type($field) {
-    return acf_populate_taxonomy_select($field, 'type_de_service');
+    return acf_populate_taxonomy_select($field, 'product_cat', true);
 }
 add_filter('acf/load_field/name=products_type', 'acf_populate_products_type');
 
 // 3. Champ 'service_category' → Taxonomie 'type_de_service' (+ "Toutes les catégories")
 function acf_populate_service_category($field) {
-    return acf_populate_taxonomy_select($field, 'type_de_service', true);
+    return acf_populate_taxonomy_select($field, 'product_cat', true);
 }
 add_filter('acf/load_field/name=service_category', 'acf_populate_service_category');
 
@@ -697,7 +698,7 @@ add_filter('acf/load_field/name=vedette_news_category', 'acf_populate_vedette_ne
 
 // 6. Champ 'vedette_services_category' → Taxonomie 'type_de_service' (+ "Toutes les catégories")
 function acf_populate_vedette_services_category($field) {
-    return acf_populate_taxonomy_select($field, 'type_de_service', true);
+    return acf_populate_taxonomy_select($field, 'product_cat', true);
 }
 add_filter('acf/load_field/name=vedette_services_category', 'acf_populate_vedette_services_category');
 
@@ -706,6 +707,7 @@ function acf_populate_vedette_events_category($field) {
     return acf_populate_taxonomy_select($field, 'type_de_event', true);
 }
 add_filter('acf/load_field/name=vedette_events_category', 'acf_populate_vedette_events_category');
+
 
 if ( !is_admin() ) {
     error_reporting(0); // Masque les erreurs sur le front-end
