@@ -25,6 +25,17 @@
                     <?php the_post_thumbnail('full'); ?>
                 </div>
                 <?php the_content(); ?>
+                <?php 
+                    $link = get_field('header_subscribe', 'options');
+                    if( $link ): 
+                        $link_url = $link['url'];
+                        $link_title = $link['title'];
+                        $link_target = $link['target'] ? $link['target'] : '_self';
+                        ?>
+                    
+                      <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full btn_top"><?php echo esc_html( $link_title ); ?><img src="<?php bloginfo('template_url') ?>/assets/icons/link.svg" alt="externe"></a>
+                    
+                    <?php endif; ?>
             </div>
 
             <?php
