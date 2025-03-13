@@ -124,7 +124,7 @@ if($the_post_type == "new"){
                 <div class="service__media">
                 <?php 
                 if (has_post_thumbnail()) { 
-                    the_post_thumbnail(); 
+                    the_post_thumbnail('full'); 
                 } else { ?>
                     <img src="<?php bloginfo('template_url') ?>/assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 <?php } ?>
