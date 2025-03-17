@@ -13,24 +13,7 @@ if( $valeur ) :
 endif;
 ?>
 
-<section class="cards-category" id="tabs" data-component="Tabs">
-    <div class="wrapper">
-
-        <div class="top">
-            <div class="title">
-                <h2><?php echo esc_html($label); ?></h2>
-                <div class="underline">
-                    <lottie-player
-                        class="lottie-underline js-lottie-underline"
-                        src="<?php bloginfo('template_url') ?>/assets/lottie/tripleLigneDessin.json"
-                        data-component="Lottie"
-                    >
-                    </lottie-player>
-                </div>
-            </div>
-
-
-                    <?php
+<?php
                 $terms = get_terms(array(
                     'taxonomy'   => $slug, // Remplace par le nom de ta taxonomie
                     'orderby' => 'id',
@@ -64,6 +47,23 @@ endif;
                     $class = 'nothing';
                 }
                 ?>
+
+<section class="cards-category" id="tabs" data-component="Tabs">
+    <div class="wrapper">
+
+        <div class="top">
+            <div class="title">
+                <h2><?php the_sub_field('tabs_title'); ?></h2>
+                <div class="underline">
+                    <lottie-player
+                        class="lottie-underline js-lottie-underline"
+                        src="<?php bloginfo('template_url') ?>/assets/lottie/tripleLigneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
+                </div>
+            </div>
+
 
             <?php if (!empty($terms) && !is_wp_error($terms)) : ?>
             <nav>
