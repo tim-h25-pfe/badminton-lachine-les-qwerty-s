@@ -79,7 +79,7 @@ $the_category = get_sub_field('products_type');
                     <h5><?php the_title(); ?></h5>
                     <div class="content_more">
                         <a class="btn_full btn_white" href="<?php echo $add_to_cart_url; ?>"
-                            ><img src="<?php bloginfo('template_url') ?>/assets/icons/plus.png" alt="plus" /> Ajouter au panier
+                            ><img src="<?php bloginfo('template_url') ?>/assets/icons/plus.png" alt="plus" /> <?php the_field('addtocart', 'options'); ?>
                         </a>
                         
                         <h4><?php echo $product->get_price_html(); ?></h4>
@@ -92,7 +92,7 @@ $the_category = get_sub_field('products_type');
         </div>
 
         <?php else : ?>
-                <p>Aucun post.</p>
+                <p><?php the_field('aucun_post', 'options'); ?></p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
 

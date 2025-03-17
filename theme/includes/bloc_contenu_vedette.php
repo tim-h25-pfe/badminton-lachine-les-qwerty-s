@@ -166,7 +166,7 @@ if($the_post_type == "new"){
             <?php endwhile; ?>
             </div>
         <?php else : ?>
-                <p>Aucun post.</p>
+                <p><?php the_field('aucun_post', 'options'); ?></p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
 

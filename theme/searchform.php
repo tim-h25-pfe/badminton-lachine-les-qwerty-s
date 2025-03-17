@@ -2,5 +2,5 @@
 <button type="submit" class="search-submit">
         <img src="<?php bloginfo('template_url') ?>/assets/icons/search.svg" alt="" />
     </button>
-    <input type="search" class="search-field" placeholder="Rechercher..." value="<?php echo get_search_query(); ?>" name="s">
+    <input type="search" class="search-field" placeholder="<?php the_field('recherchererer', 'options'); ?>..." value="<?php echo get_search_query(); ?>" name="s">
 </form>

@@ -89,7 +89,7 @@ if( $list_type ) {
                 <?php endwhile; ?>
             </ul>
             <?php else : ?>
-                <p>Aucun employé pour cette catégorie.</p>
+                <p><?php the_field('aucun_employe', 'options'); ?></p>
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>
 

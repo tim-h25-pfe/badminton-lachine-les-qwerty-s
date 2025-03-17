@@ -83,7 +83,7 @@ $contenu = $slug;
 
                     <?php if ($post_type == "new") : ?>
                     <ul class="details">
-                        <li>Publié le <?php echo get_the_date('d F Y', $p->ID); ?> </li>
+                        <li><?php the_field('publicate', 'options'); ?> <?php echo get_the_date('d F Y', $p->ID); ?> </li>
                     </ul>
                     <?php endif; ?>
 
@@ -98,7 +98,7 @@ $contenu = $slug;
                     <?php endif; ?>
                     
                     <?php if( $post_type != "service" ): ?>
-                    <a href="<?php echo get_permalink($p->ID); ?>" class="btn_full">En savoir plus</a>
+                    <a href="<?php echo get_permalink($p->ID); ?>" class="btn_full"><?php the_field('en_savoir_plus', 'options'); ?></a>
                     <?php endif; ?>
                     
                 </div>

@@ -64,7 +64,7 @@
 
             <?php if ($next_post): ?>
                 <div class="sidebar">
-                    <h4>Événement similaire</h4>
+                    <h4><?php the_field('similar_event', 'options'); ?></h4>
 
                     <div class="cards">
                         <div class="card">
@@ -75,7 +75,7 @@
                             <div class="card__content">
                                 <div class="text">
                                     <h5><?php echo esc_html($next_post_title); ?></h5>
-                                    <p>Publié le <?php echo esc_html($next_post_date); ?></p>
+                                    <p><?php the_field('publicate', 'options'); ?> <?php echo esc_html($next_post_date); ?></p>
                                 </div>
                                 <a class="btn_full btn_round" href="<?php echo esc_url($next_post_link); ?>">
                                     <div class="fleche-container">
@@ -93,7 +93,7 @@
 
                 </div>
             <?php else: ?>
-                <p>Pas de prochain événement</p>
+                <p><?php the_field('no_event', 'options'); ?></p>
             <?php endif; ?>
         </div>
     </div>

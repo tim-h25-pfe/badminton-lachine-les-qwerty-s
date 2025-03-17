@@ -4,9 +4,9 @@
 
     <section class="error">
 
-        <h1>Oups ! Cette page n'existe pas ...</h1>
+        <h1><?php the_field('oups', 'options'); ?></h1>
 
-        <a href="<?php bloginfo('url') ?>" class="btn_full">Accueil</a>
+        <a href="<?php bloginfo('url') ?>" class="btn_full"><?php the_field('accueil_haha', 'options'); ?></a>
 
     </section>
 
