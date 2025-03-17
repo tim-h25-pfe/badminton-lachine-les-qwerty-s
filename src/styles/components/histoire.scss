@@ -1,9 +1,7 @@
 // SECTION MISSIONS
 
 // SECTION MISSIONS
-.historique {
-    background-color: var(--color-black);
-}
+
 .missions_grid {
     margin: 180px 0 180px 0;
     display: flex;
@@ -100,9 +98,9 @@
 
 .accordion__container {
     cursor: pointer;
-    background: var(--color-white);
+    background: var(--color-black);
     width: 75%;
-    color: var(--color-black);
+    color: var(--color-white);
     padding: 35px 75px;
     transition: all 0.3s ease;
     border-radius: 35px;
@@ -123,8 +121,8 @@
 }
 
 .header__icons {
-    color: white;
-    background-color: black;
+    color: var(--color-black);
+    background-color: white;
     width: 64px;
     height: 64px;
     display: flex;
