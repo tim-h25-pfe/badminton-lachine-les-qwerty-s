@@ -35,7 +35,10 @@ export default class Lottie {
             },
           ],
         });
-      } else if (this.element.classList.contains('js-lottie-underline')) {
+      } else if (
+        this.element.classList.contains('js-lottie-underline') ||
+        this.element.classList.contains('js-volantNoir')
+      ) {
         const idElement = this.element.id;
         create({
           player: `#${idElement}`,
