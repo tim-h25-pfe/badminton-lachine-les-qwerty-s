@@ -25,7 +25,6 @@
             </div>
             <div class="lien-contact__media">
                 <lottie-player
-                    id="VolantContactAccueil"
                     class="volantContact js-volantNoir"
                     src="<?php bloginfo('template_url') ?>/assets/lottie/volantNoir.json"
                     data-component="Lottie"

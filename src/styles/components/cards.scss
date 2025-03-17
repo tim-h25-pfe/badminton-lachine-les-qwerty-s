@@ -136,6 +136,11 @@
                     margin: 0;
                 }
             }
+            .text {
+                p {
+                    color: var(--color-black);
+                }
+            }
         }
     }
 }

@@ -25,21 +25,17 @@
                 <?php if (get_field('footer_adress', 'options')): ?>
                 <div class="contact_adresse">
                     <h6><?php the_field('adress_club', 'options'); ?></h6>
-                    <p><?php the_field('footer_adress', 'options'); ?></p>
-                </div>
-                <?php endif; ?>
-
-                <?php if ( have_rows('repeteur_sociaux', 'options') ): ?>
-                
-                <div class="social">
-                    <ul style="list-style: none; padding: 0;">
-                    <?php while( have_rows('repeteur_sociaux', 'options') ): the_row(); ?>
-                
-                <li style="text-decoration: underline;"><a href="<?php the_sub_field('sociaux_link', 'options') ?>"><?php the_sub_field('sociaux_name', 'options') ?></a></li>
-                
-                <?php endwhile; ?>
-                    </ul>
-                
+                    <p>
+                    <?php 
+                    $link = get_field('footer_adress', 'options');
+                    if( $link ): 
+                        $link_url = $link['url'];
+                        $link_title = $link['title'];
+                        $link_target = $link['target'] ? $link['target'] : '_self';
+                        ?>
+                        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                    <?php endif; ?>
+                    </p>
                 </div>
                 <?php endif; ?>
 
