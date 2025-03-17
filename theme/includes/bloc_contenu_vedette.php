@@ -149,7 +149,6 @@ if($the_post_type == "new"){
                 <div class="card__content">
                     <div class="text">
                         <h6><?php the_title();?></h6>
-                        <!-- if nouvelles -> date else -> excerpt  -->
                         <?php echo get_the_date(); ?>
                     </div>
                     <a class="btn_full btn_round" href="<?php the_permalink();?>">
@@ -167,7 +166,7 @@ if($the_post_type == "new"){
             <?php endwhile; ?>
             </div>
         <?php else : ?>
-                <p>Aucun post.</p>
+                <p><?php the_field('aucun_post', 'options'); ?></p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
 

@@ -25,7 +25,7 @@ $search = new WP_Query( $search_query );
         ?>
 <section class="search">
     <div class="wrapper">
-        <h5>Résultats de recherche pour : <?php echo get_query_var('s') ?></h5>
+        <h5><?php the_field('recherche_teplo', 'options'); ?> : <?php echo get_query_var('s') ?></h5>
         <?php get_search_form(); ?>
         <p class="resultes"><?php echo $the_query->found_posts . ' résultat' . ($the_query->found_posts > 1 ? 's' : ''); ?></p>
         <div class="search_results">
@@ -79,7 +79,6 @@ $search = new WP_Query( $search_query );
            
         </div>
 
-        <!-- Add the pagination functions here. -->
 
     <div class="pagination" style="margin-top: 50px">
         <?php
@@ -99,10 +98,10 @@ $search = new WP_Query( $search_query );
 ?>
 <section>
     <div class="wrapper">
-        <h2>Aucun résultat</h2>
+        <h2><?php the_field('aucun_result', 'options'); ?></h2>
         <?php get_search_form(); ?>
         
-          <p style="margin-top: 100px;">Désolé, mais votre recherche n'a donné aucun résultat ...</p>
+          <p style="margin-top: 100px;"><?php the_field('desole', 'options'); ?> ...</p>
         
     </div>
 </section>

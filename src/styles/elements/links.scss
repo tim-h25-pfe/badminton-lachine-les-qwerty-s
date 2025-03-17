@@ -50,11 +50,15 @@ a {
         gap: 5px;
     }
     &.btn_top {
+        @media screen and (max-width: $breakpoint-md) {
+            display: none;
+        }
     }
     &.btn_bottom {
         margin-top: 40px;
-        @media screen and (min-width: $breakpoint-md) {
-            display: none;
+        display: none;
+        @media screen and (max-width: $breakpoint-md) {
+            display: flex;
         }
     }
 }

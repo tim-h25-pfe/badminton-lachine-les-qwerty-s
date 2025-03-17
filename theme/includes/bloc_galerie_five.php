@@ -3,7 +3,6 @@ $images = get_sub_field('five_galerie');
 if( $images ): ?>
     
 
-<!-- BLOC CAROUSEL NAV -->
 <section class="galerySwiper section">
     <div class="wrapper">
         <div class="swiper js-swiper-gallerySwiper" data-component="Carousel" data-loop>

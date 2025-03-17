@@ -18,7 +18,6 @@ if( $list_type ) {
 }
 ?>
 
-<!-- BLOC TEXT LIST -->
 <div class="text-list">
     <div class="titre">
     <?php if( $list_slug != "list_employee" ): ?>
@@ -90,7 +89,7 @@ if( $list_type ) {
                 <?php endwhile; ?>
             </ul>
             <?php else : ?>
-                <p>Aucun employé pour cette catégorie.</p>
+                <p><?php the_field('aucun_employe', 'options'); ?></p>
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>
 

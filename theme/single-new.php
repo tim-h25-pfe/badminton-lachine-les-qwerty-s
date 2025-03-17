@@ -6,7 +6,7 @@
             <div class="main-content">
                 <div class="module module-header">
                     <div class="sous-titre">
-                        <h6>Publié le <?php the_date(); ?></h6>
+                        <h6><?php the_field('publicate', 'options'); ?> <?php the_date(); ?></h6>
                         <?php
                         // Récupérer les termes associés à l'article pour la taxonomie personnalisée 'ma_taxonomie'
                         $terms = get_the_terms(get_the_ID(), 'type_de_nouvelles');
@@ -53,7 +53,7 @@
 
             <?php if ($next_post): ?>
             <div class="sidebar">
-                <h4>Article similaire</h4>
+                <h4><?php the_field('articel', 'options'); ?></h4>
 
                     <div class="cards">
                         <div class="card">
@@ -64,7 +64,7 @@
                             <div class="card__content">
                                 <div class="text">
                                     <h5><?php echo esc_html($next_post_title); ?></h5>
-                                    <p>Publié le <?php echo esc_html($next_post_date); ?></p>
+                                    <p><?php the_field('publicate', 'options'); ?> <?php echo esc_html($next_post_date); ?></p>
                                 </div>
                                 <a class="btn_full btn_round" href="<?php echo esc_url($next_post_link); ?>">
                                     <div class="fleche-container">
@@ -82,7 +82,7 @@
 
             </div>
             <?php else: ?>
-                <p>Pas de prochain article</p>
+                <p><?php the_field('no_artikel', 'options'); ?></p>
             <?php endif; ?>
         </div>
     </div>

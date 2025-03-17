@@ -18,13 +18,13 @@
 
                 <?php if (get_field('footer_mail', 'options')): ?>
                 <div class="contact_courriel">
-                    <h6>Courriel</h6>
+                    <h6><?php the_field('courriel_courriel', 'options'); ?></h6>
                     <a href="mailto:<?php the_field('footer_mail', 'options'); ?>" target="_blank"><?php the_field('footer_mail', 'options'); ?></a>
                 </div>
                 <?php endif; ?>
                 <?php if (get_field('footer_adress', 'options')): ?>
                 <div class="contact_adresse">
-                    <h6>Adresse du club</h6>
+                    <h6><?php the_field('adress_club', 'options'); ?></h6>
                     <p><?php the_field('footer_adress', 'options'); ?></p>
                 </div>
                 <?php endif; ?>
@@ -45,7 +45,7 @@
 
                 <?php if ( have_rows('contact_links') ): ?>
                 <div class="contact_liens">
-                    <h6>Voici quelques liens utiles :</h6>
+                    <h6><?php the_field('voici_a_link', 'options'); ?> :</h6>
                     <div class="liens">
                         <ul>
                         <?php while( have_rows('contact_links') ): the_row(); ?>

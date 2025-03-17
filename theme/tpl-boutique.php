@@ -30,7 +30,7 @@
             ?>
         <?php if ( $queryg->have_posts() ) : ?>
             <div class="title">
-                <h2>Nos produits</h2>
+                <h2><?php the_field('products_trad', 'options'); ?></h2>
                 <div class="underline">
                     <lottie-player
                         class="lottie-underline js-lottie-underline"
@@ -42,9 +42,7 @@
             </div>
         <div class="cards news" data-tab-container="global">
 
-            <!-- un div grid  -->
             <div class="grid">
-                    <!-- while -->
                     <?php while ( $queryg->have_posts() ) : $queryg->the_post();
                     global $product; // Important pour accéder aux infos du produit 
                     ?>
@@ -83,7 +81,7 @@
         </div>
 
         <?php else : ?>
-                <p>Aucune catégorie trouvée.</p>
+                <p><?php the_field('no_category', 'options'); ?></p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
     </div>

@@ -107,9 +107,9 @@ if($the_post_type == "new"){
             );
         }
 
-        if ($the_category == "all") {
-            $argsglobal['orderby'] = 'rand';
-        }
+        // if ($the_category == "all") {
+        //     $argsglobal['orderby'] = 'rand';
+        // }
 
         $queryg = new WP_Query( $argsglobal );
         ?>
@@ -133,16 +133,6 @@ if($the_post_type == "new"){
                     <h5><?php the_title();?></h5>
                     <div class="more__content">
                         <a class="btn_full btn_white" href="<?php the_permalink();?>"><?php the_field('en_savoir_plus', 'options'); ?></a>
-                        <?php 
-                        $link = get_sub_field('link_bonus');
-                        if( $link ): 
-                            $link_url = $link['url'];
-                            $link_title = $link['title'];
-                            $link_target = $link['target'] ? $link['target'] : '_self';
-                            ?>
-                            <a class="btn_full" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a>
-                        <?php endif; ?>
-                       
                     </div>
                 </div>
             </div>
@@ -152,7 +142,7 @@ if($the_post_type == "new"){
         </div>
 
         <?php else : ?>
-                <p>Aucun post.</p>
+                <p><?php the_field('aucun_post', 'options'); ?></p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
 
@@ -235,7 +225,7 @@ if($the_post_type == "new"){
         
     </div>
     <?php else : ?>
-        <p>Aucun post.</p>
+        <p><?php the_field('aucun_post', 'options'); ?></p>
     <?php endif; ?>
     <?php wp_reset_postdata(); ?>
 

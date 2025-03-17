@@ -31,7 +31,6 @@ global $product; // Récupérer l'objet produit global
                 <div class="module module-header separator">
                     <h5><?php the_title(); ?></h5>
 
-                    <!-- texte -->
                     <?php if (get_field('product_localisation')): ?>
                     <div class="module-header-section">
                         <svg class="icon">
@@ -45,7 +44,6 @@ global $product; // Récupérer l'objet produit global
                     <p> <?php the_field('product_detail'); ?></p>
                     <?php endif; ?>
 
-                    <!-- on touche pas encore  -->
                     <div class="module-header-section">
                         <svg class="icon">
                             <use xlink:href="#icon-cash"></use>
@@ -124,7 +122,6 @@ global $product; // Récupérer l'objet produit global
                         </form>
                         
                     </div>
-                    <!-- div conteneur du form  -->
                     <?php else: ?>
                         <div class="product__content">
                         <?php
@@ -136,7 +133,7 @@ global $product; // Récupérer l'objet produit global
                                 ><svg class="icon">
                                     <use xlink:href="#icon-plus"></use>
                                 </svg>
-                                Ajouter au panier
+                                <?php the_field('addtocart', 'options'); ?>
                             </a>
                             <?php 
                                 $link = get_field('header_shop', 'options');
@@ -160,7 +157,7 @@ global $product; // Récupérer l'objet produit global
                 <?php if( have_rows('product_specs_type') ): ?>
     
                 <div class="module extra-space carateristics">
-                    <h6>Spécificités pour le produit</h6>
+                    <h6><?php the_field('specs_porduituiui', 'options'); ?></h6>
                     <div class="caracteristics-list">
                         
                     <?php while( have_rows('product_specs_type') ): the_row(); ?>
@@ -175,7 +172,6 @@ global $product; // Récupérer l'objet produit global
                             <?php while( have_rows('specs_details_repeat') ): the_row(); ?>
                                     
                                 <li><?php the_sub_field('specs_detail'); ?></li>
-                                <!-- truc à répéter  -->
                             <?php endwhile; ?>
                            
                             </ul>
@@ -202,21 +198,21 @@ global $product; // Récupérer l'objet produit global
                 
                 <?php if (get_field('product_description')): ?>
                 <div class="module-side">
-                    <h6>Description du service</h6>
+                    <h6><?php the_field('decript-service', 'options'); ?></h6>
                     <?php the_field('product_description'); ?>
                 </div>
                 <?php endif; ?>
                 
                 <?php if (get_field('product_procedures')): ?>
                 <div class="module-side">
-                    <h6>Procédures</h6>
+                    <h6><?php the_field('procedures', 'options'); ?></h6>
                     <?php the_field('product_procedures'); ?>
                 </div>
                 <?php endif; ?>
                
                 <?php if (get_field('product_degagement')): ?>
                 <div class="module-side">
-                    <h6>Dégagement de responsabilités</h6>
+                    <h6><?php the_field('degae', 'options'); ?></h6>
                     <?php the_field('product_degagement'); ?>
                 </div>
                 <?php endif; ?>

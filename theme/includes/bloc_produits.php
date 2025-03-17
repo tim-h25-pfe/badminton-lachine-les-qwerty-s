@@ -1,8 +1,12 @@
 <?php 
+
+if ( ! function_exists('wc_get_product') ) {
+    return;
+}
+
 $the_category = get_sub_field('products_type');
 ?>
 
-<!-- BLOC CARDS 3 -->
 <section class="section section-color services service_background">
     <div class="wrapper">
         <div class="title_section">
@@ -22,7 +26,7 @@ $the_category = get_sub_field('products_type');
 
         <?php   
         $argsglobal = array(
-            'post_type' => 'service',
+            'post_type' => 'product',
             'post_status' => 'publish',
             // 'orderby' => 'publish',
             // 'order' => 'DSC',
@@ -32,7 +36,7 @@ $the_category = get_sub_field('products_type');
         if($the_category != "all"){
             $argsglobal['tax_query'] = array(
                 array(
-                    'taxonomy' => 'type_de_service',  // Slug de la taxonomie personnalisée
+                    'taxonomy' => 'product_cat',  // Slug de la taxonomie personnalisée
                     'field'    => 'slug',      // On filtre par slug de terme
                     'terms'    => $the_category, // Catégorie à filtrer
                     'operator' => 'IN',        // Sélectionne les posts ayant ce terme
@@ -49,7 +53,18 @@ $the_category = get_sub_field('products_type');
 
         <div class="grid-produits">
 
-        <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
+        <?php while ( $queryg->have_posts() ) : $queryg->the_post();
+        global $product; // Récupère l'objet produit WooCommerce
+        if ($product) {
+            $product = wc_get_product(get_the_ID()); // Récupère l'objet produit si nécessaire
+            $add_to_cart_url = esc_url($product->add_to_cart_url()); // URL d'ajout au panier
+            //$button_text = $product->is_type('variable') ? 'Voir les options' : 'Ajouter au panier'; // Gestion des produits variables
+        } else {
+            $price_html = '<span class="no-price">Prix non disponible</span>';
+            $add_to_cart_url = '#'; // Aucun lien si ce n'est pas un produit
+            //$button_text = 'Indisponible';
+        }
+        ?>
 
             <div class="service_no_hover">
                 <div class="service__media">
@@ -61,13 +76,13 @@ $the_category = get_sub_field('products_type');
                 <?php } ?>
                 </div>
                 <div class="service__content">
-                    <h5><?php the_title(); // titre ?></h5>
+                    <h5><?php the_title(); ?></h5>
                     <div class="content_more">
-                        <a class="btn_full btn_white" href="#"
-                            ><img src="<?php bloginfo('template_url') ?>/assets/icons/plus.png" alt="plus" /> Ajouter au panier
+                        <a class="btn_full btn_white" href="<?php echo $add_to_cart_url; ?>"
+                            ><img src="<?php bloginfo('template_url') ?>/assets/icons/plus.png" alt="plus" /> <?php the_field('addtocart', 'options'); ?>
                         </a>
-                        <!-- prix woocommerce bientot  -->
-                        <h4>20$</h4>
+                        
+                        <h4><?php echo $product->get_price_html(); ?></h4>
                     </div>
                 </div>
             </div>
@@ -77,7 +92,7 @@ $the_category = get_sub_field('products_type');
         </div>
 
         <?php else : ?>
-                <p>Aucun post.</p>
+                <p><?php the_field('aucun_post', 'options'); ?></p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
 

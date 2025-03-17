@@ -1,4 +1,3 @@
-<!-- BLOC CAROUSEL DÉFILANT -->
 <?php 
 $images = get_sub_field('galerie_partners');
 if( $images ): ?>

@@ -32,20 +32,20 @@
 
                 <?php if (get_field('job_taches')): ?>
                 <div class="module extra-space">
-                    <h5>Description de l’offre</h5>
+                    <h5><?php the_field('description_offer', 'options'); ?></h5>
                     <?php the_field('job_taches'); ?>
                 </div>
                 <?php endif; ?>
 
                 <div class="module extra-space separator">
-                <h5>Exigences requises</h5>
+                <h5><?php the_field('exigencesheeh', 'options'); ?></h5>
 
                     <?php if (get_field('job_age')): ?>
-                    <p><span>Âge :</span> <?php the_field('job_age'); ?></p>
+                    <p><span><?php the_field('ageice', 'options'); ?> :</span> <?php the_field('job_age'); ?></p>
                     <?php endif; ?>
 
                     <?php if (get_field('job_know')): ?>
-                    <p><span>Connaissances des règles du badminton : </span><?php the_field('job_know'); ?></p>
+                    <p><span><?php the_field('connaissant', 'options'); ?> : </span><?php the_field('job_know'); ?></p>
                     <?php endif; ?>
 
                     <?php if (get_field('job_technical')): ?>
@@ -53,7 +53,7 @@
                     <?php endif; ?>
 
                     <?php if( have_rows('job_disponibilites') ): ?>
-                    <p><span>Disponibilités : </span></p>
+                    <p><span><?php the_field('dispos', 'options'); ?> : </span></p>
                     <ul>
                     <?php while( have_rows('job_disponibilites') ): the_row(); ?>
                         <li><?php the_sub_field('job_dispo'); ?></li>
@@ -66,11 +66,11 @@
                     <?php endif; ?>
 
                     <?php if (get_field('job_langages')): ?>
-                    <p><span>Langues : </span><?php the_field('job_langages'); ?></p>
+                    <p><span><?php the_field('lague', 'options'); ?> : </span><?php the_field('job_langages'); ?></p>
                     <?php endif; ?>
 
                     <?php if( have_rows('job_qualities') ): ?>
-                    <p><span>Autres qualités recherchées : </span></p>
+                    <p><span><?php the_field('other_quality', 'options'); ?> : </span></p>
                     <ul>
                     <?php while( have_rows('job_qualities') ): the_row(); ?>
                         <li><?php the_sub_field('job_quality'); ?></li>
@@ -87,7 +87,7 @@
                     
                 </div>
                 <?php if (get_field('formulaire_de_candidature')): ?>
-                    <h5>Soumettre ma candidature</h5>
+                    <h5><?php the_field('soumission', 'options'); ?></h5>
                     <?php the_field('formulaire_de_candidature'); ?>
             <?php endif; ?>
             </div>
@@ -104,7 +104,7 @@
                     <?php echo get_the_content($p->ID); ?>
                     </p>
                     <a href="<?php echo get_permalink($p->ID); ?>" class="btn_full">
-                        En savoir plus
+                        <?php the_field('en_savoir_plus', 'options'); ?>
                         <svg class="icon">
                             <use xlink:href="#icon-fleche"></use>
                         </svg>
@@ -115,7 +115,7 @@
 
                 <?php if( have_rows('repeat_avantages') ): ?>
                 <div class="module-side">
-                    <h5>Les avantages</h5>
+                    <h5><?php the_field('avantagous', 'options'); ?></h5>
                     <ul>
                     <?php while( have_rows('repeat_avantages') ): the_row(); ?>
                         <li><?php the_sub_field('job_avantage'); ?></li>
@@ -126,7 +126,7 @@
 
                 <?php if (get_field('contact_mail')): ?>
                 <div class="module-side">
-                    <h5>Soumettre ma candiature par courriel</h5>
+                    <h5><?php the_field('soumetsion', 'options'); ?></h5>
                     <p><?php the_field('contact_description'); ?></p>
                     <a href="mailto:<?php the_field('contact_mail'); ?>"><?php the_field('contact_mail'); ?></a>
                 </div>

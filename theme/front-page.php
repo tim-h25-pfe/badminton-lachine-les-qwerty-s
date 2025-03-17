@@ -7,7 +7,7 @@
     </div>
     <div class="wrapper">
         <div class="bigTitle">
-            <h1><?php the_field('le_badminton', 'options'); ?>,</h1>
+            <h1><?php the_field('le_badminton', 'options'); ?></h1>
             <div class="title">
                 <h1><?php the_field('notre', 'options'); ?> <?php the_field('accueil_catch') ?></h1>
                 <div class="underline">

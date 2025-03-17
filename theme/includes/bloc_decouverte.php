@@ -13,7 +13,6 @@ $the_post_type = $slug;
 $the_label = $titre;
 ?>
 
-<!-- BLOC CAROUSEL HALF PAGE -->
 <section class="section-large contentSwiper">
     <div class="wrapper">
         <div class="content">
@@ -31,10 +30,15 @@ $the_label = $titre;
                     ?>
                     <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full btn_white">
                     <?php echo esc_html( $link_title ); ?>
-                    <svg class="icon">
-                        <use xlink:href="#icon-fleche"></use>
-                    </svg>
-                </a>
+                        <div class="fleche-container">
+                            <svg class="icon fleche1">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                            <svg class="icon fleche2">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                        </div>
+                    </a>
                     <?php endif; ?>
                 
             </div>
@@ -87,7 +91,7 @@ $the_label = $titre;
                                 <h4><?php the_title(); ?></h4>
                             </div>
                             <a href="<?php the_permalink(); ?>" class="btn_full"
-                                >En savoir plus
+                                ><?php the_field('en_savoir_plus', 'options'); ?>
                                 <svg class="icon">
                                     <use xlink:href="#icon-fleche"></use>
                                 </svg>
@@ -101,7 +105,7 @@ $the_label = $titre;
         </div>
 
         <?php else : ?>
-                <p>Aucun post.</p>
+                <p><?php the_field('aucun_post', 'options'); ?></p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
     </div>
