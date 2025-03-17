@@ -42,7 +42,7 @@ $the_label = null;
 if($the_post_type == "new"){
     $the_category = $new_slug;
     $the_label = $new_label;
-} elseif($the_post_type == "service"){
+} elseif($the_post_type == "product"){
     $the_category = $service_slug;
     $the_label = $service_label;
 }
@@ -52,7 +52,7 @@ if($the_post_type == "new"){
 
 <section class="section services">
     <div class="wrapper">
-        <div class="title">
+        <div class="title_section">
             <div class="title">
                 <h2><?php the_sub_field('titre_zoom'); ?></h2>
                 <div class="underline">
@@ -65,24 +65,24 @@ if($the_post_type == "new"){
                 </div>
             </div>
             <?php 
-        $link = get_sub_field('link_all');
-        if( $link ): 
-            $link_url = $link['url'];
-            $link_title = $link['title'];
-            $link_target = $link['target'] ? $link['target'] : '_self';
-            ?>
-            <a class="btn_full btn_top" href="<?php echo esc_url( $link_url ); ?>"
-                ><?php echo esc_html( $link_title ); ?>
-                <div class="fleche-container">
-                    <svg class="icon fleche1">
-                        <use xlink:href="#icon-fleche"></use>
-                    </svg>
-                    <svg class="icon fleche2">
-                        <use xlink:href="#icon-fleche"></use>
-                    </svg>
-                </div>
-            </a>
-        <?php endif; ?>
+            $link = get_sub_field('link_all');
+            if( $link ): 
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+                ?>
+                <a class="btn_full btn_top" href="<?php echo esc_url( $link_url ); ?>"
+                    ><?php echo esc_html( $link_title ); ?>
+                    <div class="fleche-container">
+                        <svg class="icon fleche1">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                        <svg class="icon fleche2">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                    </div>
+                </a>
+            <?php endif; ?>
         </div>
 
 

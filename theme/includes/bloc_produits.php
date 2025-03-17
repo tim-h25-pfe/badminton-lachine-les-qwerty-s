@@ -5,7 +5,8 @@ $the_category = get_sub_field('products_type');
 <!-- BLOC CARDS 3 -->
 <section class="section section-color services service_background">
     <div class="wrapper">
-        <div class="title">
+        <div class="title_section">
+            <div class="title">
             <h2><?php the_sub_field('products_titre'); ?></h2>
             <div class="underline">
                     <lottie-player
@@ -16,6 +17,8 @@ $the_category = get_sub_field('products_type');
                     </lottie-player>
             </div>
         </div>
+        </div>
+        
 
         <?php   
         $argsglobal = array(
@@ -25,8 +28,9 @@ $the_category = get_sub_field('products_type');
             // 'order' => 'DSC',
             'posts_per_page' => 2,
         );
-            
-        $argsglobal['tax_query'] = array(
+        
+        if($the_category != "all"){
+            $argsglobal['tax_query'] = array(
                 array(
                     'taxonomy' => 'type_de_service',  // Slug de la taxonomie personnalisée
                     'field'    => 'slug',      // On filtre par slug de terme
@@ -34,6 +38,7 @@ $the_category = get_sub_field('products_type');
                     'operator' => 'IN',        // Sélectionne les posts ayant ce terme
                 ),
             );
+        }
         
 
         $queryg = new WP_Query( $argsglobal );

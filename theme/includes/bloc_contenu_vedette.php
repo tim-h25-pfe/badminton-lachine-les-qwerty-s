@@ -51,7 +51,7 @@ if($the_post_type == "new"){
 } elseif($the_post_type == "event"){
     $the_category = $event_slug;
     $the_label = $event_label;
-} elseif($the_post_type == "service"){
+} elseif($the_post_type == "product"){
     $the_category = $service_slug;
     $the_label = $service_label;
 }
@@ -61,7 +61,7 @@ if($the_post_type == "new"){
 
 <section class="section section-color nouvelles">
     <div class="wrapper">
-        
+        <div class="title_section">
             <div class="title">
                 <h2><?php the_sub_field('vedette_titre'); ?></h2>
                 <div class="underline">
@@ -73,28 +73,27 @@ if($the_post_type == "new"){
                     </lottie-player>
                 </div>
             </div>
-        
-
-        <?php 
-        $link = get_sub_field('vedette_link');
-        if( $link ): 
-            $link_url = $link['url'];
-            $link_title = $link['title'];
-            $link_target = $link['target'] ? $link['target'] : '_self';
-            ?>
-            <a class="btn_full btn_white btn_top" href="<?php echo esc_url( $link_url ); ?>"
-                ><?php echo esc_html( $link_title ); ?>
-                <div class="fleche-container">
-                    <svg class="icon fleche1">
-                        <use xlink:href="#icon-fleche"></use>
-                    </svg>
-                    <svg class="icon fleche2">
-                        <use xlink:href="#icon-fleche"></use>
-                    </svg>
-                </div>
-            </a>
-        <?php endif; ?>
+            <?php 
+            $link = get_sub_field('vedette_link');
+            if( $link ): 
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+                ?>
+                <a class="btn_full btn_white btn_top" href="<?php echo esc_url( $link_url ); ?>"
+                    ><?php echo esc_html( $link_title ); ?>
+                    <div class="fleche-container">
+                        <svg class="icon fleche1">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                        <svg class="icon fleche2">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                    </div>
+                </a>
+            <?php endif; ?>
         </div>
+            
 
         <?php   
         $argsglobal = array(

@@ -1,11 +1,26 @@
 .boutique.cards-category {
-    .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 77px;
-    }
     .cards.news {
         display: block;
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 77px;
+            @media screen and (max-width: 1460px) {
+                grid-template-columns: 1fr 1fr;
+            }
+            @media screen and (max-width: 800px) {
+                grid-template-columns: 1fr;
+                .card.news {
+                    width: 100%;
+                    .card__media {
+                        width: 600px;
+                    }
+                }
+            }
+            .card.news {
+                height: 100%;
+            }
+        }
     }
 }
 
