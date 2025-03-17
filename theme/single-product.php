@@ -29,7 +29,7 @@ global $product; // Récupérer l'objet produit global
         <div class="grid-container">
             <div class="main-content">
                 <div class="module module-header separator">
-                    <h5><?php the_title(); ?></h5>
+                    <h3><?php the_title(); ?></h3>
 
                     <?php if (get_field('product_localisation')): ?>
                     <div class="module-header-section">
@@ -48,7 +48,7 @@ global $product; // Récupérer l'objet produit global
                         <svg class="icon">
                             <use xlink:href="#icon-cash"></use>
                         </svg>
-                        <?php  echo '<p>' . $product->get_price_html() . '</p>'; ?>
+                        <?php  echo '<h6>' . $product->get_price_html() . '</h6>'; ?>
                     </div>
                 </div>
                 <div class="module extra-space separator product">
@@ -157,7 +157,7 @@ global $product; // Récupérer l'objet produit global
                 <?php if( have_rows('product_specs_type') ): ?>
     
                 <div class="module extra-space carateristics">
-                    <h6><?php the_field('specs_porduituiui', 'options'); ?></h6>
+                    <h4><?php the_field('specs_porduituiui', 'options'); ?></h4>
                     <div class="caracteristics-list">
                         
                     <?php while( have_rows('product_specs_type') ): the_row(); ?>

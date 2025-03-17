@@ -132,13 +132,13 @@ endif;
                         ?>
                     <div class="card">
                         <div class="card__top">
-                            <h5><?php the_title(); ?></h5>
+                            <h5 class="h6"><?php the_title(); ?></h5>
                             <p><?php the_sub_field('tabs_description'); ?></p>
                             <?php if (have_rows('tabs_biginfos')): ?>
                             <div class="prices">
                             <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
                                 <div class="price">
-                                    <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
+                                    <p class="price h5"><?php the_sub_field('tabs_info_impo'); ?></p>
                                     <?php if (get_sub_field('tabs_optional')): ?>
                                     <p><?php the_sub_field('tabs_optional'); ?></p>
                                     <?php endif; ?>
@@ -148,7 +148,7 @@ endif;
                             <?php endif; ?>
                         </div>
                         <div class="card__bottom">
-                            <p class="details"><?php the_field('details_trad', 'options'); ?></p>
+                            <p class="details h6"><?php the_field('details_trad', 'options'); ?></p>
                             <?php if (have_rows('tabs_details')): ?>
                             <div class="details">
                             <?php while (have_rows('tabs_details')) : the_row(); ?>
@@ -261,13 +261,13 @@ endif;
                      <div class="swiper-slide">
                         <div class="card">
                         <div class="card__top">
-                            <h5><?php the_title(); ?></h5>
+                            <h5 class="h6"><?php the_title(); ?></h5>
                             <p><?php the_sub_field('tabs_description'); ?></p>
                             <?php if (have_rows('tabs_biginfos')): ?>
                             <div class="prices">
                             <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
                                 <div class="price">
-                                    <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
+                                    <p class="price h5"><?php the_sub_field('tabs_info_impo'); ?></p>
                                     <?php if (get_sub_field('tabs_optional')): ?>
                                     <p><?php the_sub_field('tabs_optional'); ?></p>
                                     <?php endif; ?>
@@ -277,7 +277,7 @@ endif;
                             <?php endif; ?>
                         </div>
                         <div class="card__bottom">
-                            <p class="details"><?php the_field('details_trad', 'options'); ?></p>
+                            <p class="details h6"><?php the_field('details_trad', 'options'); ?></p>
                             <?php if (have_rows('tabs_details')): ?>
                             <div class="details">
                             <?php while (have_rows('tabs_details')) : the_row(); ?>
@@ -426,7 +426,7 @@ endif;
                             <div class="prices">
                             <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
                                 <div class="price">
-                                    <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
+                                    <p class="price h5"><?php the_sub_field('tabs_info_impo'); ?></p>
                                     <?php if (get_sub_field('tabs_optional')): ?>
                                     <p><?php the_sub_field('tabs_optional'); ?></p>
                                     <?php endif; ?>
@@ -436,7 +436,7 @@ endif;
                         <?php endif; ?>
                     </div>
                     <div class="card__bottom">
-                        <p class="details"><?php the_field('details_trad', 'options'); ?></p>
+                        <p class="details h6"><?php the_field('details_trad', 'options'); ?></p>
                         <?php if (have_rows('tabs_details')): ?>
                             <div class="details">
                             <?php while (have_rows('tabs_details')) : the_row(); ?>
@@ -504,13 +504,13 @@ endif;
                          <div class="swiper-slide">
                             <div class="card">
                                 <div class="card__top">
-                                    <h5><?php the_title(); ?></h5>
+                                    <h5 class="h6"><?php the_title(); ?></h5>
                                     <p><?php the_field('tabs_description'); ?></p>
                                     <?php if (have_rows('tabs_biginfos')): ?>
                                         <div class="prices">
                                         <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
                                             <div class="price">
-                                                <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
+                                                <p class="price h5"><?php the_sub_field('tabs_info_impo'); ?></p>
                                                 <?php if (get_sub_field('tabs_optional')): ?>
                                                 <p><?php the_sub_field('tabs_optional'); ?></p>
                                                 <?php endif; ?>
@@ -520,7 +520,7 @@ endif;
                                     <?php endif; ?>
                                 </div>
                                 <div class="card__bottom">
-                                    <p class="details"><?php the_field('details_trad', 'options'); ?></p>
+                                    <p class="details h6"><?php the_field('details_trad', 'options'); ?></p>
                                     <?php if (have_rows('tabs_details')): ?>
                                         <div class="details">
                                         <?php while (have_rows('tabs_details')) : the_row(); ?>

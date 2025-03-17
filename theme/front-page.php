@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="hero hero_front section-color">
+<section class="hero hero_front">
     <div class="hero__media">
         <img class="bgHero" src="<?php the_post_thumbnail_url('full'); ?>" alt="" />
         <div class="bkg_filter"></div>
@@ -22,7 +22,7 @@
     
         </div>
         <div class="hero_content">
-            <p><?php the_field('accueil_description') ?></p>
+            <p class="h5"><?php the_field('accueil_description') ?></p>
             <?php 
             $link = get_field('accueil_link');
             if( $link ): 
