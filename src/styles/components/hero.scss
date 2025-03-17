@@ -326,12 +326,16 @@
     justify-content: center;
     align-items: center;
     gap: var(--spacing-sm);
-    color: var(--color-white);
-    // padding: 15px 25px;
+    color: var(--color-black);
+    padding: 15px 25px;
     width: fit-content;
+    border-radius: 20px;
     font-weight: 700;
     font-size: 25px;
+    background-color: var(--color-white);
     @media screen and (max-width: $breakpoint-md) {
+        padding: 8px 15px;
+        border-radius: 10px;
         font-size: 14px;
         gap: 5px;
     }

@@ -55,12 +55,28 @@
     a {
         transition: all 0.3s ease-out;
         width: max-content;
-        &:hover {
-            color: var(--color-white);
-            opacity: 50%;
-        }
+        position: relative;
     }
 
+    a:not(.hero_link):hover {
+        color: var(--color-white);
+        opacity: 50%;
+    }
+
+    a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 5px;
+        background-color: var(--color-interactive);
+        transition: width 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    a:not(.hero_link):hover::after {
+        width: 100%;
+    }
     .principal {
         ul {
             display: flex;
