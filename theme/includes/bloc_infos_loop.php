@@ -7,7 +7,6 @@ $contenu = $type_contenu;
 $img_position = get_sub_field('infos_loop_align');
 ?>
 
-<!-- BLOC BOUCLE D'INFORMATIONS -->
 <section class="loop-infos <?php echo $img_position ?>">
 
 <?php if( $contenu == "perso" ): ?>

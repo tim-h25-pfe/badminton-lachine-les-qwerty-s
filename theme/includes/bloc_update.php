@@ -1,4 +1,3 @@
-<!-- BLOC TILES -->
 <section class="section doublePush">
     <div class="wrapper">
         <div>

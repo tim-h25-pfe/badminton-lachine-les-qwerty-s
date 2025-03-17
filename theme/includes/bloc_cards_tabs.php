@@ -29,9 +29,6 @@ endif;
                 </div>
             </div>
 
-            <!-- boucle des categories du custom post type choisis -->
-             <!-- ajouter une condition, c'est que ça prend des posts dedans comme ça non-catégorisé va pas show-up  -->
-              <!-- DONE  -->
 
                     <?php
                 $terms = get_terms(array(
@@ -71,12 +68,10 @@ endif;
             <?php if (!empty($terms) && !is_wp_error($terms)) : ?>
             <nav>
                 <ul>
-                    <!-- if actualités  -->
-                     <!-- le li magique  -->
                      <?php if ($the_post_type == 'new' || $the_post_type == 'event') : ?>
                         <li>
                             <a class="btn_circled" data-tab-open="global">
-                                Tout
+                            <?php the_field('tout', 'options'); ?>
                             </a>
                         </li>
                     <?php endif; ?>
@@ -93,11 +88,10 @@ endif;
             </nav>
 
             <?php else : ?>
-                <p>Aucune catégorie trouvée.</p>
+                <p><?php the_field('no_category', 'options'); ?></p>
             <?php endif; ?>
         </div>
 
-        <!-- boucle des category  -->
                 <?php
                 $terms = get_terms(array(
                     'taxonomy'   => $slug, // Remplace par le nom de ta taxonomie
@@ -122,9 +116,7 @@ endif;
         <?php if ( $queryg->have_posts() ) : ?>
         <div class="cards <?php echo $class ?>" data-tab-container="global">
 
-            <!-- un div grid  -->
             <div class="grid grid-tarif">
-                    <!-- while -->
                     <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
                     <?php
                         // Récupérer la catégorie personnalisée du post
@@ -138,7 +130,6 @@ endif;
                             $all_category = "No category";
                         }
                         ?>
-                    <!-- le div de card des articles -->
                     <div class="card">
                         <div class="card__top">
                             <h5><?php the_title(); ?></h5>
@@ -147,7 +138,6 @@ endif;
                             <div class="prices">
                             <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
                                 <div class="price">
-                                    <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
                                     <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
                                     <?php if (get_sub_field('tabs_optional')): ?>
                                     <p><?php the_sub_field('tabs_optional'); ?></p>
@@ -158,7 +148,7 @@ endif;
                             <?php endif; ?>
                         </div>
                         <div class="card__bottom">
-                            <p class="details">Détails</p>
+                            <p class="details"><?php the_field('details_trad', 'options'); ?></p>
                             <?php if (have_rows('tabs_details')): ?>
                             <div class="details">
                             <?php while (have_rows('tabs_details')) : the_row(); ?>
@@ -204,7 +194,7 @@ endif;
                         <div class="card__content">
                             <div class="text">
                                 <h5><?php the_title(); ?></h5>
-                                <p>Publié le : <?php echo get_the_date(); ?></p>
+                                <p><?php the_field('publicate', 'options'); ?> : <?php echo get_the_date(); ?></p>
                             </div>
                             <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
                                 <div class="fleche-container">
@@ -233,7 +223,7 @@ endif;
                             <div class="card__content">
                                 <div class="text">
                                     <h5><?php the_title(); ?></h5>
-                                    <p>Publié le : <?php echo get_the_date(); ?></p>
+                                    <p><?php the_field('publicate', 'options'); ?> : <?php echo get_the_date(); ?></p>
                                 </div>
                                 <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
                                     <div class="fleche-container">
@@ -255,7 +245,6 @@ endif;
                 data-centered
                 data-coverflow>
                 <div class="swiper-wrapper">
-                    <!-- while -->
                     <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
                     <?php
                         // Récupérer la catégorie personnalisée du post
@@ -269,7 +258,6 @@ endif;
                             $all_category = "No category";
                         }
                         ?>
-                    <!-- le div de card des articles -->
                      <div class="swiper-slide">
                         <div class="card">
                         <div class="card__top">
@@ -279,7 +267,6 @@ endif;
                             <div class="prices">
                             <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
                                 <div class="price">
-                                    <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
                                     <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
                                     <?php if (get_sub_field('tabs_optional')): ?>
                                     <p><?php the_sub_field('tabs_optional'); ?></p>
@@ -290,7 +277,7 @@ endif;
                             <?php endif; ?>
                         </div>
                         <div class="card__bottom">
-                            <p class="details">Détails</p>
+                            <p class="details"><?php the_field('details_trad', 'options'); ?></p>
                             <?php if (have_rows('tabs_details')): ?>
                             <div class="details">
                             <?php while (have_rows('tabs_details')) : the_row(); ?>
@@ -336,7 +323,7 @@ endif;
                         <div class="card__content">
                             <div class="text">
                                 <h5><?php the_title(); ?></h5>
-                                <p>Publié le : <?php echo get_the_date(); ?></p>
+                                <p><?php the_field('publicate', 'options'); ?> : <?php echo get_the_date(); ?></p>
                             </div>
                             <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
                                 <div class="fleche-container">
@@ -365,7 +352,7 @@ endif;
                             <div class="card__content">
                                 <div class="text">
                                     <h5><?php the_title(); ?></h5>
-                                    <p>Publié le : <?php echo get_the_date(); ?></p>
+                                    <p><?php the_field('publicate', 'options'); ?> : <?php echo get_the_date(); ?></p>
                                 </div>
                                 <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
                                     <div class="fleche-container">
@@ -390,7 +377,7 @@ endif;
         </div>
 
         <?php else : ?>
-                <p>Aucune catégorie trouvée.</p>
+                <p><?php the_field('no_category', 'options'); ?></p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
             
@@ -403,12 +390,6 @@ endif;
 
                 
         <?php if (!empty($terms) && !is_wp_error($terms)) : ?>
-        <!-- while -->
-       
-
-        <!-- boucle des custom post type -->
-        <!-- avec le parametre de la category -->
-        <!-- if -->
         <?php foreach ($terms as $term) : 
             ?>
         <?php 
@@ -435,11 +416,8 @@ endif;
         
         <div class="cards <?php echo $class ?>" data-tab-container="<?php echo esc_html($term->slug); ?>">
 
-         <!-- un div grid  -->
           <div class="grid grid-tarif">
-                <!-- while -->
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-                <!-- le div de card des articles -->
                 <div class="card">
                     <div class="card__top">
                         <h5><?php the_title(); ?></h5>
@@ -448,7 +426,6 @@ endif;
                             <div class="prices">
                             <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
                                 <div class="price">
-                                    <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
                                     <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
                                     <?php if (get_sub_field('tabs_optional')): ?>
                                     <p><?php the_sub_field('tabs_optional'); ?></p>
@@ -459,7 +436,7 @@ endif;
                         <?php endif; ?>
                     </div>
                     <div class="card__bottom">
-                        <p class="details">Détails</p>
+                        <p class="details"><?php the_field('details_trad', 'options'); ?></p>
                         <?php if (have_rows('tabs_details')): ?>
                             <div class="details">
                             <?php while (have_rows('tabs_details')) : the_row(); ?>
@@ -499,7 +476,7 @@ endif;
                         <div class="card__content">
                             <div class="text">
                                 <h5><?php the_title(); ?></h5>
-                                <p>Publié le : <?php echo get_the_date(); ?></p>
+                                <p><?php the_field('publicate', 'options'); ?> : <?php echo get_the_date(); ?></p>
                             </div>
                             <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
                                 <div class="fleche-container">
@@ -514,7 +491,6 @@ endif;
                         </div>
                     </div>
                 <?php endwhile; ?>
-                <?php //wp_reset_postdata(); ?>
           </div>
 
             <div class="grid carousel-tarif js-swiper-cardSwiper"
@@ -523,9 +499,7 @@ endif;
                 data-coverflow>
                 
                     <div class="swiper-wrapper">
-                        <!-- while -->
                         <?php 
-                        //$query->rewind_posts();
                         while ( $query->have_posts() ) : $query->the_post(); ?>
                          <div class="swiper-slide">
                             <div class="card">
@@ -536,7 +510,6 @@ endif;
                                         <div class="prices">
                                         <?php while (have_rows('tabs_biginfos')) : the_row(); ?>
                                             <div class="price">
-                                                <!-- option de soit prix (donc prix + texte) ou juste texte et là c'est que le gros -->
                                                 <p class="price"><?php the_sub_field('tabs_info_impo'); ?></p>
                                                 <?php if (get_sub_field('tabs_optional')): ?>
                                                 <p><?php the_sub_field('tabs_optional'); ?></p>
@@ -547,7 +520,7 @@ endif;
                                     <?php endif; ?>
                                 </div>
                                 <div class="card__bottom">
-                                    <p class="details">Détails</p>
+                                    <p class="details"><?php the_field('details_trad', 'options'); ?></p>
                                     <?php if (have_rows('tabs_details')): ?>
                                         <div class="details">
                                         <?php while (have_rows('tabs_details')) : the_row(); ?>
@@ -587,7 +560,7 @@ endif;
                                 <div class="card__content">
                                     <div class="text">
                                         <h5><?php the_title(); ?></h5>
-                                        <p>Publié le : <?php echo get_the_date(); ?></p>
+                                        <p><?php the_field('publicate', 'options'); ?> : <?php echo get_the_date(); ?></p>
                                     </div>
                                     <a class="btn_full btn_round" href="<?php the_permalink(); ?>">
                                         <div class="fleche-container">
@@ -603,13 +576,13 @@ endif;
                             </div>
                          </div>
                         <?php endwhile; ?>
-                        <?php //wp_reset_postdata(); ?>
+                        
                     </div>
             </div>
 
         </div>
             <?php else : ?>
-                <p>Aucune catégorie trouvée.</p>
+                <p><?php the_field('no_category', 'options'); ?></p>
         
                 <?php endif; ?>
         <?php wp_reset_postdata(); ?>

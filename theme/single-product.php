@@ -31,7 +31,6 @@ global $product; // Récupérer l'objet produit global
                 <div class="module module-header separator">
                     <h5><?php the_title(); ?></h5>
 
-                    <!-- texte -->
                     <?php if (get_field('product_localisation')): ?>
                     <div class="module-header-section">
                         <svg class="icon">
@@ -45,7 +44,6 @@ global $product; // Récupérer l'objet produit global
                     <p> <?php the_field('product_detail'); ?></p>
                     <?php endif; ?>
 
-                    <!-- on touche pas encore  -->
                     <div class="module-header-section">
                         <svg class="icon">
                             <use xlink:href="#icon-cash"></use>
@@ -124,7 +122,6 @@ global $product; // Récupérer l'objet produit global
                         </form>
                         
                     </div>
-                    <!-- div conteneur du form  -->
                     <?php else: ?>
                         <div class="product__content">
                         <?php
@@ -175,7 +172,6 @@ global $product; // Récupérer l'objet produit global
                             <?php while( have_rows('specs_details_repeat') ): the_row(); ?>
                                     
                                 <li><?php the_sub_field('specs_detail'); ?></li>
-                                <!-- truc à répéter  -->
                             <?php endwhile; ?>
                            
                             </ul>

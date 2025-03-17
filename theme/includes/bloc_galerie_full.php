@@ -1,8 +1,6 @@
-<!-- acf galerie avec retour en ID -->
 <?php 
 $images = get_sub_field('full_galerie');
 if( $images ): ?>
-<!-- BLOC CAROUSEL FULL -->
 <section class="fullGallerySwiper section">
     <div class="swiper js-swiper-fullGallerySwiper" data-component="Carousel" data-loop>
         <div class="swiper-wrapper">

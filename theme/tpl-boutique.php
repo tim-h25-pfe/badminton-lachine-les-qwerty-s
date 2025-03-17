@@ -42,9 +42,7 @@
             </div>
         <div class="cards news" data-tab-container="global">
 
-            <!-- un div grid  -->
             <div class="grid">
-                    <!-- while -->
                     <?php while ( $queryg->have_posts() ) : $queryg->the_post();
                     global $product; // Important pour accéder aux infos du produit 
                     ?>

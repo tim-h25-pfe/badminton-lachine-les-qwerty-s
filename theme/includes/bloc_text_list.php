@@ -18,7 +18,6 @@ if( $list_type ) {
 }
 ?>
 
-<!-- BLOC TEXT LIST -->
 <div class="text-list">
     <div class="titre">
     <?php if( $list_slug != "list_employee" ): ?>

@@ -13,7 +13,6 @@ $the_post_type = $slug;
 $the_label = $titre;
 ?>
 
-<!-- BLOC CAROUSEL HALF PAGE -->
 <section class="section-large contentSwiper">
     <div class="wrapper">
         <div class="content">

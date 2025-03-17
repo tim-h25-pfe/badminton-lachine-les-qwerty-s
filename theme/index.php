@@ -19,7 +19,6 @@
                     <?php the_post_thumbnail(); ?>
                     </div>
                     <div class="card__content">
-                    <!-- on peut get le php ici pour le titre de la page -->
                         <h3><?php the_title(); ?></h3>
                         <p><?php the_excerpt(); ?></p>
                         

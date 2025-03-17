@@ -7,7 +7,6 @@ if ( ! function_exists('wc_get_product') ) {
 $the_category = get_sub_field('products_type');
 ?>
 
-<!-- BLOC CARDS 3 -->
 <section class="section section-color services service_background">
     <div class="wrapper">
         <div class="title_section">
@@ -77,7 +76,7 @@ $the_category = get_sub_field('products_type');
                 <?php } ?>
                 </div>
                 <div class="service__content">
-                    <h5><?php the_title(); // titre ?></h5>
+                    <h5><?php the_title(); ?></h5>
                     <div class="content_more">
                         <a class="btn_full btn_white" href="<?php echo $add_to_cart_url; ?>"
                             ><img src="<?php bloginfo('template_url') ?>/assets/icons/plus.png" alt="plus" /> Ajouter au panier

@@ -79,7 +79,6 @@ $search = new WP_Query( $search_query );
            
         </div>
 
-        <!-- Add the pagination functions here. -->
 
     <div class="pagination" style="margin-top: 50px">
         <?php

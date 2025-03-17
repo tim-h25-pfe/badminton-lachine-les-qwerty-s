@@ -149,7 +149,6 @@ if($the_post_type == "new"){
                 <div class="card__content">
                     <div class="text">
                         <h6><?php the_title();?></h6>
-                        <!-- if nouvelles -> date else -> excerpt  -->
                         <?php echo get_the_date(); ?>
                     </div>
                     <a class="btn_full btn_round" href="<?php the_permalink();?>">
