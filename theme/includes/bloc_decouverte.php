@@ -31,10 +31,15 @@ $the_label = $titre;
                     ?>
                     <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full btn_white">
                     <?php echo esc_html( $link_title ); ?>
-                    <svg class="icon">
-                        <use xlink:href="#icon-fleche"></use>
-                    </svg>
-                </a>
+                        <div class="fleche-container">
+                            <svg class="icon fleche1">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                            <svg class="icon fleche2">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                        </div>
+                    </a>
                     <?php endif; ?>
                 
             </div>
