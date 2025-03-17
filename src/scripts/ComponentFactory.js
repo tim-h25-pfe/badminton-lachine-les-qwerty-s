@@ -6,6 +6,7 @@ import Accordeon from './components/Accordeon';
 import Ariane from './components/Ariane';
 import Lottie from './components/Lottie';
 import Alert from './components/Alert';
+import Scrolly from './components/Scrolly';
 export default class ComponentFactory {
   constructor() {
     this.componentInstances = [];
@@ -18,6 +19,7 @@ export default class ComponentFactory {
       Accordeon,
       Ariane,
       Lottie,
+      Scrolly,
     };
     this.init();
   }

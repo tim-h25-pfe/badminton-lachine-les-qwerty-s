@@ -8,9 +8,7 @@ export default class NameLotties {
     const lottiesUnderline = this.element.querySelectorAll(
       '.js-lottie-underline'
     );
-    const lottiesVolantCTA = this.element.querySelectorAll(
-      '.js-lottie-volantCTA'
-    );
+    const lottiesVolantCTA = this.element.querySelectorAll('.js-volantNoir');
     const nomIdentifiantUnderline = 'underline-';
     for (let i = 0; i < lottiesUnderline.length; i++) {
       const lottieUnderline = lottiesUnderline[i];
