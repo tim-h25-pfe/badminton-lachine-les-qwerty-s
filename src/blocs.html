@@ -9,7 +9,7 @@
         <img class="bgHero" src="assets/images/hero.png" alt="hero" />
     </div>
     <div class="hero__content">
-        <h1 data-scrolly="fromLeft">Services</h1>
+        <h1>Services</h1>
         <div class="underline">
             <svg class="icon icon--lg">
                 <use xlink:href="#icon-doubleLigneDessin"></use>
@@ -20,34 +20,34 @@
 
 <!-- BLOC INFORMATIONS -->
 <div class="informations">
-    <div class="infos__media">
+    <div class="infos__media" data-scrolly="fromLeft">
         <img src="assets/images/hero.png" alt="image d'informations" />
     </div>
-    <div class="infos__content">
+    <div class="infos__content" data-scrolly="fromRight">
         <p class="category">Événement</p>
         <h3 data-scrolly="fromLeft">Faire un don à l’organisme</h3>
-        <ul class="details">
+        <ul class="details" data-scrolly="fromRight">
             <li>3 au 7 mars 2025</li>
             <span class="circle"></span>
             <li>8h30 à 16h30</li>
             <span class="circle"></span>
             <li>200$</li>
         </ul>
-        <p>
+        <p data-scrolly="fromLeft">
             Merci à nos généreux donateurs qui souhaitent supporter notre Club et nous aider à promouvoir l’activité
             sportive chez les jeunes et les adultes par la pratique et l’éducation du Badminton.
         </p>
-        <a href="#" class="btn_full">Faire un don</a>
+        <a data-scrolly="fromLeft" href="#" class="btn_full">Faire un don</a>
     </div>
 </div>
 
 <!-- BLOC BOUCLE D'INFORMATIONS -->
 <section class="loop-infos altern">
     <div class="informations">
-        <div class="infos__media">
+        <div class="infos__media" data-scrolly="fromLeft">
             <img src="assets/images/hero.png" alt="image d'informations" />
         </div>
-        <div class="infos__content">
+        <div class="infos__content" data-scrolly="fromRight">
             <p class="category">Événement</p>
             <h3 data-scrolly="fromLeft">Faire un don à l’organisme</h3>
             <ul class="details">
@@ -65,20 +65,20 @@
         </div>
     </div>
     <div class="informations">
-        <div class="infos__media">
+        <div class="infos__media" data-scrolly="fromRight">
             <img src="assets/images/hero.png" alt="image d'informations" />
         </div>
         <div class="infos__content">
-            <p class="category">Événement</p>
-            <h3>Faire un don à l’organisme</h3>
-            <ul class="details">
+            <p data-scrolly="fromLeft" class="category">Événement</p>
+            <h3 data-scrolly="fromLeft">Faire un don à l’organisme</h3>
+            <ul data-scrolly="fromLeft" class="details">
                 <li>3 au 7 mars 2025</li>
                 <span class="circle"></span>
                 <li>8h30 à 16h30</li>
                 <span class="circle"></span>
                 <li>200$</li>
             </ul>
-            <p>
+            <p data-scrolly="fromLeft">
                 Merci à nos généreux donateurs qui souhaitent supporter notre Club et nous aider à promouvoir l’activité
                 sportive chez les jeunes et les adultes par la pratique et l’éducation du Badminton.
             </p>
@@ -90,7 +90,7 @@
 <!-- BLOC ACCORDÉON -->
 <section class="accordeon section-color">
     <div class="wrapper">
-        <div class="title">
+        <div class="title" data-scrolly="fromLeft">
             <h1 data-scrolly="fromLeft">Historique</h1>
             <div class="underline">
                 <svg class="icon icon--lg">
@@ -260,12 +260,12 @@
     <div class="wrapper">
         <div class="content">
             <div class="infos">
-                <h3 data-scrolly="fromRight">Lorem ipsum</h3>
-                <p>
+                <h3 data-scrolly="fromLeft">Lorem ipsum</h3>
+                <p data-scrolly="fromLeft">
                     Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
                     ipsumLorem ipsum
                 </p>
-                <a href="#" class="btn_full btn_white">
+                <a data-scrolly="fromLeft" href="#" class="btn_full btn_white">
                     Voir tous
                     <svg class="icon">
                         <use xlink:href="#icon-fleche"></use>
@@ -285,7 +285,7 @@
                 </div>
             </div>
         </div>
-        <div class="swiper js-swiper-coursPrives" data-component="Carousel" data-loop>
+        <div data-scrolly="fromRight" class="swiper js-swiper-coursPrives" data-component="Carousel" data-loop>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="card">
@@ -431,7 +431,7 @@
 <section class="section services">
     <div class="wrapper">
         <div class="title">
-            <div class="title">
+            <div class="title" data-scrolly="fromLeft">
                 <h1>Forfaits</h1>
                 <div class="underline">
                     <svg class="icon icon--lg">
@@ -439,14 +439,14 @@
                     </svg>
                 </div>
             </div>
-            <a class="btn_full btn_top" href="#"
+            <a data-scrolly="fromRight" class="btn_full btn_top" href="#"
                 >Voir tous
                 <svg class="icon">
                     <use xlink:href="#icon-fleche"></use>
                 </svg>
             </a>
         </div>
-        <div class="grid-services">
+        <div class="grid-services" data-scrolly="fromBottom">
             <div class="service">
                 <div class="service__media">
                     <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
@@ -569,7 +569,7 @@
 <section class="section section-color nouvelles">
     <div class="wrapper">
         <div class="title">
-            <div class="title">
+            <div class="title" data-scrolly="fromLeft">
                 <h1>Nouvelles</h1>
                 <div class="underline">
                     <svg class="icon icon--lg">
@@ -577,14 +577,14 @@
                     </svg>
                 </div>
             </div>
-            <a class="btn_full btn_white btn_top" href="#"
+            <a data-scrolly="fromRight" class="btn_full btn_white btn_top" href="#"
                 >Voir tout
                 <svg class="icon">
                     <use xlink:href="#icon-fleche"></use>
                 </svg>
             </a>
         </div>
-        <div class="cards-nouvelles">
+        <div class="cards-nouvelles" data-scrolly="fromBottom">
             <div class="card">
                 <p class="btn_full tag">Divers</p>
                 <div class="card__content">
@@ -647,7 +647,7 @@
 <!-- BLOC CARDS 3 -->
 <section class="section services service_background">
     <div class="wrapper">
-        <div class="title">
+        <div class="title" data-scrolly="fromLeft">
             <h2>Nouvelles</h2>
             <div class="underline">
                 <svg class="icon icon--lg">
@@ -656,7 +656,7 @@
             </div>
         </div>
         <div class="grid-produits">
-            <div class="service_no_hover">
+            <div class="service_no_hover" data-scrolly="fromLeft">
                 <div class="service__media">
                     <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 </div>
@@ -670,7 +670,7 @@
                     </div>
                 </div>
             </div>
-            <div class="service_no_hover">
+            <div class="service_no_hover" data-scrolly="fromRight">
                 <div class="service__media">
                     <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
                 </div>
@@ -694,7 +694,7 @@
         <!-- boucle du custom post type choisi -->
 
         <div class="top">
-            <div class="title">
+            <div class="title" data-scrolly="fromLeft">
                 <h1>Forfaits</h1>
                 <div class="underline">
                     <svg class="icon icon--lg">
@@ -704,7 +704,7 @@
             </div>
 
             <!-- boucle des categories du custom post type choisis -->
-            <nav>
+            <nav data-scrolly="fromRight">
                 <ul>
                     <li>
                         <a class="btn_circled" data-tab-open="jeunes">
@@ -1106,7 +1106,7 @@
 </section>
 
 <!-- BLOC CTA CONTACT -->
-<section class="section">
+<section class="section" data-scrolly="fromLeft">
     <div class="wrapper">
         <a class="lien-contact">
             <div class="lien-contact__content">
@@ -1122,7 +1122,7 @@
 <section class="push">
     <div class="wrapper">
         <div class="push_content">
-            <div class="titre">
+            <div data-scrolly="fromLeft" class="titre">
                 <h4>Rejoignez notre équipe !</h4>
                 <div class="underline">
                     <svg class="icon icon--lg">
@@ -1130,13 +1130,13 @@
                     </svg>
                 </div>
             </div>
-            <p>
+            <p data-scrolly="fromLeft">
                 Le Club Badminton Lachine est à la recherche de candidats pour compléter son équipe. Vous trouverez sur
                 cette page les opportunités d’emploi chez Badminton Lachine.
             </p>
-            <a href="#" class="btn_full">voir plus</a>
+            <a data-scrolly="fromLeft" href="#" class="btn_full">voir plus</a>
         </div>
-        <div class="push_media">
+        <div data-scrolly="fromRight" class="push_media">
             <img src="assets/images/image_menu.jpg" alt="hero" />
         </div>
     </div>
@@ -1145,11 +1145,11 @@
 <!-- BLOC TILES -->
 <section class="section doublePush">
     <div class="wrapper">
-        <div>
+        <div data-scrolly="fromLeft">
             <h3>Lorem ipsum</h3>
         </div>
 
-        <div class="tiles">
+        <div class="tiles" data-scrolly="fromRight">
             <a href="#" class="tile">
                 <div class="title">
                     <h3>bacon ipsum</h3>
@@ -1182,11 +1182,11 @@
 
 <!-- BLOC TEXT LIST -->
 <div class="text-list liste">
-    <div class="titre">
+    <div class="titre" data-scrolly="fromLeft">
         <h4>Gestion et développement</h4>
         <hr />
     </div>
-    <div class="content">
+    <div data-scrolly="fromRight" class="content">
         <div class="paragraphe">
             <p>
                 Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à traiter avec
@@ -1259,7 +1259,7 @@
 
 <section class="valeurs">
     <div class="wrapper">
-        <div class="title">
+        <div data-scrolly="fromLeft" class="title">
             <h2>Valeurs</h2>
             <div class="underline">
                 <svg class="icon icon--lg">
@@ -1269,28 +1269,28 @@
         </div>
 
         <div class="text-list texte">
-            <div class="titre">
+            <div data-scrolly="fromLeft" class="titre">
                 <h4>Gestion et développement</h4>
                 <hr />
             </div>
             <div class="content">
                 <div class="paragraphe">
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
@@ -1298,7 +1298,7 @@
                 </div>
 
                 <ul class="employees">
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1311,7 +1311,7 @@
                             <p>Coordonateur général</p>
                         </div>
                     </li>
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1323,7 +1323,7 @@
                             <p>Présidente</p>
                         </div>
                     </li>
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1339,28 +1339,28 @@
             </div>
         </div>
         <div class="text-list liste">
-            <div class="titre">
+            <div data-scrolly="fromLeft" class="titre">
                 <h4>Gestion et développement</h4>
                 <hr />
             </div>
             <div class="content">
                 <div class="paragraphe">
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
@@ -1368,7 +1368,7 @@
                 </div>
 
                 <ul class="employees">
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1381,7 +1381,7 @@
                             <p>Coordonateur général</p>
                         </div>
                     </li>
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1393,7 +1393,7 @@
                             <p>Présidente</p>
                         </div>
                     </li>
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1409,28 +1409,28 @@
             </div>
         </div>
         <div class="text-list texte">
-            <div class="titre">
+            <div class="titre" data-scrolly="fromLeft">
                 <h4>Gestion et développement</h4>
                 <hr />
             </div>
             <div class="content">
                 <div class="paragraphe">
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
@@ -1438,7 +1438,7 @@
                 </div>
 
                 <ul class="employees">
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1451,7 +1451,7 @@
                             <p>Coordonateur général</p>
                         </div>
                     </li>
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1463,7 +1463,7 @@
                             <p>Présidente</p>
                         </div>
                     </li>
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1479,28 +1479,28 @@
             </div>
         </div>
         <div class="text-list liste">
-            <div class="titre">
+            <div class="titre" data-scrolly="fromLeft">
                 <h4>Gestion et développement</h4>
                 <hr />
             </div>
             <div class="content">
                 <div class="paragraphe">
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
                     </p>
-                    <p>
+                    <p data-scrolly="fromRight">
                         Le Club s’engage à inciter les personnes impliquées de près ou de loin dans l’organisme à
                         traiter avec égard et considération toutes les personnes qu’elles côtoieront, à respecter les
                         équipements et à accepter les décisions de Badminton Lachine.
@@ -1508,7 +1508,7 @@
                 </div>
 
                 <ul class="employees">
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1521,7 +1521,7 @@
                             <p>Coordonateur général</p>
                         </div>
                     </li>
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
@@ -1533,7 +1533,7 @@
                             <p>Présidente</p>
                         </div>
                     </li>
-                    <li>
+                    <li data-scrolly="fromRight">
                         <div class="icone">
                             <svg class="icon icon--xs">
                                 <use xlink:href="#icon-mail"></use>
