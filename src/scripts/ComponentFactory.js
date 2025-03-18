@@ -30,9 +30,10 @@ export default class ComponentFactory {
     for (let i = 0; i < components.length; i++) {
       const element = components[i];
 
-      // va chercher le data-component et peut get plusieurs composantes, et le transforme en tableau
+      // va chercher le data-component et sort un tableau plutôt qu'un string
       const componentNames = element.dataset.component.split(/[\s,]+/);
 
+      // boucle pour aller chercher toutes les composantes dans le tableau
       for (let i = 0; i < componentNames.length; i++) {
         const componentName = componentNames[i];
 
