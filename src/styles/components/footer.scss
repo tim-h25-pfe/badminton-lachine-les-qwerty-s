@@ -150,9 +150,6 @@
             }
 
             flex-direction: column;
-            a {
-                text-decoration: underline;
-            }
             @media screen and (max-width: $breakpoint-sm) {
                 order: -1;
             }
@@ -160,7 +157,6 @@
     }
 
     .copyright {
-        //max-width: 400px;
         display: flex;
         align-items: flex-start;
         flex-direction: column;
