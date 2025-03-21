@@ -160,7 +160,7 @@ $table_prefix = 'wp_';
 
  */
 
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 
 
 

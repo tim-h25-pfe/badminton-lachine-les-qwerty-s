@@ -714,15 +714,6 @@ if ( !is_admin() ) {
     @ini_set('display_errors', 0); // Empêche l'affichage des erreurs PHP
 }
 
-
-add_action('admin_notices', function() {
-    if (current_user_can('administrator')) {
-        echo '<div class="notice notice-error"><pre>';
-        error_log(print_r(error_get_last(), true));
-        echo '</pre></div>';
-    }
-});
-
 function custom_add_menu_link() {
     add_menu_page(
         'Menus',                // Nom affiché dans le menu
