@@ -215,6 +215,9 @@
         --bar-spacer: 2px;
         --bar-width: 25px;
     }
+    &:hover {
+        --bar-spacer: 5px;
+    }
 
     background-color: transparent !important; /* Assure que le fond reste toujours transparent */
 
@@ -230,6 +233,7 @@
     justify-content: center;
     align-items: center;
     gap: var(--bar-spacer);
+    transition: all ease-out 0.3s;
 }
 
 .header__toggle span {
@@ -301,10 +305,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.bouton_inscription:hover {
-    opacity: 0.5;
     transition: 0.3s;
+    &:hover {
+        background-color: var(--color-black);
+    }
 }
 
 // Styles pour la barre de recherche
@@ -545,7 +549,7 @@
     .content_menu {
         display: grid;
         gap: 60px;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.6fr 1fr;
         @media screen and (max-width: $breakpoint-md) {
             margin: 0;
             align-items: flex-start;
@@ -769,6 +773,7 @@ a.underline {
             }
             p {
                 width: 70%;
+                font-size: #{typo(16px, 20px)};
             }
             @media screen and (max-width: $breakpoint-md) {
                 flex-direction: column;

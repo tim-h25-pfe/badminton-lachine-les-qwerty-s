@@ -18,7 +18,7 @@ a {
         }
         .fleche2 {
             transform: translateX(200%);
-            opacity: 0;
+            opacity: 1;
         }
     }
 }
@@ -133,7 +133,7 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-200%, -50%);
-    opacity: 0;
+    opacity: 1;
 }
 .fleche2 {
     transition: all 0.5s $ease-out-cubic;
