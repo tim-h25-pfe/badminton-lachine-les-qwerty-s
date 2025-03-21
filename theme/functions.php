@@ -723,3 +723,40 @@ add_action('admin_notices', function() {
     }
 });
 
+function custom_add_menu_link() {
+    add_menu_page(
+        'Menus',                // Nom affiché dans le menu
+        'Gérer les menus',      // Titre du menu
+        'edit_pages',           // Capacité minimale (Éditeur et supérieur)
+        'nav-menus.php',        // URL cible (page de gestion des menus)
+        '',                     // Fonction de callback (non nécessaire ici)
+        'dashicons-menu',       // Icône Dashicons pour le menu
+        3                       // Position (très haut dans la sidebar)
+    );
+}
+add_action('admin_menu', 'custom_add_menu_link');
+
+function custom_modify_editor_capabilities() {
+    $role = get_role('editor'); 
+    if ($role) {
+        // Autoriser la gestion des menus
+        if (!$role->has_cap('edit_theme_options')) {
+            $role->add_cap('edit_theme_options');
+        }
+
+        // Empêcher le changement de thème
+        if ($role->has_cap('switch_themes')) {
+            $role->remove_cap('switch_themes');
+        }
+    }
+}
+add_action('init', 'custom_modify_editor_capabilities');
+
+function remove_appearance_menu_for_editors() {
+    if (!current_user_can('manage_options')) { // Seuls les admins voient "Apparence"
+        remove_menu_page('themes.php');
+    }
+}
+add_action('admin_menu', 'remove_appearance_menu_for_editors', 999);
+
+

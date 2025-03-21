@@ -37,7 +37,7 @@
         </div>
                 <?php $image = get_sub_field('banner_image'); ?>
                  <?php if ($image): ?>
-                    <div class="push_media" data-scrolly="fromLeft">
+                    <div class="push_media" data-scrolly="fromRight">
                         <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">     
                     </div>
                 <?php endif ?>

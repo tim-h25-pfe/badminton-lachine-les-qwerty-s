@@ -106,12 +106,12 @@
                     <a href="<?php echo get_permalink($p->ID); ?>" class="btn_full">
                         <?php the_field('en_savoir_plus', 'options'); ?>
                         <div class="fleche-container">
-                           <svg class="icon">
-                            <use xlink:href="#icon-fleche"></use>
-                            </svg>
-                            <svg class="icon">
+                            <svg class="icon fleche1">
                                 <use xlink:href="#icon-fleche"></use>
-                            </svg> 
+                            </svg>
+                            <svg class="icon fleche2">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
                         </div>
                         
                     </a>
