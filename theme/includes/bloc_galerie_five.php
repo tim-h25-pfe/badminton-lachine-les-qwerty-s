@@ -3,7 +3,7 @@ $images = get_sub_field('five_galerie');
 if( $images ): ?>
     
 
-<section class="galerySwiper section">
+<section class="galerySwiper section" data-scrolly="fromBottom">
     <div class="wrapper">
         <div class="swiper js-swiper-gallerySwiper" data-component="Carousel" data-loop>
             <div class="swiper-wrapper">

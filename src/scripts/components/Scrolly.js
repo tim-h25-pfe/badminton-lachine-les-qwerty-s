@@ -11,7 +11,7 @@ export default class Scrolly {
 
   init() {
     this.setOptions();
-    console.log('scrolly marche');
+    //console.log('scrolly marche');
     const observer = new IntersectionObserver(
       this.watch.bind(this),
       this.options
@@ -35,13 +35,13 @@ export default class Scrolly {
       const entry = entries[i];
       const target = entry.target;
       if (entry.isIntersecting) {
-        console.log('oui');
+        //console.log('oui');
         target.classList.add('is-active');
         if (this.options.repeat == false) {
           observer.unobserve(target);
         }
       } else {
-        console.log('non');
+        //console.log('non');
         target.classList.remove('is-active');
       }
     }

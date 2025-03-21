@@ -46,7 +46,7 @@
                     <?php while ( $queryg->have_posts() ) : $queryg->the_post();
                     global $product; // Important pour accéder aux infos du produit 
                     ?>
-                        <div class="card news">   
+                        <div class="card news" data-scrolly="fromBottom">   
                             <div class="card__media">
                                 <?php 
                                 

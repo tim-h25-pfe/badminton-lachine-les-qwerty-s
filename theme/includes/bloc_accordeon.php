@@ -1,6 +1,6 @@
 <section class="accordeon section-color">
     <div class="wrapper">
-        <div class="title">
+        <div class="title" data-scrolly="fromLeft">
             <h2><?php the_sub_field('accordeon_section_title'); ?></h2>
             <div class="underline">
             <lottie-player
@@ -18,8 +18,8 @@
             <?php while( have_rows('accordeon_content') ): the_row(); ?>
                 <div class="accordion__container">
                     <div class="accordion__header">
-                        <h4><?php the_sub_field('accordeon_titre'); ?></h4>
-                        <div class="header__icons">
+                        <h4 data-scrolly="fromLeft"><?php the_sub_field('accordeon_titre'); ?></h4>
+                        <div data-scrolly="fromRight" class="header__icons">
                             <svg class="icon icon--sm icon-open">
                                 <use xlink:href="#icon-plus"></use>
                             </svg>
@@ -28,7 +28,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="accordion__content">
+                    <div class="accordion__content" data-scrolly="fromLeft">
                         <hr />
                         <?php the_sub_field('accordeon_paragraphe'); ?>
                     </div>

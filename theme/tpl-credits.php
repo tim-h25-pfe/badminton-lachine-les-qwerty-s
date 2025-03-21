@@ -13,7 +13,7 @@
 
                 <div class="block_description">
                     <div class="content">
-                        <div class="paragraphe">
+                        <div class="paragraphe" data-scrolly="fromLeft">
                             <p>
                             <?php the_field('credits_context'); ?>
                             </p>
@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="block_description">
-                    <div class="titre">
+                    <div class="titre" data-scrolly="fromLeft">
                         <h4><span><?php the_field('credits_titre'); ?></span></h4>
                         <hr />
                     </div>
@@ -35,7 +35,7 @@
 
                             <?php endwhile; ?>
                         <?php endif; ?>
-                            <p>
+                            <p data-scrolly="fromLeft">
                             <?php the_field('credits_remerciements'); ?>
                             </p>
                         </div>

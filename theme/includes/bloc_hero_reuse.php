@@ -9,12 +9,12 @@
 >
     <div class="hero_content">
         <div class="texte">
-            <h1><?php the_title(); ?></h1>
-            <p>
-            <?php the_content(); ?>
-            </p>
+            <h1 data-scrolly="fromLeft"><?php the_title(); ?></h1>
+            <div data-scrolly="fromLeft">
+                <?php the_content(); ?>
+            </div> 
         </div>
-        <div class="hero-img">
+        <div class="hero-img" data-scrolly="fromRight">
         <?php 
         if (has_post_thumbnail()) { ?>
             <?php the_post_thumbnail('full'); ?>

@@ -8,7 +8,7 @@
         $link_title = $link['title'];
         $link_target = $link['target'] ? $link['target'] : '_self';
         ?>
-        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_html( $link_target ); ?>" class="lien-contact">
+        <a data-scrolly="fromLeft" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_html( $link_target ); ?>" class="lien-contact">
             <div class="lien-contact__content">
                 <h4><?php the_sub_field('interact_surtitre'); ?></h4>
                 <div class="invite">

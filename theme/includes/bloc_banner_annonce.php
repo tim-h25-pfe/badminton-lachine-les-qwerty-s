@@ -1,7 +1,7 @@
 <section class="push">
     <div class="wrapper">
         <div class="push_content">
-            <div class="titre">
+            <div data-scrolly="fromLeft" class="titre">
                 <h4><?php the_sub_field('banner_titre'); ?></h4>
                 <div class="underline">
                     <lottie-player
@@ -12,7 +12,7 @@
                     </lottie-player>
                 </div>
             </div>
-            <p>
+            <p data-scrolly="fromLeft">
             <?php the_sub_field('banner_resume'); ?>
             </p>
             <?php 
@@ -22,7 +22,7 @@
                         $link_title = $link['title'];
                         $link_target = $link['target'] ? $link['target'] : '_self';
                         ?>
-                <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full">
+                <a data-scrolly="fromLeft" href="<?php echo esc_url( $link_url ); ?>" class="btn_full">
                     <?php echo esc_html( $link_title ); ?>
                     <div class="fleche-container">
                     <svg class="icon fleche1">
@@ -35,11 +35,11 @@
                 </a>
                 <?php endif; ?>
         </div>
-        <div class="push_media">
-        <?php $image = get_sub_field('banner_image'); ?>
+                <?php $image = get_sub_field('banner_image'); ?>
                  <?php if ($image): ?>
-                     <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
-                 <?php endif ?>
-        </div>
+                    <div class="push_media" data-scrolly="fromLeft">
+                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">     
+                    </div>
+                <?php endif ?>
     </div>
 </section>

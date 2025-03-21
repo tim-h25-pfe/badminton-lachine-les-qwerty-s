@@ -98,23 +98,29 @@
                 <?php $posts = get_field('job_other'); ?>
                 <?php if ($posts) : ?>
                 <?php foreach ($posts as $p) : // Utilisez $p, jamais $post (IMPORTANT) ?>
-                <div class="module-side">
+                <div class="module-side" data-scrolly="fromBottom">
                     <h5><?php echo get_the_title($p->ID); ?></h5>
                     <p>
                     <?php echo get_the_content($p->ID); ?>
                     </p>
                     <a href="<?php echo get_permalink($p->ID); ?>" class="btn_full">
                         <?php the_field('en_savoir_plus', 'options'); ?>
-                        <svg class="icon">
+                        <div class="fleche-container">
+                           <svg class="icon">
                             <use xlink:href="#icon-fleche"></use>
-                        </svg>
+                            </svg>
+                            <svg class="icon">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg> 
+                        </div>
+                        
                     </a>
                 </div>
                 <?php endforeach; ?>
                 <?php endif; ?>
 
                 <?php if( have_rows('repeat_avantages') ): ?>
-                <div class="module-side">
+                <div class="module-side" data-scrolly="fromBottom">
                     <h5><?php the_field('avantagous', 'options'); ?></h5>
                     <ul>
                     <?php while( have_rows('repeat_avantages') ): the_row(); ?>
@@ -125,7 +131,7 @@
                 <?php endif; ?>
 
                 <?php if (get_field('contact_mail')): ?>
-                <div class="module-side">
+                <div class="module-side" data-scrolly="fromBottom">
                     <h5><?php the_field('soumetsion', 'options'); ?></h5>
                     <p><?php the_field('contact_description'); ?></p>
                     <a href="mailto:<?php the_field('contact_mail'); ?>"><?php the_field('contact_mail'); ?></a>

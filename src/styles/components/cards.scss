@@ -44,6 +44,7 @@
         //height: fit-content;
         @media screen and (max-width: $breakpoint-lg) {
             border-radius: 20px;
+            grid-template-rows: 2fr 1fr;
         }
         @media screen and (max-width: $breakpoint-sm) {
             border-radius: 15px;

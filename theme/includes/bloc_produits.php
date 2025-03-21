@@ -9,7 +9,7 @@ $the_category = get_sub_field('products_type');
 
 <section class="section section-color services service_background">
     <div class="wrapper">
-        <div class="title_section">
+        <div class="title_section" data-scrolly="fromLeft">
             <div class="title">
             <h2><?php the_sub_field('products_titre'); ?></h2>
             <div class="underline">
@@ -66,7 +66,7 @@ $the_category = get_sub_field('products_type');
         }
         ?>
 
-            <div class="service_no_hover">
+            <div data-scrolly="fromBottom" class="service_no_hover">
                 <div class="service__media">
                     <?php 
                 if (has_post_thumbnail()) { 

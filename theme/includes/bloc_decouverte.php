@@ -17,8 +17,8 @@ $the_label = $titre;
     <div class="wrapper">
         <div class="content">
             <div class="infos">
-                <h3><?php the_sub_field('decouverte_titre'); ?></h3>
-                <p>
+                <h3 data-scrolly="fromLeft"><?php the_sub_field('decouverte_titre'); ?></h3>
+                <p data-scrolly="fromLeft">
                 <?php the_sub_field('decouverte_description'); ?>
                 </p>
                 <?php 
@@ -28,7 +28,7 @@ $the_label = $titre;
                     $link_title = $link['title'];
                     $link_target = $link['target'] ? $link['target'] : '_self';
                     ?>
-                    <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full btn_white">
+                    <a data-scrolly="fromLeft" href="<?php echo esc_url( $link_url ); ?>" class="btn_full btn_white">
                     <?php echo esc_html( $link_title ); ?>
                         <div class="fleche-container">
                             <svg class="icon fleche1">
@@ -42,7 +42,7 @@ $the_label = $titre;
                     <?php endif; ?>
                 
             </div>
-            <div class="btn_nav">
+            <div data-scrolly="fromLeft" class="btn_nav">
                 <div class="swiper-button-prev">
                     <svg class="icon btn_circled btn_round btn_white">
                         <use xlink:href="#icon-fleche"></use>
@@ -72,7 +72,7 @@ $the_label = $titre;
         <?php if ( $queryg->have_posts() ) : ?>
 
 
-        <div class="swiper js-swiper-coursPrives" data-component="Carousel" data-loop>
+        <div data-scrolly="fromRight" class="swiper js-swiper-coursPrives" data-component="Carousel" data-loop>
 
             <div class="swiper-wrapper">
             <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>

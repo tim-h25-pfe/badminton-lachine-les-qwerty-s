@@ -197,21 +197,21 @@ global $product; // Récupérer l'objet produit global
             <div class="sidebar">
                 
                 <?php if (get_field('product_description')): ?>
-                <div class="module-side">
+                <div class="module-side" data-scrolly="fromBottom">
                     <h6><?php the_field('decript-service', 'options'); ?></h6>
                     <?php the_field('product_description'); ?>
                 </div>
                 <?php endif; ?>
                 
                 <?php if (get_field('product_procedures')): ?>
-                <div class="module-side">
+                <div class="module-side" data-scrolly="fromBottom">
                     <h6><?php the_field('procedures', 'options'); ?></h6>
                     <?php the_field('product_procedures'); ?>
                 </div>
                 <?php endif; ?>
                
                 <?php if (get_field('product_degagement')): ?>
-                <div class="module-side">
+                <div class="module-side" data-scrolly="fromBottom">
                     <h6><?php the_field('degae', 'options'); ?></h6>
                     <?php the_field('product_degagement'); ?>
                 </div>

@@ -1,7 +1,7 @@
 <?php 
 $images = get_sub_field('full_galerie');
 if( $images ): ?>
-<section class="fullGallerySwiper section">
+<section class="fullGallerySwiper section" data-scrolly="fromBottom">
     <div class="swiper js-swiper-fullGallerySwiper" data-component="Carousel" data-loop>
         <div class="swiper-wrapper">
         <?php foreach( $images as $image_id ): ?>

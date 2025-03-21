@@ -8,22 +8,22 @@
     <div class="wrapper">
         <div class="contact_grid">
             <div class="contact_contenu">
-                <h3><?php the_title(); ?></h3>
+                <h3 data-scrolly="fromLeft"><?php the_title(); ?></h3>
                 <?php if (get_field('contact_message')): ?>
-                    <div class="contenu_description">
+                    <div data-scrolly="fromLeft" class="contenu_description">
                     <p><?php the_field('contact_message'); ?></p>
                     </div>
                 <?php endif; ?>
                 
 
                 <?php if (get_field('footer_mail', 'options')): ?>
-                <div class="contact_courriel">
+                <div class="contact_courriel" data-scrolly="fromLeft">
                     <h6><?php the_field('courriel_courriel', 'options'); ?></h6>
                     <a href="mailto:<?php the_field('footer_mail', 'options'); ?>" target="_blank"><?php the_field('footer_mail', 'options'); ?></a>
                 </div>
                 <?php endif; ?>
                 <?php if (get_field('footer_adress', 'options')): ?>
-                <div class="contact_adresse">
+                <div class="contact_adresse" data-scrolly="fromLeft">
                     <h6><?php the_field('adress_club', 'options'); ?></h6>
                     <p>
                     <?php 
@@ -40,7 +40,7 @@
                 <?php endif; ?>
 
                 <?php if ( have_rows('contact_links') ): ?>
-                <div class="contact_liens">
+                <div class="contact_liens" data-scrolly="fromLeft">
                     <h6><?php the_field('voici_a_link', 'options'); ?> :</h6>
                     <div class="liens">
                         <ul>
@@ -61,7 +61,7 @@
                 <?php endif; ?>
             </div>
 
-            <div class="contact_formulaire">
+            <div class="contact_formulaire" data-scrolly="fromRight">
                 <form class="contact_form">
                 <?php the_field('contact_embed') ?>
                 </form>

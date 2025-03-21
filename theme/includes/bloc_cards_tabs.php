@@ -52,7 +52,7 @@ endif;
     <div class="wrapper">
 
         <div class="top">
-            <div class="title">
+            <div class="title" data-scrolly="fromLeft">
                 <h2><?php the_sub_field('tabs_title'); ?></h2>
                 <div class="underline">
                     <lottie-player
@@ -66,7 +66,7 @@ endif;
 
 
             <?php if (!empty($terms) && !is_wp_error($terms)) : ?>
-            <nav>
+            <nav data-scrolly="fromRight">
                 <ul>
                      <?php if ($the_post_type == 'new' || $the_post_type == 'event') : ?>
                         <li>
@@ -130,7 +130,7 @@ endif;
                             $all_category = "No category";
                         }
                         ?>
-                    <div class="card">
+                    <div class="card" data-scrolly="fromBottom">
                         <div class="card__top">
                             <h5 class="h6"><?php the_title(); ?></h5>
                             <p><?php the_sub_field('tabs_description'); ?></p>
@@ -181,7 +181,7 @@ endif;
                         $cat_class = "old";
                     ?>
 
-                    <div class="card news <?php echo $cat_class ?>">
+                    <div class="card news <?php echo $cat_class ?>" data-scrolly="fromBottom">
                         <p class="btn_full tag"><?php echo esc_html($term->name); ?></p>
                         <div class="card__media">
                             <?php 
@@ -210,7 +210,7 @@ endif;
                     </div>
                     
                     <?php else : ?>
-                        <div class="card news">
+                        <div class="card news" data-scrolly="fromBottom">
                             <p class="btn_full tag"><?php echo $all_category ?></p>
                             <div class="card__media">
                                 <?php 
@@ -244,7 +244,7 @@ endif;
             <div class="grid carousel-tarif js-swiper-cardSwiper" data-component="Carousel"
                 data-centered
                 data-coverflow>
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper" data-scrolly="fromBottom">
                     <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
                     <?php
                         // Récupérer la catégorie personnalisée du post
@@ -418,7 +418,7 @@ endif;
 
           <div class="grid grid-tarif">
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-                <div class="card">
+                <div class="card" data-scrolly="fromBottom">
                     <div class="card__top">
                         <h5><?php the_title(); ?></h5>
                         <p><?php the_field('tabs_description'); ?></p>
@@ -463,7 +463,7 @@ endif;
                     <?php endif; ?>
                     </div>
                 </div>
-                    <div class="card news">
+                    <div class="card news" data-scrolly="fromBottom">
                         <p class="btn_full tag"><?php echo esc_html($term->name); ?></p>
                         <div class="card__media">
                             <?php 
@@ -498,7 +498,7 @@ endif;
                 data-centered
                 data-coverflow>
                 
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" data-scrolly="fromBottom">
                         <?php 
                         while ( $query->have_posts() ) : $query->the_post(); ?>
                          <div class="swiper-slide">

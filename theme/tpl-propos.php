@@ -10,7 +10,7 @@
     
 <section class="missions">
     <div class="wrapper">
-        <div class="title">
+        <div class="title" data-scrolly="fromLeft">
             <h2>Missions</h2>
             <div class="underline">
             <lottie-player
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="missions_grid">
+        <div class="missions_grid" data-scrolly="fromBottom">
         <?php while (have_rows('propos_missions')) : the_row(); ?>
             <div class="mission">
                 <h1><?php the_sub_field('propos_number') ?></h1>

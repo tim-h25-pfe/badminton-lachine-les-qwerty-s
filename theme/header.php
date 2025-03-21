@@ -37,7 +37,7 @@ if($bool == 0){
 
 </head>
 
-<body data-component="NameLotties">
+<body data-component="NameLotties, Scrolly" data-no-repeat>
 <div class="background">
     <div class="overlay"></div>
 

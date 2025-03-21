@@ -21,15 +21,15 @@ if( $list_type ) {
 <div class="text-list">
     <div class="titre">
     <?php if( $list_slug != "list_employee" ): ?>
-        <h4><?php the_sub_field('text_list_titre'); ?></h4>
+        <h4 data-scrolly="fromLeft"><?php the_sub_field('text_list_titre'); ?></h4>
     <?php else: ?>
-        <h4><?php echo $employee_label ?></h4>
+        <h4 data-scrolly="fromLeft"><?php echo $employee_label ?></h4>
     <?php endif; ?>
-        <hr />
+        <hr data-scrolly="fromLeft" />
     </div>
     <div class="content">
     <?php if( $content_type == "text" ): ?>
-        <div class="paragraphe">
+        <div class="paragraphe" data-scrolly="fromLeft">
         <?php the_sub_field('contenu_texte'); ?>
         </div>
     <?php endif; ?>
@@ -65,7 +65,7 @@ if( $list_type ) {
             
             <ul class="employees">
             <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
-                <li>
+                <li data-scrolly="fromRight">
                     <?php
                         $mail = get_field('employee_mail');
                      if ( $mail ) : ?>
@@ -101,7 +101,7 @@ if( $list_type ) {
             <?php if( have_rows('text_repeat_liste') ): ?>
                 <ul class="employees">
                 <?php while( have_rows('text_repeat_liste') ): the_row(); ?> 
-                    <li><?php the_sub_field('list_element'); ?></li>
+                    <li data-scrolly="fromRight"><?php the_sub_field('list_element'); ?></li>
                 <?php endwhile; ?>
                 </ul>
             <?php endif; ?>

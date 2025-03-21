@@ -64,10 +64,10 @@
                     data-component="Lottie"
                 >
                 </lottie-player>
-                <h4>
+                <h4 data-scrolly="fromLeft">
                 <?php the_field('accueil_propos_qui') ?>
                 </h4>
-                <p><?php the_field('accueil_propos_description') ?></p>
+                <p data-scrolly="fromRight"><?php the_field('accueil_propos_description') ?></p>
                 <?php 
                 $link = get_field('accueil_propos_link');
                 if( $link ): 

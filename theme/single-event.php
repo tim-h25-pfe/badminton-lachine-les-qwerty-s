@@ -5,7 +5,7 @@
         <div class="grid-container">
             <div class="main-content">
                 <div class="module module-header">
-                    <div class="sous-titre">
+                    <div class="sous-titre" data-scrolly="fromLeft">
                         
                         <?php
                         // Récupérer les termes associés à l'article pour la taxonomie personnalisée 'ma_taxonomie'
@@ -21,10 +21,12 @@
                         }
                         ?>
                     </div>
-                    <h3><?php the_title(); ?></h3>
+                    <h3 data-scrolly="fromLeft"><?php the_title(); ?></h3>
                     <?php the_post_thumbnail('full'); ?>
                 </div>
-                <?php the_content(); ?>
+                <div data-scrolly="fromLeft">
+                   <?php the_content(); ?> 
+                </div>
                 <?php 
                     $link = get_field('header_subscribe', 'options');
                     if( $link ): 

@@ -62,7 +62,7 @@ if($the_post_type == "new"){
 <section class="section section-color nouvelles">
     <div class="wrapper">
         <div class="title_section">
-            <div class="title">
+            <div class="title" data-scrolly="fromLeft">
                 <h2><?php the_sub_field('vedette_titre'); ?></h2>
                 <div class="underline">
                     <lottie-player
@@ -80,7 +80,7 @@ if($the_post_type == "new"){
                 $link_title = $link['title'];
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
-                <a class="btn_full btn_white btn_top" href="<?php echo esc_url( $link_url ); ?>"
+                <a data-scrolly="fromRight" class="btn_full btn_white btn_top" href="<?php echo esc_url( $link_url ); ?>"
                     ><?php echo esc_html( $link_title ); ?>
                     <div class="fleche-container">
                         <svg class="icon fleche1">
@@ -123,7 +123,7 @@ if($the_post_type == "new"){
         $queryg = new WP_Query( $argsglobal );
         ?>
         <?php if ( $queryg->have_posts() ) : ?>
-            <div class="cards">
+            <div class="cards" data-scrolly="fromBottom">
             <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
             <div class="card">
                 <?php
@@ -178,7 +178,7 @@ if($the_post_type == "new"){
             $link_title = $link['title'];
             $link_target = $link['target'] ? $link['target'] : '_self';
             ?>
-            <a class="btn_full btn_white btn_bottom" href="<?php echo esc_url( $link_url ); ?>"
+            <a data-scrolly="fromLeft" class="btn_full btn_white btn_bottom" href="<?php echo esc_url( $link_url ); ?>"
                 ><?php echo esc_html( $link_title ); ?>
                 <div class="fleche-container">
                     <svg class="icon fleche1">

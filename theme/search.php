@@ -34,7 +34,7 @@ $search = new WP_Query( $search_query );
         $the_query->the_post();
                  ?>
 
-            <div class="search_result">
+            <div class="search_result" data-scrolly="fromBottom">
                 <div class="result__media">
                 <?php 
                 if (has_post_thumbnail()) { 

@@ -53,7 +53,7 @@ if($the_post_type == "new"){
 <section class="section services">
     <div class="wrapper">
         <div class="title_section">
-            <div class="title">
+            <div class="title" data-scrolly="fromLeft">
                 <h2><?php the_sub_field('titre_zoom'); ?></h2>
                 <div class="underline">
                     <lottie-player
@@ -71,7 +71,7 @@ if($the_post_type == "new"){
                 $link_title = $link['title'];
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
-                <a class="btn_full btn_top" href="<?php echo esc_url( $link_url ); ?>"
+                <a data-scrolly="fromRight" class="btn_full btn_top" href="<?php echo esc_url( $link_url ); ?>"
                     ><?php echo esc_html( $link_title ); ?>
                     <div class="fleche-container">
                         <svg class="icon fleche1">
@@ -116,7 +116,7 @@ if($the_post_type == "new"){
 
         <?php if ( $queryg->have_posts() ) : ?>
 
-        <div class="grid-services">
+        <div class="grid-services" data-scrolly="fromLeft">
 
         <?php while ( $queryg->have_posts() ) : $queryg->the_post(); ?>
 
@@ -186,8 +186,9 @@ if($the_post_type == "new"){
         data-loop
         data-centered
         data-coverflow
+        data-scrolly="fromBottom"
     >
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper" >
 
 
             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
@@ -238,7 +239,7 @@ if($the_post_type == "new"){
             $link_title = $link['title'];
             $link_target = $link['target'] ? $link['target'] : '_self';
             ?>
-            <a class="btn_full btn_bottom" href="<?php echo esc_url( $link_url ); ?>"
+            <a data-scrolly="fromLeft" class="btn_full btn_bottom" href="<?php echo esc_url( $link_url ); ?>"
                 ><?php echo esc_html( $link_title ); ?>
                 <svg class="icon">
                     <use xlink:href="#icon-fleche"></use>
