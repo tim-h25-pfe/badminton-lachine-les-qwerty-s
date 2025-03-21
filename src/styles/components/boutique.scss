@@ -1,0 +1,51 @@
+.boutique.cards-category {
+    .cards.news {
+        display: block;
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 77px;
+            @media screen and (max-width: 1460px) {
+                grid-template-columns: 1fr 1fr;
+            }
+            @media screen and (max-width: 800px) {
+                grid-template-columns: 1fr;
+                .card.news {
+                    width: 100%;
+                    .card__media {
+                        width: 100%;
+                    }
+                    p {
+                        font-size: 20px;
+                    }
+                }
+            }
+            .card.news {
+                height: 100%;
+            }
+        }
+    }
+}
+
+.commande {
+    a.btn_full {
+        margin-bottom: 70px;
+        margin-top: -50px;
+        .fleche-container {
+            transform: rotateZ(180deg);
+            order: -1;
+        }
+    }
+}
+
+.panier {
+    cursor: pointer;
+}
+
+.content-module.acheter {
+    margin-top: 40px;
+}
+
+.module.extra-space.product {
+    border-bottom: 1px solid var(--color-gray);
+}

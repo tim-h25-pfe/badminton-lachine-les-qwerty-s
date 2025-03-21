@@ -5,16 +5,18 @@ export default class Scrolly {
       rootMargin: '0px',
       repeat: true,
     };
+
     this.init();
   }
 
   init() {
     this.setOptions();
-
+    //console.log('scrolly marche');
     const observer = new IntersectionObserver(
       this.watch.bind(this),
       this.options
     );
+
     const items = this.element.querySelectorAll('[data-scrolly]');
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
@@ -33,11 +35,13 @@ export default class Scrolly {
       const entry = entries[i];
       const target = entry.target;
       if (entry.isIntersecting) {
+        //console.log('oui');
         target.classList.add('is-active');
-        if ('noRepeat' in target.dataset) {
+        if (this.options.repeat == false) {
           observer.unobserve(target);
         }
       } else {
+        //console.log('non');
         target.classList.remove('is-active');
       }
     }

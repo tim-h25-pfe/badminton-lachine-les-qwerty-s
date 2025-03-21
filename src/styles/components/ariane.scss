@@ -1,0 +1,103 @@
+.ariane-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    position: sticky;
+    top: 20%;
+    @media screen and (max-width: $breakpoint-md) {
+        gap: 50px;
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+        display: none;
+    }
+
+    @media screen and (max-width: $breakpoint-xs) {
+        display: none;
+    }
+    div {
+        transition: all ease-out 0.3s;
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+        padding-left: 5%;
+        text-align: right;
+        align-items: center;
+        justify-items: end;
+        gap: 10px;
+        hr {
+            transition: all ease-out 0.5s;
+            width: 100%;
+            margin: 0;
+            opacity: 0;
+            margin-left: 20px;
+        }
+        a {
+            font-weight: 500;
+            opacity: 0.4;
+            text-transform: none;
+            transition: all ease-out 0.5s;
+            &.active {
+                opacity: 1;
+                // color: var(--color-interactive);
+            }
+        }
+    }
+    div:has(> a.active) {
+        padding: 0;
+        gap: 30px;
+        hr {
+            opacity: 1;
+            border: 1px solid var(--color-black);
+        }
+    }
+}
+
+[data-ariane-section] {
+    scroll-margin-top: 30vh;
+}
+
+// css projet associatif
+.side_menu_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 162px;
+    position: relative;
+
+    @media screen and (max-width: 1450px) {
+        padding-right: 5%;
+        gap: 100px;
+    }
+    @media screen and (max-width: 850px) {
+        grid-template-columns: 1fr;
+        padding: 0 10%;
+        gap: 0;
+        .ariane-nav {
+            display: none;
+        }
+    }
+}
+
+.side_menu {
+    width: fit-content;
+}
+
+.block_description {
+    .titre {
+        h4 {
+            font-weight: 600;
+            margin-bottom: 30px;
+            margin-top: 75px;
+        }
+        hr {
+            border: solid 1px black;
+            margin-bottom: 90px;
+            @media screen and (max-width: 850px) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    span {
+        font-weight: 700;
+    }
+}

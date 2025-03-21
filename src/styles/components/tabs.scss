@@ -1,0 +1,393 @@
+// styles pour les cartes cancer
+
+.cards-category {
+    transition: all 0.3s ease-out;
+    div.active {
+        display: flex;
+        justify-content: center;
+        @media screen and (max-width: $breakpoint-lg) {
+            flex-direction: column;
+            align-items: center;
+            @media screen and (max-width: $breakpoint-md) {
+                align-items: initial;
+            }
+        }
+        .grid {
+            display: grid;
+            transform: translateY(0);
+            transition: all ease-out 0.3s;
+            &.grid-tarif {
+                @media screen and (max-width: $breakpoint-md) {
+                    display: none;
+                }
+            }
+            &.carousel-tarif {
+                display: none;
+                @media screen and (max-width: $breakpoint-md) {
+                    display: block;
+                }
+            }
+        }
+    }
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 50px;
+        @media screen and (max-width: $breakpoint-md) {
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            align-items: flex-start;
+            @media screen and (max-width: $breakpoint-sm) {
+                padding: 0;
+            }
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 70px;
+            @media screen and (max-width: $breakpoint-sm) {
+                gap: var(--spacing-md);
+            }
+            .btn_circled {
+                cursor: pointer;
+                color: var(--color-black);
+                opacity: 50%;
+                text-transform: none;
+                font-weight: 600;
+                position: relative;
+
+                &::after {
+                    background-color: var(--color-black);
+                    content: '';
+                    height: 3px;
+                    width: 0%;
+                    border-radius: 2px;
+                    position: absolute;
+                    left: 0;
+                    display: none;
+                }
+                .icon {
+                    color: var(--color-interactive);
+                    transform: scale(700%);
+                    top: 20%;
+                    left: 40%;
+                    width: 20px;
+                    display: none;
+                    overflow: visible;
+                    @media screen and (max-width: $breakpoint-sm) {
+                        transform: scale(400%);
+                    }
+                }
+                &:hover {
+                    opacity: 100%;
+                }
+                &.active {
+                    color: var(--color-black);
+                    opacity: 100%;
+                    .icon {
+                        display: block;
+                    }
+                    &::after {
+                        display: block;
+                        width: 66%;
+                    }
+                }
+            }
+        }
+    }
+    .cards {
+        margin-top: 80px;
+        @media screen and (max-width: $breakpoint-xs) {
+            margin-top: 40px;
+        }
+        .grid {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            @media screen and (max-width: $breakpoint-lg) {
+                grid-template-columns: 1fr 1fr 1fr;
+                @media screen and (max-width: $breakpoint-md) {
+                    grid-template-columns: 1fr 1fr;
+                    @media screen and (max-width: $breakpoint-sm) {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            }
+            gap: 70px 40px;
+        }
+
+        display: none;
+        transition: all 0.3s ease-out;
+        ::before {
+            transform: translateY(180px);
+        }
+
+        .card {
+            box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.25);
+            padding: 25px 15px;
+
+            overflow: hidden;
+            gap: 50px;
+            transition: all 0.5s $ease-out-cubic;
+            transform: translateY(0);
+
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-direction: column;
+            height: 100%;
+            border: 2px solid var(--color-white);
+            @media screen and (max-width: $breakpoint-md) {
+                border: 2px solid var(--color-black);
+                width: fit-content;
+                padding: 20px 10px;
+                border-radius: 20px;
+            }
+            .card__top {
+                p {
+                    font-weight: 500;
+                }
+                .prices {
+                    margin-top: 25px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    width: 100%;
+                    @media screen and (max-width: $breakpoint-md) {
+                        gap: 10px;
+                    }
+                    div.price {
+                        display: flex;
+                        width: 100%;
+                        align-items: baseline;
+                        justify-content: flex-start;
+                        gap: 15px;
+                        p {
+                            color: gray;
+                        }
+                        p.price {
+                            transition: all ease-out 0.3s;
+                            padding: 0;
+
+                            color: var(--color-primary);
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+
+            .card__bottom {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                transition: all 0.3s $ease-out-cubic;
+                transform: translateY(70px);
+                @media screen and (max-width: $breakpoint-md) {
+                    transform: translateY(0);
+                }
+                p {
+                    font-weight: 500;
+                }
+                p.details {
+                    font-weight: 600;
+                    width: 100%;
+                }
+                div.details {
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                .detail {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: var(--color-black);
+                }
+                .btn_full {
+                    transform: translateY(150px);
+
+                    color: var(--color-white);
+                    background-color: var(--color-black);
+                    border-radius: 10px;
+                    padding: 10px 30px;
+                    transition: all ease-out 0.3s;
+                    margin-top: 25px;
+                    @media screen and (max-width: $breakpoint-md) {
+                        transform: translateY(0);
+                    }
+                }
+            }
+            &:hover {
+                transform: translateY(-20px);
+                border: 2px solid var(--color-black);
+                @media screen and (max-width: $breakpoint-md) {
+                    transform: translateY(0);
+                }
+                .card__top {
+                    div.prices {
+                        div.price {
+                            p.price {
+                                color: var(--color-black);
+                            }
+                        }
+                    }
+                }
+                .card__bottom {
+                    transform: translateY(0);
+                }
+                .btn_full {
+                    transform: translateY(0);
+                    background-color: var(--color-primary);
+                    &:hover {
+                        background-color: var(--color-black);
+                    }
+                }
+            }
+        }
+
+        .carousel-tarif {
+            .card {
+                width: 70%;
+            }
+        }
+
+        .news {
+            display: none;
+        }
+    }
+    .cards.news {
+        display: none;
+        justify-content: space-evenly;
+        gap: 40px;
+        &.active {
+            display: flex;
+        }
+        .card {
+            display: none;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 77px;
+        }
+        .card.news {
+            // aspect-ratio: 1/1;
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: 1.5fr 1fr;
+            //height: fit-content;
+
+            // ajustements vs la classe pour les tarifs
+            padding: 0;
+            gap: 0;
+            border: none;
+            height: fit-content;
+
+            .tag {
+                background-color: var(--color-black);
+                padding: 1px 25px;
+            }
+
+            .card__media {
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    transition: all 0.5s $ease-out-cubic;
+                    aspect-ratio: 1.5/1;
+                }
+            }
+            .card__content {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                padding: var(--spacing-md);
+                height: fit-content;
+                width: 100%;
+                height: 100%;
+                background-color: var(--color-terciary);
+                color: var(--color-white);
+                z-index: 3;
+                position: relative;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                .text {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    h5 {
+                        font-weight: 600;
+                    }
+                }
+                .btn_full {
+                    color: var(--color-black);
+                }
+            }
+
+            .fleche-container {
+                margin: 0;
+            }
+
+            &:hover {
+                transform: translateY(0px);
+
+                .btn_full {
+                    transform: translateY(0);
+                    background-color: var(--color-white);
+                }
+                .fleche1 {
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }
+                .fleche2 {
+                    transform: translateX(200%);
+                    opacity: 0;
+                }
+                .card__media img {
+                    transform: scale(1.05);
+                }
+
+                .tag {
+                    background-color: var(--color-black);
+                }
+            }
+
+            &.old {
+                filter: grayscale(100%);
+                p,
+                a,
+                h5 {
+                    opacity: 0.7;
+                }
+            }
+        }
+        .carousel-tarif .card.news {
+            .card__content {
+                height: fit-content;
+                width: auto;
+            }
+            background-color: var(--color-terciary);
+        }
+    }
+}
+
+.i {
+    border: 2px solid var(--color-black);
+    border-radius: 50%;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

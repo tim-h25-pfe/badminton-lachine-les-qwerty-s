@@ -1,0 +1,287 @@
+.bloc-article {
+    background-color: #e9e9e9;
+    padding: 80px 0;
+    .grid-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--spacing-xl);
+        @media screen and (max-width: $breakpoint-lg) {
+            gap: var(--spacing-lg);
+            @media screen and (max-width: $breakpoint-md) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        ul {
+            margin: 0;
+        }
+        span {
+            font-weight: 650;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            border-radius: 30px;
+            padding: var(--spacing-lg);
+            height: fit-content;
+            background-color: var(--color-white);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+            @media screen and (max-width: $breakpoint-md) {
+                padding: var(--spacing-md) var(--spacing-sm);
+                border-radius: 20px;
+                gap: var(--spacing-md);
+            }
+            .module {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-lg);
+                &.extra-space {
+                    // padding: var(--spacing-md) 0 0 0;
+                }
+                &.product {
+                    padding-bottom: 5%;
+                }
+                @media screen and (max-width: $breakpoint-md) {
+                    gap: var(--spacing-md);
+                }
+            }
+            h5 {
+                font-weight: 650;
+            }
+            .module-header {
+                gap: var(--spacing-sm);
+                .module-header-section {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--spacing-sm);
+                    .icon {
+                        color: var(--color-primary);
+                    }
+                }
+            }
+            .contact_grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            height: fit-content;
+            position: sticky;
+            top: 10%;
+            .module-side {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-md);
+                border-radius: 30px;
+                padding: var(--spacing-lg);
+                background-color: var(--color-white);
+                box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+            }
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-md) {
+        padding: 0;
+    }
+}
+
+body:has(.bloc-article) {
+    background-color: var(--color-gray);
+}
+
+// article nouvelle
+.nouvelle {
+    .module-header {
+        .sous-titre {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            .btn_full {
+                border-radius: 50px;
+                padding: 10px 40px;
+            }
+            @media screen and (max-width: $breakpoint-md) {
+                gap: 20px;
+            }
+        }
+        img {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+    }
+    .cards-nouvelles {
+        grid-template-columns: 1fr;
+        @media screen and (max-width: $breakpoint-md) {
+            grid-template-columns: 1fr 1fr;
+            @media screen and (max-width: $breakpoint-sm) {
+                grid-template-columns: 1fr;
+            }
+        }
+        .card {
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        .card__content {
+            background-color: var(--color-white);
+            .btn_full {
+                background-color: var(--color-black);
+                color: var(--color-white);
+            }
+        }
+    }
+}
+
+// article service
+.service-single {
+    .grid-container {
+        grid-template-columns: 2fr 1fr;
+        @media screen and (max-width: $breakpoint-md) {
+            grid-template-columns: 1fr;
+        }
+        h6 {
+            font-weight: 650;
+        }
+        .main-content {
+            order: -1;
+            position: sticky;
+            top: 10%;
+            @media screen and (max-width: $breakpoint-md) {
+                order: 1;
+            }
+            .product {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                @media screen and (max-width: $breakpoint-md) {
+                    grid-template-columns: 1fr;
+                }
+                .product__media {
+                    img {
+                        aspect-ratio: 1/1.1;
+                        border-radius: 15px;
+                        object-fit: cover;
+                    }
+                }
+                .product__content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: var(--spacing-md);
+                    .content-module {
+                        display: flex;
+                        flex-direction: column;
+                        gap: var(--spacing-sm);
+                        .champTexte {
+                            padding: var(--spacing-sm) var(--spacing-sm);
+                            border-radius: 15px;
+                            border: none;
+                            background-color: var(--color-gray);
+                        }
+                        select.btn_full {
+                            cursor: pointer;
+                            -webkit-appearance: none; /* Supprimer la flèche par défaut sur Safari */
+                            -moz-appearance: none; /* Supprimer la flèche par défaut sur Firefox */
+                            appearance: none; /* Supprimer la flèche par défaut sur Chrome et autres */
+                            &:focus {
+                                outline: none; /* Supprime la bordure de focus */
+                                border: none; /* Supprime la bordure (si elle est définie) */
+                            }
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border: 0px;
+                            option {
+                                /* Modifier l'effet de survol des options */
+                                &:hover {
+                                    background-color: var(
+                                        --color-interactive
+                                    ); /* Exemple de fond au survol (vous pouvez changer la couleur) */
+                                    color: var(
+                                        --color-black
+                                    ); /* Exemple de couleur du texte au survol */
+                                }
+                            }
+                        }
+                        .champSelect {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            background-color: var(--color-gray);
+                            color: var(--color-black);
+                            border-radius: 20px;
+                            padding: 5px 15px;
+                            @media screen and (max-width: $breakpoint-sm) {
+                                border-radius: 10px;
+                                padding: 5px 10px;
+                            }
+                            .btn_full {
+                                background-color: var(--color-gray);
+                                color: var(--color-black);
+                            }
+                            &:hover {
+                                .icone {
+                                    transform: rotate(270deg);
+                                }
+                            }
+                        }
+                        .icone {
+                            transition: all ease-out 0.3s;
+                            //color: var(--color-white);
+                            //background-color: var(--color-black);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transform: rotate(90deg);
+                        }
+                        &.acheter {
+                            flex-direction: row;
+                            align-items: center;
+                            .panier {
+                                border-radius: 15px;
+                                padding: 18.5px 22.5px;
+                                background-color: var(--color-black);
+                                color: var(--color-white);
+
+                                @media screen and (max-width: $breakpoint-md) {
+                                    border-radius: 10px;
+                                    padding: 9.25px 11.25px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .carateristics {
+                @media screen and (max-width: $breakpoint-md) {
+                    gap: 40px;
+                }
+                .caracteristics-list {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: var(--spacing-md);
+                    row-gap: var(--spacing-lg);
+                    @media screen and (max-width: $breakpoint-md) {
+                        grid-template-columns: 1fr;
+                        row-gap: var(--spacing-md);
+                    }
+                }
+                .caracteristic {
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--spacing-sm);
+                }
+            }
+        }
+        .sidebar {
+            order: 1;
+            position: sticky;
+            top: 10%;
+            @media screen and (max-width: $breakpoint-md) {
+                order: 2;
+            }
+        }
+    }
+}

@@ -1,0 +1,144 @@
+.about {
+    .bigCard {
+        .about__content {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            padding: var(--spacing-xl) var(--spacing-xxl) var(--spacing-lg)
+                var(--spacing-xxl);
+            background-color: var(--color-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            text-align: center;
+            color: var(--color-white);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            @media screen and (max-width: $breakpoint-lg) {
+                padding: var(--spacing-lg) var(--spacing-xl);
+                @media screen and (max-width: $breakpoint-md) {
+                    padding: 130px 20px 40px 20px;
+                    gap: var(--spacing-md);
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
+                }
+            }
+            a.btn_outline {
+                transition: all ease-out 0.3s;
+                &:hover {
+                    background-color: var(--color-white);
+                    color: var(--color-primary);
+                }
+            }
+
+            p {
+                width: 60%;
+                @media screen and (max-width: $breakpoint-md) {
+                    width: 75%;
+                    @media screen and (max-width: $breakpoint-sm) {
+                        width: 90%;
+                    }
+                }
+            }
+            h4 {
+                width: 90%;
+            }
+            .traceVolant {
+                width: fit-content;
+                position: absolute;
+                top: -7%;
+                left: -1%;
+                height: 115%;
+                font-size: 25rem;
+                @media screen and (max-width: $breakpoint-md) {
+                    left: 0;
+                    height: 35%;
+                    transform: rotate(50deg);
+                }
+            }
+            .volantBlanc {
+                position: absolute;
+                top: -10%;
+                right: 0;
+                height: 100%;
+                width: fit-content;
+                @media screen and (max-width: $breakpoint-lg) {
+                    height: 75%;
+                    @media screen and (max-width: $breakpoint-xmd) {
+                        top: -5%;
+                        height: 30%;
+                    }
+                }
+            }
+        }
+        .about__stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            @media screen and (max-width: $breakpoint-md) {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 30px;
+            }
+            align-items: center;
+            border: 1px solid var(--color-black);
+            border-width: 0 2px 2px 2px;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            @media screen and (max-width: $breakpoint-md) {
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                border-width: 0 1px 1px 1px;
+            }
+            @media screen and (max-width: $breakpoint-sm) {
+                padding: 20px;
+            }
+            .stat {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: var(--spacing-xs);
+                @media screen and (max-width: $breakpoint-md) {
+                    gap: var(--spacing-xs);
+                    @media screen and (max-width: $breakpoint-sm) {
+                    }
+                }
+
+                h3 {
+                    font-size: 65px;
+                    color: var(--color-primary);
+                    @media screen and (max-width: $breakpoint-xmd) {
+                        font-size: 60px;
+                        @media screen and (max-width: $breakpoint-xmd) {
+                            font-size: 40px;
+                            @media screen and (max-width: $breakpoint-sm) {
+                                font-size: 30px;
+                            }
+                        }
+                    }
+                }
+                &:not(:last-child)::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: var(--color-black);
+                    height: 50%;
+                    width: 2px;
+                    @media screen and (max-width: $breakpoint-md) {
+                    }
+                }
+                &:nth-child(2)::after,
+                &:nth-child(4)::after {
+                    @media screen and (max-width: $breakpoint-md) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

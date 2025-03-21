@@ -4,35 +4,239 @@
    ========================================================================== */
 
 a {
+    //transition: all 0.3s ease-out;
+    width: fit-content;
     color: inherit;
     text-decoration: none;
-
+    font-weight: 400;
+    cursor: pointer;
+    font-size: #{typo(14px, 20px)};
     &:hover {
-        color: var(--color-primary);
+        .fleche1 {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+        .fleche2 {
+            transform: translateX(200%);
+            opacity: 1;
+        }
     }
 }
 
-a.bouton {
-    border: 4px solid var(--color-primary);
-    padding: 10px 15px;
+.fleche-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.btn_full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-white);
+    padding: 15px 25px;
+    width: fit-content;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 25px;
+    background-color: var(--color-black);
+    @media screen and (max-width: $breakpoint-md) {
+        padding: 8px 15px;
+        border-radius: 10px;
+        font-size: 14px;
+        gap: 5px;
+    }
+    &.btn_top {
+        @media screen and (max-width: $breakpoint-md) {
+            display: none;
+        }
+    }
+    &.btn_bottom {
+        margin-top: 40px;
+        display: none;
+        @media screen and (max-width: $breakpoint-md) {
+            display: flex;
+        }
+    }
+}
+
+.btn_menu_mobile {
+    background-color: var(--color-primary);
+    font-size: 25px;
+    @media screen and (max-width: $breakpoint-md) {
+        display: block;
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+        display: block;
+    }
+
+    @media screen and (max-width: $breakpoint-xs) {
+        display: block;
+        padding: 8px 15px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+}
+
+.btn_circled {
+    color: var(--color-white);
+    font-size: 25px;
     display: block;
     width: fit-content;
-    border-radius: 15px;
-    margin-top: 50px;
+    position: relative;
+    @media screen and (max-width: $breakpoint-xs) {
+        font-size: 14px;
+    }
+    .icon {
+        color: var(--color-interactive);
+        width: 100%;
+        //height: min-content;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(250%);
+    }
 }
-a.bouton:hover {
-    background-color: var(--color-primary);
-    color: var(--color-bg-primary);
+
+.btn_outline {
+    background-color: transparent;
+    border: 2px solid var(--color-white);
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 700;
+
+    @media screen and (max-width: $breakpoint-xs) {
+        font-size: 14px;
+        border: 1px solid var(--color-white);
+        border-radius: 10px;
+        padding: 8px 15px;
+    }
+}
+
+.btn_round {
+    //overflow: hidden; // décommenter si ça fuck des affaires, j'ai essayé de quoi
+    border-radius: 50%;
+    background-color: var(--color-white);
+    padding: 10px;
+    position: relative;
+    aspect-ratio: 1/1;
+}
+
+.fleche1 {
+    transition: all 0.7s $ease-out-cubic;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-200%, -50%);
+    opacity: 1;
+}
+.fleche2 {
+    transition: all 0.5s $ease-out-cubic;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.btn_white {
+    background-color: var(--color-white);
+    color: var(--color-black);
 }
 
 a.logo {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 40px;
-    margin: 20px 0;
+
     z-index: 999;
 }
 
-a:has(> svg) {
+// ----- lien vers page contact ----- //
+.lien-contact {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    overflow: hidden;
+    gap: var(--spacing-lg);
+    text-decoration: none;
+    text-transform: none;
+    width: 100%;
+
+    margin: var(--spacing-xl) 0;
+    border: 2px solid var(--color-black);
+    border-radius: 30px;
+    transition: all 0.5s ease-out;
+
+    @media screen and (max-width: $breakpoint-md) {
+        margin: 0;
+
+        @media screen and (max-width: $breakpoint-sm) {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    &:hover {
+        color: var(--color-white);
+        background-color: var(--color-primary);
+    }
+    .lien-contact__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-xl);
+        .invite {
+            display: flex;
+            gap: var(--spacing-md);
+            @media screen and (max-width: $breakpoint-sm) {
+                gap: var(--spacing-xs);
+            }
+            .fleche-container {
+                width: fit-content;
+                min-width: 100px;
+            }
+            .icon {
+                font-size: 75px;
+                @media screen and (max-width: $breakpoint-md) {
+                    font-size: 50px;
+                }
+                @media screen and (max-width: $breakpoint-sm) {
+                    font-size: 30px;
+                }
+            }
+        }
+        h2 {
+            margin: 0;
+        }
+        @media screen and (max-width: $breakpoint-md) {
+            padding: var(--spacing-md);
+            @media screen and (max-width: $breakpoint-sm) {
+                align-items: flex-start;
+            }
+        }
+    }
+    .lien-contact__media {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: fit-content;
+        @media screen and (max-width: $breakpoint-sm) {
+            height: 200px;
+            .volantContact {
+                transform: rotate(45deg);
+                position: absolute;
+                bottom: var(--spacing-lg);
+                position: absolute;
+                bottom: 0;
+                right: -25%;
+            }
+        }
+    }
+}
+
+/*a:has(> svg) {
     color: var(--color-primary);
     display: flex;
     align-items: center;
@@ -47,4 +251,7 @@ a:has(> svg) {
         color: var(--color-black);
         background-color: var(--color-primary);
     }
-}
+    &.social {
+        color: var(--color-interactive);
+    }
+}*/

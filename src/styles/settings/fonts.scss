@@ -3,16 +3,15 @@
    ========================================================================== */
 /// Font family
 :root {
-    --font-primary: 'Poppins', sans-serif;
-    --font-secondary: 'Bebas Neue', sans-serif;
+    font-family: 'neue-haas-grotesk-display', sans-serif;
 
-    --font-size-content: #{typo(18px, 24px)};
+    --font-size-content: #{typo(16px, 25px)};
 
     /// Grosseur des textes
-    --font-size-h1: #{typo(42px, 60px)};
-    --font-size-h2: #{typo(28px, 35px)};
-    // --font-size-h3: #{typo(28px, 42px)};
-    // --font-size-h4: #{typo(28px, 42px)};
-    // --font-size-h5: #{typo(28px, 42px)};
-    // --font-size-h6: #{typo(28px, 42px)};
+    --font-size-h1: #{typo(35px, 110px)};
+    --font-size-h2: #{typo(30px, 100px)};
+    --font-size-h3: #{typo(25px, 80px)};
+    --font-size-h4: #{typo(20px, 55px)};
+    --font-size-h5: #{typo(22px, 35px)};
+    --font-size-h6: #{typo(20px, 30px)};
 }

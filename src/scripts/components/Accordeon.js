@@ -1,60 +1,44 @@
 export default class Accordeon {
   constructor(element) {
     this.element = element;
-    this.children = this.element.querySelectorAll('.js-header');
-    this.autoOpen = this.element.querySelectorAll('[data-auto-open]');
-    this.options = {};
+    this.containers = element.querySelectorAll('.accordion__container');
+    this.options = {
+      autoOpen: 'autoOpen' in element.dataset,
+      notClosing: 'notClosing' in element.dataset,
+    };
+
     this.init();
   }
 
   init() {
     this.setOptions();
-    if (
-      this.element.hasAttribute('data-not-closing') ||
-      this.autoOpen.length >= 2
-    ) {
-      for (let i = 0; i < this.children.length; i++) {
-        const child = this.children[i];
-        child.addEventListener('click', this.notCloseAccordeon.bind(this));
-      }
-    } else {
-      for (let i = 0; i < this.children.length; i++) {
-        const child = this.children[i];
-        child.addEventListener('click', this.closeAccordeon.bind(this));
-      }
+
+    for (let i = 0; i < this.containers.length; i++) {
+      const accordion = this.containers[i];
+      accordion.addEventListener('click', this.openAccordion.bind(this));
     }
   }
 
   setOptions() {
-    for (let i = 0; i < this.autoOpen.length; i++) {
-      const autoOpen = this.autoOpen[i];
-      autoOpen.classList.add('is-active');
-    }
-  }
-
-  closeAccordeon(event) {
-    console.log('closing');
-    for (let i = 0; i < this.children.length; i++) {
-      const child = this.children[i];
-      child.classList.remove('is-active');
-      if (
-        child == event.currentTarget &&
-        event.currentTarget.classList.contains('is-active')
-      ) {
-        console.log('eille pas lui');
-        event.currentTarget.classList.remove('is-active');
-        return true;
+    if (this.options.autoOpen) {
+      for (let i = 0; i < this.containers.length; i++) {
+        this.containers[i].classList.add('is-active');
       }
-      // event.currentTarget.classList.add('is-active');
     }
-    event.currentTarget.classList.toggle('is-active');
   }
 
-  notCloseAccordeon(event) {
-    console.log('notclosing');
+  openAccordion(event) {
     if (event.currentTarget.classList.contains('is-active')) {
       event.currentTarget.classList.remove('is-active');
-    } else if (!event.currentTarget.classList.contains('is-active')) {
+    } else {
+      if (!this.options.notClosing) {
+        for (let i = 0; i < this.containers.length; i++) {
+          if (this.containers[i] != event.currentTarget) {
+            this.containers[i].classList.remove('is-active');
+          }
+        }
+      }
+
       event.currentTarget.classList.add('is-active');
     }
   }

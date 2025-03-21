@@ -1,46 +1,417 @@
 {% include '_partials/_header.html' %}
 
-<section class="hero">
-    <img class="bgHero" src="assets/images/hero.png" alt="" />
-    <div class="wrapper">
-        <h1>Le titre du site</h1>
+<section class="hero hero_front">
+    <div class="hero__media">
+        <img class="bgHero" src="assets/images/heroAccueil.jpg" alt="hero" />
+        <div class="bkg_filter"></div>
     </div>
-</section>
-
-<section class="favoris">
     <div class="wrapper">
-        <h2>Titre de la section</h2>
-        <p>
-            Pourquoi ce site existe ??? Pourquoi ce site existe ??? Pourquoi ce site existe ??? Pourquoi ce site existe
-            ??? Pourquoi ce site existe ??? Pourquoi ce site existe ??? Pourquoi ce site existe ???
-        </p>
-        <div class="cards">
-            <a href="#">
-                <div class="card">
-                    <div class="card__media">
-                        <img src="assets/images/card.png" alt="img__card" />
-                    </div>
-                    <div class="card__content">
-                        <h3>Titre</h3>
-                        <p>Résumé résumé résumé résumé résumé résumé résumé résumé</p>
-                        <p class="category">catégorie</p>
-                    </div>
+        <div class="bigTitle">
+            <h1>Le badminton</h1>
+            <div class="title">
+                <h1>Notre passion</h1>
+                <div class="underline">
+                    <lottie-player
+                        class="lottie-underline js-lottie-underline"
+                        src="assets/lottie/doubleLigneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
                 </div>
-            </a>
-            <a href="#">
-                <div class="card">
-                    <div class="card__media">
-                        <img src="assets/images/hero.png" alt="img__card" />
-                    </div>
-                    <div class="card__content">
-                        <h3>Titre</h3>
-                        <p>Résumé résumé résumé résumé résumé résumé résumé résumé</p>
-                        <p class="category">catégorie</p>
-                    </div>
+            </div>
+        </div>
+        <div class="hero_content">
+            <p class="h5" data-scrolly="fromLeft">
+                Fier d’être la plus grande institution de badminton sur l’île de Montréal depuis 2011!
+            </p>
+            <a class="hero_link" href="#"
+                >Inscrivez-vous
+
+                <div class="fleche-container">
+                    <svg class="icon fleche1">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
                 </div>
             </a>
         </div>
-        <a href="#" class="bouton">Un bouton</a>
+    </div>
+</section>
+
+<section class="section partners">
+    <div class="wrapper">
+        <div
+            class="swiper js-swiper-partenaire"
+            data-component="Carousel"
+            data-autoplay
+            data-loop
+            data-freemode
+            data-centered
+            data-scrolly="fromBottom"
+        >
+            <div class="bkg_filter"></div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="assets/images/hero.png" alt="partner" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/logo-badlach.png" alt="partner" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/logo-badlach.png" alt="partner" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/logo-badlach.png" alt="partner" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section about">
+    <div class="wrapper">
+        <div class="bigCard">
+            <div class="about__content">
+                <!--<img class="traceVolant" src="assets/images/traceVolant.png" alt="trace du volant" />-->
+                <lottie-player
+                    id="VolantBlancMontantAccueil"
+                    class="traceVolant js-volantBlanc"
+                    src="assets/lottie/volantBlancMontant.json"
+                    data-component="Lottie"
+                >
+                </lottie-player>
+                <lottie-player
+                    id="VolantBlancAccueil"
+                    class="volantBlanc js-volantBlanc"
+                    src="assets/lottie/volantBlanc.json"
+                    data-component="Lottie"
+                >
+                </lottie-player>
+                <h4 data-scrolly="fromLeft">
+                    Nous sommes un organisme à but non lucratif qui a comme objectif d’être un acteur majeur du
+                    badminton à Montréal.
+                </h4>
+                <p data-scrolly="fromRight">
+                    Que vous soyez un débutant ou un joueur expérimenté, nos programmes sont conçus pour vous aider à
+                    perfectionner votre technique et atteindre vos objectifs en badminton.
+                </p>
+                <a class="btn_outline" href="#">Qui sommes-nous ?</a>
+            </div>
+            <div class="about__stats">
+                <div class="stat">
+                    <h3>15 ans</h3>
+                    <p>D’expérience</p>
+                </div>
+                <div class="stat">
+                    <h3>10 000+</h3>
+                    <p>Joueurs accueilis</p>
+                </div>
+                <div class="stat">
+                    <h3>4</h3>
+                    <p>Professionnels</p>
+                </div>
+                <div class="stat">
+                    <h3>100%</h3>
+                    <p>Plaisir garanti</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section services">
+    <div class="wrapper">
+        <div class="title_section">
+            <div class="title" data-scrolly="fromLeft">
+                <h2>Services</h2>
+                <div class="underline">
+                    <lottie-player
+                        class="lottie-underline js-lottie-underline"
+                        src="assets/lottie/tripleLigneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
+                </div>
+            </div>
+            <a class="btn_full btn_top" href="#" data-scrolly="fromRight"
+                >Voir tous
+                <div class="fleche-container">
+                    <svg class="icon fleche1">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                </div>
+            </a>
+        </div>
+        <div class="grid-services" data-scrolly="fromLeft">
+            <div class="service">
+                <div class="service__media">
+                    <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                </div>
+                <div class="service__content">
+                    <h5>Entraînement libres</h5>
+                    <div class="more__content">
+                        <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                        <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
+                    </div>
+                </div>
+            </div>
+            <div class="service">
+                <div class="service__media">
+                    <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                </div>
+                <div class="service__content">
+                    <h5>Entraînement</h5>
+                    <div class="more__content">
+                        <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                        <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
+                    </div>
+                </div>
+            </div>
+            <div class="service">
+                <div class="service__media">
+                    <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                </div>
+                <div class="service__content">
+                    <h5>Entraînement libres</h5>
+                    <div class="more__content">
+                        <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                        <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
+                    </div>
+                </div>
+            </div>
+            <div class="service">
+                <div class="service__media">
+                    <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                </div>
+                <div class="service__content">
+                    <h5>Entraînement</h5>
+                    <div class="more__content">
+                        <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                        <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="swiper carousel-services js-swiper-accueilServices"
+        data-component="Carousel"
+        data-loop
+        data-centered
+        data-coverflow
+    >
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="service">
+                    <div class="service__media">
+                        <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                    </div>
+                    <div class="service__content">
+                        <h5>Entraînement libres</h5>
+                        <div class="more__content">
+                            <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                            <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="service">
+                    <div class="service__media">
+                        <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                    </div>
+                    <div class="service__content">
+                        <h5>Entraînement libres</h5>
+                        <div class="more__content">
+                            <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                            <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="service">
+                    <div class="service__media">
+                        <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                    </div>
+                    <div class="service__content">
+                        <h5>Entraînement libres</h5>
+                        <div class="more__content">
+                            <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                            <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="service">
+                    <div class="service__media">
+                        <img src="assets/images/cordageAccueilServices.jpg" alt="image de raquettes" />
+                    </div>
+                    <div class="service__content">
+                        <h5>Entraînement libres</h5>
+                        <div class="more__content">
+                            <a class="btn_full btn_white" href="#">Voir les tarifs </a>
+                            <a class="btn_full btn_white" href="#">Inscrivez-vous </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <a class="btn_full btn_bottom" href="#"
+            >Voir tout
+            <div class="fleche-container">
+                <svg class="icon fleche1">
+                    <use xlink:href="#icon-fleche"></use>
+                </svg>
+                <svg class="icon fleche2">
+                    <use xlink:href="#icon-fleche"></use>
+                </svg>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section class="section section-color nouvelles">
+    <div class="wrapper">
+        <div class="title_section">
+            <div class="title" data-scrolly="fromLeft">
+                <h2>Nouvelles</h2>
+                <div class="underline">
+                    <lottie-player
+                        class="lottie-underline js-lottie-underline"
+                        src="assets/lottie/ligneDessin.json"
+                        data-component="Lottie"
+                    >
+                    </lottie-player>
+                </div>
+            </div>
+            <a class="btn_full btn_white btn_top" href="#" data-scrolly="fromRight"
+                >Voir tout
+                <div class="fleche-container">
+                    <svg class="icon fleche1">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                    <svg class="icon fleche2">
+                        <use xlink:href="#icon-fleche"></use>
+                    </svg>
+                </div>
+            </a>
+        </div>
+        <div class="cards" data-scrolly="fromBottom">
+            <!-- structure card  -->
+            <div class="card">
+                <p class="btn_full tag">Divers</p>
+                <div class="card__media">
+                    <img src="assets/images/hero.png" alt="image de la nouvelle" />
+                </div>
+                <div class="card__content">
+                    <div class="text">
+                        <h6>Gala de la</h6>
+                        <p>Publié le 21 novembre 2024</p>
+                    </div>
+                    <a class="btn_full btn_round" href="#">
+                        <div class="fleche-container">
+                            <svg class="icon fleche1">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                            <svg class="icon fleche2">
+                                <use xlink:href="#icon-fleche"></use>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="btn_full tag">Divers</p>
+                <div class="card__media">
+                    <img src="assets/images/nouvelles.jpg" alt="image de la nouvelle" />
+                </div>
+                <div class="card__content">
+                    <div class="text">
+                        <h6>Gala de la reconnaissance</h6>
+                        <p>Publié le 21 novembre 2024</p>
+                    </div>
+                    <a class="btn_full btn_round" href="#">
+                        <svg class="icon fleche1">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                        <svg class="icon fleche2">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="card">
+                <p class="btn_full tag">Divers</p>
+                <div class="card__media">
+                    <img src="assets/images/image_menu.jpg" alt="image de la nouvelle" />
+                </div>
+                <div class="card__content">
+                    <div class="text">
+                        <h6>Gala de la reconnaissance</h6>
+                        <p>Publié le 21 novembre 2024</p>
+                    </div>
+                    <a class="btn_full btn_round" href="#">
+                        <svg class="icon fleche1">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                        <svg class="icon fleche2">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a class="btn_full btn_white btn_bottom" href="#"
+            >Voir tout
+            <div class="fleche-container">
+                <svg class="icon fleche1">
+                    <use xlink:href="#icon-fleche"></use>
+                </svg>
+                <svg class="icon fleche2">
+                    <use xlink:href="#icon-fleche"></use>
+                </svg>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="wrapper">
+        <a class="lien-contact" data-scrolly="fromLeft">
+            <div class="lien-contact__content">
+                <h4>Besoin d'infos ?</h4>
+                <div class="invite">
+                    <h2>parlons-en</h2>
+                    <div class="fleche-container">
+                        <svg class="icon fleche1">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                        <svg class="icon fleche2">
+                            <use xlink:href="#icon-fleche"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="lien-contact__media">
+                <lottie-player
+                    class="volantContact js-volantNoir"
+                    src="assets/lottie/volantNoir.json"
+                    data-component="Lottie"
+                >
+                </lottie-player>
+            </div>
+        </a>
     </div>
 </section>
 

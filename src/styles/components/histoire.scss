@@ -1,0 +1,194 @@
+// SECTION MISSIONS
+
+// SECTION MISSIONS
+
+.missions_grid {
+    margin: 180px 0 180px 0;
+    display: flex;
+
+    align-items: center;
+    gap: 150px;
+    @media screen and (max-width: $breakpoint-md) {
+        flex-direction: column;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        flex-direction: column;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        flex-direction: column;
+    }
+
+    .mission {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        gap: 30px;
+        h4 {
+            font-weight: 600;
+        }
+
+        @media screen and (max-width: $breakpoint-md) {
+            width: 75%;
+        }
+        @media screen and (max-width: $breakpoint-sm) {
+            width: 75%;
+        }
+        @media screen and (max-width: $breakpoint-xs) {
+            width: 75%;
+        }
+    }
+}
+
+// SECTION VALEURS
+
+.valeurs {
+    padding: 70px 0 70px 0;
+    margin-bottom: 95px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+
+    .titre {
+        hr {
+            border: solid 2px var(--color-white);
+        }
+    }
+}
+
+// SECTION HISTOIRE
+
+.accordion__container {
+    //.accordion__content représente le contenu caché par défaut
+    .accordion__content {
+        display: none;
+    }
+    .icon-close {
+        display: none;
+    }
+    &.is-active {
+        //Exemple de gestion pour des icones
+        .icon-open {
+            display: none;
+        }
+        .icon-close {
+            display: block;
+        }
+        .accordion__content {
+            //On affiche le contenu lorsqu'il y a l'état is-active
+            display: block;
+            width: fit-content;
+        }
+    }
+}
+
+.grid-accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 50px 0 50px 0;
+    gap: 50px;
+
+    @media screen and (max-width: $breakpoint-xs) {
+        gap: 20px;
+    }
+}
+
+.accordion__container {
+    cursor: pointer;
+    background: var(--color-black);
+    width: 75%;
+    color: var(--color-white);
+    padding: 35px 75px;
+    transition: all 0.3s ease;
+    border-radius: 35px;
+    @media screen and (max-width: $breakpoint-md) {
+        width: 90%;
+        border-radius: 20px;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        width: 93%;
+        border-radius: 15px;
+        padding: 20px 38px;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        width: 93%;
+        border-radius: 15px;
+        padding: 15px 30px;
+    }
+}
+
+.header__icons {
+    color: var(--color-black);
+    background-color: white;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    object-fit: contain;
+    @media screen and (max-width: $breakpoint-xs) {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.accordion__header {
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    align-items: center;
+    gap: 150px;
+    @media screen and (max-width: $breakpoint-md) {
+        gap: 50px;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        gap: 40px;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        gap: 30px;
+    }
+}
+
+.accordion__container h4 {
+    font-weight: 600;
+    margin: 0;
+    transition: 0.3s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.accordion__container:hover h4 {
+    transform: translateX(10px);
+}
+
+.icon-open {
+    transition: transform 0.5s ease;
+}
+
+.accordion__container:hover .icon-open {
+    transform: rotate(180deg);
+}
+
+//SECTION INFORMATIONS
+
+.light p {
+    font-weight: 500 !important;
+}
+
+//SECTION INFORMATIONS
+
+.light p {
+    font-weight: 500 !important;
+}
+
+.historique {
+    .title {
+        h2 {
+            margin-bottom: 80px;
+            @media screen and (max-width: $breakpoint-xs) {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}

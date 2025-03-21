@@ -1,22 +1,266 @@
 .footer {
     background-color: var(--color-black);
-    color: var(--color-primary);
+    color: var(--color-white);
+    overflow: hidden;
+    border-radius: 30px 30px 0 0;
+    // position: sticky;
+    // bottom: 0;
+    // left: 0;
+    // z-index: 2;
+    width: 100%;
+    @media screen and (max-width: $breakpoint-md) {
+        border-radius: 15px 15px 0 0;
+    }
+    p {
+        font-size: #{typo(14px, 20px)};
+    }
     .wrapper {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
-    }
+        gap: 100px;
+        padding-top: 90px;
+        padding-bottom: 90px;
 
-    p {
-        margin: 50px 0;
-    }
+        @media screen and (max-width: 1750px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // margin: 0 5%;
+        }
 
-    ul.social {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        padding: 0;
-        margin: 0;
+        @media screen and (max-width: $breakpoint-md) {
+            display: flex;
+            flex-direction: column;
+            padding-top: 45px;
+            padding-bottom: 20px;
+            margin: 0 auto;
+            gap: 25px;
+        }
+
+        // @media screen and (max-width: 830px) {
+        //     display: flex;
+        //     flex-direction: column;
+        //     gap: 50px;
+        //     // padding: 20% 0;
+        //     // padding-bottom: 5%;
+        // }
+        // @media screen and (max-width: $breakpoint-sm) {
+        //     gap: 40px;
+        // }
+    }
+    li {
         list-style: none;
+        width: max-content;
     }
+    a {
+        transition: all 0.3s ease-out;
+        width: max-content;
+        position: relative;
+    }
+
+    a:not(.hero_link):hover {
+        color: var(--color-white);
+        //opacity: 50%;
+    }
+
+    a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 5px;
+        background-color: var(--color-interactive);
+        transition: width 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    a:not(.hero_link):hover::after {
+        width: 100%;
+    }
+    .principal {
+        ul {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+
+            li {
+                @media screen and (max-width: $breakpoint-sm) {
+                    margin: -6px 0;
+                }
+                a {
+                    font-size: #{typo(45px, 80px)};
+                    text-transform: uppercase;
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+
+    .secondary {
+        ul {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0;
+            margin: 0;
+            li {
+                a {
+                    font-size: var(--font-size-h5);
+                    text-transform: uppercase;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .sociaux {
+        height: fit-content;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 40px;
+        @media screen and (max-width: $breakpoint-sm) {
+            flex-direction: row;
+            align-items: center;
+        }
+        .inscription {
+            display: flex;
+            flex-direction: column;
+            a.subscribe {
+                font-weight: 400;
+                text-transform: none;
+                text-decoration: underline;
+                margin-top: 20px;
+                @media screen and (max-width: $breakpoint-sm) {
+                    margin: 0;
+                }
+            }
+        }
+
+        .social {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+
+            @media screen and (max-width: $breakpoint-md) {
+                gap: 10px;
+            }
+
+            flex-direction: column;
+            @media screen and (max-width: $breakpoint-sm) {
+                order: -1;
+            }
+        }
+    }
+
+    .copyright {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 30px;
+        color: var(--color-gray);
+
+        @media screen and (max-width: $breakpoint-md) {
+            gap: 13px;
+        }
+
+        .contact {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 10px;
+
+            @media screen and (max-width: $breakpoint-md) {
+                gap: 3px;
+            }
+        }
+
+        .credits {
+            display: flex;
+            gap: 40px;
+            a {
+                font-weight: 400;
+                text-transform: none;
+                text-decoration: none;
+            }
+            @media screen and (max-width: $breakpoint-md) {
+                gap: 30px;
+            }
+        }
+
+        // @media screen and (max-width: $breakpoint-sm) {
+        //     gap: 10px;
+        //     .contact {
+        //         gap: 10px;
+        //     }
+        //     .credits {
+        //         gap: 30px;
+        //     }
+        // }
+    }
+
+    .passion {
+        margin-bottom: -35px;
+        h1 {
+            font-size: #{typo(40px, 170px)};
+            color: gray;
+
+            @media screen and (max-width: 830px) {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        span {
+            position: relative;
+            .icon {
+                color: var(--color-interactive);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform: scale(150%);
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 1225px) {
+            margin-bottom: -10px;
+        }
+
+        @media screen and (max-width: 415px) {
+            margin: 0;
+        }
+    }
+    position: relative;
+}
+
+.background {
+    background-color: var(--color-white);
+    position: relative;
+    width: 100%;
+}
+
+.background:has(.bloc-article) {
+    background-color: var(--color-gray);
+    section {
+        background-color: var(--color-gray);
+    }
+    .hero.block {
+        background-color: var(--color-black);
+        margin-bottom: 0;
+    }
+    .bloc-article {
+        margin-top: 0;
+        &.nouvelle {
+            margin-top: 50px;
+        }
+    }
+}
+
+.reveal_footer {
+    background: rgba($color: #000000, $alpha: 0);
+    display: block;
+    height: 80vh;
 }

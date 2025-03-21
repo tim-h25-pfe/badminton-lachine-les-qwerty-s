@@ -1,0 +1,657 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Badminton Lachine\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-01 20:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.7.1; wp-6.7.2\n"
+"X-Domain: badlach"
+
+#: functions.php:104 functions.php:130
+msgid "Actualité"
+msgstr ""
+
+#: functions.php:107
+msgid "Actualité parent :"
+msgstr ""
+
+#: functions.php:103 functions.php:131
+msgid "Actualités"
+msgstr ""
+
+#: functions.php:52
+msgid "Ajouter un emploi"
+msgstr ""
+
+#: functions.php:399 functions.php:400
+msgid "Ajouter un employé"
+msgstr ""
+
+#: functions.php:167 functions.php:168
+msgid "Ajouter un forfait"
+msgstr ""
+
+#: functions.php:51
+msgid "Ajouter un nouvel emploi"
+msgstr ""
+
+#: functions.php:225 functions.php:226
+msgid "Ajouter un service"
+msgstr ""
+
+#: functions.php:341 functions.php:342
+msgid "Ajouter un événement"
+msgstr ""
+
+#: functions.php:109 functions.php:110
+msgid "Ajouter une actualité"
+msgstr ""
+
+#: functions.php:283 functions.php:284
+msgid "Ajouter une séance"
+msgstr ""
+
+#: functions.php:182
+msgid "Ajouté à ce forfait"
+msgstr ""
+
+#: functions.php:240
+msgid "Ajouté à ce service"
+msgstr ""
+
+#: functions.php:66
+msgid "Ajouté à cet emploi"
+msgstr ""
+
+#: functions.php:414
+msgid "Ajouté à cet employé"
+msgstr ""
+
+#: functions.php:356
+msgid "Ajouté à cet événement"
+msgstr ""
+
+#: functions.php:124
+msgid "Ajouté à cette actualité"
+msgstr ""
+
+#: functions.php:298
+msgid "Ajouté à cette séance"
+msgstr ""
+
+#: functions.php:105
+msgid "Archives des actualités"
+msgstr ""
+
+#: functions.php:47
+msgid "Archives des emplois"
+msgstr ""
+
+#: functions.php:395
+msgid "Archives des employés"
+msgstr ""
+
+#: functions.php:163
+msgid "Archives des forfaits"
+msgstr ""
+
+#: functions.php:221
+msgid "Archives des services"
+msgstr ""
+
+#: functions.php:279
+msgid "Archives des séances"
+msgstr ""
+
+#: functions.php:337
+msgid "Archives des événements"
+msgstr ""
+
+#: functions.php:48
+msgid "Attributs de l'emploi"
+msgstr ""
+
+#: functions.php:106
+msgid "Attributs des actualités"
+msgstr ""
+
+#: functions.php:396
+msgid "Attributs des employés"
+msgstr ""
+
+#: functions.php:164
+msgid "Attributs des forfaits"
+msgstr ""
+
+#: functions.php:222
+msgid "Attributs des services"
+msgstr ""
+
+#: functions.php:280
+msgid "Attributs des séances"
+msgstr ""
+
+#: functions.php:338
+msgid "Attributs des événements"
+msgstr ""
+
+#. Name of the theme
+msgid "Badminton Lachine"
+msgstr ""
+
+#. Description of the theme
+msgid ""
+"Badminton Lachine est un thème WordPress personnalisé et flexible, conçu "
+"spécifiquement pour le site du club portant le même nom. Développé en PHP, "
+"il offre une structure optimisée permettant d’afficher tout type de contenu, "
+"que ce soit des actualités, des événements, des services ou des informations "
+"sur le club. Grâce à sa flexibilité, il s’adapte facilement aux besoins du "
+"club et peut être modifié pour intégrer de nouvelles fonctionnalités."
+msgstr ""
+
+#: functions.php:58
+msgid "Chercher un emploi"
+msgstr ""
+
+#: functions.php:406
+msgid "Chercher un employé"
+msgstr ""
+
+#: functions.php:174
+msgid "Chercher un forfait"
+msgstr ""
+
+#: functions.php:232
+msgid "Chercher un service"
+msgstr ""
+
+#: functions.php:348
+msgid "Chercher un événement"
+msgstr ""
+
+#: functions.php:116
+msgid "Chercher une actualité"
+msgstr ""
+
+#: functions.php:290
+msgid "Chercher une séance"
+msgstr ""
+
+#: functions.php:62 functions.php:120 functions.php:178 functions.php:236
+#: functions.php:294 functions.php:352 functions.php:410
+msgid "Choisir l'image en avant"
+msgstr ""
+
+#. Name of the template
+#: tpl-contact.php:2
+msgid "Contact"
+msgstr ""
+
+#. Author of the theme
+msgid "Emile Tardif"
+msgstr ""
+
+#: functions.php:46 functions.php:72
+msgid "Emploi"
+msgstr ""
+
+#: functions.php:49
+msgid "Emploi parent :"
+msgstr ""
+
+#: functions.php:45
+msgid "Emplois"
+msgstr ""
+
+#: functions.php:394 functions.php:420
+msgid "Employé"
+msgstr ""
+
+#: functions.php:397
+msgid "Employé parent :"
+msgstr ""
+
+#: functions.php:393 functions.php:421
+msgid "Employés"
+msgstr ""
+
+#: functions.php:127
+msgid "Filtrer la liste des actualités"
+msgstr ""
+
+#: functions.php:69
+msgid "Filtrer la liste des emplois"
+msgstr ""
+
+#: functions.php:417
+msgid "Filtrer la liste des employés"
+msgstr ""
+
+#: functions.php:185
+msgid "Filtrer la liste des forfaits"
+msgstr ""
+
+#: functions.php:243
+msgid "Filtrer la liste des services"
+msgstr ""
+
+#: functions.php:301
+msgid "Filtrer la liste des séances"
+msgstr ""
+
+#: functions.php:359
+msgid "Filtrer la liste des événements"
+msgstr ""
+
+#: functions.php:162 functions.php:188
+msgid "Forfait"
+msgstr ""
+
+#: functions.php:165
+msgid "Forfait parent :"
+msgstr ""
+
+#: functions.php:161 functions.php:189
+msgid "Forfaits"
+msgstr ""
+
+#: functions.php:277
+msgid "Horaire"
+msgstr ""
+
+#: functions.php:61 functions.php:119 functions.php:177 functions.php:235
+#: functions.php:293 functions.php:351 functions.php:409
+msgid "Image en avant"
+msgstr ""
+
+#: functions.php:123
+msgid "Insérer dans l'actualité"
+msgstr ""
+
+#: functions.php:65
+msgid "Insérer dans l'emploi"
+msgstr ""
+
+#: functions.php:413
+msgid "Insérer dans l'employé"
+msgstr ""
+
+#: functions.php:355
+msgid "Insérer dans l'événement"
+msgstr ""
+
+#: functions.php:297
+msgid "Insérer dans la séance"
+msgstr ""
+
+#: functions.php:181
+msgid "Insérer dans le forfait"
+msgstr ""
+
+#: functions.php:239
+msgid "Insérer dans le service"
+msgstr ""
+
+#: functions.php:59 functions.php:117 functions.php:175 functions.php:233
+#: functions.php:291 functions.php:349 functions.php:407
+msgid "Introuvable"
+msgstr ""
+
+#: functions.php:60 functions.php:118 functions.php:176 functions.php:234
+#: functions.php:292 functions.php:350 functions.php:408
+msgid "Introuvable dans la corbeille"
+msgstr ""
+
+#: functions.php:125
+msgid "Liste des actualités"
+msgstr ""
+
+#: functions.php:67
+msgid "Liste des emplois"
+msgstr ""
+
+#: functions.php:415
+msgid "Liste des employés"
+msgstr ""
+
+#: functions.php:183
+msgid "Liste des forfaits"
+msgstr ""
+
+#: functions.php:241
+msgid "Liste des services"
+msgstr ""
+
+#: functions.php:299
+msgid "Liste des séances"
+msgstr ""
+
+#: functions.php:357
+msgid "Liste des événements"
+msgstr ""
+
+#: functions.php:113
+msgid "Mettre à jour l'actualité"
+msgstr ""
+
+#: functions.php:55
+msgid "Mettre à jour l'emploi"
+msgstr ""
+
+#: functions.php:403
+msgid "Mettre à jour l'employé"
+msgstr ""
+
+#: functions.php:345
+msgid "Mettre à jour l'événement"
+msgstr ""
+
+#: functions.php:287
+msgid "Mettre à jour la séance"
+msgstr ""
+
+#: functions.php:171
+msgid "Mettre à jour le forfait"
+msgstr ""
+
+#: functions.php:229
+msgid "Mettre à jour le service"
+msgstr ""
+
+#: functions.php:112
+msgid "Modifier l'actualité"
+msgstr ""
+
+#: functions.php:54
+msgid "Modifier l'emploi"
+msgstr ""
+
+#: functions.php:402
+msgid "Modifier l'employé"
+msgstr ""
+
+#: functions.php:344
+msgid "Modifier l'événement"
+msgstr ""
+
+#: functions.php:286
+msgid "Modifier la séance"
+msgstr ""
+
+#: functions.php:170
+msgid "Modifier le forfait"
+msgstr ""
+
+#: functions.php:228
+msgid "Modifier le service"
+msgstr ""
+
+#: functions.php:126
+msgid "Navigation de la liste des actualités"
+msgstr ""
+
+#: functions.php:68
+msgid "Navigation de la liste des emplois"
+msgstr ""
+
+#: functions.php:416
+msgid "Navigation de la liste des employés"
+msgstr ""
+
+#: functions.php:184
+msgid "Navigation de la liste des forfaits"
+msgstr ""
+
+#: functions.php:242
+msgid "Navigation de la liste des services"
+msgstr ""
+
+#: functions.php:300
+msgid "Navigation de la liste des séances"
+msgstr ""
+
+#: functions.php:358
+msgid "Navigation de la liste des événements"
+msgstr ""
+
+#: functions.php:169
+msgid "Nouveau forfait"
+msgstr ""
+
+#: functions.php:227
+msgid "Nouveau service"
+msgstr ""
+
+#: functions.php:53
+msgid "Nouvel emploi"
+msgstr ""
+
+#: functions.php:401
+msgid "Nouvel employé"
+msgstr ""
+
+#: functions.php:343
+msgid "Nouvel événement"
+msgstr ""
+
+#: functions.php:111
+msgid "Nouvelle actualité"
+msgstr ""
+
+#: functions.php:285
+msgid "Nouvelle séance"
+msgstr ""
+
+#: functions.php:101
+msgctxt "Post Type General Name"
+msgid "Actualités"
+msgstr ""
+
+#: functions.php:43
+msgctxt "Post Type General Name"
+msgid "Emplois"
+msgstr ""
+
+#: functions.php:391
+msgctxt "Post Type General Name"
+msgid "Employés"
+msgstr ""
+
+#: functions.php:159
+msgctxt "Post Type General Name"
+msgid "Forfaits"
+msgstr ""
+
+#: functions.php:217
+msgctxt "Post Type General Name"
+msgid "Services"
+msgstr ""
+
+#: functions.php:275
+msgctxt "Post Type General Name"
+msgid "Séances"
+msgstr ""
+
+#: functions.php:333
+msgctxt "Post Type General Name"
+msgid "Événements"
+msgstr ""
+
+#: functions.php:102
+msgctxt "Post Type Singular Name"
+msgid "Actualité"
+msgstr ""
+
+#: functions.php:44
+msgctxt "Post Type Singular Name"
+msgid "Emploi"
+msgstr ""
+
+#: functions.php:392
+msgctxt "Post Type Singular Name"
+msgid "Employé"
+msgstr ""
+
+#: functions.php:160
+msgctxt "Post Type Singular Name"
+msgid "Forfait"
+msgstr ""
+
+#: functions.php:218
+msgctxt "Post Type Singular Name"
+msgid "Service"
+msgstr ""
+
+#: functions.php:276
+msgctxt "Post Type Singular Name"
+msgid "Séance"
+msgstr ""
+
+#: functions.php:334
+msgctxt "Post Type Singular Name"
+msgid "Événement"
+msgstr ""
+
+#: functions.php:73
+msgid "Postes d'emploi"
+msgstr ""
+
+#: functions.php:63 functions.php:121 functions.php:179 functions.php:237
+#: functions.php:295 functions.php:353 functions.php:411
+msgid "Retirer l'image en avant"
+msgstr ""
+
+#: functions.php:220 functions.php:246
+msgid "Service"
+msgstr ""
+
+#: functions.php:223
+msgid "Service parent :"
+msgstr ""
+
+#: functions.php:219 functions.php:247
+msgid "Services"
+msgstr ""
+
+#: functions.php:278 functions.php:304
+msgid "Séance"
+msgstr ""
+
+#: functions.php:281
+msgid "Séance parente :"
+msgstr ""
+
+#: functions.php:305
+msgid "Séances"
+msgstr ""
+
+#: functions.php:50
+msgid "Tous les emplois"
+msgstr ""
+
+#: functions.php:166
+msgid "Tous les forfaits"
+msgstr ""
+
+#: functions.php:224
+msgid "Tous les services"
+msgstr ""
+
+#: functions.php:340
+msgid "Tous les événements"
+msgstr ""
+
+#: functions.php:108
+msgid "Toutes les actualités"
+msgstr ""
+
+#: functions.php:398
+msgid "Toutes les employés"
+msgstr ""
+
+#: functions.php:282
+msgid "Toutes les séances"
+msgstr ""
+
+#: functions.php:64 functions.php:122 functions.php:180 functions.php:238
+#: functions.php:296 functions.php:354 functions.php:412
+msgid "Utiliser comme image en avant"
+msgstr ""
+
+#: functions.php:114
+msgid "Voir l'actualité"
+msgstr ""
+
+#: functions.php:56
+msgid "Voir l'emploi"
+msgstr ""
+
+#: functions.php:404
+msgid "Voir l'employé"
+msgstr ""
+
+#: functions.php:346 functions.php:347
+msgid "Voir l'événement"
+msgstr ""
+
+#: functions.php:288
+msgid "Voir la séance"
+msgstr ""
+
+#: functions.php:172
+msgid "Voir le forfait"
+msgstr ""
+
+#: functions.php:230
+msgid "Voir le service"
+msgstr ""
+
+#: functions.php:115
+msgid "Voir les actualités"
+msgstr ""
+
+#: functions.php:57
+msgid "Voir les emplois"
+msgstr ""
+
+#: functions.php:405
+msgid "Voir les employés"
+msgstr ""
+
+#: functions.php:173
+msgid "Voir les forfaits"
+msgstr ""
+
+#: functions.php:231
+msgid "Voir les services"
+msgstr ""
+
+#: functions.php:289
+msgid "Voir les séances"
+msgstr ""
+
+#. Name of the template
+#: tpl-propos.php:2
+msgid "À propos"
+msgstr ""
+
+#: functions.php:336 functions.php:362
+msgid "Événement"
+msgstr ""
+
+#: functions.php:339
+msgid "Événement parent :"
+msgstr ""
+
+#: functions.php:335 functions.php:363
+msgid "Événements"
+msgstr ""

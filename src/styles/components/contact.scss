@@ -1,0 +1,99 @@
+//Styles pour la partie information de contact
+section.contact {
+    @media screen and (max-width: $breakpoint-md) {
+        margin: 180px 0;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        margin: 150px 0;
+    }
+}
+
+.contact_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    @media screen and (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+        grid-template-columns: 1fr;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact_contenu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    a {
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    .contact_courriel,
+    .contact_adresse,
+    .contact_liens {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact_courriel,
+    .contact_liens {
+        a {
+            color: var(--color-secondary);
+        }
+    }
+
+    .contact_liens {
+        ul {
+            margin: 0;
+        }
+        a {
+            text-decoration: underline;
+            color: var(--color-black);
+        }
+    }
+}
+
+.social_icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 25px;
+    gap: 25px;
+}
+
+//Styles pour la partie du formulaire
+
+.contact_formulaire form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+
+    .formulaire_nom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .form_group {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+.submit-btn {
+    width: 25%;
+}
+
+.contact_form {
+    input {
+        border: none;
+        background-color: var(--color-interactive-light);
+    }
+}
