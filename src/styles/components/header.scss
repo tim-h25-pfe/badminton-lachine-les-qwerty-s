@@ -396,7 +396,6 @@
         transform: translateX(0%);
     }
 
-
     // Conserve vos breakpoints existants
     @media screen and (max-width: 2000px) {
         height: 70%;
@@ -682,7 +681,7 @@ body.no-scroll {
     }
     a:hover {
         color: var(--color-white);
-        opacity: 70%;
+        //opacity: 70%;
     }
     /* L'effet de barre sous les liens de navigation */
     a::after {

@@ -22,8 +22,8 @@ $img_position = get_sub_field('infos_loop_align');
         </div>
         <?php endif ?>
         <div class="infos__content">
-            <h3><?php the_sub_field('repeat_infos_titre'); ?></h3>
-            <p><?php the_sub_field('repeat_infos_description'); ?></p>
+            <h3 data-scrolly="fromLeft"><?php the_sub_field('repeat_infos_titre'); ?></h3>
+            <p data-scrolly="fromLeft"><?php the_sub_field('repeat_infos_description'); ?></p>
             <?php 
             $link = get_sub_field('repeat_infos_link');
             if( $link ): 
@@ -31,7 +31,7 @@ $img_position = get_sub_field('infos_loop_align');
                 $link_title = $link['title'];
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
-            <a href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
+            <a data-scrolly="fromLeft" href="<?php echo esc_url( $link_url ); ?>" class="btn_full"><?php echo esc_html( $link_title ); ?></a>
             <?php endif; ?>
         </div>
     </div>
@@ -67,12 +67,12 @@ $img_position = get_sub_field('infos_loop_align');
                 
                 <div class="infos__content">
                     <?php if( $post_type != "service" ): ?>
-                    <p class="category"><?php echo esc_html($post_type_obj->labels->singular_name); // Affiche l'intitulé du post type ?></p>
+                    <p data-scrolly="fromLeft" class="category"><?php echo esc_html($post_type_obj->labels->singular_name); // Affiche l'intitulé du post type ?></p>
                     <?php endif; ?>
-                    <h3><?php echo get_the_title($p->ID); ?></h3>
+                    <h3 data-scrolly="fromLeft"><?php echo get_the_title($p->ID); ?></h3>
 
                     <?php if ($post_type == "event") : ?>
-                    <ul class="details">
+                    <ul data-scrolly="fromLeft" class="details">
                         <li><?php the_field('events_dates', $p->ID); ?></li>
                         <span class="circle"></span>
                         <li><?php the_field('events_time', $p->ID); ?></li>
@@ -82,23 +82,23 @@ $img_position = get_sub_field('infos_loop_align');
                     <?php endif; ?>
 
                     <?php if ($post_type == "new") : ?>
-                    <ul class="details">
+                    <ul data-scrolly="fromLeft" class="details">
                         <li><?php the_field('publicate', 'options'); ?> <?php echo get_the_date('d F Y', $p->ID); ?> </li>
                     </ul>
                     <?php endif; ?>
 
                     <?php if ($post_type == "product") : ?>
-                    <ul class="details">
+                    <ul data-scrolly="fromLeft" class="details">
                         <li><?php echo wc_price($price); ?></li>
                     </ul>
                     <?php endif; ?>
 
                     <?php if ($post_type != "event" && $post_type != "new") : ?>
-                        <p><?php echo wp_kses_post($post_obj->post_content); ?></p>
+                        <p data-scrolly="fromLeft"><?php echo wp_kses_post($post_obj->post_content); ?></p>
                     <?php endif; ?>
 
                     <?php if( $post_type != "service" ): ?>
-                    <a href="<?php echo get_permalink($p->ID); ?>" class="btn_full"><?php the_field('en_savoir_plus', 'options'); ?></a>
+                    <a data-scrolly="fromLeft" href="<?php echo get_permalink($p->ID); ?>" class="btn_full"><?php the_field('en_savoir_plus', 'options'); ?></a>
                     <?php endif; ?>
                 </div>
             </div>
